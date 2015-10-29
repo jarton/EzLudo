@@ -22,7 +22,7 @@ public class User {
         // else socket.close;
     }
 
-    private void write(String string) {
+    public void write(String string) {
         try {
             buffWriter.write(string);
             buffWriter.newLine();

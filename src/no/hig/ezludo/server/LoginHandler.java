@@ -24,7 +24,7 @@ public class LoginHandler {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            throw new Exception ("Unable to open stream from client");
+            throw new Exception ("socket failed");
         }
     }
 

@@ -5,6 +5,9 @@ import Internationalization.Internationalization;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Vector;
 
 /**
@@ -12,7 +15,9 @@ import java.util.Vector;
  */
 public class Server {
    private Internationalization internationalization;
-   private Vector<User> users = new Vector<>();
+	private final static String dbUrl = "jdbc:derby:ezLudoServer;";
+	private static Connection database;
+   private Vector<User> usersIngame = new Vector<>();
    private Vector<User> usersWaitingForGame = new Vector<>();
    private Vector<Game> games = new Vector<>();
    private ServerSocket loginServerSocket=null;
@@ -21,7 +26,13 @@ public class Server {
 	private static final int mainPortNum = 9696;
 
    Server() {
-
+	   try {
+		   database =  DriverManager.getConnection(dbUrl);
+	   } catch (SQLException sqlEx) {
+		   sqlEx.printStackTrace();
+	   }
+		logInListener();
+	   connectionListener();
    }
 
    private void logInListener() {
@@ -39,7 +50,6 @@ public class Server {
 				   }
 				   loginServerSocket.close();
 			   } catch (Exception e) {
-				   // TODO Auto-generated catch block
 				   e.printStackTrace();
 			   }
 		   }).start();
@@ -49,7 +59,7 @@ public class Server {
 	   }
    }
 
-	private void startConnectionListener() {
+	private void connectionListener() {
 		try {
 			mainSocket = new ServerSocket (mainPortNum);
 			new Thread (() -> {
