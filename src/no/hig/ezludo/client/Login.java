@@ -31,11 +31,12 @@ public class Login extends JFrame  {
         border = new BorderLayout();
         panel.setLayout(null);
 
-
+        // Username label
         JLabel userLabel = new JLabel("loginUsername");
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
 
+        // Username input field
         JTextField userText = new JTextField(20);
         userText.setBounds(100, 10, 160, 25);
         userText.getDocument().addDocumentListener(new DocumentListener() {
@@ -53,11 +54,12 @@ public class Login extends JFrame  {
         });
         panel.add(userText);
 
+        // Password label
         JLabel passwordLabel = new JLabel("loginPassword");
         passwordLabel.setBounds(10, 40, 80, 25);
-
         panel.add(passwordLabel);
 
+        // Password Input label
         JPasswordField passwordText = new JPasswordField(20);
         passwordText.setBounds(100,40,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
@@ -73,26 +75,26 @@ public class Login extends JFrame  {
                 password = passwordText.getPassword();
             }
         });
-            panel.add(passwordText);
+        panel.add(passwordText);
 
-            JButton loginButton = new JButton("loginLogin");
-            loginButton.setBounds(10,80,80,25);
-            loginButton.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed (ActionEvent e){
-                    // TODO
-                    // Sjekk mot server om bruker finnes med rett passord
+        // Login Button
+        JButton loginButton = new JButton("loginLogin");
+        loginButton.setBounds(10,80,80,25);
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed (ActionEvent e){
+                // TODO
+                // Sjekk mot server om bruker finnes med rett passord
                 // IF BRUKER FINNES:
-                    client = new Client(username, password);
-                    // ELSE
-                    // REGISTRER
-                }
+                client = new Client(username, password);
+                // ELSE
+                // REGISTRER
             }
+        });
+        panel.add(loginButton);
 
-            );
-            panel.add(loginButton);
-
-            JButton registerButton = new JButton("loginRegister");
+        // Register Button
+        JButton registerButton = new JButton("loginRegister");
         registerButton.setBounds(180, 80, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
