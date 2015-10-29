@@ -22,7 +22,7 @@ public class User {
         // else socket.close;
     }
 
-    private void writeToBuffer(String string) {
+    private void write(String string) {
         try {
             buffWriter.write(string);
             buffWriter.newLine();
@@ -31,6 +31,18 @@ public class User {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean ready () throws IOException {
+        return buffReader.ready ();
+    }
+
+    public String readLine () throws IOException {
+        return buffReader.readLine();
+    }
+
+    public String getNickname () {
+        return nickName;
     }
 
 }
