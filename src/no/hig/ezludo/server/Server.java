@@ -57,6 +57,7 @@ public class Server {
 				try {
 					while ((socket = mainSocket.accept()) != null) {
 						try {
+							// if key does not match socket it closes.
 							User user = new User(socket);
 							synchronized(usersWaitingForGame) {
 								usersWaitingForGame.add(user);
