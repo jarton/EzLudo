@@ -1,4 +1,4 @@
-package no.hig.ezludo;
+package Internationalization;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
