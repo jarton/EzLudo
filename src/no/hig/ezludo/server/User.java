@@ -1,6 +1,8 @@
 package no.hig.ezludo.server;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.net.Socket;
 
 /**

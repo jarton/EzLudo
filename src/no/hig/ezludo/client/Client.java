@@ -1,7 +1,5 @@
 package no.hig.ezludo.client;
 
-import javax.swing.*;
-
 /**
  * Created by Kristian on 29.10.2015.
  */

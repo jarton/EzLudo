@@ -8,7 +8,7 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
+import java.util.ResourceBundle;
 
 /**
  * Created by Kristian on 29.10.2015.
