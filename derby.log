@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Thu Oct 29 22:22:30 CET 2015:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-0150-b57b-07c2-0000030f59c0 
+on database directory /Users/jdr/programmering/Ez-Ludo/ezLudoServer  with class loader sun.misc.Launcher$AppClassLoader@29453f44 
+Loaded from file:/Users/jdr/programmering/Ez-Ludo/libs/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_60-b27
+user.dir=/Users/jdr/programmering/Ez-Ludo
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
