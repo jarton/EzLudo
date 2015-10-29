@@ -1,4 +1,4 @@
-package sample;
+package no.hig.ezludo;
 
 public class Controller {
 }

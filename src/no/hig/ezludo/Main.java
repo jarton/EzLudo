@@ -1,4 +1,4 @@
-package sample;
+package no.hig.ezludo;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
