@@ -87,6 +87,8 @@ public class Login extends JFrame  {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent e){
+                //TODO CHECK USER TO DB
+                jframe.dispose();
                 client = new Client(username, password);
             }
         });
@@ -142,8 +144,6 @@ public class Login extends JFrame  {
         login.setPreferredSize(new Dimension(350, 150));
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.pack();
-
-
         login.setVisible(true);
     }
 }

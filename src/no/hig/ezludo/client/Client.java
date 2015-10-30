@@ -11,6 +11,8 @@ public class Client {
     public Client(String username, char[] password) {
         this.username = username;
         this.password = password;
+        MainController mainController = new MainController();
+        mainController.main(null);
     }
 
 }
