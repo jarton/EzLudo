@@ -145,12 +145,21 @@ public class UserAccount {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 if (passwordChecker(password, passwordRepeat)) {
-                    System.out.print("OK");
+                    System.out.print(" OK PASSORD");
                 }
                 else
-                    System.out.print("FEIL");
+                    System.out.print(" FEIL PASSORD");
+
+                if (emailChecker(email)) {
+                    System.out.print(" OK MAIL");
+                }
+                else
+                    System.out.print(" FEIL mail");
+
             }
+
         });
         panel.add(registerButton);
 
@@ -164,10 +173,20 @@ public class UserAccount {
             return false;
         else
             length = a.length;
-        for (int i = 0; i <= length; i++){
+        if (length < 8)
+            return false;
+        for (int i = 0; i < length; i++){
             if (a[i] != b[i])
                 return false;
         }
+
         return true;
+    }
+
+    public boolean emailChecker(String email) {
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+        return m.matches();
     }
 }
