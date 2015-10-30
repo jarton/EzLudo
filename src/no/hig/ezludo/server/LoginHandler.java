@@ -11,7 +11,9 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
- * Created by jdr on 29/10/15.
+ * class handles login and registration of users. a object of this class
+ * is created on each connection on the loginSocket of the server.
+ * @author jdr
  */
 public class LoginHandler {
     private BufferedReader buffReader;
@@ -38,6 +40,12 @@ public class LoginHandler {
         }
     }
 
+    /**
+     * checks the loginInformation from the user with that in the database.
+     * if successful returns ok and also a key the user gives when connecting to
+     * the main socket showing that they have already logged in.
+     * @param info an array with the loginInformation
+     */
     private void login(String info[]) {
         try {
             PreparedStatement query = database.prepareStatement("SELECT id, nickname FROM users WHERE email=? and password=?");
@@ -74,6 +82,11 @@ public class LoginHandler {
 
     }
 
+    /**
+     * puts the registration iformation in the database and lets user know if registratin was
+     * successful or not.
+     * @param info an array with registration information
+     */
     private void register(String info[]) {
         try {
             PreparedStatement query = database.prepareStatement("insert into users (email, password, nickname) " +
@@ -92,6 +105,10 @@ public class LoginHandler {
         }
     }
 
+    /**
+     * writes a string in the socket buffer.
+     * @param string the string to write to the client
+     */
     private void writeToBuffer(String string) {
         try {
             buffWriter.write(string);
