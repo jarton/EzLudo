@@ -16,19 +16,21 @@ import java.util.ResourceBundle;
 public class Login extends JFrame  {
    private Internationalization internationalization;
    private ResourceBundle messages;
-   private Client client;
    private JPanel panel;
-   private BorderLayout border;
+   public Client client;
+   public UserAccount userAccount;
    private String username;
    private char[] password;
 
     public Login() {
         super("Ez-Ludo");
-        //TODO I18N funker ikke
         internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
         messages = internationalization.getLang();
+        createPanel();
+    }
+
+    public void createPanel() {
         panel = new JPanel();
-        border = new BorderLayout();
         panel.setLayout(null);
 
         // Username label
@@ -83,12 +85,7 @@ public class Login extends JFrame  {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent e){
-                // TODO
-                // Sjekk mot server om bruker finnes med rett passord
-                // IF BRUKER FINNES:
                 client = new Client(username, password);
-                // ELSE
-                // REGISTRER
             }
         });
         panel.add(loginButton);
@@ -99,13 +96,30 @@ public class Login extends JFrame  {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // REGISTER
+                JPanel userAccountPanel;
+                userAccount = new UserAccount(internationalization);
+                userAccountPanel = userAccount.createLayout();
+                remove(panel);
+                setPreferredSize(new Dimension(350, 300));
+                add(userAccountPanel);
+                repaint();
+                pack();
             }
         });
         panel.add(registerButton);
-        this.add(panel);
+        createLayout(panel);
     }
 
+    public void createLayout(JPanel panel) {
+        this.add(panel);
+        this.setVisible(true);
+    }
+
+    public Login sendObject(){
+        return this;
+    }
+
+    // Main
     public static void main(String[] args) {
 
         // Look and feel
