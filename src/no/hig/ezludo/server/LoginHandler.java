@@ -24,7 +24,7 @@ public class LoginHandler {
             buffReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             buffWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-            String info[] = buffReader.readLine().split("|");
+            String info[] = buffReader.readLine().split("\\|");
 
             if (info[0].equals("LOGIN")) {
                 login(info);
@@ -48,9 +48,9 @@ public class LoginHandler {
                 writeToBuffer("Uknown username/password");
             } else {
                 int uid = result.getInt(1);
-                query.close();
                 Date now = new Date();
                 String nickname = result.getString(2);
+                query.close();
                 String keyString = nickname + now.toString();
                 byte[] bytesOfMessage = keyString.getBytes("UTF-8");
 
@@ -60,7 +60,7 @@ public class LoginHandler {
                 query.setString(1, new String(key));
                 query.setInt(2, uid);
                 query.execute();
-                writeToBuffer("LOGIN OK\t" + key);
+                writeToBuffer("LOGIN OK|" + key);
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
@@ -80,7 +80,7 @@ public class LoginHandler {
                     "VALUES (?, ?, ?)");
             query.setString(1, info[1]); // email
             query.setString(2, info[2]); // password
-            query.setString(5, info[3]); // nickname
+            query.setString(3, info[3]); // nickname
             int result = query.executeUpdate();
             if (result < 1) {
                 writeToBuffer("Username Occupied");
