@@ -32,11 +32,13 @@ public class UserAccount {
         panel = new JPanel();
         panel.setLayout(null);
 
+        /*
         // Checkerlabel
         JLabel checkerLabel = new JLabel("Checkertext");
         checkerLabel.setForeground(Color.red);
         checkerLabel.setBounds(10, 130, 300, 25);
         panel.add(checkerLabel);
+        */
 
         // Username label
         JLabel userLabel = new JLabel(messages.getString("loginUsername"));
@@ -93,13 +95,22 @@ public class UserAccount {
         JPasswordField passwordText = new JPasswordField(20);
         passwordText.setBounds(100,70,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
-            public void changedUpdate(DocumentEvent e) { password = passwordText.getPassword(); }
+            public void changedUpdate(DocumentEvent e) {
+                int len = passwordText.getPassword().length;
+                password = new char[len];
+                password = passwordText.getPassword();
+
+            }
 
             public void removeUpdate(DocumentEvent e) {
+                int len = passwordText.getPassword().length;
+                password = new char[len];
                 password = passwordText.getPassword();
             }
 
             public void insertUpdate(DocumentEvent e) {
+                int len = passwordText.getPassword().length;
+                password = new char[len];
                 password = passwordText.getPassword();
             }
         });
@@ -146,7 +157,6 @@ public class UserAccount {
                 } else
                     System.out.print(" FEIL PASSORD");
 
-
                 if (emailChecker(email)) {
                     System.out.print(" OK MAIL");
                 }
@@ -168,7 +178,10 @@ public class UserAccount {
 
     public boolean passwordChecker(char[] a, char[] b) {
         int length;
-//TODO sjekk om passord er tomt
+
+        if (a == null || b == null)
+            return false;
+
         if (a.length != b.length)
             return false;
         else
@@ -184,6 +197,9 @@ public class UserAccount {
     }
 
     public boolean emailChecker(String email) {
+        if (email == null)
+            return false;
+        System.out.print(email);
         //TODO sjekk om email er satt
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
@@ -191,7 +207,10 @@ public class UserAccount {
         return m.matches();
     }
 
+
     public boolean usernameChecker (String username) {
+        if (username == null)
+            return false;
         if (username.length() < 3 || username.length() > 15)
             return false;
         else
