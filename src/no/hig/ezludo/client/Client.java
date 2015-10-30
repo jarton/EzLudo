@@ -11,8 +11,6 @@ public class Client {
     public Client(String username, char[] password) {
         this.username = username;
         this.password = password;
-        System.out.print(username);
-        System.out.print(password[0]);
     }
 
 }

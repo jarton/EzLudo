@@ -12,7 +12,9 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 /**
- * Created by jdr on 29/10/15.
+ * This class is the server. it contains lists of all games and users.
+ * it listens for connections, commands, chat and game actions.
+ * @author jdr
  */
 public class Server {
    private Internationalization internationalization;
@@ -27,6 +29,10 @@ public class Server {
 	private static final int loginPortNum = 6969;
 	private static final int mainPortNum = 9696;
 
+	/**
+	 * starts all the listeners on the servers
+	 * and connects to the database.
+	 */
    Server() {
 	   try {
 		   database =  DriverManager.getConnection(dbUrl);
@@ -38,6 +44,12 @@ public class Server {
 	   serverWorkerThread();
    }
 
+	/**
+	 * creates a thread in an endless loop that pauses periodically.
+	 * reads commands chat and game action from users and saves them so
+	 * other functions can handle them as needed. also calls @removeClosedSockets
+	 * that cleans up the user list on the server
+	 */
 	private void serverWorkerThread() {
 		new Thread (()->{
 			while (true) {
@@ -60,6 +72,10 @@ public class Server {
 		}).start();
 	}
 
+	/**
+	 * removes clients from the list on the server if their socket is closed/has an io exception
+	 * function is called from the server working thread which runs every so often.
+	 */
 	private void removeClosedSockets() {
 		synchronized (users) {
 			usersClosedSocets.stream().parallel().forEach(client -> {
@@ -69,6 +85,10 @@ public class Server {
 		usersClosedSocets.clear();
 	}
 
+	/**
+	 * a serversocket that listens for users who wish to log in. a new thread is spawned for each connection
+	 * and then creates a loginHandler that logs the user in or registers the user.
+	 */
 	private void logInListener() {
 	   try {
 		   loginServerSocket = new ServerSocket(loginPortNum);
@@ -93,6 +113,11 @@ public class Server {
 	   }
    }
 
+	/**
+	 * when the user has logged in they connect to this serversocket. When each user connects they
+	 * get their own thread witch spawns a user object and adds them to the list on the server.
+	 * the user object takes care of verifying that they have already logged in.
+	 */
 	private void connectionListener() {
 		try {
 			mainSocket = new ServerSocket (mainPortNum);

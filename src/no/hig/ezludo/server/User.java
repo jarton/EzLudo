@@ -8,7 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by jdr on 29/10/15.
+ * this class represents a user on the server.
+ * user informaton is contained here as well as a second login
+ * that verifies with a key that the user has previously logged in,
+ * if not the socket to the user is closed.
+ * @author jdr
  */
 public class User {
     private Socket socket;
@@ -34,6 +38,11 @@ public class User {
 		}
     }
 
+    /**
+     * verifyes a key agains the database to check if the user had previously logged in.
+     * @param key the key from the user to verify
+     * @return if the key was verifyed or not
+     */
     private boolean userLogin(String key) {
         try {
             PreparedStatement stmnt = database.prepareStatement("SELECT id, nickname FROM users WHERE loginkey=?");
@@ -57,6 +66,10 @@ public class User {
         return true;
     }
 
+    /**
+     * writes a string back to the user through the socketBuffer.
+     * @param string the string to write
+     */
     public void write(String string) {
         try {
             buffWriter.write(string);
@@ -68,14 +81,28 @@ public class User {
         }
     }
 
+    /**
+     * indicates if the user has written something in the socketBuffer
+     * @return true or false if the user has sendt something
+     * @throws IOException
+     */
     public boolean ready () throws IOException {
         return buffReader.ready ();
     }
 
+    /**
+     * reads a line in the buffer from the user
+     * @return the message from the user
+     * @throws IOException
+     */
     public String readLine () throws IOException {
         return buffReader.readLine();
     }
 
+    /**
+     * returns this users nickName
+     * @return the nickname of the userObject
+     */
     public String getNickname () {
         return nickName;
     }
