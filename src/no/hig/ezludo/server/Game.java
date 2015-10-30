@@ -9,6 +9,6 @@ public class Game {
     Vector<User> players = new Vector<>();
 
     public Game() {
-        
+
     }
 }

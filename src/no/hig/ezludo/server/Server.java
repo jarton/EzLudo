@@ -1,6 +1,7 @@
 package no.hig.ezludo.server;
 
 import Internationalization.Internationalization;
+import com.sun.javafx.binding.Logging;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -17,8 +18,9 @@ public class Server {
    private Internationalization internationalization;
 	private final static String dbUrl = "jdbc:derby:ezLudoServer;";
 	private static Connection database;
-   private Vector<User> usersIngame = new Vector<>();
+	private Vector<User> users = new Vector<>();
    private Vector<User> usersWaitingForGame = new Vector<>();
+	private Vector<User> usersClosedSocets = new Vector<>();
    private Vector<Game> games = new Vector<>();
    private ServerSocket loginServerSocket=null;
 	private ServerSocket mainSocket =null;
@@ -31,11 +33,20 @@ public class Server {
 	   } catch (SQLException sqlEx) {
 		   sqlEx.printStackTrace();
 	   }
-		logInListener();
+	   logInListener();
 	   connectionListener();
    }
 
-   private void logInListener() {
+	private void removeClosedSockets() {
+		synchronized (users) {
+			usersClosedSocets.stream().parallel().forEach(client -> {
+				users.remove(client);
+			});
+		}
+		usersClosedSocets.clear();
+	}
+
+	private void logInListener() {
 	   try {
 		   loginServerSocket = new ServerSocket(loginPortNum);
 		   new Thread(() -> {
@@ -70,7 +81,7 @@ public class Server {
 							// if key does not match socket it closes.
 							User user = new User(socket, database);
 							synchronized(usersWaitingForGame) {
-								usersWaitingForGame.add(user);
+								users.add(user);
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
