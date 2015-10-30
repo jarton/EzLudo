@@ -139,10 +139,14 @@ public class Login extends JFrame  {
             e.printStackTrace();
         }
 
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         Login login = new Login();
-        login.setPreferredSize(new Dimension(350, 150));
+        login.setLocation(dim.width/2-login.getSize().width/2, dim.height/2-login.getSize().height/2);
+         login.setPreferredSize(new Dimension(350, 150));
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.pack();
+
+
         login.setVisible(true);
     }
 }

@@ -125,19 +125,15 @@ public class UserAccount {
         panel.add(passwordRepeatText);
 
         // Back Button
-        JButton loginButton = new JButton(messages.getString("back"));
-        loginButton.setBounds(10,160,80,25);
-        loginButton.addActionListener(new ActionListener() {
+        JButton backButton = new JButton(messages.getString("back"));
+        backButton.setBounds(10,160,80,25);
+        backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                login.dispose();
-                login.setPreferredSize(new Dimension(350, 150));
-                login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                login.pack();
-                login.setVisible(true);
+
             }
         });
-        panel.add(loginButton);
+        panel.add(backButton);
 
         // Register Button
         JButton registerButton = new JButton(messages.getString("register"));
@@ -145,12 +141,11 @@ public class UserAccount {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 if (passwordChecker(password, passwordRepeat)) {
                     System.out.print(" OK PASSORD");
-                }
-                else
+                } else
                     System.out.print(" FEIL PASSORD");
+
 
                 if (emailChecker(email)) {
                     System.out.print(" OK MAIL");
@@ -158,6 +153,11 @@ public class UserAccount {
                 else
                     System.out.print(" FEIL mail");
 
+                if (usernameChecker(username)) {
+                    System.out.print(" OK USERNAME");
+                }
+                else
+                    System.out.print(" FEIL USERNAME");
             }
 
         });
@@ -167,8 +167,8 @@ public class UserAccount {
     }
 
     public boolean passwordChecker(char[] a, char[] b) {
-        //TODO FOR LOOP FAILS
         int length;
+//TODO sjekk om passord er tomt
         if (a.length != b.length)
             return false;
         else
@@ -184,9 +184,17 @@ public class UserAccount {
     }
 
     public boolean emailChecker(String email) {
+        //TODO sjekk om email er satt
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
         java.util.regex.Matcher m = p.matcher(email);
         return m.matches();
+    }
+
+    public boolean usernameChecker (String username) {
+        if (username.length() < 3 || username.length() > 15)
+            return false;
+        else
+            return true;
     }
 }
