@@ -8,16 +8,17 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.ResourceBundle;
 
 /**
  * Created by Kristian on 30.10.2015.
  */
 public class UserAccount {
-    private Internationalization internationalization;
     private ResourceBundle messages;
     private JPanel panel;
-    public Login login;
+    private JPanel loginPanel;
+    private JFrame jFrame;
     private String username;
     private char[] password;
     private char[] passwordRepeat ;
@@ -26,21 +27,14 @@ public class UserAccount {
     private String[] errors = new String[20];
 
 
-    public UserAccount(Internationalization internationalization) {
+    public UserAccount(Internationalization internationalization, JFrame jFrame, JPanel loginPanel) {
         messages = internationalization.getLang();
+        this.jFrame = jFrame;
+        this.loginPanel = loginPanel;
     }
-
     public JPanel createLayout() {
         panel = new JPanel();
         panel.setLayout(null);
-
-        /*
-        // Checkerlabel
-        JLabel checkerLabel = new JLabel("Checkertext");
-        checkerLabel.setForeground(Color.red);
-        checkerLabel.setBounds(10, 130, 300, 25);
-        panel.add(checkerLabel);
-        */
 
         // Username label
         JLabel userLabel = new JLabel(messages.getString("loginUsername"));
@@ -98,21 +92,14 @@ public class UserAccount {
         passwordText.setBounds(100,70,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
-                int len = passwordText.getPassword().length;
-                password = new char[len];
                 password = passwordText.getPassword();
-
             }
 
             public void removeUpdate(DocumentEvent e) {
-                int len = passwordText.getPassword().length;
-                password = new char[len];
                 password = passwordText.getPassword();
             }
 
             public void insertUpdate(DocumentEvent e) {
-                int len = passwordText.getPassword().length;
-                password = new char[len];
                 password = passwordText.getPassword();
             }
         });
@@ -127,13 +114,17 @@ public class UserAccount {
         JPasswordField passwordRepeatText = new JPasswordField(20);
         passwordRepeatText.setBounds(100,100,160,25);
         passwordRepeatText.getDocument().addDocumentListener(new DocumentListener() {
-            public void changedUpdate(DocumentEvent e) { passwordRepeat = passwordRepeatText.getPassword(); }
+            public void changedUpdate(DocumentEvent e) {
+                passwordRepeat = passwordRepeatText.getPassword();
+            }
 
             public void removeUpdate(DocumentEvent e) {
                 passwordRepeat = passwordRepeatText.getPassword();
             }
 
-            public void insertUpdate(DocumentEvent e) { passwordRepeat = passwordRepeatText.getPassword(); }
+            public void insertUpdate(DocumentEvent e) {
+                passwordRepeat = passwordRepeatText.getPassword();
+            }
         });
         panel.add(passwordRepeatText);
 
@@ -143,7 +134,7 @@ public class UserAccount {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                toLogin();
             }
         });
         panel.add(backButton);
@@ -160,6 +151,8 @@ public class UserAccount {
                 }
 
                 if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
+                    JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
+                    toLogin();
                 }
                 else {
                     for (int i=1; i<=errorsNumb; i++) {
@@ -245,5 +238,13 @@ public class UserAccount {
         }
         else
             return true;
+    }
+
+    public void toLogin() {
+        jFrame.remove(panel);
+        jFrame.setPreferredSize(new Dimension(350, 150));
+        jFrame.add(loginPanel);
+        jFrame.pack();
+
     }
 }
