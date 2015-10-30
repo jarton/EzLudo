@@ -25,14 +25,14 @@ public class Login extends JFrame  {
     public Login() {
         super("Ez-Ludo");
         //TODO I18N funker ikke
-        //internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
-       // messages = internationalization.getLang();
+        internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
+        messages = internationalization.getLang();
         panel = new JPanel();
         border = new BorderLayout();
         panel.setLayout(null);
 
         // Username label
-        JLabel userLabel = new JLabel("loginUsername");
+        JLabel userLabel = new JLabel(messages.getString("loginUsername"));
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
 
@@ -55,7 +55,7 @@ public class Login extends JFrame  {
         panel.add(userText);
 
         // Password label
-        JLabel passwordLabel = new JLabel("loginPassword");
+        JLabel passwordLabel = new JLabel(messages.getString("loginPassword"));
         passwordLabel.setBounds(10, 40, 80, 25);
         panel.add(passwordLabel);
 
@@ -78,7 +78,7 @@ public class Login extends JFrame  {
         panel.add(passwordText);
 
         // Login Button
-        JButton loginButton = new JButton("loginLogin");
+        JButton loginButton = new JButton(messages.getString("loginLogin"));
         loginButton.setBounds(10,80,80,25);
         loginButton.addActionListener(new ActionListener() {
             @Override
@@ -94,7 +94,7 @@ public class Login extends JFrame  {
         panel.add(loginButton);
 
         // Register Button
-        JButton registerButton = new JButton("loginRegister");
+        JButton registerButton = new JButton(messages.getString("loginRegister"));
         registerButton.setBounds(180, 80, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override

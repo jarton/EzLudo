@@ -22,7 +22,7 @@ public class Internationalization {
         Locale currentLocale;
         ResourceBundle messages;
         currentLocale = new Locale(language, country);
-        messages = ResourceBundle.getBundle("MessagesBundle", currentLocale);
+        messages = ResourceBundle.getBundle("Internationalization/MessagesBundle", currentLocale);
         return messages;
     }
 }
