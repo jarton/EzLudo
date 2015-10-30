@@ -14,19 +14,21 @@ import java.util.ResourceBundle;
  * Created by Kristian on 29.10.2015.
  */
 public class Login extends JFrame  {
-   private Internationalization internationalization;
-   private ResourceBundle messages;
-   private JPanel panel;
-   public Client client;
-   public UserAccount userAccount;
-   private String username;
-   private char[] password;
+    private Internationalization internationalization;
+    private ResourceBundle messages;
+    private JPanel panel;
+    public Client client;
+    public UserAccount userAccount;
+    private String username;
+    private char[] password;
+    public JFrame jframe;
 
     public Login() {
         super("Ez-Ludo");
         internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
         messages = internationalization.getLang();
         createPanel();
+        jframe = this;
     }
 
     public void createPanel() {
@@ -85,6 +87,8 @@ public class Login extends JFrame  {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent e){
+                //TODO CHECK USER TO DB
+                jframe.dispose();
                 client = new Client(username, password);
             }
         });
@@ -97,12 +101,11 @@ public class Login extends JFrame  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JPanel userAccountPanel;
-                userAccount = new UserAccount(internationalization);
+                userAccount = new UserAccount(internationalization, jframe, panel);
                 userAccountPanel = userAccount.createLayout();
                 remove(panel);
-                setPreferredSize(new Dimension(350, 300));
+                setPreferredSize(new Dimension(350, 230));
                 add(userAccountPanel);
-                repaint();
                 pack();
             }
         });
@@ -113,10 +116,6 @@ public class Login extends JFrame  {
     public void createLayout(JPanel panel) {
         this.add(panel);
         this.setVisible(true);
-    }
-
-    public Login sendObject(){
-        return this;
     }
 
     // Main
@@ -142,11 +141,9 @@ public class Login extends JFrame  {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         Login login = new Login();
         login.setLocation(dim.width/2-login.getSize().width/2, dim.height/2-login.getSize().height/2);
-         login.setPreferredSize(new Dimension(350, 150));
+        login.setPreferredSize(new Dimension(350, 150));
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.pack();
-
-
         login.setVisible(true);
     }
 }
