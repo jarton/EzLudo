@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Vector;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * This class is the server. it contains lists of all games and users.
@@ -24,6 +25,7 @@ public class Server {
    private Vector<User> usersWaitingForGame = new Vector<>();
 	private Vector<User> usersClosedSocets = new Vector<>();
    private Vector<Game> games = new Vector<>();
+	private LinkedBlockingQueue<String> commandQueue = new LinkedBlockingQueue<>();
    private ServerSocket loginServerSocket=null;
 	private ServerSocket mainSocket =null;
 	private static final int loginPortNum = 6969;
@@ -57,7 +59,7 @@ public class Server {
 					try {
 						if (user.ready()) {
 							String cmd = user.readLine();
-							//TODO: DO THINGS DEPENDING ON THE COMMAND TYPE
+							commandQueue.put(cmd);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -68,6 +70,30 @@ public class Server {
 				} catch (Exception e) {
 				}
 				removeClosedSockets();
+			}
+		}).start();
+	}
+
+	private void startCommandHandler() {
+		new Thread (()->{
+			String msg;
+			try {
+				while ((msg=commandQueue.take())!=null) {
+					String command[] = msg.split("\\|");
+					if (command[0].equals("CHAT")) {
+						synchronized(users) {
+							users.stream().parallel().forEach(user->{
+								try {
+									user.write("CHAT|"+ command[1] +command[2] + command[3]);
+								} catch (Exception e) {
+									usersClosedSocets.add(user);
+								}
+							});
+						}
+					}
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}).start();
 	}

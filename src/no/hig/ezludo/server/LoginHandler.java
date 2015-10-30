@@ -63,9 +63,10 @@ public class LoginHandler {
                 byte[] bytesOfMessage = keyString.getBytes("UTF-8");
 
                 MessageDigest md = MessageDigest.getInstance("MD5");
-                byte[] key = md.digest(bytesOfMessage);
+                byte[] keyBytes = md.digest(bytesOfMessage);
+                String key = new String(keyBytes);
                 query = database.prepareStatement("UPDATE users SET loginkey=? WHERE id=?");
-                query.setString(1, new String(key));
+                query.setString(1, key);
                 query.setInt(2, uid);
                 query.execute();
                 writeToBuffer("LOGIN OK|" + key);
