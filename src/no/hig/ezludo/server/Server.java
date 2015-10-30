@@ -43,7 +43,7 @@ public class Server {
 			   try {
 				   while ((socket = loginServerSocket.accept()) != null) {
 					   try {
-						   LoginHandler handler = new LoginHandler(socket);
+						   LoginHandler handler = new LoginHandler(socket, database);
 					   } catch (Exception e) {
 							e.printStackTrace();
 					   }
@@ -68,7 +68,7 @@ public class Server {
 					while ((socket = mainSocket.accept()) != null) {
 						try {
 							// if key does not match socket it closes.
-							User user = new User(socket);
+							User user = new User(socket, database);
 							synchronized(usersWaitingForGame) {
 								usersWaitingForGame.add(user);
 							}
