@@ -35,7 +35,30 @@ public class Server {
 	   }
 	   logInListener();
 	   connectionListener();
+	   serverWorkerThread();
    }
+
+	private void serverWorkerThread() {
+		new Thread (()->{
+			while (true) {
+				users.stream().parallel().forEach(user -> {
+					try {
+						if (user.ready()) {
+							String cmd = user.readLine();
+							//TODO: DO THINGS DEPENDING ON THE COMMAND TYPE
+						}
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				});
+				try {
+					Thread.currentThread().sleep(100);
+				} catch (Exception e) {
+				}
+				removeClosedSockets();
+			}
+		}).start();
+	}
 
 	private void removeClosedSockets() {
 		synchronized (users) {
@@ -78,9 +101,8 @@ public class Server {
 				try {
 					while ((socket = mainSocket.accept()) != null) {
 						try {
-							// if key does not match socket it closes.
 							User user = new User(socket, database);
-							synchronized(usersWaitingForGame) {
+							synchronized(users) {
 								users.add(user);
 							}
 						} catch (Exception e) {
