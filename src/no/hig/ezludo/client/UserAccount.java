@@ -2,6 +2,9 @@ package no.hig.ezludo.client;
 
 import Internationalization.Internationalization;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -11,7 +14,9 @@ import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 
 /**
- * Created by Kristian on 30.10.2015.
+ * This class includes the user-registration gui included userdata validation.
+ * @author Kristian
+ * date 30.10.2015.
  */
 public class UserAccount {
     private ResourceBundle messages;
@@ -25,12 +30,26 @@ public class UserAccount {
     private int errorsNumb=0;
     private String[] errors = new String[20];
 
-
+    /**
+     * Constructor which gets UI-data and I18N objects from Login-class.
+     */
     public UserAccount(Internationalization internationalization, JFrame jFrame, JPanel loginPanel) {
         messages = internationalization.getLang();
         this.jFrame = jFrame;
         this.loginPanel = loginPanel;
     }
+    /**
+     * This function creates the registration gui.
+     * Labels for password, repeat password, username and email.
+     * All labels with documentListener which update the userdata
+     * variables on change.
+     *
+     * All buttons got a action listener which return the user to
+     * the login screen.
+     *
+     * All validation-checkers adds a error message to String[] errors
+     * which contains all errors found at det user data validation methods.
+     */
     public JPanel createLayout() {
         panel = new JPanel();
         panel.setLayout(null);
@@ -143,7 +162,7 @@ public class UserAccount {
         registerButton.setBounds(180, 160, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)  {
                 String output="";
                 for (int i = 0; i<=19; i++) {
                     errors[i] = null;
@@ -151,6 +170,12 @@ public class UserAccount {
 
                 if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
                     JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
+                    // TODO Register user in db
+                    // TODO throws NoSuchAlgorithmException
+                    String passwordToHash = String.valueOf(password);
+                    String salt = "salt123";//getSalt();
+                    String hashedPassword = get_SHA_256_SecurePassword(passwordToHash, salt);
+                    System.out.print(hashedPassword);
                     toLogin();
                 }
                 else {
@@ -167,6 +192,11 @@ public class UserAccount {
 
         return panel;
     }
+
+    /**
+     * The password checker checks if the password and the repeated password is identical.
+     * It also check the length.
+     */
 
     public boolean passwordChecker(char[] a, char[] b) {
         int length;
@@ -201,6 +231,11 @@ public class UserAccount {
         return true;
     }
 
+    /**
+     * the email checker contains a regex which check if a email is valid.
+     * Or if the email is empty
+     */
+
     public boolean emailChecker(String email) {
         if (email == null) {
             errorsNumb++;
@@ -217,6 +252,11 @@ public class UserAccount {
         return m.matches();
     }
 
+    /**
+     * The username checker checks if the username is set and has max length
+     * of 15 characters and min 3 characters.
+     * Also check if its empty
+     */
 
     public boolean usernameChecker (String username) {
         if (username == null) {
@@ -239,6 +279,11 @@ public class UserAccount {
             return true;
     }
 
+    /**
+     * Return the user to login screen.
+     * Its removes the current registration panel and set it back to login
+     */
+
     public void toLogin() {
         jFrame.remove(panel);
         jFrame.setPreferredSize(new Dimension(350, 150));
@@ -246,4 +291,37 @@ public class UserAccount {
         jFrame.pack();
 
     }
+    // http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+
+
+    private static String get_SHA_256_SecurePassword(String passwordToHash, String salt)
+    {
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(salt.getBytes());
+            byte[] bytes = md.digest(passwordToHash.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return generatedPassword;
+    }
+
+    //Add salt
+    private static String getSalt() throws NoSuchAlgorithmException {
+            SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+            byte[] salt = new byte[16];
+            sr.nextBytes(salt);
+            return salt.toString();
+
+    }
+
 }
