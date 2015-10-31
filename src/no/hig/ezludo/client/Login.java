@@ -8,6 +8,8 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.net.Socket;
 import java.util.ResourceBundle;
 
 /**
@@ -22,6 +24,8 @@ public class Login extends JFrame  {
     private String username;
     private char[] password;
     public JFrame jframe;
+    private String serverIP = "127.0.0.1";
+    private Socket socket;
 
     public Login() {
         super("Ez-Ludo");
@@ -87,9 +91,12 @@ public class Login extends JFrame  {
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent e){
-                //TODO CHECK USER TO DB
-                jframe.dispose();
-                client = new Client(username, password);
+                if (performLogin()) {
+                    jframe.dispose();
+                } else {
+                    //TODO: Handle rejected login
+                    System.out.println("Login failed");
+                }
             }
         });
         panel.add(loginButton);
@@ -145,5 +152,42 @@ public class Login extends JFrame  {
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.pack();
         login.setVisible(true);
+    }
+
+    /**
+     * This class is called when the user presses the login button. It communicates with the server to see if the
+     * entered username and password are valid. If they are, a new Client object is created (thus launching the Lobby
+     * window), and the function returns true. If the login wasn't successful, the function returns false.
+     * @return true or false depending on successful login attempt
+     */
+    public boolean performLogin() {
+        try {
+            //TODO: serverIP is set to 127.0.0.1 for testing. We need to make this configurable.
+            socket = new Socket(serverIP, 6969);
+            PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+            BufferedReader input= new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            // Send the login statement to the server
+            output.println("LOGIN|" + username + "|" + password);
+            output.flush();
+
+            // TODO: figure out if reading the input without looping on it works even if the DB is slow
+            // Reads the respons from the server and closes connection
+            String response = input.readLine();
+            output.close();
+            input.close();
+            socket.close();
+
+            // If the response starts with "LOGIN OK", create a new client object and send along the key received
+            if (response.startsWith("LOGIN OK")) {
+                String key = response.split("\\|")[1];
+                new Client(username, password, key);
+                return true;
+            }
+
+        } catch(IOException exception) {
+            exception.printStackTrace();
+        }
+        return false;
     }
 }
