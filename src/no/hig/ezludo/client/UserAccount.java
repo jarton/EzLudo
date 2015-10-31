@@ -2,6 +2,9 @@ package no.hig.ezludo.client;
 
 import Internationalization.Internationalization;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -159,7 +162,7 @@ public class UserAccount {
         registerButton.setBounds(180, 160, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e)  {
                 String output="";
                 for (int i = 0; i<=19; i++) {
                     errors[i] = null;
@@ -167,6 +170,12 @@ public class UserAccount {
 
                 if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
                     JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
+                    // TODO Register user in db
+                    // TODO throws NoSuchAlgorithmException
+                    String passwordToHash = String.valueOf(password);
+                    String salt = "salt123";//getSalt();
+                    String hashedPassword = get_SHA_256_SecurePassword(passwordToHash, salt);
+                    System.out.print(hashedPassword);
                     toLogin();
                 }
                 else {
@@ -282,4 +291,37 @@ public class UserAccount {
         jFrame.pack();
 
     }
+    // http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+
+
+    private static String get_SHA_256_SecurePassword(String passwordToHash, String salt)
+    {
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(salt.getBytes());
+            byte[] bytes = md.digest(passwordToHash.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return generatedPassword;
+    }
+
+    //Add salt
+    private static String getSalt() throws NoSuchAlgorithmException {
+            SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+            byte[] salt = new byte[16];
+            sr.nextBytes(salt);
+            return salt.toString();
+
+    }
+
 }
