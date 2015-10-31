@@ -86,6 +86,7 @@ public class ServerTest extends TestCase {
             if (!feedBack.startsWith("LOGGED IN"))
                 fail();
             output.printf("CHAT|LOBBY|"+nickname+"|HALLO LOL TEST");
+            output.flush();
             String chat = input.readLine();
             System.out.println(chat);
             input.close();

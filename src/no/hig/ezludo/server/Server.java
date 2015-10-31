@@ -1,7 +1,6 @@
 package no.hig.ezludo.server;
 
 import Internationalization.Internationalization;
-import com.sun.javafx.binding.Logging;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -28,6 +27,7 @@ public class Server {
 	private LinkedBlockingQueue<String> commandQueue = new LinkedBlockingQueue<>();
    private ServerSocket loginServerSocket=null;
 	private ServerSocket mainSocket =null;
+	private Vector<Chatroom> chatRooms = new Vector<>();
 	private static final int loginPortNum = 6969;
 	private static final int mainPortNum = 9696;
 
@@ -44,6 +44,7 @@ public class Server {
 	   logInListener();
 	   connectionListener();
 	   serverWorkerThread();
+	   startCommandHandler();
    }
 
 	/**
@@ -60,14 +61,16 @@ public class Server {
 						if (user.ready()) {
 							String cmd = user.readLine();
 							commandQueue.put(cmd);
+							System.out.println("command recieved: " + cmd);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
 				});
 				try {
-					Thread.currentThread().sleep(100);
+					Thread.sleep(100);
 				} catch (Exception e) {
+					e.printStackTrace();
 				}
 				removeClosedSockets();
 			}
@@ -80,15 +83,55 @@ public class Server {
 			try {
 				while ((msg=commandQueue.take())!=null) {
 					String command[] = msg.split("\\|");
+					System.out.print("handling command");
 					if (command[0].equals("CHAT")) {
-						synchronized(users) {
-							users.stream().parallel().forEach(user->{
-								try {
-									user.write("CHAT|"+ command[1] +command[2] + command[3]);
-								} catch (Exception e) {
-									usersClosedSocets.add(user);
-								}
-							});
+						if (command[1].equals("-1")) {
+							synchronized (users) {
+								users.stream().parallel().forEach(user -> {
+									try {
+										user.write("CHAT|" + command[2] + command[3] + command[4]);
+									} catch (Exception e) {
+										usersClosedSocets.add(user);
+									}
+								});
+							}
+						}
+						else {
+							int id = Integer.parseInt(command[1]);
+							Vector<User> chatUsers = chatRooms.get(id).getUsers();
+							synchronized (chatUsers) {
+								chatUsers.stream().parallel().forEach(user -> {
+											try {
+												user.write("CHAT|" + command[2] + command[3] + command[4]);
+											} catch (Exception e) {
+												usersClosedSocets.add(user);
+											}
+										}
+								);
+							}
+						}
+					}
+					else if (command[0].equals("JOIN CHAT")) {
+						int id = Integer.parseInt(command[1]);
+						if (chatRooms.get(id) == null) {
+							Chatroom chatroom = new Chatroom(command[2]);
+							chatRooms.add(chatroom);
+							chatroom.setId(chatRooms.indexOf(chatroom));
+						}
+						for (User usr : users) {
+							String nickname = usr.getNickname();
+							if (nickname == command[3])
+								chatRooms.get(id).getUsers().add(usr);
+
+						}
+					}
+					else if (command[0].equals("LEAVE CHAT")) {
+						int id = Integer.parseInt(command[1]);
+						for (User usr : users) {
+							String nickname = usr.getNickname();
+							if (nickname == command[3])
+								chatRooms.get(id).getUsers().remove(usr);
+
 						}
 					}
 				}
