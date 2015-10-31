@@ -11,7 +11,9 @@ import java.awt.event.ActionListener;
 import java.util.ResourceBundle;
 
 /**
- * Created by Kristian on 30.10.2015.
+ * This class includes the user-registration gui included userdata validation.
+ * @author Kristian
+ * date 30.10.2015.
  */
 public class UserAccount {
     private ResourceBundle messages;
@@ -25,12 +27,26 @@ public class UserAccount {
     private int errorsNumb=0;
     private String[] errors = new String[20];
 
-
+    /**
+     * Constructor which gets UI-data and I18N objects from Login-class.
+     */
     public UserAccount(Internationalization internationalization, JFrame jFrame, JPanel loginPanel) {
         messages = internationalization.getLang();
         this.jFrame = jFrame;
         this.loginPanel = loginPanel;
     }
+    /**
+     * This function creates the registration gui.
+     * Labels for password, repeat password, username and email.
+     * All labels with documentListener which update the userdata
+     * variables on change.
+     *
+     * All buttons got a action listener which return the user to
+     * the login screen.
+     *
+     * All validation-checkers adds a error message to String[] errors
+     * which contains all errors found at det user data validation methods.
+     */
     public JPanel createLayout() {
         panel = new JPanel();
         panel.setLayout(null);
@@ -168,6 +184,11 @@ public class UserAccount {
         return panel;
     }
 
+    /**
+     * The password checker checks if the password and the repeated password is identical.
+     * It also check the length.
+     */
+
     public boolean passwordChecker(char[] a, char[] b) {
         int length;
 
@@ -201,6 +222,11 @@ public class UserAccount {
         return true;
     }
 
+    /**
+     * the email checker contains a regex which check if a email is valid.
+     * Or if the email is empty
+     */
+
     public boolean emailChecker(String email) {
         if (email == null) {
             errorsNumb++;
@@ -217,6 +243,11 @@ public class UserAccount {
         return m.matches();
     }
 
+    /**
+     * The username checker checks if the username is set and has max length
+     * of 15 characters and min 3 characters.
+     * Also check if its empty
+     */
 
     public boolean usernameChecker (String username) {
         if (username == null) {
@@ -238,6 +269,11 @@ public class UserAccount {
         else
             return true;
     }
+
+    /**
+     * Return the user to login screen.
+     * Its removes the current registration panel and set it back to login
+     */
 
     public void toLogin() {
         jFrame.remove(panel);

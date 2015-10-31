@@ -13,7 +13,14 @@ import java.net.Socket;
 import java.util.ResourceBundle;
 
 /**
- * Created by Kristian on 29.10.2015.
+ * This class includes main. See bottom.
+ * Class login includes the login gui which contains a label for username and password.
+ * Also buttons for login and register.
+ *
+ * A user verification to the server happebs when the user inputs login data and click on login button.
+ * If the user exist, a new Client will be created and the MainController will be loaded.
+ * @Kristian
+ * date 29.10.2015.
  */
 public class Login extends JFrame  {
     private Internationalization internationalization;
@@ -27,6 +34,10 @@ public class Login extends JFrame  {
     private String serverIP = "127.0.0.1";
     private Socket socket;
 
+    /**
+     * Constructor which sets the i18n object with the same language as users OS. If language is
+     * different from Norwegian or US English, default will be set.
+     */
     public Login() {
         super("Ez-Ludo");
         internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
@@ -34,6 +45,10 @@ public class Login extends JFrame  {
         createPanel();
         jframe = this;
     }
+
+    /**
+     * The function creates the login UI.
+     */
 
     public void createPanel() {
         panel = new JPanel();
@@ -120,15 +135,20 @@ public class Login extends JFrame  {
         createLayout(panel);
     }
 
+    /**
+     * Sets the panel created above to the JFrame
+     */
+
     public void createLayout(JPanel panel) {
         this.add(panel);
         this.setVisible(true);
     }
 
-    // Main
+    /**
+     * Main methid. Creates look and feel.
+     * And creates a new login object which is placed in center of screen.
+     */
     public static void main(String[] args) {
-
-        // Look and feel
         try {
             UIManager.setLookAndFeel(
                     UIManager.getSystemLookAndFeelClassName());
