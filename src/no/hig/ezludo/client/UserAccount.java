@@ -5,12 +5,15 @@ import Internationalization.Internationalization;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ResourceBundle;
 
 /**
@@ -170,21 +173,13 @@ public class UserAccount {
                     }
 
                     if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
-                        JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
+
                         String passwordToHash = String.valueOf(password);
                         String salt = getSalt();
                         String hashedPassword = getSHA256(passwordToHash, salt);
 
-///////////////////////////////////// Compare pw
-                        String hashedStr = new String(hashedPassword);
-                        if (!hashedStr.equals(password)) {
-                            System.out.print("stemmer");
-                        } else {
-                            System.out.print("stemmer ikke");
-                        }
-////////////////////////////////////////////////////FJERNES
-
                         // TODO Register user in db
+                        JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
                         toLogin();
                     } else {
                         for (int i = 1; i <= errorsNumb; i++) {
@@ -337,5 +332,4 @@ public class UserAccount {
             return salt.toString();
 
     }
-
 }
