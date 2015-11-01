@@ -3,6 +3,8 @@ package no.hig.ezludo.server;
 import Internationalization.Internationalization;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
@@ -10,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.logging.*;
 
 /**
  * This class is the server. it contains lists of all games and users.
@@ -30,6 +33,11 @@ public class Server {
 	private Vector<Chatroom> chatRooms = new Vector<>();
 	private static final int loginPortNum = 6969;
 	private static final int mainPortNum = 9696;
+	private Chatroom lobby;
+	private final static Logger logger = Logger.getLogger("server");
+	private static FileHandler fh = null;
+
+
 
 	/**
 	 * starts all the listeners on the servers
@@ -41,6 +49,10 @@ public class Server {
 	   } catch (SQLException sqlEx) {
 		   sqlEx.printStackTrace();
 	   }
+	   lobby = new Chatroom("lobby");
+	   chatRooms.add(lobby);
+	   lobby.setId(chatRooms.indexOf(lobby));
+	   initLogging();
 	   logInListener();
 	   connectionListener();
 	   serverWorkerThread();
@@ -61,7 +73,7 @@ public class Server {
 						if (user.ready()) {
 							String cmd = user.readLine();
 							commandQueue.put(cmd);
-							System.out.println("command recieved: " + cmd);
+							logger.log(Level.ALL, "received command: " + cmd);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -83,54 +95,26 @@ public class Server {
 			try {
 				while ((msg=commandQueue.take())!=null) {
 					String command[] = msg.split("\\|");
-					System.out.print("handling command");
-					if (command[0].equals("CHAT")) {
-						if (command[1].equals("-1")) {
-							synchronized (users) {
-								users.stream().parallel().forEach(user -> {
-									try {
-										user.write("CHAT|" + command[2] + command[3] + command[4]);
-									} catch (Exception e) {
-										usersClosedSocets.add(user);
-									}
-								});
-							}
-						}
-						else {
-							int id = Integer.parseInt(command[1]);
-							Vector<User> chatUsers = chatRooms.get(id).getUsers();
-							synchronized (chatUsers) {
-								chatUsers.stream().parallel().forEach(user -> {
-											try {
-												user.write("CHAT|" + command[2] + command[3] + command[4]);
-											} catch (Exception e) {
-												usersClosedSocets.add(user);
-											}
-										}
-								);
-							}
-						}
-					}
-					else if (command[0].equals("JOIN CHAT")) {
+					logger.log(Level.ALL, "handling command " + msg);
+
+					if (command[0].startsWith("CHAT")) {
+						int id = Integer.parseInt(command[1]);
+						chatRooms.get(id).chatHandler(msg, usersClosedSocets);
+					} else if (command[0].equals("JOIN CHAT")) {
 						int id = Integer.parseInt(command[1]);
 						if (chatRooms.get(id) == null) {
 							Chatroom chatroom = new Chatroom(command[2]);
 							chatRooms.add(chatroom);
 							chatroom.setId(chatRooms.indexOf(chatroom));
+							logger.log(Level.ALL, "chatRoom created: " + command[2]);
 						}
 						for (User usr : users) {
 							String nickname = usr.getNickname();
-							if (nickname == command[3])
+							if (nickname == command[3]) {
 								chatRooms.get(id).getUsers().add(usr);
-
-						}
-					}
-					else if (command[0].equals("LEAVE CHAT")) {
-						int id = Integer.parseInt(command[1]);
-						for (User usr : users) {
-							String nickname = usr.getNickname();
-							if (nickname == command[3])
-								chatRooms.get(id).getUsers().remove(usr);
+								logger.log(Level.ALL, "user " + command[3] + " added to chatroom: "
+										+ command[2]);
+							}
 
 						}
 					}
@@ -147,8 +131,9 @@ public class Server {
 	 */
 	private void removeClosedSockets() {
 		synchronized (users) {
-			usersClosedSocets.stream().parallel().forEach(client -> {
-				users.remove(client);
+			usersClosedSocets.stream().parallel().forEach(user-> {
+				users.remove(user);
+				logger.log(Level.ALL, user.getNickname() + " was Removed for io");
 			});
 		}
 		usersClosedSocets.clear();
@@ -198,6 +183,8 @@ public class Server {
 							User user = new User(socket, database);
 							synchronized(users) {
 								users.add(user);
+								lobby.getUsers().add(user);
+								logger.log(Level.ALL, user.getNickname() + " logged in");
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -213,6 +200,20 @@ public class Server {
 			System.exit(0);
 		}
 
+	}
+
+	private void initLogging() {
+		logger.setLevel(Level.ALL);
+		// Note that this will output this message to standard console
+		try {
+			// Get a handle to config/logging.properties
+			InputStream is = getClass().getResourceAsStream("../logging.conf");
+			// Read and parse the configuration
+		    LogManager.getLogManager().readConfiguration(is);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			logger.log(Level.ALL, "config not found");
+		}
 	}
 
    public static void main(String[] args) { new Server(); }
