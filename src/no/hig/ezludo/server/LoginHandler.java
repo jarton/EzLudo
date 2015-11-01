@@ -21,7 +21,7 @@ public class LoginHandler {
     private BufferedReader buffReader;
     private BufferedWriter buffWriter;
     private Connection database;
-    private final static Logger logger = Logger.getLogger(Server.class.getName());
+    private final static Logger logger = Logger.getLogger("Server");
 
     public LoginHandler (Socket socket, Connection db) throws Exception {
         database = db;

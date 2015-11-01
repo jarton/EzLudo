@@ -1,0 +1,22 @@
+received command: CHAT|0|LOBBY|testolini|HALLO LOL TEST
+received command: JOIN CHAT|-1|ezChat|testolini
+received command: CHAT|1|ezChat|testolini|LOL TEST
+ logged in
+testolini logged in
+received command: CHAT|0|LOBBY|testolini|HALLO LOL TEST
+handling command CHAT|0|LOBBY|testolini|HALLO LOL TEST
+received command: JOIN CHAT|-1|ezChat|testolini
+handling command JOIN CHAT|-1|ezChat|testolini
+chatRoom created: ezChat
+user testolini added to chatroom: ezChat
+received command: CHAT|1|ezChat|testolini|LOL TEST
+handling command CHAT|1|ezChat|testolini|LOL TEST
+testolini logged in
+received command: CHAT|0|LOBBY|testolini|HALLO LOL TEST
+handling command CHAT|0|LOBBY|testolini|HALLO LOL TEST
+received command: JOIN CHAT|-1|ezChat|testolini
+handling command JOIN CHAT|-1|ezChat|testolini
+chatRoom created: ezChat
+user testolini added to chatroom: ezChat
+received command: CHAT|1|ezChat|testolini|LOL TEST
+handling command CHAT|1|ezChat|testolini|LOL TEST

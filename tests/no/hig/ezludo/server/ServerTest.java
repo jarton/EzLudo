@@ -84,7 +84,11 @@ public class ServerTest extends TestCase {
             System.out.println(feedBack);
             if (!feedBack.startsWith("LOGGED IN"))
                 fail();
-            output.printf("CHAT|0|LOBBY|" + nickname + "|HALLO LOL TEST");
+            output.println("CHAT|0|LOBBY|" + nickname + "|HALLO LOL TEST");
+            output.flush();
+            output.println("JOIN CHAT|-1|ezChat|" + nickname);
+            output.flush();
+            output.println("CHAT|1|ezChat|" + nickname + "|LOL TEST");
             output.flush();
         } catch (IOException ex) {
             ex.printStackTrace();

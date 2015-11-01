@@ -1,8 +1,8 @@
 package no.hig.ezludo.server;
 
+import java.io.InputStream;
 import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.logging.*;
 
 /**
  * Created by jdr on 31/10/15.
@@ -11,11 +11,10 @@ public class Chatroom {
     private Vector<User> users = new Vector<>();
     private String name = "new Chatroom";
     private int id = -1;
-    private Logger logger;
+    private final static Logger logger = Logger.getLogger("chatLogger");
 
     public Chatroom(String name) {
         this.name = name;
-        logger = Logger.getLogger("server");
     }
 
     public void setId(int id) {
@@ -32,6 +31,16 @@ public class Chatroom {
 
     public void chatHandler(String cmd, Vector<User> usersClosedSocets) {
         String command[] = cmd.split("\\|");
+        logger.setLevel(Level.ALL);
+        try {
+            FileHandler handler = new FileHandler("logs/chatrooms/"+name+"%g.log");
+            handler.setFormatter(new SimpleFormatter());
+            handler.setLevel(Level.ALL);
+            logger.removeHandler(new FileHandler());
+            logger.addHandler(handler);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         if (command[0].equals("CHAT")) {
             synchronized (users) {
                 users.stream().parallel().forEach(user -> {

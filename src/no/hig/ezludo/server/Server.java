@@ -3,8 +3,6 @@ package no.hig.ezludo.server;
 import Internationalization.Internationalization;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
@@ -12,7 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.logging.*;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  * This class is the server. it contains lists of all games and users.
@@ -34,9 +33,7 @@ public class Server {
 	private static final int loginPortNum = 6969;
 	private static final int mainPortNum = 9696;
 	private Chatroom lobby;
-	private final static Logger logger = Logger.getLogger("server");
-	private static FileHandler fh = null;
-
+	private Logger serverLogger;
 
 
 	/**
@@ -44,6 +41,9 @@ public class Server {
 	 * and connects to the database.
 	 */
    Server() {
+	   String log4jConfPath = "src/no/hig/ezludo/server/log4j.properties";
+	   PropertyConfigurator.configure(log4jConfPath);
+	   serverLogger = Logger.getLogger("Server");
 	   try {
 		   database =  DriverManager.getConnection(dbUrl);
 	   } catch (SQLException sqlEx) {
@@ -52,7 +52,6 @@ public class Server {
 	   lobby = new Chatroom("lobby");
 	   chatRooms.add(lobby);
 	   lobby.setId(chatRooms.indexOf(lobby));
-	   initLogging();
 	   logInListener();
 	   connectionListener();
 	   serverWorkerThread();
@@ -73,7 +72,7 @@ public class Server {
 						if (user.ready()) {
 							String cmd = user.readLine();
 							commandQueue.put(cmd);
-							logger.log(Level.ALL, "received command: " + cmd);
+							serverLogger.warn("received command: " + cmd);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -95,24 +94,29 @@ public class Server {
 			try {
 				while ((msg=commandQueue.take())!=null) {
 					String command[] = msg.split("\\|");
-					logger.log(Level.ALL, "handling command " + msg);
+					serverLogger.warn("handling command " + msg);
 
 					if (command[0].startsWith("CHAT")) {
 						int id = Integer.parseInt(command[1]);
 						chatRooms.get(id).chatHandler(msg, usersClosedSocets);
 					} else if (command[0].equals("JOIN CHAT")) {
 						int id = Integer.parseInt(command[1]);
-						if (chatRooms.get(id) == null) {
+							boolean foundRoom = false;
+							for (Chatroom rooms : chatRooms) {
+								if (rooms.equals(rooms.getName()))
+									foundRoom = true;
+							}
+						if (!foundRoom) {
 							Chatroom chatroom = new Chatroom(command[2]);
 							chatRooms.add(chatroom);
-							chatroom.setId(chatRooms.indexOf(chatroom));
-							logger.log(Level.ALL, "chatRoom created: " + command[2]);
+							id = chatRooms.indexOf(chatroom);
+							chatroom.setId(id);
+							serverLogger.warn("chatRoom created: " + command[2]);
 						}
 						for (User usr : users) {
-							String nickname = usr.getNickname();
-							if (nickname == command[3]) {
+							if (usr.getNickname().equals(command[3])) {
 								chatRooms.get(id).getUsers().add(usr);
-								logger.log(Level.ALL, "user " + command[3] + " added to chatroom: "
+								serverLogger.warn("user " + command[3] + " added to chatroom: "
 										+ command[2]);
 							}
 
@@ -133,7 +137,7 @@ public class Server {
 		synchronized (users) {
 			usersClosedSocets.stream().parallel().forEach(user-> {
 				users.remove(user);
-				logger.log(Level.ALL, user.getNickname() + " was Removed for io");
+				//serverLogger.log(Level.INFO, user.getNickname() + " was Removed for io");
 			});
 		}
 		usersClosedSocets.clear();
@@ -184,7 +188,7 @@ public class Server {
 							synchronized(users) {
 								users.add(user);
 								lobby.getUsers().add(user);
-								logger.log(Level.ALL, user.getNickname() + " logged in");
+								serverLogger.warn(user.getNickname() + " logged in");
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -200,20 +204,6 @@ public class Server {
 			System.exit(0);
 		}
 
-	}
-
-	private void initLogging() {
-		logger.setLevel(Level.ALL);
-		// Note that this will output this message to standard console
-		try {
-			// Get a handle to config/logging.properties
-			InputStream is = getClass().getResourceAsStream("../logging.conf");
-			// Read and parse the configuration
-		    LogManager.getLogManager().readConfiguration(is);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			logger.log(Level.ALL, "config not found");
-		}
 	}
 
    public static void main(String[] args) { new Server(); }
