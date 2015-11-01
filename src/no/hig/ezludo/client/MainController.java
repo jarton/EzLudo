@@ -48,6 +48,8 @@ public class MainController extends Application {
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
         client.sendChatMessage(source.getText());
+        //TODO: The message sent will be returned to the client, so this method shouldn't display the message sent.
+        displayLobbyMessage(source.getText());
     }
 
     /**
