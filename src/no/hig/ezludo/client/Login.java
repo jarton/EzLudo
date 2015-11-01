@@ -144,35 +144,6 @@ public class Login extends JFrame  {
         this.setVisible(true);
     }
 
-    /**
-     * Main methid. Creates look and feel.
-     * And creates a new login object which is placed in center of screen.
-     */
-    public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(
-                    UIManager.getSystemLookAndFeelClassName());
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-        catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        catch (InstantiationException e) {
-            e.printStackTrace();
-        }
-        catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        Login login = new Login();
-        login.setLocation(dim.width/2-login.getSize().width/2, dim.height/2-login.getSize().height/2);
-        login.setPreferredSize(new Dimension(350, 150));
-        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        login.pack();
-        login.setVisible(true);
-    }
 
     /**
      * This class is called when the user presses the login button. It communicates with the server to see if the
@@ -210,4 +181,35 @@ public class Login extends JFrame  {
         }
         return false;
     }
+
+    /**
+     * Main method. Creates look and feel.
+     * And creates a new login object which is placed in center of screen.
+     */
+    public static void main(String[] args) {
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        Login login = new Login();
+        login.setLocation(dim.width/2-login.getSize().width/2, dim.height/2-login.getSize().height/2);
+        login.setPreferredSize(new Dimension(350, 150));
+        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        login.pack();
+        login.setVisible(true);
+    }
+
 }
