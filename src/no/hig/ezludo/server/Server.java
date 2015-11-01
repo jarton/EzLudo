@@ -72,7 +72,7 @@ public class Server {
 						if (user.ready()) {
 							String cmd = user.readLine();
 							commandQueue.put(cmd);
-							serverLogger.warn("received command: " + cmd);
+							serverLogger.info("received command: " + cmd);
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -94,7 +94,7 @@ public class Server {
 			try {
 				while ((msg=commandQueue.take())!=null) {
 					String command[] = msg.split("\\|");
-					serverLogger.warn("handling command " + msg);
+					serverLogger.info("handling command " + msg);
 
 					if (command[0].startsWith("CHAT")) {
 						int id = Integer.parseInt(command[1]);
@@ -111,12 +111,12 @@ public class Server {
 							chatRooms.add(chatroom);
 							id = chatRooms.indexOf(chatroom);
 							chatroom.setId(id);
-							serverLogger.warn("chatRoom created: " + command[2]);
+							serverLogger.info("chatRoom created: " + command[2]);
 						}
 						for (User usr : users) {
 							if (usr.getNickname().equals(command[3])) {
 								chatRooms.get(id).getUsers().add(usr);
-								serverLogger.warn("user " + command[3] + " added to chatroom: "
+								serverLogger.info("user " + command[3] + " added to chatroom: "
 										+ command[2]);
 							}
 
@@ -188,7 +188,7 @@ public class Server {
 							synchronized(users) {
 								users.add(user);
 								lobby.getUsers().add(user);
-								serverLogger.warn(user.getNickname() + " logged in");
+								serverLogger.info(user.getNickname() + " logged in");
 							}
 						} catch (Exception e) {
 							e.printStackTrace();

@@ -1,22 +1,11 @@
-received command: CHAT|0|LOBBY|testolini|HALLO LOL TEST
-received command: JOIN CHAT|-1|ezChat|testolini
-received command: CHAT|1|ezChat|testolini|LOL TEST
- logged in
-testolini logged in
-received command: CHAT|0|LOBBY|testolini|HALLO LOL TEST
-handling command CHAT|0|LOBBY|testolini|HALLO LOL TEST
-received command: JOIN CHAT|-1|ezChat|testolini
-handling command JOIN CHAT|-1|ezChat|testolini
-chatRoom created: ezChat
-user testolini added to chatroom: ezChat
-received command: CHAT|1|ezChat|testolini|LOL TEST
-handling command CHAT|1|ezChat|testolini|LOL TEST
-testolini logged in
-received command: CHAT|0|LOBBY|testolini|HALLO LOL TEST
-handling command CHAT|0|LOBBY|testolini|HALLO LOL TEST
-received command: JOIN CHAT|-1|ezChat|testolini
-handling command JOIN CHAT|-1|ezChat|testolini
-chatRoom created: ezChat
-user testolini added to chatroom: ezChat
-received command: CHAT|1|ezChat|testolini|LOL TEST
-handling command CHAT|1|ezChat|testolini|LOL TEST
+2015-11-01 19:34:41,108 INFO  [Server] testolini logged in
+2015-11-01 19:34:41,191 INFO  [Server] received command: CHAT|0|LOBBY|testolini|HALLO LOL TEST
+2015-11-01 19:34:41,192 INFO  [Server] handling command CHAT|0|LOBBY|testolini|HALLO LOL TEST
+2015-11-01 19:34:41,194 WARN  [chatLogger] CHAT|0|LOBBY|testolini|HALLO LOL TEST
+2015-11-01 19:34:41,295 INFO  [Server] received command: JOIN CHAT|-1|ezChat|testolini
+2015-11-01 19:34:41,295 INFO  [Server] handling command JOIN CHAT|-1|ezChat|testolini
+2015-11-01 19:34:41,296 INFO  [Server] chatRoom created: ezChat
+2015-11-01 19:34:41,296 INFO  [Server] user testolini added to chatroom: ezChat
+2015-11-01 19:34:41,398 INFO  [Server] received command: CHAT|1|ezChat|testolini|LOL TEST
+2015-11-01 19:34:41,398 INFO  [Server] handling command CHAT|1|ezChat|testolini|LOL TEST
+2015-11-01 19:34:41,399 WARN  [chatLogger] CHAT|1|ezChat|testolini|LOL TEST

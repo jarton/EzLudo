@@ -1,8 +1,12 @@
 package no.hig.ezludo.server;
 
+import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+
 import java.io.InputStream;
 import java.util.Vector;
-import java.util.logging.*;
 
 /**
  * Created by jdr on 31/10/15.
@@ -30,23 +34,22 @@ public class Chatroom {
     }
 
     public void chatHandler(String cmd, Vector<User> usersClosedSocets) {
-        String command[] = cmd.split("\\|");
-        logger.setLevel(Level.ALL);
-        try {
-            FileHandler handler = new FileHandler("logs/chatrooms/"+name+"%g.log");
-            handler.setFormatter(new SimpleFormatter());
-            handler.setLevel(Level.ALL);
-            logger.removeHandler(new FileHandler());
-            logger.addHandler(handler);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+            String command[] = cmd.split("\\|");
+            Logger.getRootLogger().removeAppender("chatfile");
+            FileAppender fa = new FileAppender();
+            fa.setName("chatfile");
+            fa.setFile("logs/chatrooms/" + name + ".log");
+            fa.setLayout(new PatternLayout("%d %-5p [%c{1}] %m%n"));
+            fa.setThreshold(Level.WARN);
+            fa.setAppend(true);
+            fa.activateOptions();
+            Logger.getRootLogger().addAppender(fa);
         if (command[0].equals("CHAT")) {
             synchronized (users) {
                 users.stream().parallel().forEach(user -> {
                     try {
                         user.write("CHAT|" + command[1] + command[2] + command[3] + command[4]);
-                        logger.log(Level.ALL, cmd);
+                        logger.warn(cmd);
                     } catch (Exception e) {
                         usersClosedSocets.add(user);
                     }
@@ -57,7 +60,7 @@ public class Chatroom {
                 String nickname = usr.getNickname();
                 if (nickname == command[3]) {
                     users.remove(usr);
-                    logger.log(Level.ALL, command[3] + "left chat");
+                    logger.warn(command[3] + "left chat");
                 }
             }
         } else if (command[0].equals("GET USERS")) {
