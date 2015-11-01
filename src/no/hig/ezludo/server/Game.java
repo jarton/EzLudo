@@ -6,9 +6,19 @@ import java.util.Vector;
  * Created by jdr on 29/10/15.
  */
 public class Game {
-    Vector<User> players = new Vector<>();
+    private User players[] = new User[4];
+    private String name = "Random Game";
+    private int id = -1;
 
     public Game() {
 
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
     }
 }

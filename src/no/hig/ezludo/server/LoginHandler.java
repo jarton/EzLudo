@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * class handles login and registration of users. a object of this class
@@ -19,6 +21,7 @@ public class LoginHandler {
     private BufferedReader buffReader;
     private BufferedWriter buffWriter;
     private Connection database;
+    private final static Logger logger = Logger.getLogger(Server.class.getName());
 
     public LoginHandler (Socket socket, Connection db) throws Exception {
         database = db;
@@ -51,7 +54,7 @@ public class LoginHandler {
             PreparedStatement query = database.prepareStatement("SELECT id, nickname FROM users WHERE email=? and password=?");
             query.setString(1, info[1]);
             query.setString(2, info[2]);
-            ResultSet result = query.executeQuery ();
+            ResultSet result = query.executeQuery();
             if (!result.next()) {
                 writeToBuffer("Uknown username/password");
             } else {
@@ -99,8 +102,10 @@ public class LoginHandler {
             if (result < 1) {
                 writeToBuffer("Username Occupied");
             }
-            else
+            else {
                 writeToBuffer("REGISTRATION OK");
+                logger.log(Level.ALL, info[3] + " just was registered");
+            }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
         }

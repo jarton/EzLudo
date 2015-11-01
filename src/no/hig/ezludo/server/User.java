@@ -58,7 +58,7 @@ public class User {
                 stmnt = database.prepareStatement("UPDATE users SET loginkey='' WHERE id=?");
                 stmnt.setInt(1, uid);
                 stmnt.execute();
-                write("LOGGED IN|" + key);
+                write("LOGGED IN");
             }
         } catch (SQLException sqlEx) {
             write("Database error");
