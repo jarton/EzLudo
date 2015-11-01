@@ -5,12 +5,15 @@ import Internationalization.Internationalization;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ResourceBundle;
 
 /**
@@ -162,28 +165,31 @@ public class UserAccount {
         registerButton.setBounds(180, 160, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e)  {
-                String output="";
-                for (int i = 0; i<=19; i++) {
-                    errors[i] = null;
-                }
-
-                if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
-                    JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
-                    // TODO Register user in db
-                    // TODO throws NoSuchAlgorithmException
-                    String passwordToHash = String.valueOf(password);
-                    String salt = "salt123";//getSalt();
-                    String hashedPassword = get_SHA_256_SecurePassword(passwordToHash, salt);
-                    System.out.print(hashedPassword);
-                    toLogin();
-                }
-                else {
-                    for (int i=1; i<=errorsNumb; i++) {
-                        if (errors[i] != null)
-                        output=output+"\n"+errors[i];
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String output = "";
+                    for (int i = 0; i <= 19; i++) {
+                        errors[i] = null;
                     }
-                    JOptionPane.showMessageDialog(null, output, messages.getString("errormsg"), JOptionPane.WARNING_MESSAGE);
+
+                    if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
+
+                        String passwordToHash = String.valueOf(password);
+                        String salt = getSalt();
+                        String hashedPassword = getSHA256(passwordToHash, salt);
+
+                        // TODO Register user in db
+                        JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
+                        toLogin();
+                    } else {
+                        for (int i = 1; i <= errorsNumb; i++) {
+                            if (errors[i] != null)
+                                output = output + "\n" + errors[i];
+                        }
+                        JOptionPane.showMessageDialog(null, output, messages.getString("errormsg"), JOptionPane.WARNING_MESSAGE);
+                    }
+                }catch(Exception ex) {
+
                 }
             }
 
@@ -291,10 +297,13 @@ public class UserAccount {
         jFrame.pack();
 
     }
-    // http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
 
-
-    private static String get_SHA_256_SecurePassword(String passwordToHash, String salt)
+    /**
+     * SHA-256 function.
+     * Source: http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+     */
+    //
+    private static String getSHA256(String passwordToHash, String salt)
     {
         String generatedPassword = null;
         try {
@@ -323,5 +332,4 @@ public class UserAccount {
             return salt.toString();
 
     }
-
 }
