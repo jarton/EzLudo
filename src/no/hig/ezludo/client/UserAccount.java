@@ -1,7 +1,10 @@
 package no.hig.ezludo.client;
 
 import Internationalization.Internationalization;
+import no.hig.ezludo.server.Server;
 
+import java.io.*;
+import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -32,6 +35,12 @@ public class UserAccount {
     private String email;
     private int errorsNumb=0;
     private String[] errors = new String[20];
+    //Server reg
+    PrintWriter output;
+    BufferedReader input;
+    private Socket loginClient = null;
+    private final static int loginPort = 6969;
+
 
     /**
      * Constructor which gets UI-data and I18N objects from Login-class.
@@ -179,6 +188,7 @@ public class UserAccount {
                         String hashedPassword = getSHA256(passwordToHash, salt);
 
                         // TODO Register user in db
+                        register(username, email, hashedPassword);
                         JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
                         toLogin();
                     } else {
@@ -330,6 +340,27 @@ public class UserAccount {
             byte[] salt = new byte[16];
             sr.nextBytes(salt);
             return salt.toString();
+
+    }
+
+    public void register(String username, String email, String hashedPassword) {
+        try {
+            loginClient = new Socket("127.0.0.1", loginPort);
+            output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
+            input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
+
+            output.printf("REGISTER|%s|%s|%s\n", email, hashedPassword, username);
+            output.flush();
+            String feedBack = input.readLine();
+            System.out.println(feedBack);
+            input.close();
+            output.close();
+            loginClient.close();
+            if (!feedBack.startsWith("REGISTRATION OK"))
+                System.out.println("fail");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 }
