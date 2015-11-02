@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.Socket;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ResourceBundle;
 
 /**
@@ -104,13 +107,16 @@ public class Login extends JFrame  {
         loginButton.setBounds(10,80,80,25);
         loginButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed (ActionEvent e){
-                if (performLogin()) {
-                    jframe.dispose();
-                } else {
-                    //TODO: Handle rejected login
-                    System.out.println("Login failed");
-                }
+            public void actionPerformed (ActionEvent e) {
+                try {
+                    if (performLogin()) {
+                        jframe.dispose();
+                    } else {
+                     //TODO: Handle rejected login
+                     System.out.println("Login failed");
+                    }
+                } catch (Exception ex) {
+                    }
             }
         });
         panel.add(loginButton);
@@ -150,16 +156,20 @@ public class Login extends JFrame  {
      * window), and the function returns true. If the login wasn't successful, the function returns false.
      * @return true or false depending on successful login attempt
      */
-    public boolean performLogin() {
+    public boolean performLogin() throws NoSuchAlgorithmException {
         try {
-            String passwordString = String.valueOf(password);
+            if (password != null) {
+                String passwordString = String.valueOf(password);
+                String salt = getSalt();
+                String hashedPassword = getSHA256(passwordString, email);
+
             //TODO: serverIP is set to 127.0.0.1 for testing. We need to make this configurable.
             socket = new Socket(serverIP, 6969);
             PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            BufferedReader input= new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             // Send the login statement to the server
-            output.println("LOGIN|" + email + "|" + passwordString);
+            output.println("LOGIN|" + email + "|" + hashedPassword);
             output.flush();
 
             // TODO: figure out if reading the input without looping on it works even if the DB is slow
@@ -175,12 +185,48 @@ public class Login extends JFrame  {
                 new Client(email, password, key);
                 return true;
             }
+        }
 
         } catch(IOException exception) {
             exception.printStackTrace();
         }
         return false;
     }
+
+    /**
+     * SHA-256 function.
+     * Source: http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+     */
+    //
+    private static String getSHA256(String passwordToHash, String salt)
+    {
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(salt.getBytes());
+            byte[] bytes = md.digest(passwordToHash.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++)
+            {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e)
+        {
+            e.printStackTrace();
+        }
+        return generatedPassword;
+    }
+
+    //Add salt
+    private static String getSalt() throws NoSuchAlgorithmException {
+        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
+        byte[] salt = new byte[16];
+        sr.nextBytes(salt);
+        return salt.toString();
+    }
+
 
     /**
      * Main method. Creates look and feel.
@@ -211,5 +257,6 @@ public class Login extends JFrame  {
         login.pack();
         login.setVisible(true);
     }
+
 
 }

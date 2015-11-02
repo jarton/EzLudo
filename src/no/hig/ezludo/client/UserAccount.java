@@ -67,7 +67,7 @@ public class UserAccount {
         panel.setLayout(null);
 
         // Username label
-        JLabel userLabel = new JLabel(messages.getString("loginUsername"));
+        JLabel userLabel = new JLabel(messages.getString("username"));
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
 
@@ -185,11 +185,13 @@ public class UserAccount {
 
                         String passwordToHash = String.valueOf(password);
                         String salt = getSalt();
-                        String hashedPassword = getSHA256(passwordToHash, salt);
+                        String hashedPassword = getSHA256(passwordToHash, email);
 
                         // TODO Register user in db
                         register(username, email, hashedPassword);
                         JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
+                        System.out.print(hashedPassword);
+                        System.out.print("\n");
                         toLogin();
                     } else {
                         for (int i = 1; i <= errorsNumb; i++) {
@@ -349,7 +351,7 @@ public class UserAccount {
             output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
 
-            output.printf("REGISTER|%s|%s|%s\n", email, "passord123", username);
+            output.printf("REGISTER|%s|%s|%s\n", email, hashedPassword, username);
             output.flush();
             String feedBack = input.readLine();
             System.out.println(feedBack);
