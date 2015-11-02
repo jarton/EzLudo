@@ -175,23 +175,16 @@ public class UserAccount {
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
                     String output = "";
                     for (int i = 0; i <= 19; i++) {
                         errors[i] = null;
                     }
 
                     if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
-
                         String passwordToHash = String.valueOf(password);
-                        String salt = getSalt();
                         String hashedPassword = getSHA256(passwordToHash, email);
-
-                        // TODO Register user in db
                         register(username, email, hashedPassword);
                         JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
-                        System.out.print(hashedPassword);
-                        System.out.print("\n");
                         toLogin();
                     } else {
                         for (int i = 1; i <= errorsNumb; i++) {
@@ -200,9 +193,6 @@ public class UserAccount {
                         }
                         JOptionPane.showMessageDialog(null, output, messages.getString("errormsg"), JOptionPane.WARNING_MESSAGE);
                     }
-                }catch(Exception ex) {
-
-                }
             }
 
         });
@@ -334,15 +324,6 @@ public class UserAccount {
             e.printStackTrace();
         }
         return generatedPassword;
-    }
-
-    //Add salt
-    private static String getSalt() throws NoSuchAlgorithmException {
-            SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-            byte[] salt = new byte[16];
-            sr.nextBytes(salt);
-            return salt.toString();
-
     }
 
     public void register(String username, String email, String hashedPassword) {

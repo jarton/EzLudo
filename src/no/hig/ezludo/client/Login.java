@@ -160,31 +160,30 @@ public class Login extends JFrame  {
         try {
             if (password != null) {
                 String passwordString = String.valueOf(password);
-                String salt = getSalt();
                 String hashedPassword = getSHA256(passwordString, email);
 
-            //TODO: serverIP is set to 127.0.0.1 for testing. We need to make this configurable.
-            socket = new Socket(serverIP, 6969);
-            PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                //TODO: serverIP is set to 127.0.0.1 for testing. We need to make this configurable.
+                socket = new Socket(serverIP, 6969);
+                PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            // Send the login statement to the server
-            output.println("LOGIN|" + email + "|" + hashedPassword);
-            output.flush();
+                // Send the login statement to the server
+                output.println("LOGIN|" + email + "|" + hashedPassword);
+                output.flush();
 
-            // TODO: figure out if reading the input without looping on it works even if the DB is slow
-            // Reads the respons from the server and closes connection
-            String response = input.readLine();
-            output.close();
-            input.close();
-            socket.close();
+                // TODO: figure out if reading the input without looping on it works even if the DB is slow
+                // Reads the respons from the server and closes connection
+                String response = input.readLine();
+                output.close();
+                input.close();
+                socket.close();
 
-            // If the response starts with "LOGIN OK", create a new client object and send along the key received
-            if (response.startsWith("LOGIN OK")) {
-                String key = response.split("\\|")[1];
-                new Client(email, password, key);
-                return true;
-            }
+                // If the response starts with "LOGIN OK", create a new client object and send along the key received
+                if (response.startsWith("LOGIN OK")) {
+                    String key = response.split("\\|")[1];
+                    new Client(email, password, key);
+                    return true;
+                }
         }
 
         } catch(IOException exception) {
@@ -218,16 +217,6 @@ public class Login extends JFrame  {
         }
         return generatedPassword;
     }
-
-    //Add salt
-    private static String getSalt() throws NoSuchAlgorithmException {
-        SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
-        byte[] salt = new byte[16];
-        sr.nextBytes(salt);
-        return salt.toString();
-    }
-
-
     /**
      * Main method. Creates look and feel.
      * And creates a new login object which is placed in center of screen.
