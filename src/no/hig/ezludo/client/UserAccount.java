@@ -349,7 +349,7 @@ public class UserAccount {
             output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
 
-            output.printf("REGISTER|%s|%s|%s\n", email, hashedPassword, username);
+            output.printf("REGISTER|%s|%s|%s\n", email, "passord123", username);
             output.flush();
             String feedBack = input.readLine();
             System.out.println(feedBack);

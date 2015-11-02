@@ -7,7 +7,7 @@ import java.net.Socket;
  * Created by Kristian on 29.10.2015.
  */
 public class Client {
-    private String username;
+    private String email;
     private char[] password;
     private String mainKey;
     private Socket socket;
@@ -18,8 +18,8 @@ public class Client {
     private MainController mainController;
 
 
-    public Client(String username, char[] password, String mainKey) {
-        this.username = username;
+    public Client(String email, char[] password, String mainKey) {
+        this.email = email;
         this.password = password;
         this.mainKey = mainKey;
         mainController = new MainController(this);

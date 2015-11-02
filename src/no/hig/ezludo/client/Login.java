@@ -26,9 +26,8 @@ public class Login extends JFrame  {
     private Internationalization internationalization;
     private ResourceBundle messages;
     private JPanel panel;
-    public Client client;
     public UserAccount userAccount;
-    private String username;
+    private String email;
     private char[] password;
     public JFrame jframe;
     private String serverIP = "127.0.0.1";
@@ -54,25 +53,25 @@ public class Login extends JFrame  {
         panel = new JPanel();
         panel.setLayout(null);
 
-        // Username label
+        // User label
         JLabel userLabel = new JLabel(messages.getString("loginUsername"));
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
 
-        // Username input field
+        // User input field
         JTextField userText = new JTextField(20);
         userText.setBounds(100, 10, 160, 25);
         userText.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
-                username = userText.getText();
+                email = userText.getText();
             }
 
             public void removeUpdate(DocumentEvent e) {
-                username = userText.getText();
+                email = userText.getText();
             }
 
             public void insertUpdate(DocumentEvent e) {
-                username = userText.getText();
+                email = userText.getText();
             }
         });
         panel.add(userText);
@@ -153,13 +152,14 @@ public class Login extends JFrame  {
      */
     public boolean performLogin() {
         try {
+            String passwordString = String.valueOf(password);
             //TODO: serverIP is set to 127.0.0.1 for testing. We need to make this configurable.
             socket = new Socket(serverIP, 6969);
             PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             BufferedReader input= new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             // Send the login statement to the server
-            output.println("LOGIN|" + username + "|" + password);
+            output.println("LOGIN|" + email + "|" + passwordString);
             output.flush();
 
             // TODO: figure out if reading the input without looping on it works even if the DB is slow
@@ -172,7 +172,7 @@ public class Login extends JFrame  {
             // If the response starts with "LOGIN OK", create a new client object and send along the key received
             if (response.startsWith("LOGIN OK")) {
                 String key = response.split("\\|")[1];
-                new Client(username, password, key);
+                new Client(email, password, key);
                 return true;
             }
 

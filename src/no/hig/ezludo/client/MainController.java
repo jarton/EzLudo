@@ -60,10 +60,10 @@ public class MainController extends Application {
         chatListView.getItems().add(text);
     }
 
-    /*
+
     public static void main(String[] args) {
         launch(args);
     }
-    */
+
 
 }
