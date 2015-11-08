@@ -34,6 +34,40 @@ public class Client {
     }
 
     /**
+     * This function starts a new thread for listening for messages from the server. It is called when the server allows
+     * the client to use the main socket.
+     */
+    public void startListener() {
+        new Thread (()->{
+            while (input!=null) {
+                String cmd;
+                try {
+                    while ((cmd=input.readLine())!=null) {
+                        String command[] = cmd.split("\\|");
+                        if (command[0].equals("CHAT")) {
+                            if (command[1].equals("-1")) {
+                                mainController.displayLobbyMessage(command[3] + ": " + command[4]);
+                            }
+                            /*
+                        } else if (command[0].equals("NEW GAME")) {
+                            startNewGame (command);
+                        } else if (command[0].equals("PLAYER TURN")) {
+                            games.get(Long.parseLong(command[1])).showActivePlayer(Integer.parseInt(command[2]));
+                            if (command.length>3&&command[3].equals("YOUR TURN"))
+                                games.get(Long.parseLong(command[1])).myTurn(Integer.parseInt(command[2]));
+                        } else if (command[0].equals("MOVE")) {
+                            games.get(Long.parseLong(command[1])).movePiece(Integer.parseInt(command[2]), Integer.parseInt(command[3]), Integer.parseInt(command[4]));
+                       */ }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        // TODO: Discuss ways to handle chat. Need to decide on structure of client program in order to finish the method.
+    }
+
+    /**
      * This method sets up the socket, and the input- and output streams for that socket.
      */
     public void setUpConnection() {
@@ -56,6 +90,7 @@ public class Client {
             output.flush();
             if (input.readLine().equals("LOGGED IN")) {
                 mainController.displayLobbyMessage("Joined Lobby.");
+                startListener();
             } else {
                 mainController.displayLobbyMessage("Illegal connection.");
             }
