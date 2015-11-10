@@ -9,3 +9,21 @@
 2015-11-01 19:34:41,398 INFO  [Server] received command: CHAT|1|ezChat|testolini|LOL TEST
 2015-11-01 19:34:41,398 INFO  [Server] handling command CHAT|1|ezChat|testolini|LOL TEST
 2015-11-01 19:34:41,399 WARN  [chatLogger] CHAT|1|ezChat|testolini|LOL TEST
+2015-11-10 22:37:17,154 INFO  [Server] test logged in
+2015-11-10 22:38:10,764 INFO  [Server] test logged in
+2015-11-10 22:39:57,647 INFO  [Server] test logged in
+2015-11-10 22:44:16,685 INFO  [Server] test logged in
+2015-11-10 22:46:28,386 INFO  [Server] test logged in
+2015-11-10 22:49:41,801 INFO  [Server] test logged in
+2015-11-10 22:53:17,204 INFO  [Server] test logged in
+2015-11-10 22:56:21,189 INFO  [Server]  logged in
+2015-11-10 22:57:27,690 INFO  [Server] test logged in
+2015-11-10 22:58:49,039 INFO  [Server] test logged in
+2015-11-10 22:58:49,136 INFO  [Server] received command: test
+2015-11-10 22:58:49,137 INFO  [Server] handling command test
+2015-11-10 23:01:32,749 INFO  [Server]  logged in
+2015-11-10 23:09:25,865 INFO  [Server] test logged in
+2015-11-10 23:10:44,181 INFO  [Server] test logged in
+2015-11-10 23:25:29,645 INFO  [Server] test logged in
+2015-11-10 23:53:52,811 INFO  [Server] test logged in
+2015-11-11 00:04:45,606 INFO  [Server]  logged in

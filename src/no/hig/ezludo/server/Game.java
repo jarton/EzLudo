@@ -10,8 +10,8 @@ public class Game {
     private String name = "Random Game";
     private int id = -1;
 
-    public Game() {
-
+    public Game(User players[]) {
+        this.players = players;
     }
 
     public void setId(int id) {

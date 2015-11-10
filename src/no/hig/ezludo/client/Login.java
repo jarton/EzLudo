@@ -181,7 +181,8 @@ public class Login extends JFrame  {
                 // If the response starts with "LOGIN OK", create a new client object and send along the key received
                 if (response.startsWith("LOGIN OK")) {
                     String key = response.split("\\|")[1];
-                    new Client(email, password, key);
+                    String[] args = {email, new String(password), key};
+                    MainController.startScene(args);
                     return true;
                 }
         }

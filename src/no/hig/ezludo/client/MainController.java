@@ -1,5 +1,6 @@
 package no.hig.ezludo.client;
 
+import com.sun.xml.internal.rngom.digested.DDataPattern;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sun.applet.Main;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * This class handles the GUI of the lobby, and whatever events may happen in the window.
@@ -18,13 +23,8 @@ import javafx.stage.Stage;
 public class MainController extends Application {
     public ListView chatListView;
     public Scene lobbyScene;
-    private Client client;
 
-    public MainController(Client clientObject) {
-        client = clientObject;
-        launch(null);
-    }
-
+    @FXML public Client client;
 
     /**
      * This method loads the lobby window.
@@ -33,10 +33,24 @@ public class MainController extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
-        primaryStage.setTitle("Ez-Ludo");
-        primaryStage.setScene(lobbyScene = new Scene(root, 300, 275));
-        primaryStage.show();
+
+        try {
+
+            Parameters parameters = getParameters();
+            List<String> rawArguments = parameters.getRaw();
+            client = new Client(rawArguments.get(0), rawArguments.get(1), rawArguments.get(2), this);
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Lobby.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
+            fxmlLoader.setController(this);
+            fxmlLoader.setRoot(this);
+            primaryStage.setTitle("Ez-Ludo");
+            primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
+            primaryStage.show();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -47,7 +61,10 @@ public class MainController extends Application {
     @FXML
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
-        client.sendChatMessage(source.getText());
+        //TODO: why is the client object null???!
+        if (client != null) {
+            client.sendChatMessage(source.getText());
+        }
         //TODO: The message sent will be returned to the client, so this method shouldn't display the message sent.
         displayLobbyMessage(source.getText());
     }
@@ -60,10 +77,11 @@ public class MainController extends Application {
         chatListView.getItems().add(text);
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
 
-
+    public static void startScene(String[] args) {
+        launch(args);
+    }
 }

@@ -1,5 +1,7 @@
 package no.hig.ezludo.client;
 
+import sun.applet.Main;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -8,7 +10,7 @@ import java.net.Socket;
  */
 public class Client {
     private String email;
-    private char[] password;
+    private String password;
     private String mainKey;
     private Socket socket;
     private String serverIP = "127.0.0.1";
@@ -18,14 +20,14 @@ public class Client {
     private MainController mainController;
 
 
-    public Client(String email, char[] password, String mainKey) {
+    public Client(String email, String password, String mainKey, MainController ctrl) {
+        this.mainController = ctrl;
         this.email = email;
         this.password = password;
         this.mainKey = mainKey;
-        mainController = new MainController(this);
         setUpConnection();
         connectToLobby();
-
+        startListener();
     }
 
     public void sendChatMessage(String message) {
@@ -89,10 +91,10 @@ public class Client {
             output.println(mainKey);
             output.flush();
             if (input.readLine().equals("LOGGED IN")) {
-                mainController.displayLobbyMessage("Joined Lobby.");
                 startListener();
             } else {
-                mainController.displayLobbyMessage("Illegal connection.");
+                //mainController.displayLobbyMessage("Illegal connection.");
+                //TODO: display error. maincontroller is not ready yet
             }
         } catch (IOException e){
             e.printStackTrace();

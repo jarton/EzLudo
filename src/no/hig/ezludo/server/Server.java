@@ -56,7 +56,30 @@ public class Server {
 	   connectionListener();
 	   serverWorkerThread();
 	   startCommandHandler();
+	   randomGameDispatcher();
    }
+
+
+	private void randomGameDispatcher() {
+		Thread t = new Thread(()->{
+			while (true) {
+				if (usersWaitingForGame.size()>3) {
+					User player[] = {usersWaitingForGame.remove(0), usersWaitingForGame.remove(0),
+					usersWaitingForGame.remove(0), usersWaitingForGame.remove(0)};
+					Game game = new Game(player);
+					games.add(game);
+					game.setId(games.indexOf(game));
+					try {
+						//TODO: game commands
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		});
+		t.setDaemon(true);
+		t.start();
+	}
 
 	/**
 	 * creates a thread in an endless loop that pauses periodically.
