@@ -2,6 +2,7 @@ package no.hig.ezludo.client;
 
 import javafx.application.Application;
 import javafx.embed.swing.SwingNode;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +12,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import sun.applet.Main;
 
 import javax.swing.*;
 import java.util.List;
-import java.util.Map;
 
 /**
  * This class handles the GUI of the lobby, and whatever events may happen in the window.
@@ -86,7 +85,12 @@ public class MainController extends Application {
      */
     @FXML
     public void displayLobbyMessage(String text) {
-        chatListView.getItems().add(text);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chatListView.getItems().add(text);
+            }
+        });
     }
 
     public static void setClient(List<String> args) {
