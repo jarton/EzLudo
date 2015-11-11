@@ -48,7 +48,7 @@ public class Chatroom {
             synchronized (users) {
                 users.stream().parallel().forEach(user -> {
                     try {
-                        user.write("CHAT|" + command[1] + command[2] + command[3] + command[4]);
+                        user.write(cmd);
                         logger.warn(cmd);
                     } catch (Exception e) {
                         usersClosedSocets.add(user);

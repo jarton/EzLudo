@@ -1,5 +1,7 @@
 package no.hig.ezludo.client;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import sun.applet.Main;
 
 import java.io.*;
@@ -20,19 +22,21 @@ public class Client {
     private MainController mainController;
 
 
-    public Client(String email, String password, String mainKey, MainController ctrl) {
-        this.mainController = ctrl;
+    public Client(String email, String password, String mainKey) {
         this.email = email;
         this.password = password;
         this.mainKey = mainKey;
         setUpConnection();
         connectToLobby();
-        startListener();
     }
 
     public void sendChatMessage(String message) {
-        output.println(message);
+        output.println("CHAT|0|LOBBY|" + email + "|" + message);
         output.flush();
+    }
+
+    public void setMainController(MainController ctrl) {
+        this.mainController = ctrl;
     }
 
     /**
@@ -47,9 +51,8 @@ public class Client {
                     while ((cmd=input.readLine())!=null) {
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("CHAT")) {
-                            if (command[1].equals("-1")) {
+                                System.out.println("recived chat");
                                 mainController.displayLobbyMessage(command[3] + ": " + command[4]);
-                            }
                             /*
                         } else if (command[0].equals("NEW GAME")) {
                             startNewGame (command);
@@ -92,9 +95,7 @@ public class Client {
             output.flush();
             if (input.readLine().equals("LOGGED IN")) {
                 startListener();
-            } else {
-                //mainController.displayLobbyMessage("Illegal connection.");
-                //TODO: display error. maincontroller is not ready yet
+                System.out.println("listener started");
             }
         } catch (IOException e){
             e.printStackTrace();
