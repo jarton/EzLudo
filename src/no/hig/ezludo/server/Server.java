@@ -64,9 +64,9 @@ public class Server {
 		Thread t = new Thread(()->{
 			while (true) {
 				if (usersWaitingForGame.size()>3) {
-					User player[] = {usersWaitingForGame.remove(0), usersWaitingForGame.remove(0),
+					User players[] = {usersWaitingForGame.remove(0), usersWaitingForGame.remove(0),
 					usersWaitingForGame.remove(0), usersWaitingForGame.remove(0)};
-					Game game = new Game(player);
+					Game game = new Game(players);
 					games.add(game);
 					game.setId(games.indexOf(game));
 					try {

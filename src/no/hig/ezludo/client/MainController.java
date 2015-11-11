@@ -24,7 +24,7 @@ public class MainController extends Application {
     public ListView chatListView;
     public Scene lobbyScene;
 
-    @FXML public Client client;
+    public static Client client;
 
     /**
      * This method loads the lobby window.
@@ -38,12 +38,14 @@ public class MainController extends Application {
 
             Parameters parameters = getParameters();
             List<String> rawArguments = parameters.getRaw();
-            client = new Client(rawArguments.get(0), rawArguments.get(1), rawArguments.get(2), this);
+            MainController.setClient(rawArguments);
+            client.setMainController(this);
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Lobby.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("Lobby.fxml"));
-            fxmlLoader.setController(this);
-            fxmlLoader.setRoot(this);
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Lobby.fxml"));
+            Parent root = (Parent) loader.load();
+
+            client.setMainController(loader.getController());
+
             primaryStage.setTitle("Ez-Ludo");
             primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
             primaryStage.show();
@@ -66,15 +68,19 @@ public class MainController extends Application {
             client.sendChatMessage(source.getText());
         }
         //TODO: The message sent will be returned to the client, so this method shouldn't display the message sent.
-        displayLobbyMessage(source.getText());
     }
 
     /**
      * This method receives a message, and displays it in the lobby chat.
      * @param text
      */
+    @FXML
     public void displayLobbyMessage(String text) {
         chatListView.getItems().add(text);
+    }
+
+    public static void setClient(List<String> args) {
+        client = new Client(args.get(0), args.get(1), args.get(2));
     }
 
     public static void main(String[] args) {
