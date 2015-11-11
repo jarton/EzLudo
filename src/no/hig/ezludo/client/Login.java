@@ -33,7 +33,7 @@ public class Login extends JFrame  {
     private String email;
     private char[] password;
     public JFrame jframe;
-    private String serverIP = "127.0.0.1";
+    private String serverIP = "128.39.142.181";
     private Socket socket;
 
     /**
