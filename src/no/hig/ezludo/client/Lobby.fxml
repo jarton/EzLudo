@@ -46,7 +46,7 @@
                                     </ImageView>
                                     <ImageView fitHeight="69.0" fitWidth="83.0" layoutX="441.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../../../res/dices/dice1.png" />
+                                          <Image url="/res/dices/dice1.png" />
                                        </image></ImageView>
                                     <Button layoutX="523.0" layoutY="380.0" mnemonicParsing="false" text="Roll" />
                                  </children></Pane>
