@@ -1,5 +1,8 @@
 package no.hig.ezludo.server;
 
+import no.hig.ezludo.server.commands.Chatcommand;
+import no.hig.ezludo.server.commands.Chatmessage;
+import no.hig.ezludo.server.commands.Command;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -33,8 +36,7 @@ public class Chatroom {
         return users;
     }
 
-    public void chatHandler(String cmd, Vector<User> usersClosedSocets) {
-            String command[] = cmd.split("\\|");
+    public void chatHandler(Command cmd, Vector<User> usersClosedSocets) {
             Logger.getRootLogger().removeAppender("chatfile");
             FileAppender fa = new FileAppender();
             fa.setName("chatfile");
@@ -44,11 +46,11 @@ public class Chatroom {
             fa.setAppend(true);
             fa.activateOptions();
             Logger.getRootLogger().addAppender(fa);
-        if (command[0].equals("CHAT")) {
+        if (cmd instanceof Chatmessage) {
             synchronized (users) {
                 users.stream().parallel().forEach(user -> {
                     try {
-                        user.write(cmd);
+                        user.write(cmd.getRawCmd());
                         logger.warn(cmd);
                     } catch (Exception e) {
                         usersClosedSocets.add(user);
@@ -57,17 +59,12 @@ public class Chatroom {
                     }
                 });
             }
-        } else if (command[0].equals("CHAT LEAVE")) {
-            for (User usr : users) {
-                String nickname = usr.getNickname();
-                if (nickname == command[3]) {
-                    users.remove(usr);
-                    logger.warn(command[3] + "left chat");
-                }
-            }
+        } else if (cmd instanceof Chatcommand) {
+            users.remove(cmd.getUser());
+            logger.warn(cmd.getUser().getNickname() + "left chat");
         }
 
-        String response = "USERS|" + command[1] + "|" + command[2];
+        String response = "USERS|" + id + "|" + name;
         for (User usr : users) {
             response += "|" + usr.getNickname();
         }
