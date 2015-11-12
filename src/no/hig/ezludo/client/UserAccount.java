@@ -184,7 +184,6 @@ public class UserAccount {
                         String passwordToHash = String.valueOf(password);
                         String hashedPassword = getSHA256(passwordToHash, email);
                         register(username, email, hashedPassword);
-                        JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
                         toLogin();
                     } else {
                         for (int i = 1; i <= errorsNumb; i++) {
@@ -339,8 +338,12 @@ public class UserAccount {
             input.close();
             output.close();
             loginClient.close();
-            if (!feedBack.startsWith("REGISTRATION OK"))
+            if (!feedBack.startsWith("REGISTRATION OK")) {
                 System.out.println("fail");
+                JOptionPane.showMessageDialog(null, messages.getString("newUserCreatedFail"), messages.getString("newUser"), JOptionPane.WARNING_MESSAGE);
+            }
+            else
+                JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
