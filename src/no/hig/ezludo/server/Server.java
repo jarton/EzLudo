@@ -1,13 +1,12 @@
 package no.hig.ezludo.server;
 
-import Internationalization.Internationalization;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -30,7 +29,8 @@ public class Server {
 	private LinkedBlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
    private ServerSocket loginServerSocket=null;
 	private ServerSocket mainSocket =null;
-	private Vector<Chatroom> chatRooms = new Vector<>();
+	//private Vector<Chatroom> chatRooms = new Vector<>();
+	private HashMap<String, Chatroom> chatRooms = new HashMap<>();
 	private static final int loginPortNum = 6969;
 	private static final int mainPortNum = 9696;
 	private Chatroom lobby;
@@ -51,8 +51,7 @@ public class Server {
 		   sqlEx.printStackTrace();
 	   }
 	   lobby = new Chatroom("lobby");
-	   chatRooms.add(lobby);
-	   lobby.setId(chatRooms.indexOf(lobby));
+	   chatRooms.put("lobby", lobby);
 	   logInListener();
 	   connectionListener();
 	   serverWorkerThread();
@@ -124,32 +123,25 @@ public class Server {
 				while ((cmd=commandQueue.take())!=null) {
 					serverLogger.info("handling command " + cmd.getRawCmd());
 					if (cmd instanceof Chatmessage) {
-						chatRooms.get(((Chatmessage)cmd).getChatroomId()).chatHandler(cmd, usersClosedSocets);
+						chatRooms.get(((Chatmessage)cmd).getChatName()).chatHandler(cmd, usersClosedSocets);
 					} else if (cmd instanceof Chatcommand) {
 						String type = ((Chatcommand)cmd).getType();
 						if (type.startsWith("LEAVE")) {
-							chatRooms.get(((Chatcommand)cmd).getChatroomId()).chatHandler(cmd, usersClosedSocets);
+							chatRooms.get(((Chatcommand)cmd).getChatName()).chatHandler(cmd, usersClosedSocets);
 						}
 						else if (type.startsWith("JOIN")) {
 							String chatName = ((Chatcommand) cmd).getChatName();
-							int chatId = ((Chatcommand) cmd).getChatroomId();
-							boolean foundRoom = false;
-							for (Chatroom rooms : chatRooms) {
-								if (rooms.getName().equals(chatName))
-									foundRoom = true;
-							}
-							if (!foundRoom) {
+
+							if (!chatRooms.containsKey(chatName)) {
 								Chatroom chatroom = new Chatroom(chatName);
-								chatRooms.add(chatroom);
-								chatId = chatRooms.indexOf(chatroom);
-								chatroom.setId(chatId);
+								chatRooms.put(chatName, chatroom);
 								serverLogger.info("chatRoom created: " + chatName);
 							}
-							chatRooms.get(chatId).getUsers().add(cmd.getUser());
+							chatRooms.get(chatName).getUsers().add(cmd.getUser());
 							serverLogger.info("user " + cmd.getUser().getNickname() +
 									" added to chatroom: " + chatName);
 							try {
-								cmd.getUser().write("CHAT CREATED|" + chatId + "|" + ((Chatcommand) cmd).getChatName());
+								cmd.getUser().write("CHAT JOINED|" + ((Chatcommand) cmd).getChatName());
 							} catch (Exception ex) {
 								usersClosedSocets.add(cmd.getUser());
 							}
@@ -157,6 +149,9 @@ public class Server {
 					}
 					else if (cmd instanceof JoinRandomGame) {
 						usersWaitingForGame.add(cmd.getUser());
+					}
+					else if (cmd instanceof StartNewGame) {
+						//TODO start new game
 					}
 				}
 			} catch (Exception e) {
@@ -170,7 +165,7 @@ public class Server {
 	 * function is called from the server working thread which runs every so often.
 	 */
 	private void removeClosedSockets() {
-		synchronized (users) {
+		synchronized (usersClosedSocets) {
 			usersClosedSocets.stream().parallel().forEach(user-> {
 				users.remove(user);
 				serverLogger.info(user.getNickname() + " removed user with io exc");

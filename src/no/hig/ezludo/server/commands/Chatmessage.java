@@ -7,20 +7,20 @@ import no.hig.ezludo.server.User;
  */
 public class Chatmessage extends Command {
     private String message;
-    private int chatroomId;
+    private String chatName;
 
     public Chatmessage(String rawcmd, User user) {
         super(user, rawcmd);
         String cmd[] = rawcmd.split("\\|");
-        message = cmd[4];
-        chatroomId = Integer.parseInt(cmd[1]);
+        message = cmd[3];
+        chatName = cmd[1];
     }
 
     public String getMessage() {
         return message;
     }
 
-    public int getChatroomId() {
-        return chatroomId;
+    public String getChatName() {
+        return chatName;
     }
 }
