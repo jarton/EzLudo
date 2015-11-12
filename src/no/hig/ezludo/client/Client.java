@@ -12,6 +12,7 @@ import java.net.Socket;
  */
 public class Client {
     private String email;
+    private String nickName;
     private String password;
     private String mainKey;
     private Socket socket;
@@ -30,9 +31,16 @@ public class Client {
         connectToLobby();
     }
 
-    public void sendChatMessage(String message, String chatRoomId) {
-        output.println("CHAT|" + chatRoomId + "|LOBBY|" + email + "|" + message);
+    public void sendChatMessage(String message, String chatRoomName) {
+        output.println("CHAT|" + chatRoomName + "|" + nickName + "|" + message);
         output.flush();
+    }
+
+    public void joinChatRoom(String roomName) {
+        output.println("JOIN CHAT|" + roomName);
+        output.flush();
+
+
     }
 
     public void setMainController(MainController ctrl) {
@@ -53,9 +61,9 @@ public class Client {
                         if (command[0].equals("CHAT")) {
                                 System.out.println("recived chat");
                                 mainController.displayMessage(command);
+                        } else if (command[0].equals("CHAT JOINED")) {
+                              mainController.newChatRoom(command);
                             /*
-                        } else if (command[0].equals("NEW GAME")) {
-                            startNewGame (command);
                         } else if (command[0].equals("PLAYER TURN")) {
                             games.get(Long.parseLong(command[1])).showActivePlayer(Integer.parseInt(command[2]));
                             if (command.length>3&&command[3].equals("YOUR TURN"))
@@ -69,7 +77,6 @@ public class Client {
                 }
             }
         }).start();
-        // TODO: Discuss ways to handle chat. Need to decide on structure of client program in order to finish the method.
     }
 
     /**
@@ -93,7 +100,10 @@ public class Client {
         try {
             output.println(mainKey);
             output.flush();
-            if (input.readLine().equals("LOGGED IN")) {
+            String response = input.readLine();
+            if (response.startsWith("LOGGED IN")) {
+                String[] command = response.split("\\|");
+                nickName = command[1];
                 startListener();
                 System.out.println("listener started");
             }

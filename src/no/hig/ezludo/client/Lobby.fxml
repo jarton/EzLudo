@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="no.hig.ezludo.client.MainController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.hig.ezludo.client.MainController">
     <center>
         <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -38,26 +36,13 @@
                      <children>
                         <BorderPane layoutX="300.0" layoutY="46.0" prefHeight="538.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <top>
-                              <Pane fx:id="ludoBoard" prefHeight="406.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-                                 <children>
-                                    <ImageView fitHeight="397.0" fitWidth="645.0" layoutX="14.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/res/board.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView fitHeight="69.0" fitWidth="83.0" layoutX="441.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="/res/dices/dice1.png" />
-                                       </image></ImageView>
-                                    <Button layoutX="523.0" layoutY="380.0" mnemonicParsing="false" text="Roll" />
-                                 </children></Pane>
+                              <Pane prefHeight="406.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
                            </top>
                            <bottom>
                               <TextField BorderPane.alignment="CENTER" />
                            </bottom>
                            <center>
                               <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
                            </center>
                         </BorderPane>
                      </children></AnchorPane>
@@ -76,7 +61,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#newChatroom" text="New chat" />
+              <MenuItem mnemonicParsing="false" onAction="#chooseChatRoomName" text="New chat" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

@@ -11,7 +11,7 @@ import javafx.scene.control.TextField;
  */
 public class ChatController {
 
-    private String id;
+    private String roomName;
     @FXML private ListView chatListView;
 
     /**
@@ -22,8 +22,7 @@ public class ChatController {
     @FXML
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
-        //TODO: why is the client object null???!
-        MainController.client.sendChatMessage(source.getText(), id);
+        MainController.client.sendChatMessage(source.getText(), roomName);
     }
 
     /**
@@ -40,7 +39,7 @@ public class ChatController {
         });
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 }
