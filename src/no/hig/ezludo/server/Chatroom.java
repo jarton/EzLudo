@@ -8,7 +8,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
-import java.io.InputStream;
 import java.util.Vector;
 
 /**
@@ -17,15 +16,10 @@ import java.util.Vector;
 public class Chatroom {
     private Vector<User> users = new Vector<>();
     private String name = "new Chatroom";
-    private int id = -1;
     private final static Logger logger = Logger.getLogger("chatLogger");
 
     public Chatroom(String name) {
         this.name = name;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -51,7 +45,7 @@ public class Chatroom {
                 users.stream().parallel().forEach(user -> {
                     try {
                         user.write(cmd.getRawCmd());
-                        logger.warn(cmd);
+                        logger.warn(cmd.getRawCmd());
                     } catch (Exception e) {
                         usersClosedSocets.add(user);
                         users.remove(user);
@@ -64,7 +58,7 @@ public class Chatroom {
             logger.warn(cmd.getUser().getNickname() + "left chat");
         }
 
-        String response = "USERS|" + id + "|" + name;
+        String response = "USERS|" + name;
         for (User usr : users) {
             response += "|" + usr.getNickname();
         }
