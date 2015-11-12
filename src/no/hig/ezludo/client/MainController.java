@@ -128,6 +128,10 @@ public class MainController extends Application {
         });
     }
 
+    public void updateUsers(String[] command) {
+        tabMap.get(command[1]).updateUsers(command);
+    }
+
     public static void setClient(List<String> args) {
         client = new Client(args.get(0), args.get(1), args.get(2));
     }

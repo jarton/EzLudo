@@ -59,15 +59,13 @@ public class Client {
                     while ((cmd=input.readLine())!=null) {
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("CHAT")) {
-                                System.out.println("recived chat");
-                                mainController.displayMessage(command);
+                            System.out.println("recived chat");
+                            mainController.displayMessage(command);
                         } else if (command[0].equals("CHAT JOINED")) {
-                              mainController.newChatRoom(command);
+                            mainController.newChatRoom(command);
+                        } else if (command[0].equals("USERS")) {
+                            mainController.updateUsers(command);
                             /*
-                        } else if (command[0].equals("PLAYER TURN")) {
-                            games.get(Long.parseLong(command[1])).showActivePlayer(Integer.parseInt(command[2]));
-                            if (command.length>3&&command[3].equals("YOUR TURN"))
-                                games.get(Long.parseLong(command[1])).myTurn(Integer.parseInt(command[2]));
                         } else if (command[0].equals("MOVE")) {
                             games.get(Long.parseLong(command[1])).movePiece(Integer.parseInt(command[2]), Integer.parseInt(command[3]), Integer.parseInt(command[4]));
                        */ }
@@ -111,5 +109,4 @@ public class Client {
             e.printStackTrace();
         }
     }
-
 }
