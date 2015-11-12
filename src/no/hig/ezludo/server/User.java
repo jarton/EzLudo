@@ -60,8 +60,8 @@ public class User {
                 stmnt.execute();
                 write("LOGGED IN");
             }
-        } catch (SQLException sqlEx) {
-            write("Database error");
+        } catch (Exception ex) {
+           ex.printStackTrace();
         }
         return true;
     }
@@ -70,15 +70,10 @@ public class User {
      * writes a string back to the user through the socketBuffer.
      * @param string the string to write
      */
-    public void write(String string) {
-        try {
+    public void write(String string) throws IOException {
             buffWriter.write(string);
             buffWriter.newLine();
             buffWriter.flush();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**

@@ -52,10 +52,12 @@ public class Chatroom {
                         logger.warn(cmd);
                     } catch (Exception e) {
                         usersClosedSocets.add(user);
+                        users.remove(user);
+                        logger.warn(user.getNickname() + "left the chatroom");
                     }
                 });
             }
-        } else if (command[0].equals("LEAVE CHAT")) {
+        } else if (command[0].equals("CHAT LEAVE")) {
             for (User usr : users) {
                 String nickname = usr.getNickname();
                 if (nickname == command[3]) {
@@ -63,23 +65,24 @@ public class Chatroom {
                     logger.warn(command[3] + "left chat");
                 }
             }
-        } else if (command[0].equals("GET USERS")) {
-            String response = "GET USERS|" + command[1];
-            for (User usr : users) {
-                response += "|" + usr.getNickname();
-            }
-            final String usrList = response;
-            synchronized (users) {
-                users.stream().parallel().forEach(user -> {
-                    try {
-                        user.write(usrList);
-                    } catch (Exception e) {
-                        usersClosedSocets.add(user);
-                    }
-                });
-            }
-
         }
 
+        String response = "USERS|" + command[1] + "|" + command[2];
+        for (User usr : users) {
+            response += "|" + usr.getNickname();
+        }
+        final String usrList = response;
+
+        synchronized (users) {
+            users.stream().parallel().forEach(user -> {
+                try {
+                    user.write(usrList);
+                } catch (Exception e) {
+                    usersClosedSocets.add(user);
+                    users.remove(user);
+                    logger.warn(user.getNickname() + "left the chatroom");
+                }
+            });
+        }
     }
 }

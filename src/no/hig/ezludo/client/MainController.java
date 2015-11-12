@@ -1,6 +1,7 @@
 package no.hig.ezludo.client;
 
 import javafx.application.Application;
+import javafx.embed.swing.SwingNode;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,6 +30,8 @@ public class MainController extends Application {
     private HashMap<String, ChatController> tabMap = new HashMap<>();
     public ListView chatListView;
     public Scene lobbyScene;
+//    public Pane ludoBoard;
+
 
     public static Client client;
 
@@ -50,6 +54,12 @@ public class MainController extends Application {
             Parent root = (Parent) loader.load();
 
             client.setMainController(loader.getController());
+
+            // Ludo board
+           // final SwingNode swingNode = new SwingNode();
+          //  createAndSetSwingContent(swingNode);
+          //  ludoBoard.getChildren().add(swingNode); // Adding swing node
+            ///////////////
 
             primaryStage.setTitle("Ez-Ludo");
             primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
@@ -121,4 +131,16 @@ public class MainController extends Application {
     public static void startScene(String[] args) {
         launch(args);
     }
+
+/*
+    // Get swing. add to javafx pane
+    private void createAndSetSwingContent(final SwingNode swingNode) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                JPanel panel = new LudoBoard();
+                swingNode.setContent(panel);
+            }
+        });
+    } */
 }

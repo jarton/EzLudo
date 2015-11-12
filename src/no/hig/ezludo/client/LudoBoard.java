@@ -26,7 +26,7 @@ public class LudoBoard extends JPanel {
         Graphics2D g2d = (Graphics2D)g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
-        g2d.drawImage(board, 0, 0, this);
+        g2d.drawImage(board, 0, 0,900,600, this);
     }
 
 
