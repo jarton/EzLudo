@@ -30,8 +30,8 @@ public class Client {
         connectToLobby();
     }
 
-    public void sendChatMessage(String message) {
-        output.println("CHAT|0|LOBBY|" + email + "|" + message);
+    public void sendChatMessage(String message, String chatRoomId) {
+        output.println("CHAT|" + chatRoomId + "|LOBBY|" + email + "|" + message);
         output.flush();
     }
 
@@ -52,7 +52,7 @@ public class Client {
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("CHAT")) {
                                 System.out.println("recived chat");
-                                mainController.displayLobbyMessage(command[3] + ": " + command[4]);
+                                mainController.displayMessage(command);
                             /*
                         } else if (command[0].equals("NEW GAME")) {
                             startNewGame (command);

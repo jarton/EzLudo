@@ -6,14 +6,18 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -22,9 +26,10 @@ import java.util.List;
  * @author Per-Kristian Nilsen
  */
 public class MainController extends Application {
+    @FXML private TabPane tabPane;
+    private HashMap<String, ChatController> tabMap = new HashMap<>();
     public ListView chatListView;
     public Scene lobbyScene;
-//    public Pane ludoBoard;
 
 
     public static Client client;
@@ -49,12 +54,6 @@ public class MainController extends Application {
 
             client.setMainController(loader.getController());
 
-            // Ludo board
-           // final SwingNode swingNode = new SwingNode();
-          //  createAndSetSwingContent(swingNode);
-          //  ludoBoard.getChildren().add(swingNode); // Adding swing node
-            ///////////////
-
             primaryStage.setTitle("Ez-Ludo");
             primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
             primaryStage.show();
@@ -74,9 +73,9 @@ public class MainController extends Application {
         TextField source = (TextField) event.getSource();
         //TODO: why is the client object null???!
         if (client != null) {
-            client.sendChatMessage(source.getText());
+            //TODO this function is bs
+            client.sendChatMessage(source.getText(), "0");
         }
-        //TODO: The message sent will be returned to the client, so this method shouldn't display the message sent.
     }
 
     /**
@@ -87,10 +86,31 @@ public class MainController extends Application {
     public void displayLobbyMessage(String text) {
         Platform.runLater(new Runnable() {
             @Override
-            public void run() {
+            public void run()
+            {
                 chatListView.getItems().add(text);
             }
         });
+    }
+
+    public void displayMessage(String[] text) {
+        tabMap.get(text[1]).displayMessage(text[3] + ": " + text[4]);
+    }
+    public void newChatroom() {
+        //TODO Let user decide chat room name
+        //TODO Send to server and get response
+        Tab tab = new Tab("new chat");
+        tabPane.getTabs().add(tab);
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Chatroom.fxml"));
+            tab.setContent((Node) loader.load());
+            ChatController chatController = loader.getController();
+            tabMap.put("0",chatController);
+            //TODO  Fix the "0" stuff
+            chatController.setId("0");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void setClient(List<String> args) {
@@ -105,15 +125,4 @@ public class MainController extends Application {
         launch(args);
     }
 
-/*
-    // Get swing. add to javafx pane
-    private void createAndSetSwingContent(final SwingNode swingNode) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                JPanel panel = new LudoBoard();
-                swingNode.setContent(panel);
-            }
-        });
-    } */
 }
