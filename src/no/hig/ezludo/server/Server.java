@@ -29,7 +29,6 @@ public class Server {
 	private LinkedBlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
    private ServerSocket loginServerSocket=null;
 	private ServerSocket mainSocket =null;
-	//private Vector<Chatroom> chatRooms = new Vector<>();
 	private HashMap<String, Chatroom> chatRooms = new HashMap<>();
 	private static final int loginPortNum = 6969;
 	private static final int mainPortNum = 9696;
@@ -100,6 +99,8 @@ public class Server {
 								commandQueue.put(new Chatcommand(cmd, user));
 							else if (cmd.startsWith("JOIN RANDOM"))
 								commandQueue.put(new JoinRandomGame(cmd, user));
+							else if (cmd.startsWith("GAME"))
+								commandQueue.put(new GameCommand(cmd, user));
 							serverLogger.info("received command: " + cmd);
 						}
 					} catch (Exception e) {
@@ -152,6 +153,9 @@ public class Server {
 					}
 					else if (cmd instanceof StartNewGame) {
 						//TODO start new game
+					}
+					else if (cmd instanceof GameCommand) {
+						//TODO send command to game
 					}
 				}
 			} catch (Exception e) {
