@@ -109,13 +109,18 @@ public class Login extends JFrame  {
             @Override
             public void actionPerformed (ActionEvent e) {
                 try {
-                    if (performLogin()) {
+                    String[] result = performLogin();
+                    if (!result[0].equals("fail")) {
                         jframe.dispose();
+                        System.out.println(result[0]);
+                        System.out.println(result[2]);
+                        MainController.startScene(result);
                     } else {
                      //TODO: Handle rejected login
                      System.out.println("Login failed");
                     }
                 } catch (Exception ex) {
+                    ex.printStackTrace();
                     }
             }
         });
@@ -156,7 +161,7 @@ public class Login extends JFrame  {
      * window), and the function returns true. If the login wasn't successful, the function returns false.
      * @return true or false depending on successful login attempt
      */
-    public boolean performLogin() throws NoSuchAlgorithmException {
+    public String[] performLogin() throws NoSuchAlgorithmException {
         try {
             if (password != null) {
                 String passwordString = String.valueOf(password);
@@ -182,15 +187,15 @@ public class Login extends JFrame  {
                 if (response.startsWith("LOGIN OK")) {
                     String key = response.split("\\|")[1];
                     String[] args = {email, new String(password), key};
-                    MainController.startScene(args);
-                    return true;
+                    return args;
                 }
         }
 
         } catch(IOException exception) {
             exception.printStackTrace();
         }
-        return false;
+        // Return "fail" message if login fails
+        return new String[]{"fail"};
     }
 
     /**
