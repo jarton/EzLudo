@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
+
+import no.hig.ezludo.server.commands.*;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -19,14 +21,13 @@ import org.apache.log4j.PropertyConfigurator;
  * @author jdr
  */
 public class Server {
-   private Internationalization internationalization;
 	private final static String dbUrl = "jdbc:derby:ezLudoServer;";
 	private static Connection database;
 	private Vector<User> users = new Vector<>();
    private Vector<User> usersWaitingForGame = new Vector<>();
 	private Vector<User> usersClosedSocets = new Vector<>();
    private Vector<Game> games = new Vector<>();
-	private LinkedBlockingQueue<String> commandQueue = new LinkedBlockingQueue<>();
+	private LinkedBlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
    private ServerSocket loginServerSocket=null;
 	private ServerSocket mainSocket =null;
 	private Vector<Chatroom> chatRooms = new Vector<>();
@@ -70,7 +71,7 @@ public class Server {
 					games.add(game);
 					game.setId(games.indexOf(game));
 					try {
-						//TODO: game commands
+						commandQueue.put(new StartNewGame(game));
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
@@ -94,7 +95,12 @@ public class Server {
 					try {
 						if (user.ready()) {
 							String cmd = user.readLine();
-							commandQueue.put(cmd);
+							if (cmd.startsWith("CHAT"))
+								commandQueue.put(new Chatmessage(cmd, user));
+							else if (cmd.startsWith("JOIN CHAT") || cmd.startsWith("LEAVE CHAT"))
+								commandQueue.put(new Chatcommand(cmd, user));
+							else if (cmd.startsWith("JOIN RANDOM"))
+								commandQueue.put(new JoinRandomGame(cmd, user));
 							serverLogger.info("received command: " + cmd);
 						}
 					} catch (Exception e) {
@@ -113,38 +119,44 @@ public class Server {
 
 	private void startCommandHandler() {
 		new Thread (()->{
-			String msg;
+			Command cmd;
 			try {
-				while ((msg=commandQueue.take())!=null) {
-					String command[] = msg.split("\\|");
-					serverLogger.info("handling command " + msg);
-
-					if (command[0].startsWith("CHAT")) {
-						int id = Integer.parseInt(command[1]);
-						chatRooms.get(id).chatHandler(msg, usersClosedSocets);
-					} else if (command[0].equals("JOIN CHAT")) {
-						int id = Integer.parseInt(command[1]);
+				while ((cmd=commandQueue.take())!=null) {
+					serverLogger.info("handling command " + cmd.getRawCmd());
+					if (cmd instanceof Chatmessage) {
+						chatRooms.get(((Chatmessage)cmd).getChatroomId()).chatHandler(cmd, usersClosedSocets);
+					} else if (cmd instanceof Chatcommand) {
+						String type = ((Chatcommand)cmd).getType();
+						if (type.startsWith("LEAVE")) {
+							chatRooms.get(((Chatcommand)cmd).getChatroomId()).chatHandler(cmd, usersClosedSocets);
+						}
+						else if (type.startsWith("JOIN")) {
+							String chatName = ((Chatcommand) cmd).getChatName();
+							int chatId = ((Chatcommand) cmd).getChatroomId();
 							boolean foundRoom = false;
 							for (Chatroom rooms : chatRooms) {
-								if (rooms.equals(rooms.getName()))
+								if (rooms.getName().equals(chatName))
 									foundRoom = true;
 							}
-						if (!foundRoom) {
-							Chatroom chatroom = new Chatroom(command[2]);
-							chatRooms.add(chatroom);
-							id = chatRooms.indexOf(chatroom);
-							chatroom.setId(id);
-							serverLogger.info("chatRoom created: " + command[2]);
-						}
-						for (User usr : users) {
-							if (usr.getNickname().equals(command[3])) {
-								chatRooms.get(id).getUsers().add(usr);
-								serverLogger.info("user " + command[3] + " added to chatroom: "
-										+ command[2]);
-								usr.write("CHAT CREATED|" + id + "|" + command[2]);
+							if (!foundRoom) {
+								Chatroom chatroom = new Chatroom(chatName);
+								chatRooms.add(chatroom);
+								chatId = chatRooms.indexOf(chatroom);
+								chatroom.setId(chatId);
+								serverLogger.info("chatRoom created: " + chatName);
 							}
-
+							chatRooms.get(chatId).getUsers().add(cmd.getUser());
+							serverLogger.info("user " + cmd.getUser().getNickname() +
+									" added to chatroom: " + chatName);
+							try {
+								cmd.getUser().write("CHAT CREATED|" + chatId + "|" + ((Chatcommand) cmd).getChatName());
+							} catch (Exception ex) {
+								usersClosedSocets.add(cmd.getUser());
+							}
 						}
+					}
+					else if (cmd instanceof JoinRandomGame) {
+						usersWaitingForGame.add(cmd.getUser());
 					}
 				}
 			} catch (Exception e) {
