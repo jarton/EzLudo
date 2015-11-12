@@ -9,16 +9,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * This class handles the GUI of the lobby, and whatever events may happen in the window.
@@ -101,23 +99,40 @@ public class MainController extends Application {
     }
 
     public void displayMessage(String[] text) {
-        tabMap.get(text[1]).displayMessage(text[3] + ": " + text[4]);
+        tabMap.get(text[1]).displayMessage(text[2] + ": " + text[3]);
     }
-    public void newChatroom() {
+
+    public void chooseChatRoomName() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("New chat room");
+        dialog.setHeaderText("Create your chat room");
+        dialog.setContentText("Enter a unique room name:");
+
+        Optional<String> result = dialog.showAndWait();
+
+        result.ifPresent(roomName -> client.joinChatRoom(roomName));
+    }
+
+    public void newChatRoom(String[] response) {
         //TODO Let user decide chat room name
         //TODO Send to server and get response
-        Tab tab = new Tab("new chat");
-        tabPane.getTabs().add(tab);
-        try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Chatroom.fxml"));
-            tab.setContent((Node) loader.load());
-            ChatController chatController = loader.getController();
-            tabMap.put("0",chatController);
-            //TODO  Fix the "0" stuff
-            chatController.setId("0");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run()
+            {
+                Tab tab = new Tab(response[1]);
+                tabPane.getTabs().add(tab);
+                try {
+                    FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Chatroom.fxml"));
+                    tab.setContent((Node) loader.load());
+                    ChatController chatController = loader.getController();
+                    tabMap.put(response[1], chatController);
+                    chatController.setRoomName(response[1]);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     public static void setClient(List<String> args) {
