@@ -141,6 +141,7 @@ public class Server {
 								chatRooms.get(id).getUsers().add(usr);
 								serverLogger.info("user " + command[3] + " added to chatroom: "
 										+ command[2]);
+								usr.write("CHAT CREATED|" + id + "|" + command[2]);
 							}
 
 						}
@@ -160,7 +161,7 @@ public class Server {
 		synchronized (users) {
 			usersClosedSocets.stream().parallel().forEach(user-> {
 				users.remove(user);
-				//serverLogger.log(Level.INFO, user.getNickname() + " was Removed for io");
+				serverLogger.info(user.getNickname() + " removed user with io exc");
 			});
 		}
 		usersClosedSocets.clear();
