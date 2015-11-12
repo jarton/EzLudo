@@ -1,7 +1,8 @@
 package no.hig.ezludo.client;
 
-import com.sun.xml.internal.rngom.digested.DDataPattern;
 import javafx.application.Application;
+import javafx.embed.swing.SwingNode;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,11 +10,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import sun.applet.Main;
 
+import javax.swing.*;
 import java.util.List;
-import java.util.Map;
 
 /**
  * This class handles the GUI of the lobby, and whatever events may happen in the window.
@@ -23,6 +24,8 @@ import java.util.Map;
 public class MainController extends Application {
     public ListView chatListView;
     public Scene lobbyScene;
+//    public Pane ludoBoard;
+
 
     public static Client client;
 
@@ -45,6 +48,12 @@ public class MainController extends Application {
             Parent root = (Parent) loader.load();
 
             client.setMainController(loader.getController());
+
+            // Ludo board
+           // final SwingNode swingNode = new SwingNode();
+          //  createAndSetSwingContent(swingNode);
+          //  ludoBoard.getChildren().add(swingNode); // Adding swing node
+            ///////////////
 
             primaryStage.setTitle("Ez-Ludo");
             primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
@@ -76,7 +85,12 @@ public class MainController extends Application {
      */
     @FXML
     public void displayLobbyMessage(String text) {
-        chatListView.getItems().add(text);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chatListView.getItems().add(text);
+            }
+        });
     }
 
     public static void setClient(List<String> args) {
@@ -90,4 +104,16 @@ public class MainController extends Application {
     public static void startScene(String[] args) {
         launch(args);
     }
+
+/*
+    // Get swing. add to javafx pane
+    private void createAndSetSwingContent(final SwingNode swingNode) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                JPanel panel = new LudoBoard();
+                swingNode.setContent(panel);
+            }
+        });
+    } */
 }

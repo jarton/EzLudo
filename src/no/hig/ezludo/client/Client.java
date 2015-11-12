@@ -15,7 +15,7 @@ public class Client {
     private String password;
     private String mainKey;
     private Socket socket;
-    private String serverIP = "127.0.0.1";
+    private String serverIP = "128.39.142.181";
     private int portNumber = 9696;
     private PrintWriter output;
     private BufferedReader input;
