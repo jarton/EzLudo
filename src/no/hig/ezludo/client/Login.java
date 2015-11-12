@@ -2,6 +2,7 @@ package no.hig.ezludo.client;
 
 import Internationalization.Internationalization;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -46,6 +47,7 @@ public class Login extends JFrame  {
         messages = internationalization.getLang();
         createPanel();
         jframe = this;
+        this.setIconImage(new ImageIcon(getClass().getResource("/res/board.png")).getImage());
     }
 
     /**

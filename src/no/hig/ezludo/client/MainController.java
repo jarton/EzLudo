@@ -28,7 +28,6 @@ public class MainController extends Application {
     private HashMap<String, ChatController> tabMap = new HashMap<>();
     public ListView chatListView;
     public Scene lobbyScene;
-//    public Pane ludoBoard;
 
 
     public static Client client;
@@ -52,12 +51,6 @@ public class MainController extends Application {
             Parent root = (Parent) loader.load();
 
             client.setMainController(loader.getController());
-
-            // Ludo board
-           // final SwingNode swingNode = new SwingNode();
-          //  createAndSetSwingContent(swingNode);
-          //  ludoBoard.getChildren().add(swingNode); // Adding swing node
-            ///////////////
 
             primaryStage.setTitle("Ez-Ludo");
             primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
@@ -147,15 +140,4 @@ public class MainController extends Application {
         launch(args);
     }
 
-/*
-    // Get swing. add to javafx pane
-    private void createAndSetSwingContent(final SwingNode swingNode) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                JPanel panel = new LudoBoard();
-                swingNode.setContent(panel);
-            }
-        });
-    } */
 }
