@@ -1,9 +1,5 @@
 package no.hig.ezludo.client;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import sun.applet.Main;
-
 import java.io.*;
 import java.net.Socket;
 
@@ -40,6 +36,22 @@ public class Client {
         output.flush();
     }
 
+    public void joinRandomGame() {
+        output.println("JOIN RANDOM");
+        output.flush();
+    }
+
+    public void rollDice(String gameId, String gameName) {
+        //output.println("GAME|" + id + "|" + gameName + "|ROLL");
+        //TODO finsh this
+        output.flush();
+    }
+
+    public void movePiece(String gameId, String gameName, String pieceToMove) {
+        //output.println("GAME|" + id + "|" + gameName + "|MOVE|"+ pieceToMove);
+        //TODO finsh this
+    }
+
     public void leaveChatRoom(String roomName) {
         output.println("LEAVE CHAT|" + roomName);
         output.flush();
@@ -67,10 +79,11 @@ public class Client {
                             mainController.newChatRoom(command);
                         } else if (command[0].equals("USERS")) {
                             mainController.updateUsers(command);
-                            /*
-                        } else if (command[0].equals("MOVE")) {
-                            games.get(Long.parseLong(command[1])).movePiece(Integer.parseInt(command[2]), Integer.parseInt(command[3]), Integer.parseInt(command[4]));
-                       */ }
+                        } else if (command[0].equals("GAME STARTED")) {
+                            mainController.startGame(command);
+                        } else if (command[0].equals("GAME")) {
+                            //TODO HANDLE GAME COMMANDS
+                       }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -73,11 +73,17 @@ public class MainController extends Application {
     @FXML
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
-        //TODO: why is the client object null???!
-        if (client != null) {
-            //TODO this function is bs
             client.sendChatMessage(source.getText(), "0");
-        }
+    }
+
+    @FXML
+    public void startGame(String[] command) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                //TODO create a new game tab. add game to hashmap set controller see createNewChatroom func
+            }
+        });
     }
 
     /**
@@ -111,12 +117,9 @@ public class MainController extends Application {
     }
 
     public void newChatRoom(String[] response) {
-        //TODO Let user decide chat room name
-        //TODO Send to server and get response
         Platform.runLater(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 Tab tab = new Tab(response[1]);
                 tabPane.getTabs().add(tab);
                 try {

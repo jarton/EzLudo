@@ -63,7 +63,8 @@ public class Chatroom {
             writeUsers(usersClosedSocets);
             logger.warn(cmd.getUser().getNickname() + "left chat");
         }
-        deleteChatroom();
+        if (!name.equals("lobby"))
+            deleteChatroom();
     }
 
     public void writeUsers(Vector<User> usersClosedSocets) {
@@ -110,10 +111,11 @@ public class Chatroom {
                 if (users.isEmpty()) {
                     chatroomsMap.remove(name);
                     logger.warn("deleted chatroom because no users left");
+                    break;
                 }
 
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10000);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

@@ -70,6 +70,7 @@ public class Server {
 					game.setId(games.indexOf(game));
 					try {
 						commandQueue.put(new StartNewGame(game));
+						serverLogger.info("new random game started");
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
