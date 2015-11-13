@@ -3,6 +3,8 @@ package no.hig.ezludo.client;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -54,6 +56,10 @@ public class MainController extends Application {
             primaryStage.setTitle("Ez-Ludo");
             primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
             primaryStage.show();
+
+            // Join the lobby chat
+            client.joinChatRoom("lobby");
+
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -123,9 +129,14 @@ public class MainController extends Application {
                     ChatController chatController = loader.getController();
                     tabMap.put(response[1], chatController);
                     chatController.setRoomName(response[1]);
-                    if (users.length > 0) {
+                    if (users != null && users.length > 0) {
                         tabMap.get(users[1]).updateUsers(users);
                     }
+                    tab.setOnClosed(new EventHandler<Event>(){
+                        @Override public void handle(Event event){
+                            client.leaveChatRoom(chatController.getRoomName());
+                        }
+                    });
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -1,9 +1,5 @@
 package no.hig.ezludo.client;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import sun.applet.Main;
-
 import java.io.*;
 import java.net.Socket;
 
@@ -55,6 +51,10 @@ public class Client {
     public void movePiece(String gameId, String gameName, String pieceToMove) {
         //output.println("GAME|" + id + "|" + gameName + "|MOVE|"+ pieceToMove);
         //TODO finsh this
+    }
+
+    public void leaveChatRoom(String roomName) {
+        output.println("LEAVE CHAT|" + roomName);
         output.flush();
     }
 
