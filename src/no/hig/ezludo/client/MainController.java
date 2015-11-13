@@ -47,7 +47,6 @@ public class MainController extends Application {
             Parameters parameters = getParameters();
             List<String> rawArguments = parameters.getRaw();
             MainController.setClient(rawArguments);
-            client.setMainController(this);
 
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Lobby.fxml"));
             Parent root = (Parent) loader.load();
@@ -153,6 +152,7 @@ public class MainController extends Application {
             tabMap.get(command[1]).updateUsers(command);
     }
 
+
     public static void setClient(List<String> args) {
         client = new Client(args.get(0), args.get(1), args.get(2));
     }
@@ -164,5 +164,4 @@ public class MainController extends Application {
     public static void startScene(String[] args) {
         launch(args);
     }
-
 }

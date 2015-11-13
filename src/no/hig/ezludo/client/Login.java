@@ -32,9 +32,9 @@ public class Login extends JFrame  {
     private JPanel panel;
     public UserAccount userAccount;
     private String email;
+    private String IP;
     private char[] password;
     public JFrame jframe;
-    private String serverIP = Constants.serverIP;
     private Socket socket;
 
     /**
@@ -104,9 +104,32 @@ public class Login extends JFrame  {
         });
         panel.add(passwordText);
 
+        // IP label
+        JLabel IPLabel = new JLabel(messages.getString("loginIP"));
+        IPLabel.setBounds(10, 70, 80, 25);
+        panel.add(IPLabel);
+
+        // User input field
+        JTextField IPText = new JTextField(20);
+        IPText.setBounds(100, 70, 160, 25);
+        IPText.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) {
+                IP = IPText.getText();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                IP = IPText.getText();
+            }
+
+            public void insertUpdate(DocumentEvent e) {
+                IP = IPText.getText();
+            }
+        });
+        panel.add(IPText);
+
         // Login Button
         JButton loginButton = new JButton(messages.getString("loginLogin"));
-        loginButton.setBounds(10,80,80,25);
+        loginButton.setBounds(10,110,80,25);
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed (ActionEvent e) {
@@ -130,7 +153,7 @@ public class Login extends JFrame  {
 
         // Register Button
         JButton registerButton = new JButton(messages.getString("loginRegister"));
-        registerButton.setBounds(180, 80, 80, 25);
+        registerButton.setBounds(180, 110, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -169,8 +192,8 @@ public class Login extends JFrame  {
                 String passwordString = String.valueOf(password);
                 String hashedPassword = getSHA256(passwordString, email);
 
-                //TODO: serverIP is set to 127.0.0.1 for testing. We need to make this configurable.
-                socket = new Socket(serverIP, 6969);
+                Constants.serverIP = IP;
+                socket = new Socket(Constants.serverIP, Constants.portNumber);
                 PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                 BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -187,6 +210,7 @@ public class Login extends JFrame  {
 
                 // If the response starts with "LOGIN OK", create a new client object and send along the key received
                 if (response.startsWith("LOGIN OK")) {
+                    System.out.println("performLogin: " + response);
                     String key = response.split("\\|")[1];
                     String[] args = {email, new String(password), key};
                     return args;
@@ -249,7 +273,7 @@ public class Login extends JFrame  {
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         Login login = new Login();
         login.setLocation(dim.width/2-login.getSize().width/2, dim.height/2-login.getSize().height/2);
-        login.setPreferredSize(new Dimension(350, 150));
+        login.setPreferredSize(new Dimension(350, 180));
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         login.pack();
         login.setVisible(true);

@@ -293,7 +293,7 @@ public class UserAccount {
 
     public void toLogin() {
         jFrame.remove(panel);
-        jFrame.setPreferredSize(new Dimension(350, 150));
+        jFrame.setPreferredSize(new Dimension(350, 190));
         jFrame.add(loginPanel);
         jFrame.pack();
 
