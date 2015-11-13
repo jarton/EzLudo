@@ -28,7 +28,7 @@ public class LudoBoard extends JPanel {
         board = tmpBoard.getImage();
 
         // get red Chip image
-        ImageIcon tmpRed = new ImageIcon (getClass().getResource("/res/red2.png"));
+        ImageIcon tmpRed = new ImageIcon (getClass().getResource("/res/red2final.png"));
         int redHeight = tmpRed.getIconHeight();
         int redWidth = tmpRed.getIconWidth();
         redSize = new Dimension(redWidth, redHeight);
