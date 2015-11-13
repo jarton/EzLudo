@@ -49,7 +49,7 @@ public class Server {
 	   } catch (SQLException sqlEx) {
 		   sqlEx.printStackTrace();
 	   }
-	   lobby = new Chatroom("lobby");
+	   lobby = new Chatroom("lobby", chatRooms);
 	   chatRooms.put("lobby", lobby);
 	   logInListener();
 	   connectionListener();
@@ -134,7 +134,7 @@ public class Server {
 							String chatName = ((Chatcommand) cmd).getChatName();
 
 							if (!chatRooms.containsKey(chatName)) {
-								Chatroom chatroom = new Chatroom(chatName);
+								Chatroom chatroom = new Chatroom(chatName, chatRooms);
 								chatRooms.put(chatName, chatroom);
 								serverLogger.info("chatRoom created: " + chatName);
 							}
@@ -144,7 +144,6 @@ public class Server {
 							try {
 								cmd.getUser().write("CHAT JOINED|" + ((Chatcommand) cmd).getChatName());
 								chatRooms.get(chatName).writeUsers(usersClosedSocets);
-								//TODO this gets to the client too soon before the chatroom is created
 							} catch (Exception ex) {
 								usersClosedSocets.add(cmd.getUser());
 							}
@@ -154,7 +153,7 @@ public class Server {
 						usersWaitingForGame.add(cmd.getUser());
 					}
 					else if (cmd instanceof StartNewGame) {
-						//TODO start new game
+						((StartNewGame)cmd).getGame().startGame();
 					}
 					else if (cmd instanceof GameCommand) {
 						//TODO send command to game
