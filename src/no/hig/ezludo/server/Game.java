@@ -1,5 +1,7 @@
 package no.hig.ezludo.server;
 
+import no.hig.ezludo.server.commands.StartNewGame;
+
 import java.util.Random;
 import java.util.Vector;
 
@@ -25,6 +27,19 @@ public class Game {
 
     public String getName() {
         return name;
+    }
+
+    public void startGame() {
+        synchronized (players) {
+            for (User player : players)
+                try {
+                    player.write("GAME STARTED|"+name+"|"+ players[0].getNickname() + "|" +
+                            players[1].getNickname() + "|" + players[2].getNickname() + "|" +
+                            players[3].getNickname() + "|" + players[4].getNickname());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        }
     }
 
     public int rollDices() {
