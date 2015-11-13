@@ -1,36 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.hig.ezludo.client.MainController">
     <center>
-        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+        <TabPane fx:id="tabPane">
             <tabs>
-                <Tab text="Lobby">
-                    <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <BorderPane layoutX="243.0" layoutY="128.0" prefHeight="538.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <right>
-                              <ScrollPane fitToHeight="true" prefWidth="150.0" BorderPane.alignment="CENTER">
-                                 <content>
-                                    <ListView />
-                                 </content>
-                              </ScrollPane>
-                           </right>
-                           <bottom>
-                              <TextField onAction="#handleTextFieldEvent" BorderPane.alignment="CENTER" />
-                           </bottom>
-                           <center>
-                              <ListView fx:id="chatListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                           </center>
-                        </BorderPane>
-                     </children></AnchorPane>
-                    </content>
-                </Tab>
-                <Tab text="Game">
+                <Tab closable="false" text="Game">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>

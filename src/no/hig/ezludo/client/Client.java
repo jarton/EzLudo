@@ -39,8 +39,11 @@ public class Client {
     public void joinChatRoom(String roomName) {
         output.println("JOIN CHAT|" + roomName);
         output.flush();
+    }
 
-
+    public void leaveChatRoom(String roomName) {
+        output.println("LEAVE CHAT|" + roomName);
+        output.flush();
     }
 
     public void setMainController(MainController ctrl) {
