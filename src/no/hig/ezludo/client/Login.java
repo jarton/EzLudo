@@ -34,7 +34,7 @@ public class Login extends JFrame  {
     private String email;
     private char[] password;
     public JFrame jframe;
-    private String serverIP = "128.39.142.181";
+    private String serverIP = Constants.serverIP;
     private Socket socket;
 
     /**

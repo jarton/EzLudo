@@ -55,9 +55,12 @@ public class Chatroom {
             }
         } else if (cmd instanceof Chatcommand) {
             users.remove(cmd.getUser());
+            writeUsers(usersClosedSocets);
             logger.warn(cmd.getUser().getNickname() + "left chat");
         }
+    }
 
+    public void writeUsers(Vector<User> usersClosedSocets) {
         String response = "USERS|" + name;
         for (User usr : users) {
             response += "|" + usr.getNickname();

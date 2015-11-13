@@ -327,7 +327,7 @@ public class UserAccount {
 
     public void register(String username, String email, String hashedPassword) {
         try {
-            loginClient = new Socket("128.39.142.181", loginPort);
+            loginClient = new Socket(Constants.serverIP, loginPort);
             output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
 

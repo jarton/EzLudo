@@ -143,6 +143,8 @@ public class Server {
 									" added to chatroom: " + chatName);
 							try {
 								cmd.getUser().write("CHAT JOINED|" + ((Chatcommand) cmd).getChatName());
+								chatRooms.get(chatName).writeUsers(usersClosedSocets);
+								//TODO this gets to the client too soon before the chatroom is created
 							} catch (Exception ex) {
 								usersClosedSocets.add(cmd.getUser());
 							}
