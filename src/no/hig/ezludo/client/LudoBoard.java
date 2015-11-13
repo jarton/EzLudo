@@ -28,7 +28,7 @@ public class LudoBoard extends JPanel {
         board = tmpBoard.getImage();
 
         // get red Chip image
-        ImageIcon tmpRed = new ImageIcon (getClass().getResource("/res/dice1.png"));
+        ImageIcon tmpRed = new ImageIcon (getClass().getResource("/res/red2.png"));
         int redHeight = tmpRed.getIconHeight();
         int redWidth = tmpRed.getIconWidth();
         redSize = new Dimension(redWidth, redHeight);
@@ -56,8 +56,8 @@ public class LudoBoard extends JPanel {
         double doubleBoardWidth=getWidth();
 
         // Define red first position
-        redStart[1][1]=0.7671381936887922;
-        redStart[1][2]=0.10062893081761007;
+        redStart[1][1]=0.5350262697022767;
+        redStart[1][2]=0.1348148148148148;
 
         // calculate new position from cordinates and size og ludo board
         double redCordX = redStart[1][1] * doubleBoardWidth;
