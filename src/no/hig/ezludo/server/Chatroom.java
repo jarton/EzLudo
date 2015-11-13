@@ -8,6 +8,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
+import java.util.HashMap;
 import java.util.Vector;
 
 /**
@@ -15,11 +16,14 @@ import java.util.Vector;
  */
 public class Chatroom {
     private Vector<User> users = new Vector<>();
+    private Vector<User> usersToRemove = new Vector<>();
     private String name = "new Chatroom";
+    private HashMap<String, Chatroom> chatroomsMap;
     private final static Logger logger = Logger.getLogger("chatLogger");
 
-    public Chatroom(String name) {
+    public Chatroom(String name, HashMap<String, Chatroom> rooms) {
         this.name = name;
+        chatroomsMap = rooms;
     }
 
     public String getName() {
@@ -48,16 +52,18 @@ public class Chatroom {
                         logger.warn(cmd.getRawCmd());
                     } catch (Exception e) {
                         usersClosedSocets.add(user);
-                        users.remove(user);
+                        usersToRemove.add(user);
                         logger.warn(user.getNickname() + "left the chatroom");
                     }
                 });
             }
+            removeUsers();
         } else if (cmd instanceof Chatcommand) {
             users.remove(cmd.getUser());
             writeUsers(usersClosedSocets);
             logger.warn(cmd.getUser().getNickname() + "left chat");
         }
+        deleteChatroom();
     }
 
     public void writeUsers(Vector<User> usersClosedSocets) {
@@ -73,10 +79,45 @@ public class Chatroom {
                     user.write(usrList);
                 } catch (Exception e) {
                     usersClosedSocets.add(user);
-                    users.remove(user);
+                    usersToRemove.add(user);
                     logger.warn(user.getNickname() + "left the chatroom");
                 }
             });
         }
+        removeUsers();
+    }
+
+    public void removeUsers() {
+        synchronized (usersToRemove) {
+            usersToRemove.stream().parallel().forEach(user-> {
+                users.remove(user);
+            });
+        }
+        usersToRemove.clear();
+    }
+
+    public void deleteChatroom() {
+        new Thread (()->{
+            while (true) {
+                users.stream().parallel().forEach(user -> {
+                    try {
+                        user.write("ping");
+                    } catch (Exception e) {
+                        usersToRemove.add(user);
+                    }
+                });
+                removeUsers();
+                if (users.isEmpty()) {
+                    chatroomsMap.remove(name);
+                    logger.warn("deleted chatroom because no users left");
+                }
+
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 }
