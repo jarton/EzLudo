@@ -28,6 +28,7 @@ public class MainController extends Application {
     private HashMap<String, ChatController> tabMap = new HashMap<>();
     public ListView chatListView;
     public Scene lobbyScene;
+    private String[] users;
 
 
     public static Client client;
@@ -121,6 +122,9 @@ public class MainController extends Application {
                     ChatController chatController = loader.getController();
                     tabMap.put(response[1], chatController);
                     chatController.setRoomName(response[1]);
+                    if (users.length > 0) {
+                        tabMap.get(users[1]).updateUsers(users);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -129,7 +133,11 @@ public class MainController extends Application {
     }
 
     public void updateUsers(String[] command) {
-        tabMap.get(command[1]).updateUsers(command);
+        if (tabMap.get(command[1]) == null) {
+            users = command;
+        }
+        else
+            tabMap.get(command[1]).updateUsers(command);
     }
 
     public static void setClient(List<String> args) {
