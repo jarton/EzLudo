@@ -34,7 +34,6 @@ public class Login extends JFrame  {
     private String email;
     private char[] password;
     public JFrame jframe;
-    private String serverIP = Constants.serverIP;
     private Socket socket;
 
     /**
@@ -169,8 +168,7 @@ public class Login extends JFrame  {
                 String passwordString = String.valueOf(password);
                 String hashedPassword = getSHA256(passwordString, email);
 
-                //TODO: serverIP is set to 127.0.0.1 for testing. We need to make this configurable.
-                socket = new Socket(serverIP, 6969);
+                socket = new Socket(Constants.serverIP, 6969);
                 PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                 BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -187,6 +185,7 @@ public class Login extends JFrame  {
 
                 // If the response starts with "LOGIN OK", create a new client object and send along the key received
                 if (response.startsWith("LOGIN OK")) {
+                    System.out.println("performLogin: " + response);
                     String key = response.split("\\|")[1];
                     String[] args = {email, new String(password), key};
                     return args;

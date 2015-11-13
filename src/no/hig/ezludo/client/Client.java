@@ -16,7 +16,6 @@ public class Client {
     private String password;
     private String mainKey;
     private Socket socket;
-    private String serverIP = Constants.serverIP;
     private int portNumber = 9696;
     private PrintWriter output;
     private BufferedReader input;
@@ -85,7 +84,18 @@ public class Client {
      */
     public void setUpConnection() {
         try {
-            socket = new Socket(serverIP, 9696);
+
+            if (socket != null) {
+                socket.close();
+            }
+            if (output != null) {
+                output.close();
+            }
+            if (input != null) {
+                input.close();
+            }
+
+            socket = new Socket(Constants.serverIP, Constants.portNumber);
             output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
@@ -108,6 +118,7 @@ public class Client {
                 startListener();
                 System.out.println("listener started");
             }
+            System.out.println(response);
         } catch (IOException e){
             e.printStackTrace();
         }
