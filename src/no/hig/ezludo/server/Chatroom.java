@@ -79,7 +79,8 @@ public class Chatroom {
                 try {
                     user.write(usrList);
                 } catch (Exception e) {
-                    usersClosedSocets.add(user);
+                    if (usersClosedSocets != null)
+                        usersClosedSocets.add(user);
                     usersToRemove.add(user);
                     logger.warn(user.getNickname() + "left the chatroom");
                 }
@@ -113,6 +114,7 @@ public class Chatroom {
                     logger.warn("deleted chatroom because no users left");
                     break;
                 }
+                writeUsers(null);
 
                 try {
                     Thread.sleep(10000);

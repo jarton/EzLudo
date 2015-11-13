@@ -80,6 +80,7 @@ public class Game {
                             player.write("GAME|"+id+ "|" + name + "|ROLL|" + playerTurn + "|"+ roll);
                             userPlaces.get(playerTurn.getNickname())[4] = Integer.parseInt(roll);
                         } catch (Exception e) {
+                            usersClosedSocets.add(player);
                             e.printStackTrace();
                         }
                 }
@@ -100,6 +101,7 @@ public class Game {
                                     String.valueOf(pieceToMove) + "|" +
                                     userPlaces.get(playerTurn.getNickname())[pieceToMove]);
                         } catch (Exception e) {
+                            usersClosedSocets.add(player);
                             e.printStackTrace();
                         }
                 }

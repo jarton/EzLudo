@@ -38,7 +38,8 @@ public class Server {
 
 	/**
 	 * starts all the listeners on the servers
-	 * and connects to the database.
+	 * and connects to the database. Also sets up the lobby chat and
+	 * creates a logger.
 	 */
    Server() {
 	   String log4jConfPath = "src/no/hig/ezludo/server/log4j.properties";
@@ -58,7 +59,10 @@ public class Server {
 	   randomGameDispatcher();
    }
 
-
+	/**
+	 * When more than 4 people have asked for a random game this function
+	 * creates one.
+	 */
 	private void randomGameDispatcher() {
 		Thread t = new Thread(()->{
 			while (true) {
@@ -157,7 +161,7 @@ public class Server {
 						((StartNewGame)cmd).getGame().startGame();
 					}
 					else if (cmd instanceof GameCommand) {
-						//TODO send command to game
+						games.get(((GameCommand)cmd).getGameId()).gameHandler(cmd, usersClosedSocets);
 					}
 				}
 			} catch (Exception e) {
@@ -224,7 +228,6 @@ public class Server {
 							User user = new User(socket, database);
 							synchronized(users) {
 								users.add(user);
-								lobby.getUsers().add(user);
 								serverLogger.info(user.getNickname() + " logged in");
 							}
 						} catch (Exception e) {

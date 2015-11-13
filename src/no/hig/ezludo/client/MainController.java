@@ -26,6 +26,7 @@ import java.util.Optional;
 public class MainController extends Application {
     @FXML private TabPane tabPane;
     private HashMap<String, ChatController> tabMap = new HashMap<>();
+    private HashMap<String, GameController> gameMap = new HashMap<>();
     public ListView chatListView;
     public Scene lobbyScene;
     private String[] users;

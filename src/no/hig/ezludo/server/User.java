@@ -49,7 +49,7 @@ public class User {
             stmnt.setString(1, key);
             ResultSet result = stmnt.executeQuery ();
             if (!result.next()) {
-                write("Uknown username/password");
+                write("LOGIN FAILED");
                 return false;
             } else {
                 uid = result.getInt(1);
@@ -88,7 +88,7 @@ public class User {
     /**
      * reads a line in the buffer from the user
      * @return the message from the user
-     * @throws IOException
+     * @throws IOException to user can be removed
      */
     public String readLine () throws IOException {
         return buffReader.readLine();

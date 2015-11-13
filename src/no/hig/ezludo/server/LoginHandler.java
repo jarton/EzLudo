@@ -1,10 +1,7 @@
 package no.hig.ezludo.server;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.sql.PreparedStatement;
 import java.io.*;
 import java.net.Socket;
@@ -12,8 +9,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * class handles login and registration of users. a object of this class
@@ -24,7 +19,6 @@ public class LoginHandler {
     private BufferedReader buffReader;
     private BufferedWriter buffWriter;
     private Connection database;
-    private final static Logger logger = Logger.getLogger("Server");
 
     public LoginHandler (Socket socket, Connection db) throws Exception {
         database = db;
@@ -71,6 +65,7 @@ public class LoginHandler {
                 MessageDigest md = MessageDigest.getInstance("MD5");
                 byte[] keyBytes = md.digest(bytesOfMessage);
                 String key = new String(keyBytes);
+                key = key.substring(0, key.length()/2);
                 query = database.prepareStatement("UPDATE users SET loginkey=? WHERE id=?");
                 query.setString(1, key);
                 query.setInt(2, uid);
@@ -107,7 +102,6 @@ public class LoginHandler {
             }
             else {
                 writeToBuffer("REGISTRATION OK");
-                logger.log(Level.ALL, info[3] + " just was registered");
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
@@ -127,39 +121,5 @@ public class LoginHandler {
         catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    /**
-     * Validates the original password from the users log in data to sha256 hashed password i database.
-     *
-     */
-
-    private static boolean validatePassword(String originalPassword, String storedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException
-    {
-        String[] parts = storedPassword.split(":");
-        int iterations = Integer.parseInt(parts[0]);
-        byte[] salt = fromHex(parts[1]);
-        byte[] hash = fromHex(parts[2]);
-
-        PBEKeySpec spec = new PBEKeySpec(originalPassword.toCharArray(), salt, iterations, hash.length * 8);
-       // SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        SecretKeyFactory skf = SecretKeyFactory.getInstance("SHA-256");
-        byte[] testHash = skf.generateSecret(spec).getEncoded();
-
-        int diff = hash.length ^ testHash.length;
-        for(int i = 0; i < hash.length && i < testHash.length; i++)
-        {
-            diff |= hash[i] ^ testHash[i];
-        }
-        return diff == 0;
-    }
-    private static byte[] fromHex(String hex) throws NoSuchAlgorithmException
-    {
-        byte[] bytes = new byte[hex.length() / 2];
-        for(int i = 0; i<bytes.length ;i++)
-        {
-            bytes[i] = (byte)Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);
-        }
-        return bytes;
     }
 }
