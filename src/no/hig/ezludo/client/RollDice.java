@@ -1,5 +1,4 @@
 package no.hig.ezludo.client;
-import no.hig.ezludo.server.Game;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,13 +13,11 @@ public class RollDice extends JPanel  {
     private int diceNr;
     private final int diceMin = 1;
     private final int diceMax = 6;
-    private final int rounds = 5;
+    private final int rounds = 8;
     private Dimension size;
     private Image dice;
 
-    public RollDice() {
-
-    }
+    public RollDice() { }
 
     public void showImage(int nr) {
         ImageIcon tmpDice = new ImageIcon (getClass().getResource("/res/dices/dice"+nr+".png"));
@@ -33,7 +30,6 @@ public class RollDice extends JPanel  {
 
     @Override
     public void paint(Graphics g) {
-        // Define g2d
         super.paint(g);
         Graphics2D g2d = (Graphics2D)g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -42,18 +38,20 @@ public class RollDice extends JPanel  {
     }
 
     public void rollDices()  {
-        for (int i =0; i<=rounds; i++) {
-            diceNr = randomInt(diceMin, diceMax);
-            delay(400);
-            showImage(diceNr);
-            System.out.print(diceNr);
-        }
-    }
-
-    public void delay(long time) {
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException ex) {}
+        Thread diceLoadingThread = new Thread(new Runnable() {
+            public void run() {
+                for (int i =0; i<=rounds; i++) {
+                    diceNr = randomInt(diceMin, diceMax);
+                    showImage(diceNr);
+                    try {
+                        Thread.sleep(400);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        diceLoadingThread.start();
     }
 
     public static int randomInt(int min, int max) {
@@ -71,20 +69,15 @@ public class RollDice extends JPanel  {
 
         // Mouselistener is used to find coordinates on loaded image
         rollDice.addMouseListener(new MouseAdapter() {
-                                      @Override
-                                      public void mouseClicked(MouseEvent e) {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                rollDice.rollDices();
+            }
+        });
 
-                                          rollDice.rollDices();
-
-                                      }
-                                  }
-
-            );
-            jFrame.add(rollDice);
-            jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            jFrame.pack();
-            jFrame.setVisible(true);
-
-
+        jFrame.add(rollDice);
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.pack();
+        jFrame.setVisible(true);
         }
     }
