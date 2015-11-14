@@ -69,7 +69,7 @@ public class LudoBoard extends JPanel {
 
         // draw image
         // g2d.drawImage(image, Xcord, YCord, Img Widgh , IMG Height , this);
-        g2d.drawImage(red, (intX), (intY), boardWidth/20, boardHeight/20, this);
+       // g2d.drawImage(red, (intX), (intY), boardWidth/20, boardHeight/20, this);
 
 
     }
