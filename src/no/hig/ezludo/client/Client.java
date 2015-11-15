@@ -18,6 +18,12 @@ public class Client {
     private MainController mainController;
 
 
+    /**
+     * This constructor defines necessary private variables, sets up a connection and connects to the lobby.
+     * @param email
+     * @param password
+     * @param mainKey
+     */
     public Client(String email, String password, String mainKey) {
         this.email = email;
         this.password = password;
@@ -26,11 +32,20 @@ public class Client {
         connectToLobby();
     }
 
+    /**
+     * This method sends a chat message to the server.
+     * @param message the message
+     * @param chatRoomName the chat room
+     */
     public void sendChatMessage(String message, String chatRoomName) {
         output.println("CHAT|" + chatRoomName + "|" + nickName + "|" + message);
         output.flush();
     }
 
+    /**
+     * This method tells the server to let the user join a chat room.
+     * @param roomName the chat room
+     */
     public void joinChatRoom(String roomName) {
         output.println("JOIN CHAT|" + roomName);
         output.flush();
@@ -52,11 +67,19 @@ public class Client {
         //TODO finsh this
     }
 
+    /**
+     * This method handles leaving a chat room. The chatroom name is specified in the parameter.
+     * @param roomName the name of the chat room
+     */
     public void leaveChatRoom(String roomName) {
         output.println("LEAVE CHAT|" + roomName);
         output.flush();
     }
 
+    /**
+     * This method saves a reference to the main controller.
+     * @param ctrl the main controller
+     */
     public void setMainController(MainController ctrl) {
         this.mainController = ctrl;
     }
@@ -93,11 +116,25 @@ public class Client {
     }
 
     /**
-     * This method sets up the socket, and the input- and output streams for that socket.
+     * This method sets up the socket, and the input- and output streams for that socket. If there's already a
+     * connection, it will close the existing socket, output and input first.
      */
     public void setUpConnection() {
         try {
+            closeConnection();
+            socket = new Socket(Constants.serverIP, Constants.portNumber);
+            output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+            input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    /**
+     * This method closes the socket, input and output.
+     */
+    public void closeConnection() {
+        try {
             if (socket != null) {
                 socket.close();
             }
@@ -107,10 +144,6 @@ public class Client {
             if (input != null) {
                 input.close();
             }
-
-            socket = new Socket(Constants.serverIP, Constants.portNumber);
-            output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -135,5 +168,13 @@ public class Client {
         } catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    /**
+     * This method sends a logout message to the server, and closes the connection.
+     */
+    public void logout() {
+        output.println("LOGOUT");
+        closeConnection();
     }
 }

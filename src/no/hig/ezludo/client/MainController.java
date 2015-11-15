@@ -152,6 +152,12 @@ public class MainController extends Application {
             tabMap.get(command[1]).updateUsers(command);
     }
 
+    public void exit() {
+        client.logout();
+
+        System.exit(0);
+    }
+
 
     public static void setClient(List<String> args) {
         client = new Client(args.get(0), args.get(1), args.get(2));
