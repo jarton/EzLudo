@@ -25,6 +25,7 @@ public class ChatController {
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
         MainController.client.sendChatMessage(source.getText(), roomName);
+        source.clear();
     }
 
     /**
@@ -45,11 +46,17 @@ public class ChatController {
         this.roomName = roomName;
     }
 
+    /**
+     * This method updates the list of connected users in a chat room. This is done in a separate thread.
+     * @param command
+     */
     public void updateUsers(String[] command) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
+                // Clear the user list
                 userListView.getItems().clear();
+                // Add every user in the command array into the user list
                 for (int i = 2; i < command.length; i++) {
                     userListView.getItems().add(command[i]);
                 }
