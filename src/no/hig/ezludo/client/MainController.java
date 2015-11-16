@@ -108,13 +108,24 @@ public class MainController extends Application {
 
     public void chooseChatRoomName() {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("New chat room");
-        dialog.setHeaderText("Create your chat room");
+        dialog.setTitle("New room");
+        dialog.setHeaderText("Create your room");
         dialog.setContentText("Enter a unique room name:");
 
         Optional<String> result = dialog.showAndWait();
 
         result.ifPresent(roomName -> client.joinChatRoom(roomName));
+    }
+
+    public void chooseGameRoomName() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("New room");
+        dialog.setHeaderText("Create your room");
+        dialog.setContentText("Enter a unique room name:");
+
+        Optional<String> result = dialog.showAndWait();
+
+        result.ifPresent(roomName -> client.joinGameRoom(roomName));
     }
 
     public void newChatRoom(String[] response) {
@@ -132,8 +143,9 @@ public class MainController extends Application {
                     if (users != null && users.length > 0) {
                         tabMap.get(users[1]).updateUsers(users);
                     }
-                    tab.setOnClosed(new EventHandler<Event>(){
-                        @Override public void handle(Event event){
+                    tab.setOnClosed(new EventHandler<Event>() {
+                        @Override
+                        public void handle(Event event) {
                             client.leaveChatRoom(chatController.getRoomName());
                         }
                     });
@@ -156,6 +168,34 @@ public class MainController extends Application {
         client.logout();
 
         System.exit(0);
+    }
+
+    public void newGame(String[] response) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                Tab tab = new Tab(response[1]);
+                tabPane.getTabs().add(tab);
+                try {
+                    FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Game.fxml"));
+                    tab.setContent((Node) loader.load());
+                    GameController gameController = loader.getController();
+                    gameMap.put(response[1], gameController);
+                    gameController.setGameName(response[1]);
+                    if (users != null && users.length > 0) {
+                        tabMap.get(users[1]).updateUsers(users);
+                    }
+                    tab.setOnClosed(new EventHandler<Event>() {
+                        @Override
+                        public void handle(Event event) {
+                            //TODO leave game
+                        }
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 

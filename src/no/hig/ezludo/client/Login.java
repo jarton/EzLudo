@@ -193,7 +193,7 @@ public class Login extends JFrame  {
                 String hashedPassword = getSHA256(passwordString, email);
 
                 Constants.serverIP = IP;
-                socket = new Socket(Constants.serverIP, Constants.portNumber);
+                socket = new Socket(Constants.serverIP, Constants.loginPortNumber);
                 PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                 BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 

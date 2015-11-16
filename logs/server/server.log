@@ -39,3 +39,39 @@
 2015-11-11 13:26:29,362 INFO  [Server] Per Hansen logged in
 2015-11-11 13:27:24,026 INFO  [Server]  logged in
 2015-11-11 13:28:31,456 INFO  [Server]  logged in
+2015-11-16 16:14:04,512 INFO  [Server]  logged in
+2015-11-16 16:14:14,579 INFO  [Server]  logged in
+2015-11-16 16:14:33,227 INFO  [Server]  logged in
+2015-11-16 16:14:34,247 INFO  [Server]  logged in
+2015-11-16 16:14:34,419 INFO  [Server]  logged in
+2015-11-16 16:15:08,059 INFO  [Server]  logged in
+2015-11-16 16:17:10,285 INFO  [Server]  logged in
+2015-11-16 16:17:13,857 INFO  [Server]  logged in
+2015-11-16 16:17:27,240 INFO  [Server]  logged in
+2015-11-16 16:19:19,090 INFO  [Server]  logged in
+2015-11-16 16:27:12,357 INFO  [Server]  logged in
+2015-11-16 16:27:18,443 INFO  [Server]  logged in
+2015-11-16 16:27:24,120 INFO  [Server]  logged in
+2015-11-16 16:45:30,908 INFO  [Server]  logged in
+2015-11-16 16:45:53,136 INFO  [Server]  logged in
+2015-11-16 16:48:08,559 INFO  [Server]  logged in
+2015-11-16 16:51:45,106 INFO  [Server]  logged in
+2015-11-16 16:56:02,417 INFO  [Server]  logged in
+2015-11-16 16:56:05,907 INFO  [Server]  logged in
+2015-11-16 16:56:09,880 INFO  [Server]  logged in
+2015-11-16 16:59:44,973 INFO  [Server]  logged in
+2015-11-16 17:01:41,361 INFO  [Server]  logged in
+2015-11-16 17:07:11,103 INFO  [Server]  logged in
+2015-11-16 17:10:16,622 INFO  [Server]  logged in
+2015-11-16 17:17:45,193 INFO  [Server]  logged in
+2015-11-16 17:17:45,704 INFO  [Server]  logged in
+2015-11-16 17:17:45,898 INFO  [Server]  logged in
+2015-11-16 17:17:46,069 INFO  [Server]  logged in
+2015-11-16 17:17:46,144 INFO  [Server]  logged in
+2015-11-16 17:17:46,191 INFO  [Server]  logged in
+2015-11-16 17:17:46,288 INFO  [Server]  logged in
+2015-11-16 17:17:46,518 INFO  [Server]  logged in
+2015-11-16 17:20:06,533 INFO  [Server] kari logged in
+2015-11-16 17:20:09,384 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-16 17:20:09,385 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-16 17:20:09,395 INFO  [Server] user kari added to chatroom: lobby

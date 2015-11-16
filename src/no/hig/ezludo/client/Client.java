@@ -51,6 +51,11 @@ public class Client {
         output.flush();
     }
 
+    public void joinGameRoom(String roomName) {
+        output.println("JOIN GAME|" + roomName);
+        output.flush();
+    }
+
     public void joinRandomGame() {
         output.println("JOIN RANDOM");
         output.flush();

@@ -41,6 +41,7 @@
           <Menu mnemonicParsing="false" text="Edit">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#chooseChatRoomName" text="New chat" />
+                  <MenuItem mnemonicParsing="false" onAction="#chooseGameRoomName" text="New game" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
