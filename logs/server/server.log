@@ -75,3 +75,37 @@
 2015-11-16 17:20:09,384 INFO  [Server] received command: JOIN CHAT|lobby
 2015-11-16 17:20:09,385 INFO  [Server] handling command JOIN CHAT|lobby
 2015-11-16 17:20:09,395 INFO  [Server] user kari added to chatroom: lobby
+2015-11-17 09:46:31,245 INFO  [Server] test@test.test logged in
+2015-11-17 09:46:33,433 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-17 09:46:33,433 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-17 09:46:33,436 INFO  [Server] user test@test.test added to chatroom: lobby
+2015-11-17 09:46:38,620 INFO  [Server] received command: JOIN GAME|j
+2015-11-17 09:46:57,763 INFO  [Server] received command: JOIN GAME|kjkj
+2015-11-17 09:48:07,686 INFO  [Server] test@test.test logged in
+2015-11-17 09:48:09,408 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-17 09:48:09,408 INFO  [Server] user test@test.test added to chatroom: lobby
+2015-11-17 09:48:09,412 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-17 09:48:12,911 INFO  [Server] received command: JOIN GAME|k
+2015-11-17 09:48:22,223 INFO  [Server] received command: JOIN GAME|PER
+2015-11-17 10:00:52,095 INFO  [Server]  logged in
+2015-11-17 10:02:32,079 INFO  [Server] test logged in
+2015-11-17 10:02:33,783 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-17 10:02:33,783 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-17 10:02:33,803 INFO  [Server] user test added to chatroom: lobby
+2015-11-17 10:02:43,093 INFO  [Server] received command: JOIN GAME|op
+2015-11-17 10:03:30,926 INFO  [Server]  logged in
+2015-11-17 10:03:58,566 INFO  [Server]  logged in
+2015-11-17 10:04:39,982 INFO  [Server] test logged in
+2015-11-17 10:04:41,619 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-17 10:04:41,619 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-17 10:04:41,619 INFO  [Server] user test added to chatroom: lobby
+2015-11-17 10:04:41,621 WARN  [chatLogger] testleft the chatroom
+2015-11-17 10:04:41,832 INFO  [Server] test removed user with io exc
+2015-11-17 10:04:48,660 INFO  [Server] received command: JOIN GAME|jk
+2015-11-17 10:07:45,483 INFO  [Server] test logged in
+2015-11-17 10:07:47,082 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-17 10:07:47,082 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-17 10:07:47,082 INFO  [Server] user test added to chatroom: lobby
+2015-11-17 10:07:47,083 WARN  [chatLogger] testleft the chatroom
+2015-11-17 10:07:47,241 INFO  [Server] test removed user with io exc
+2015-11-17 10:07:50,369 INFO  [Server] received command: JOIN GAME|df

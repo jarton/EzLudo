@@ -124,7 +124,7 @@ public class MainController extends Application {
         dialog.setContentText("Enter a unique room name:");
 
         Optional<String> result = dialog.showAndWait();
-
+        newGame("PER");
         result.ifPresent(roomName -> client.joinGameRoom(roomName));
     }
 
@@ -170,21 +170,22 @@ public class MainController extends Application {
         System.exit(0);
     }
 
-    public void newGame(String[] response) {
+    public void newGame(String response) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                Tab tab = new Tab(response[1]);
+                Tab tab = new Tab(response);
                 tabPane.getTabs().add(tab);
                 try {
                     FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Game.fxml"));
                     tab.setContent((Node) loader.load());
                     GameController gameController = loader.getController();
-                    gameMap.put(response[1], gameController);
-                    gameController.setGameName(response[1]);
-                    if (users != null && users.length > 0) {
+                    gameMap.put(response, gameController);
+                    gameController.setGameName(response);
+                    gameController.ludoBoard();
+                   /* if (users != null && users.length > 0) {
                         tabMap.get(users[1]).updateUsers(users);
-                    }
+                    }*/
                     tab.setOnClosed(new EventHandler<Event>() {
                         @Override
                         public void handle(Event event) {
