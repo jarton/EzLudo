@@ -109,3 +109,8 @@
 2015-11-17 10:07:47,083 WARN  [chatLogger] testleft the chatroom
 2015-11-17 10:07:47,241 INFO  [Server] test removed user with io exc
 2015-11-17 10:07:50,369 INFO  [Server] received command: JOIN GAME|df
+2015-11-17 10:20:02,960 INFO  [Server] test logged in
+2015-11-17 10:20:04,818 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-17 10:20:04,819 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-17 10:20:04,819 INFO  [Server] user test added to chatroom: lobby
+2015-11-17 10:20:08,703 INFO  [Server] received command: JOIN GAME|kj

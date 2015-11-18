@@ -9,7 +9,9 @@ import javafx.scene.image.ImageView;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.net.URL;
 import java.util.Random;
+import java.util.ResourceBundle;
 
 /**
  * Created by Kristian on 12.11.2015.
@@ -25,6 +27,13 @@ public class GameController {
 
     public GameController() { }
 
+    //@Override
+    public void initialize(URL location, ResourceBundle resources) {
+        File file = new File("/res/board.png");
+        Image image = new Image(file.toURI().toString());
+        ludoBoardImage.setImage(image);
+    }
+
     public void ludoBoard() {
         // get Ludo board Image
        /* ImageIcon tmpBoard = new ImageIcon (getClass().getResource("/res/board.png"));
@@ -33,9 +42,9 @@ public class GameController {
         size = new Dimension(width, height);
         board = tmpBoard.getImage();*/
 
-        Image img = new Image("/res/board.png");
-        this.ludoBoardImage = new ImageView();
-        this.ludoBoardImage.setImage(img);
+        //Image img = new Image("/res/board.png");
+       // this.ludoBoardImage = new ImageView();
+       // this.ludoBoardImage.setImage(img);
 
     }
 
