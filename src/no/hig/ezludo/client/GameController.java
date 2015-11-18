@@ -40,6 +40,8 @@ public class GameController {
     private boolean yellowInStart;
     private boolean greenInStart;
 
+    private boolean redInFinish;
+
     public GameController() { }
 
     // constructor: setter opp brett, trening og rød brikke
@@ -59,6 +61,7 @@ public class GameController {
         blueInStart = true;
         yellowInStart = true;
         greenInStart = true;
+        redInFinish = false;
 
         // Set red start pos
         this.redImage.setX(ludoBoardCoordinates.redStart[1][1] * 600);
@@ -68,6 +71,7 @@ public class GameController {
 
     // Setter red over til main array etter red får 6 på terning
     public void setRedinMain () {
+        redCurrent = 1;
         this.redImage.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
         this.redImage.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
         this.redImage.setImage(red);
@@ -76,12 +80,18 @@ public class GameController {
     // flytter red ihht nr på tering
     public void redMove(int nr) {
         if (redCurrent+nr > 51) {
+            // Funker ikke må innom main 1
+            int finalStep = 51 - (redCurrent+nr);
+            this.redImage.setX(ludoBoardCoordinates.redFinish[finalStep][1] * 600);
+            this.redImage.setY(ludoBoardCoordinates.redFinish[finalStep][2] * 600);
+            this.redImage.setImage(red);
             // ny array = redGoal
         }
         redCurrent += nr;
         this.redImage.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
         this.redImage.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
         this.redImage.setImage(red);
+
     }
 
     public void rollDices()  {
