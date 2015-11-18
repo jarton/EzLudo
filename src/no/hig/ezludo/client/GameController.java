@@ -33,11 +33,16 @@ public class GameController {
     private final int rounds = 8;
     private int diceNrFromServ;
     LudoBoardCoordinates ludoBoardCoordinates;
-    private int redCurrent = 0;
 
+    private int redCurrent = 0;
+    private boolean redInStart;
+    private boolean blueInStart;
+    private boolean yellowInStart;
+    private boolean greenInStart;
 
     public GameController() { }
 
+    // constructor: setter opp brett, trening og rød brikke
     public void ludoBoard() {
         ludoBoardCoordinates = new LudoBoardCoordinates();
         board = new Image("/res/board.png");
@@ -45,10 +50,34 @@ public class GameController {
         red = new Image("/res/red2final.png");
         this.ludoBoardImage.setImage(board);
         this.diceImage.setImage(dice);
-        redMove(1);
+        setupBoard();
     }
 
+    // Set all chips in start pos
+    public void setupBoard() {
+        redInStart = true;
+        blueInStart = true;
+        yellowInStart = true;
+        greenInStart = true;
+
+        // Set red start pos
+        this.redImage.setX(ludoBoardCoordinates.redStart[1][1] * 600);
+        this.redImage.setY(ludoBoardCoordinates.redStart[1][2] * 600);
+        this.redImage.setImage(red);
+    }
+
+    // Setter red over til main array etter red får 6 på terning
+    public void setRedinMain () {
+        this.redImage.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
+        this.redImage.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
+        this.redImage.setImage(red);
+    }
+
+    // flytter red ihht nr på tering
     public void redMove(int nr) {
+        if (redCurrent+nr > 51) {
+            // ny array = redGoal
+        }
         redCurrent += nr;
         this.redImage.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
         this.redImage.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
@@ -71,7 +100,18 @@ public class GameController {
                 diceNrFromServ = diceNr;
                 dice = new Image("/res/dices/dice"+diceNrFromServ+".png");
                 diceImage.setImage(dice);
-                redMove(diceNrFromServ);
+
+                // hvis red ikke står i start område
+                if (redInStart == false) {
+                    redMove(diceNrFromServ);
+                }
+
+                // hvis red står i start omr og tering viser 6 = flytt ut til main array
+                if (diceNr == 6 && redInStart == true) {
+                    redInStart = false;
+                    setRedinMain();
+                }
+
             }
         });
         diceLoadingThread.start();
