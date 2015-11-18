@@ -16,11 +16,22 @@
         <BorderPane layoutX="300.0" layoutY="46.0" prefHeight="538.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <Pane prefHeight="406.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-               <children>
-                      <ImageView fx:id="ludoBoardImage" disable="false" fitHeight="150.0" fitWidth="200.0" layoutX="-13.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                </ImageView>
-               </children></Pane>
+                   <children>
+                       <ImageView fx:id="ludoBoardImage" disable="false" fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                    </ImageView>
+                       <ImageView fx:id="redImage" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                       </ImageView>
+                   </children>
+                </Pane>
             </top>
+            <right>
+                <Pane prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                   <children>
+                       <ImageView fx:id="diceImage" disable="false" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#rollDices" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_RIGHT">
+                    </ImageView>
+                   </children>
+                </Pane>
+            </right>
             <bottom>
                 <TextField BorderPane.alignment="CENTER" />
             </bottom>

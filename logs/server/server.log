@@ -114,3 +114,283 @@
 2015-11-17 10:20:04,819 INFO  [Server] handling command JOIN CHAT|lobby
 2015-11-17 10:20:04,819 INFO  [Server] user test added to chatroom: lobby
 2015-11-17 10:20:08,703 INFO  [Server] received command: JOIN GAME|kj
+2015-11-18 18:58:52,683 INFO  [Server]  logged in
+2015-11-18 18:59:45,673 INFO  [Server]  logged in
+2015-11-18 19:05:47,615 INFO  [Server]  logged in
+2015-11-18 19:12:13,540 INFO  [Server] Per Hansen logged in
+2015-11-18 19:12:15,012 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:12:15,013 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:12:15,015 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:12:22,149 INFO  [Server] received command: JOIN GAME|k
+2015-11-18 19:33:35,770 INFO  [Server] Per Hansen logged in
+2015-11-18 19:33:37,251 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:33:37,251 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:33:37,251 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:33:37,254 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 19:33:37,502 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 19:34:17,693 INFO  [Server] received command: JOIN GAME|jk
+2015-11-18 19:36:25,224 INFO  [Server] Per Hansen logged in
+2015-11-18 19:36:26,724 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:36:26,724 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:36:26,724 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:36:26,767 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 19:36:27,126 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 19:36:30,932 INFO  [Server] received command: JOIN GAME|j
+2015-11-18 19:39:42,084 INFO  [Server] Per Hansen logged in
+2015-11-18 19:39:43,577 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:39:43,578 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:39:43,579 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:39:43,648 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 19:39:43,971 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 19:39:47,382 INFO  [Server] received command: JOIN GAME|jk
+2015-11-18 19:40:17,269 INFO  [Server] Per Hansen logged in
+2015-11-18 19:40:18,740 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:40:18,740 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:40:18,741 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:40:18,744 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 19:40:18,847 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 19:40:22,800 INFO  [Server] received command: JOIN GAME|kj
+2015-11-18 19:41:12,935 INFO  [Server]  logged in
+2015-11-18 19:41:39,177 INFO  [Server] Per Hansen logged in
+2015-11-18 19:41:40,561 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:41:40,561 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:41:40,561 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:41:40,563 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 19:41:40,708 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 19:41:45,261 INFO  [Server] received command: JOIN GAME|k
+2015-11-18 19:42:40,966 INFO  [Server] Per Hansen logged in
+2015-11-18 19:42:42,330 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:42:42,330 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:42:42,330 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:42:42,331 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 19:42:42,440 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 19:42:45,730 INFO  [Server] received command: JOIN GAME|j
+2015-11-18 19:46:07,900 INFO  [Server] Per Hansen logged in
+2015-11-18 19:46:09,335 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:46:09,335 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:46:09,335 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:46:12,754 INFO  [Server] received command: JOIN GAME|kn
+2015-11-18 19:47:18,565 INFO  [Server]  logged in
+2015-11-18 19:47:45,749 INFO  [Server] Per Hansen logged in
+2015-11-18 19:47:47,266 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:47:47,266 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:47:47,266 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:47:51,265 INFO  [Server] received command: JOIN GAME|n
+2015-11-18 19:53:04,415 INFO  [Server]  logged in
+2015-11-18 19:53:51,026 INFO  [Server] Per Hansen logged in
+2015-11-18 19:53:52,336 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 19:53:52,336 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 19:53:52,338 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 19:53:56,921 INFO  [Server] received command: JOIN GAME|kj
+2015-11-18 19:59:48,614 INFO  [Server]  logged in
+2015-11-18 20:00:49,710 INFO  [Server] Per Hansen logged in
+2015-11-18 20:00:51,118 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:00:51,118 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:00:51,118 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:00:51,120 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:00:51,123 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:00:51,120 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:00:51,120 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:00:51,371 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:00:51,371 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:00:51,371 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:00:51,372 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:00:54,775 INFO  [Server] received command: JOIN GAME|,
+2015-11-18 20:02:27,300 INFO  [Server] Per Hansen logged in
+2015-11-18 20:02:28,609 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:02:28,609 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:02:28,610 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:02:28,613 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:02:28,879 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:02:31,787 INFO  [Server] received command: JOIN GAME|d
+2015-11-18 20:04:26,857 INFO  [Server]  logged in
+2015-11-18 20:04:50,064 INFO  [Server] Per Hansen logged in
+2015-11-18 20:04:51,442 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:04:51,442 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:04:51,443 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:04:51,444 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:04:51,652 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:04:55,903 INFO  [Server] received command: JOIN GAME|l
+2015-11-18 20:08:27,587 INFO  [Server] Per Hansen logged in
+2015-11-18 20:08:28,901 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:08:28,915 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:08:28,921 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:08:31,935 INFO  [Server] received command: JOIN GAME|d
+2015-11-18 20:16:00,494 INFO  [Server] Per Hansen logged in
+2015-11-18 20:16:01,790 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:16:01,790 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:16:01,790 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:16:01,791 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:16:01,798 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:16:01,906 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:16:01,906 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:16:05,131 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:17:36,177 INFO  [Server]  logged in
+2015-11-18 20:17:57,175 INFO  [Server] Per Hansen logged in
+2015-11-18 20:17:58,589 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:17:58,589 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:17:58,589 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:17:58,596 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:17:58,878 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:18:01,832 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:20:25,595 INFO  [Server]  logged in
+2015-11-18 20:20:41,718 INFO  [Server] Per Hansen logged in
+2015-11-18 20:20:43,010 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:20:43,010 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:20:43,010 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:20:43,012 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:20:43,137 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:20:46,048 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:23:20,190 INFO  [Server]  logged in
+2015-11-18 20:24:00,602 INFO  [Server] Per Hansen logged in
+2015-11-18 20:24:01,980 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:24:01,980 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:24:01,980 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:24:01,986 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:24:02,190 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:24:06,698 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:29:22,072 INFO  [Server] Per Hansen logged in
+2015-11-18 20:29:23,440 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:29:23,440 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:29:23,441 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:29:23,443 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:29:23,635 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:29:26,270 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:30:43,981 INFO  [Server] Per Hansen logged in
+2015-11-18 20:30:45,251 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:30:45,251 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:30:45,252 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:30:45,253 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:30:45,358 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:30:49,110 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:33:41,486 INFO  [Server] Per Hansen logged in
+2015-11-18 20:33:43,084 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:33:43,085 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:33:43,085 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:33:43,086 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:33:43,206 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:33:49,374 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:35:56,785 INFO  [Server] Per Hansen logged in
+2015-11-18 20:35:58,058 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:35:58,059 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:35:58,059 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:35:58,060 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:35:58,159 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:36:01,914 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:44:26,209 INFO  [Server]  logged in
+2015-11-18 20:44:42,152 INFO  [Server] Per Hansen logged in
+2015-11-18 20:44:43,516 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:44:43,516 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:44:43,516 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:44:43,517 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:44:43,655 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:44:48,495 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:47:40,388 INFO  [Server] Per Hansen logged in
+2015-11-18 20:47:41,780 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:47:41,780 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:47:41,781 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:47:41,783 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:47:41,908 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:47:45,315 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:50:26,623 INFO  [Server] Per Hansen logged in
+2015-11-18 20:50:27,961 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:50:27,961 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:50:27,961 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:50:27,962 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:50:28,238 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:50:30,559 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:53:07,463 INFO  [Server] Per Hansen logged in
+2015-11-18 20:53:08,876 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:53:08,876 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:53:08,876 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:53:08,877 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:53:09,136 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:53:12,497 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:55:51,388 INFO  [Server] Per Hansen logged in
+2015-11-18 20:55:52,791 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:55:52,791 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:55:52,792 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:55:52,805 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:55:53,106 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:55:55,816 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:56:48,737 INFO  [Server] Per Hansen logged in
+2015-11-18 20:56:50,051 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:56:50,051 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:56:50,052 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:56:50,053 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:56:50,323 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:56:53,333 INFO  [Server] received command: JOIN GAME|
+2015-11-18 20:57:53,401 INFO  [Server] Per Hansen logged in
+2015-11-18 20:57:54,754 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 20:57:54,754 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 20:57:54,754 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 20:57:54,769 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 20:57:55,027 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 20:57:58,090 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:00:20,080 INFO  [Server] Per Hansen logged in
+2015-11-18 21:00:21,520 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:00:21,520 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:00:21,520 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:00:21,521 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:00:21,795 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:00:24,806 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:02:07,030 INFO  [Server]  logged in
+2015-11-18 21:02:30,129 INFO  [Server] Per Hansen logged in
+2015-11-18 21:02:31,508 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:02:31,508 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:02:31,508 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:02:31,510 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:02:31,792 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:02:34,298 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:03:45,264 INFO  [Server] Per Hansen logged in
+2015-11-18 21:03:46,566 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:03:46,566 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:03:46,566 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:03:46,567 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:03:46,708 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:03:51,331 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:06:29,173 INFO  [Server]  logged in
+2015-11-18 21:06:50,722 INFO  [Server]  logged in
+2015-11-18 21:07:05,290 INFO  [Server] Per Hansen logged in
+2015-11-18 21:07:06,685 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:07:06,685 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:07:06,685 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:07:06,688 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:07:06,878 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:07:09,507 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:09:26,319 INFO  [Server] Per Hansen logged in
+2015-11-18 21:09:27,643 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:09:27,643 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:09:27,643 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:09:27,646 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:09:27,825 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:09:31,054 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:11:18,180 INFO  [Server] Per Hansen logged in
+2015-11-18 21:11:19,442 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:11:19,442 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:11:19,442 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:11:19,451 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:11:19,571 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:11:23,001 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:11:51,305 INFO  [Server]  logged in
+2015-11-18 21:12:11,296 INFO  [Server] Per Hansen logged in
+2015-11-18 21:12:12,622 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:12:12,622 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:12:12,623 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:12:12,624 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:12:12,745 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:12:16,692 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:13:35,413 INFO  [Server] Per Hansen logged in
+2015-11-18 21:13:36,789 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:13:36,789 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:13:36,789 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:13:36,791 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:13:36,905 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:13:42,012 INFO  [Server] received command: JOIN GAME|
+2015-11-18 21:21:52,825 INFO  [Server] Per Hansen logged in
+2015-11-18 21:21:54,192 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-18 21:21:54,192 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-18 21:21:54,192 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-18 21:21:54,193 WARN  [chatLogger] Per Hansenleft the chatroom
+2015-11-18 21:21:54,498 INFO  [Server] Per Hansen removed user with io exc
+2015-11-18 21:21:57,512 INFO  [Server] received command: JOIN GAME|

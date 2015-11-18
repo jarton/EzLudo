@@ -33,6 +33,41 @@ public class LudoBoardCoordinates {
     double greenFinish[][];  // Green finish area
 
     public LudoBoardCoordinates() {
+        blueStart = new double[5][3];
+        redStart = new double[5][3];
+        yellowStart = new double[5][3];
+        greenStart = new double[5][3];
+        mainArea = new double[52][3];
+        blueFinish = new double[7][3];
+        redFinish = new double[7][3];
+        yellowFinish = new double[7][3];
+        greenFinish = new double[7][3];
+
+        for(int i=1; i<=4; i++) {
+            for(int j=1; j<=2; j++) {
+                blueStart[i][j] = 0;
+                redStart[i][j] = 0;
+                yellowStart[i][j] = 0;
+                greenStart[i][j] = 0;
+            }
+        }
+
+        for(int i=1; i<=51; i++) {
+            for(int j=1; j<=2; j++) {
+                mainArea[i][j] = 0;
+            }
+        }
+
+        for(int i=1; i<=6; i++) {
+            for(int j=1; j<=2; j++) {
+                blueFinish[i][j] = 0;
+                redFinish[i][j] = 0;
+                yellowFinish[i][j] = 0;
+                greenFinish[i][j] = 0;
+            }
+        }
+
+
 
         blueStart[1][1]=0.7679355783308931;
         blueStart[1][2]=0.7017543859649122;
@@ -233,5 +268,8 @@ public class LudoBoardCoordinates {
         greenFinish[5][2]=0.4678362573099415;
         greenFinish[6][1]=0.40043923865300146; // GOAL X
         greenFinish[6][2]=0.46637426900584794; // GOAL Y
+
+
     }
+
 }
