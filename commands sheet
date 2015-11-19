@@ -1,0 +1,48 @@
+
+#### CHAT COMMANDS ####
+
+CHAT|chatName|user|message
+basic game command structure
+
+
+#### GAME COMMANDS ####
+
+GAME|id|gamename|command|
+basic game command structure
+
+ server listens for
+     JOIN GAME
+joining a random game
+
+client listends for
+GAME STARTED|id|gameName|player1|player2|player3|player4
+GAME STARTED|1|randGame|nils|per|kristian|jardar
+tells the client a game has started and the names of the players in the game
+
+client listens for
+GAME|id|name|TURN|playerTurn
+GAME|1|randGame|TURN|nils
+tells the players whose turn it is
+
+ server listens for
+GAME|1|randGame|ROLL
+player wants to roll the dice
+
+ client listenes for
+GAME|id|gameName|ROLL|playername|int rolled
+GAME|1|randGame|ROLL|testPlayer|4
+tells all players what another player has rolled
+
+ server listens for
+GAME|id|gameName|MOVE|pieceToMove
+GAME|1|randGame|MOVE|2
+player has rolled dice and tells the server witch peice the player wants to move
+
+ client listenes for
+GAME|id|gameName|MOVE|playerName|pieceToMove|squareToMoveTo
+GAME|1|randGame|MOVE|testplayer|2|10
+tells all players to move piece to another player, last num is square to move to
+
+#### OTHER COMMANDS ####
+
+
