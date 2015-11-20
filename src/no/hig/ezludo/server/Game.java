@@ -59,8 +59,8 @@ public class Game {
             for (User player : players)
                 try {
                     player.write("GAME STARTED|" +id+ "|" +name+"|"+ players[0].getNickname() + "|" +
-                            players[1].getNickname() + "|" + players[2].getNickname() + "|" +
-                            players[3].getNickname() + "|" + players[4].getNickname());
+                            players[1].getNickname() );//+ "|" + players[2].getNickname() + "|" +
+                            //players[3].getNickname());
                     player.write("GAME|"+ id + "|" + name +"|TURN "+playerTurn+"|");
                 } catch (Exception e) {
                     e.printStackTrace();

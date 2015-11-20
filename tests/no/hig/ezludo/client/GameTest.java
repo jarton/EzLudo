@@ -12,7 +12,7 @@ public class GameTest {
 
         public static void main(String [] args)  {
                 GameBot GameBot1 = new GameBot("nils@hei.no", "12345678", "nilzWithSkillz");
-                GameBot GameBot2 = new GameBot("per@hei.no", "12345678", "pirkola69");
-                GameBot GameBot3 = new GameBot("franz@hei.no", "12345678", "franZKlla");
+//                GameBot GameBot2 = new GameBot("per@hei.no", "12345678", "pirkola69");
+ //               GameBot GameBot3 = new GameBot("franz@hei.no", "12345678", "franZKlla");
         }
 }

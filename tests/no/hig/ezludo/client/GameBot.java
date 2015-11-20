@@ -105,7 +105,8 @@ public class GameBot {
             String feedBack = input.readLine();
             System.out.println(feedBack);
 
-            output.println("JOIN RANDOM");
+            Thread.sleep(200);
+            output.println("JOIN RANDOM ");
             output.flush();
         }
         catch (Exception ex) {

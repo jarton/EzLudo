@@ -125,7 +125,7 @@ public class MainController extends Application {
 
         Optional<String> result = dialog.showAndWait();
         //newGame("PER");
-        result.ifPresent(roomName -> client.joinGameRoom(roomName));
+        result.ifPresent(roomName -> client.joinRandomGame());
     }
 
     public void newChatRoom(String[] response) {
@@ -183,6 +183,9 @@ public class MainController extends Application {
                     gameMap.put(response[1], gameController);
                     gameController.setGameName(response[2]);
                     gameController.ludoBoard();
+
+                    //TODO response [3 ---> end == player names
+
                    /* if (users != null && users.length > 0) {
                         tabMap.get(users[1]).updateUsers(users);
                     }*/
@@ -197,6 +200,15 @@ public class MainController extends Application {
                 }
             }
         });
+    }
+
+
+    public void roll(int gameId, String gameName) {
+        client.rollDice(String.valueOf(gameId), gameName);
+    }
+
+    public void move(int gameId, String gameName, int piece) {
+        client.movePiece(String.valueOf(gameId), gameName, String.valueOf(piece));
     }
 
     public void playerRoll(String command[]) {
