@@ -23,9 +23,7 @@ public class GameController {
     private final int diceMin = 1;
     private final int diceMax = 6;
     private final int rounds = 8;
-    private int diceNrFromServ;
-
-
+    private int diceNrFromServer;
 
     // Ludo Pieces
     @FXML private ImageView red1View;
@@ -70,11 +68,17 @@ public class GameController {
     private boolean blueInFinish;
     private boolean yellowInFinish;
     private boolean greenInFinish;
+    private boolean redInGoal;
+    private boolean blueInGoal;
+    private boolean yellowInGoal;
+    private boolean greenInGoal;
+
+    // Used if user have to move back
+    private int moveBackNr;
+    private boolean moveBack;
 
 
     // Test
-    @FXML private ImageView redImage;
-    private Image red;
     String gameName;
     private int redCurrent;
 
@@ -119,6 +123,11 @@ public class GameController {
         blueInFinish = false;
         greenInFinish = false;
         yellowInFinish = false;
+        redInGoal = false;
+        blueInGoal = false;
+        greenInGoal = false;
+        yellowInGoal = false;
+
 
         // Set red start pos
         this.red1View.setX(ludoBoardCoordinates.redStart[1][1] * 600);
@@ -173,6 +182,8 @@ public class GameController {
         this.yellow4View.setY(ludoBoardCoordinates.yellowStart[4][2] * 600);
         this.yellow4View.setImage(yellow4Image);
 
+        moveBackNr = 0;
+        moveBack = false;
         redCurrent = 0;
     }
 
@@ -190,13 +201,88 @@ public class GameController {
         Thread movingThread = new Thread(new Runnable() {
             public void run() {
                 while (redCurrent+1 <= stop) {
-                //for (int i = redCurrent; i<=(redCurrent+nr+1); i++) {
                     redCurrent++;
-                    red1View.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
-                    red1View.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
-                    red1View.setImage(red1Image);
+
+                    // begynner på 1 igjen etter main er ferdig
+                    if(redCurrent == 52) {
+                        red1View.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
+                        red1View.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
+                        red1View.setImage(red1Image);
+                        System.out.print(redCurrent);
+                        System.out.print("\n");
+                    }
+
+                    //Flytter inn mot mål BUG: flytter kun 1 og 1 rute
+                    else if(redCurrent > 52 && redCurrent < 58) {
+                        red1View.setX(ludoBoardCoordinates.redFinish[redCurrent-52][1] * 600);
+                        red1View.setY(ludoBoardCoordinates.redFinish[redCurrent - 52][2] * 600);
+                        red1View.setImage(red1Image);
+                        System.out.print(redCurrent);
+                        System.out.print("\n");
+                    }
+
+                    // Hvis spiller får terningkast som går utenfor brettet \ forbi mål må det flyttes tilbake.
+                    else if (redCurrent > 58) {
+                        // FUNKER IKKE
+                        moveBack = true;
+                        moveBackNr++;
+                        System.out.print(redCurrent);
+                        System.out.print("\n");
+                    }
+
+                    // Spilleren er i mål og skal ikke kunen flytte brukken noe mer.
+                    else if (redCurrent == 58 && stop == 58) {
+                        red1View.setX(ludoBoardCoordinates.redFinish[6][1] * 600);
+                        red1View.setY(ludoBoardCoordinates.redFinish[6][2] * 600);
+                        red1View.setImage(red1Image);
+                        redInGoal = true;
+                        System.out.print(redCurrent);
+                        System.out.print("\n");
+                    }
+                    else if(redCurrent < 52) {
+                        // Flytter vanlig i main
+                        red1View.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
+                        red1View.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
+                        red1View.setImage(red1Image);
+                        System.out.print(redCurrent);
+                        System.out.print("\n");
+                    }
+
                     try {
-                        Thread.sleep(400);
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if(moveBack == true) {
+                    moveBack(moveBackNr);
+                    System.out.print("moveBack()");
+                    System.out.print("\n");
+                }
+            }
+        });
+        movingThread.start();
+
+    }
+
+    public void moveBack(int nr) {
+        Thread movingThread = new Thread(new Runnable() {
+            public void run() {
+                int i = 6;
+                int j = i - nr;
+                moveBackNr = 0;
+                moveBack = false;
+                while (i >= j) {
+                    System.out.print(redCurrent);
+                    System.out.print("\n");
+                    red1View.setX(ludoBoardCoordinates.redFinish[i][1] * 600);
+                    red1View.setY(ludoBoardCoordinates.redFinish[i][2] * 600);
+                    red1View.setImage(red1Image);
+                    i--;
+                    redCurrent--;
+
+                    try {
+                        Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -213,24 +299,23 @@ public class GameController {
                     diceNr = randomInt(diceMin, diceMax);
                     showImage(diceNr);
                     try {
-                        Thread.sleep(150);
+                        Thread.sleep(15);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
                 // TODO Connect to server and get random int as int diceNrFromServ
-                diceNrFromServ = diceNr;
-                dice = new Image("/res/dices/dice"+diceNrFromServ+".png");
+                diceNrFromServer = diceNr;
+                dice = new Image("/res/dices/dice" + diceNrFromServer+".png");
                 diceImage.setImage(dice);
 
                 // hvis red ikke står i start område
-                if (redInStart == false) {
-                    //redMove(diceNrFromServ);
-                    redMove(diceNrFromServ);
+                if (redInStart == false && redInGoal == false) {
+                    redMove(diceNrFromServer);
                 }
 
                 // hvis red står i start omr og tering viser 6 = flytt ut til main array
-                if (diceNr == 6 && redInStart == true) {
+                if (diceNr == 6 && redInStart == true && redInGoal == false) {
                     redInStart = false;
                     setRedinMain();
                 }

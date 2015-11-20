@@ -118,14 +118,18 @@ public class MainController extends Application {
     }
 
     public void chooseGameRoomName() {
+
+        //Testing
+        String names[] = {"Nikita","Boris","Vladimir"};
+
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("New room");
         dialog.setHeaderText("Create your room");
         dialog.setContentText("Enter a unique room name:");
 
         Optional<String> result = dialog.showAndWait();
-        //newGame("PER");
-        result.ifPresent(roomName -> client.joinRandomGame());
+        newGame(names);
+        //result.ifPresent(roomName -> client.joinRandomGame());
     }
 
     public void newChatRoom(String[] response) {
