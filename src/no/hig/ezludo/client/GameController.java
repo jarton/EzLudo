@@ -1,15 +1,13 @@
 package no.hig.ezludo.client;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-import java.awt.*;
 import java.util.Random;
 
 /**
- * Created by Kristian on 12.11.2015.
+ * @author Kristian
+ * date 12.11.2015.
  */
 public class GameController {
 
@@ -45,7 +43,7 @@ public class GameController {
     @FXML private ImageView green1View;
     @FXML private ImageView green2View;
     @FXML private ImageView green3View;
-    @FXML private ImageView greeb4View;
+    @FXML private ImageView green4View;
     private Image red1Image;
     private Image red2Image;
     private Image red3Image;
@@ -61,7 +59,7 @@ public class GameController {
     private Image green1Image;
     private Image green2Image;
     private Image green3Image;
-    private Image greeb4Image;
+    private Image green4Image;
 
     // Controller mechanism
     private boolean redInStart;
@@ -78,7 +76,7 @@ public class GameController {
     @FXML private ImageView redImage;
     private Image red;
     String gameName;
-    private int redCurrent = 0;
+    private int redCurrent;
 
 
     public GameController() { }
@@ -88,9 +86,26 @@ public class GameController {
         ludoBoardCoordinates = new LudoBoardCoordinates();
         board = new Image("/res/board.png");
         dice = new Image("/res/dices/dice1.png");
-        red = new Image("/res/red2final.png");
         this.ludoBoardImage.setImage(board);
         this.diceImage.setImage(dice);
+
+        red1Image = new Image("/res/red2final.png");
+        red2Image = new Image("/res/red2final.png");
+        red3Image = new Image("/res/red2final.png");
+        red4Image = new Image("/res/red2final.png");
+        blue1Image = new Image("/res/blue2final.png");
+        blue2Image = new Image("/res/blue2final.png");
+        blue3Image = new Image("/res/blue2final.png");
+        blue4Image = new Image("/res/blue2final.png");
+        green1Image = new Image("/res/green2final.png");
+        green2Image = new Image("/res/green2final.png");
+        green3Image = new Image("/res/green2final.png");
+        green4Image = new Image("/res/green2final.png");
+        yellow1Image = new Image("/res/yellow2final.png");
+        yellow2Image = new Image("/res/yellow2final.png");
+        yellow3Image = new Image("/res/yellow2final.png");
+        yellow4Image = new Image("/res/yellow2final.png");
+
         setupBoard();
     }
 
@@ -101,36 +116,94 @@ public class GameController {
         yellowInStart = true;
         greenInStart = true;
         redInFinish = false;
+        blueInFinish = false;
+        greenInFinish = false;
+        yellowInFinish = false;
 
         // Set red start pos
-        this.redImage.setX(ludoBoardCoordinates.redStart[1][1] * 600);
-        this.redImage.setY(ludoBoardCoordinates.redStart[1][2] * 600);
-        this.redImage.setImage(red);
+        this.red1View.setX(ludoBoardCoordinates.redStart[1][1] * 600);
+        this.red1View.setY(ludoBoardCoordinates.redStart[1][2] * 600);
+        this.red1View.setImage(red1Image);
+        this.red2View.setX(ludoBoardCoordinates.redStart[2][1] * 600);
+        this.red2View.setY(ludoBoardCoordinates.redStart[2][2] * 600);
+        this.red2View.setImage(red2Image);
+        this.red3View.setX(ludoBoardCoordinates.redStart[3][1] * 600);
+        this.red3View.setY(ludoBoardCoordinates.redStart[3][2] * 600);
+        this.red3View.setImage(red3Image);
+        this.red4View.setX(ludoBoardCoordinates.redStart[4][1] * 600);
+        this.red4View.setY(ludoBoardCoordinates.redStart[4][2] * 600);
+        this.red4View.setImage(red4Image);
+
+        this.blue1View.setX(ludoBoardCoordinates.blueStart[1][1] * 600);
+        this.blue1View.setY(ludoBoardCoordinates.blueStart[1][2] * 600);
+        this.blue1View.setImage(blue1Image);
+        this.blue2View.setX(ludoBoardCoordinates.blueStart[2][1] * 600);
+        this.blue2View.setY(ludoBoardCoordinates.blueStart[2][2] * 600);
+        this.blue2View.setImage(blue2Image);
+        this.blue3View.setX(ludoBoardCoordinates.blueStart[3][1] * 600);
+        this.blue3View.setY(ludoBoardCoordinates.blueStart[3][2] * 600);
+        this.blue3View.setImage(blue3Image);
+        this.blue4View.setX(ludoBoardCoordinates.blueStart[4][1] * 600);
+        this.blue4View.setY(ludoBoardCoordinates.blueStart[4][2] * 600);
+        this.blue4View.setImage(blue4Image);
+
+        this.green1View.setX(ludoBoardCoordinates.greenStart[1][1] * 600);
+        this.green1View.setY(ludoBoardCoordinates.greenStart[1][2] * 600);
+        this.green1View.setImage(green1Image);
+        this.green2View.setX(ludoBoardCoordinates.greenStart[2][1] * 600);
+        this.green2View.setY(ludoBoardCoordinates.greenStart[2][2] * 600);
+        this.green2View.setImage(green2Image);
+        this.green3View.setX(ludoBoardCoordinates.greenStart[3][1] * 600);
+        this.green3View.setY(ludoBoardCoordinates.greenStart[3][2] * 600);
+        this.green3View.setImage(green3Image);
+        this.green4View.setX(ludoBoardCoordinates.greenStart[4][1] * 600);
+        this.green4View.setY(ludoBoardCoordinates.greenStart[4][2] * 600);
+        this.green4View.setImage(green4Image);
+
+        this.yellow1View.setX(ludoBoardCoordinates.yellowStart[1][1] * 600);
+        this.yellow1View.setY(ludoBoardCoordinates.yellowStart[1][2] * 600);
+        this.yellow1View.setImage(yellow1Image);
+        this.yellow2View.setX(ludoBoardCoordinates.yellowStart[2][1] * 600);
+        this.yellow2View.setY(ludoBoardCoordinates.yellowStart[2][2] * 600);
+        this.yellow2View.setImage(yellow2Image);
+        this.yellow3View.setX(ludoBoardCoordinates.yellowStart[3][1] * 600);
+        this.yellow3View.setY(ludoBoardCoordinates.yellowStart[3][2] * 600);
+        this.yellow3View.setImage(yellow3Image);
+        this.yellow4View.setX(ludoBoardCoordinates.yellowStart[4][1] * 600);
+        this.yellow4View.setY(ludoBoardCoordinates.yellowStart[4][2] * 600);
+        this.yellow4View.setImage(yellow4Image);
+
+        redCurrent = 0;
     }
 
     // Setter red over til main array etter red får 6 på terning
     public void setRedinMain () {
         redCurrent = 1;
-        this.redImage.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
-        this.redImage.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
-        this.redImage.setImage(red);
+        this.red1View.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
+        this.red1View.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
+        this.red1View.setImage(red1Image);
     }
 
-    // flytter red ihht nr på tering
+    // Med animasjon
     public void redMove(int nr) {
-        if (redCurrent+nr > 51) {
-            // Funker ikke må innom main 1
-            int finalStep = 51 - (redCurrent+nr);
-            this.redImage.setX(ludoBoardCoordinates.redFinish[finalStep][1] * 600);
-            this.redImage.setY(ludoBoardCoordinates.redFinish[finalStep][2] * 600);
-            this.redImage.setImage(red);
-            // ny array = redGoal
-        }
-        redCurrent += nr;
-        this.redImage.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
-        this.redImage.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
-        this.redImage.setImage(red);
-
+        int stop=redCurrent+nr;
+        Thread movingThread = new Thread(new Runnable() {
+            public void run() {
+                while (redCurrent+1 <= stop) {
+                //for (int i = redCurrent; i<=(redCurrent+nr+1); i++) {
+                    redCurrent++;
+                    red1View.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
+                    red1View.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
+                    red1View.setImage(red1Image);
+                    try {
+                        Thread.sleep(400);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        movingThread.start();
     }
 
     public void rollDices()  {
@@ -140,7 +213,7 @@ public class GameController {
                     diceNr = randomInt(diceMin, diceMax);
                     showImage(diceNr);
                     try {
-                        Thread.sleep(300);
+                        Thread.sleep(150);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -152,6 +225,7 @@ public class GameController {
 
                 // hvis red ikke står i start område
                 if (redInStart == false) {
+                    //redMove(diceNrFromServ);
                     redMove(diceNrFromServ);
                 }
 
