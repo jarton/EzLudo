@@ -106,6 +106,10 @@ public class Server {
 								commandQueue.put(new JoinRandomGame(cmd, user));
 							else if (cmd.startsWith("GAME"))
 								commandQueue.put(new GameCommand(cmd, user));
+							else if (cmd.startsWith("LOGOUT")) {
+								users.remove(user);
+								user.closeSocket();
+							}
 							serverLogger.info("received command: " + cmd);
 						}
 					} catch (Exception e) {
@@ -156,12 +160,16 @@ public class Server {
 					}
 					else if (cmd instanceof JoinRandomGame) {
 						usersWaitingForGame.add(cmd.getUser());
+						serverLogger.info("user " + cmd.getUser().getNickname() +
+								" added to random game que ");
 					}
 					else if (cmd instanceof StartNewGame) {
 						((StartNewGame)cmd).getGame().startGame();
+						serverLogger.info(" new game started ");
 					}
 					else if (cmd instanceof GameCommand) {
 						games.get(((GameCommand)cmd).getGameId()).gameHandler(cmd, usersClosedSocets);
+						serverLogger.info(" game commands recived ");
 					}
 				}
 			} catch (Exception e) {

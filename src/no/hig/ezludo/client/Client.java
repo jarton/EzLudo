@@ -62,14 +62,12 @@ public class Client {
     }
 
     public void rollDice(String gameId, String gameName) {
-        //output.println("GAME|" + id + "|" + gameName + "|ROLL");
-        //TODO finsh this
+        output.println("GAME|" + gameId + "|" + gameName + "|ROLL");
         output.flush();
     }
 
     public void movePiece(String gameId, String gameName, String pieceToMove) {
-        //output.println("GAME|" + id + "|" + gameName + "|MOVE|"+ pieceToMove);
-        //TODO finsh this
+        output.println("GAME|" + gameId + "|" + gameName + "|MOVE|"+ pieceToMove);
     }
 
     /**
@@ -108,9 +106,17 @@ public class Client {
                         } else if (command[0].equals("USERS")) {
                             mainController.updateUsers(command);
                         } else if (command[0].equals("GAME STARTED")) {
-                            mainController.startGame(command);
+                            mainController.newGame(command);
                         } else if (command[0].equals("GAME")) {
-                            //TODO HANDLE GAME COMMANDS
+                            if (command[3].equals("TURN")) {
+                                mainController.playerTurn(command);
+                            }
+                            else if (command[3].equals("ROLL")) {
+                                mainController.playerRoll(command);
+                            }
+                            else if (command[3].equals("MOVE")) {
+                                mainController.playerMove(command);
+                            }
                        }
                     }
                 } catch (Exception e) {

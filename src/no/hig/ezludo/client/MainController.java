@@ -124,7 +124,7 @@ public class MainController extends Application {
         dialog.setContentText("Enter a unique room name:");
 
         Optional<String> result = dialog.showAndWait();
-        newGame("PER");
+        //newGame("PER");
         result.ifPresent(roomName -> client.joinGameRoom(roomName));
     }
 
@@ -170,18 +170,18 @@ public class MainController extends Application {
         System.exit(0);
     }
 
-    public void newGame(String response) {
+    public void newGame(String response[]) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                Tab tab = new Tab(response);
+                Tab tab = new Tab(response[2]);
                 tabPane.getTabs().add(tab);
                 try {
                     FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Game.fxml"));
                     tab.setContent((Node) loader.load());
                     GameController gameController = loader.getController();
-                    gameMap.put(response, gameController);
-                    gameController.setGameName(response);
+                    gameMap.put(response[1], gameController);
+                    gameController.setGameName(response[2]);
                     gameController.ludoBoard();
                    /* if (users != null && users.length > 0) {
                         tabMap.get(users[1]).updateUsers(users);
@@ -197,6 +197,18 @@ public class MainController extends Application {
                 }
             }
         });
+    }
+
+    public void playerRoll(String command[]) {
+        //gameMap.get(command[1]). //TODO player has rolled
+    }
+
+    public void playerTurn(String command[]) {
+        //gameMap.get(command[1]). //TODO player turn
+    }
+
+    public void playerMove(String command[]) {
+        //gameMap.get(command[1]). //TODO player has moved
     }
 
 
