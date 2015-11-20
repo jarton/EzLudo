@@ -2,6 +2,7 @@ package no.hig.ezludo.client;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Random;
 
 /**
  * Created by jdr on 20/11/15.
@@ -17,6 +18,10 @@ public class GameBot {
     private int loginPort = 6969;
     private PrintWriter output;
     private BufferedReader input;
+    private String spam[] = {"hei", "hva skjer?", "lol funny", "ludo anyone", "ludy hype", "noen eg kan utfordre?",
+    "haha", "riot", "liker kinasjakk bedre", "hahahha", "join min chat da vell",  ":D", "nice", "\\^.^/", "plox add me",
+    "dette spillet suger", "yoyoyo", "noen som liker kylling", "..................................HEI", "jeg heter per",
+    "jeg er best i ludo", "noen utFordre MEG!!!!!"};
 
     public GameBot(String uname, String pwd, String nickname) {
        this.uname = uname;
@@ -89,7 +94,7 @@ public class GameBot {
             socket.close();
             String response[] = feedBack.split("\\|");
             if (response.length > 1)
-                mainKey = response[1];
+            mainKey = response[1];
             return feedBack;
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -99,15 +104,16 @@ public class GameBot {
 
     public void joinGame() {
         try {
-
             output.println(mainKey);
             output.flush();
-            String feedBack = input.readLine();
-            System.out.println(feedBack);
 
-            Thread.sleep(200);
-            output.println("JOIN RANDOM ");
+            output.println("JOIN CHAT|lobby");
             output.flush();
+
+            output.println("JOIN RANDOM");
+            output.flush();
+
+            chatSpammer();
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -115,31 +121,53 @@ public class GameBot {
     }
 
     public void startListener() {
+        int squares[] = new int [5];
+
+        squares[0] = 0;
+        squares[1] = 0;
+        squares[2] = 0;
+        squares[3] = 0;
+
+        int piece = 0;
+        int maxSquare = 59;
+
         new Thread (()->{
             while (input!=null) {
                 String cmd;
                 try {
                     while ((cmd=input.readLine())!=null) {
                         String command[] = cmd.split("\\|");
-                        if (command[0].equals("CHAT")) {
-                            System.out.println("recived chat");
-
-                        } else if (command[0].equals("CHAT JOINED")) {
-
-                        } else if (command[0].equals("USERS")) {
-
-                        } else if (command[0].equals("GAME STARTED")) {
-                            System.out.println("game started");
+                        if (command[0].equals("GAME STARTED")) {
+                            System.out.println(nickname + "game started");
                         } else if (command[0].equals("GAME")) {
                             if (command[3].equals("TURN") && command[4].equals(nickname)) {
+                                System.out.println(nickname + " turn");
                                 output.println(command[0] + "|" + command[1] + "|"
                                         + command[2] + "|ROLL");
                                 output.flush();
                             }
-                            if (command[3].equals("ROLL") && command[4].equals(nickname)) {
-                                output.println(command[0] + "|" + command[1] + "|"
-                                        + command[2] + "|MOVE|0");
-                                output.flush();
+                            else if (command[3].equals("ROLL") && command[4].equals(nickname)) {
+                                squares[4] = Integer.parseInt(command[5]);
+
+                                for (int i = 0; i < 4; i++) {
+                                    if (squares[i] < 59) {
+                                        output.println(command[0] + "|" + command[1] + "|"
+                                                + command[2] + "|MOVE|" + String.valueOf(i));
+                                        output.flush();
+                                        System.out.println(nickname + " sendt move piece " + i);
+                                        break;
+                                    }
+                                }
+
+                                if (command[3].equals("ROLL") && command[4].equals(nickname) && command[5].equals("6")) {
+                                    output.println(command[0] + "|" + command[1] + "|"
+                                            + command[2] + "|ROLL");
+                                    output.flush();
+                                }
+                            }
+                            else if (command[3].equals("MOVE") && command[4].equals(nickname)) {
+                                squares[Integer.parseInt(command[5])] = Integer.parseInt(command[6]);
+                                System.out.println(nickname + " moved  to" + command[6]);
                             }
                         }
                     }
@@ -150,4 +178,23 @@ public class GameBot {
         }).start();
     }
 
+    public void chatSpammer() {
+        Thread t = new Thread(()->{
+            while (true) {
+                Random rand = new Random();
+                int n = rand.nextInt(21) + 0;
+                output.println("CHAT|lobby|" + nickname + "|" + spam[n]);
+                output.flush();
+                try {
+
+                    int i = rand.nextInt(20000) + 5000;
+                    Thread.currentThread().sleep(i);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+        t.setDaemon(true);
+        t.start();
+    }
 }

@@ -66,9 +66,9 @@ public class Server {
 	private void randomGameDispatcher() {
 		Thread t = new Thread(()->{
 			while (true) {
-				if (usersWaitingForGame.size()>1) {
-					User players[] = {usersWaitingForGame.remove(0), usersWaitingForGame.remove(0)};
-					//usersWaitingForGame.remove(0), usersWaitingForGame.remove(0)};
+				if (usersWaitingForGame.size()>3) {
+					User players[] = {usersWaitingForGame.remove(0), usersWaitingForGame.remove(0),
+					usersWaitingForGame.remove(0), usersWaitingForGame.remove(0)};
 					Game game = new Game(players);
 					games.add(game);
 					game.setId(games.indexOf(game));
@@ -107,8 +107,7 @@ public class Server {
 							else if (cmd.startsWith("GAME"))
 								commandQueue.put(new GameCommand(cmd, user));
 							else if (cmd.startsWith("LOGOUT")) {
-								users.remove(user);
-								user.closeSocket();
+								usersClosedSocets.add(user);
 							}
 							serverLogger.info("received command: " + cmd);
 						}

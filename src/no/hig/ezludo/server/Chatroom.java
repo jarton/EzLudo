@@ -49,13 +49,13 @@ public class Chatroom {
                 users.stream().parallel().forEach(user -> {
                     try {
                         user.write(cmd.getRawCmd());
-                        logger.warn(cmd.getRawCmd());
                     } catch (Exception e) {
                         usersClosedSocets.add(user);
                         usersToRemove.add(user);
                         logger.warn(user.getNickname() + "left the chatroom");
                     }
                 });
+                logger.warn(cmd.getRawCmd());
             }
             removeUsers();
         } else if (cmd instanceof Chatcommand) {

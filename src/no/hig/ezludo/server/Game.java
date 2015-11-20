@@ -59,9 +59,9 @@ public class Game {
             for (User player : players)
                 try {
                     player.write("GAME STARTED|" +id+ "|" +name+"|"+ players[0].getNickname() + "|" +
-                            players[1].getNickname() );//+ "|" + players[2].getNickname() + "|" +
-                            //players[3].getNickname());
-                    player.write("GAME|"+ id + "|" + name +"|TURN "+playerTurn+"|");
+                            players[1].getNickname() + "|" + players[2].getNickname() + "|" +
+                            players[3].getNickname());
+                    player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -76,7 +76,7 @@ public class Game {
                 synchronized (players) {
                     for (User player : players)
                         try {
-                            player.write("GAME|"+id+ "|" + name + "|ROLL|" + playerTurn + "|"+ roll);
+                            player.write("GAME|"+id+ "|" + name + "|ROLL|" + playerTurn.getNickname() + "|"+ roll);
                             userPlaces.get(playerTurn.getNickname())[4] = Integer.parseInt(roll);
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
@@ -92,7 +92,7 @@ public class Game {
 
                 if ((playerSquare[pieceToMove] == 0) && (playerSquare[4] == 6))
                     playerSquare[pieceToMove] += playerSquare[4];
-                else
+                else if (playerSquare[pieceToMove] != 0 && playerSquare[4] != 6)
                     playerSquare[pieceToMove] += playerSquare[4];
 
                 if (playerSquare.equals(victorySquare)) {
@@ -101,7 +101,7 @@ public class Game {
                 synchronized (players) {
                     for (User player : players)
                         try {
-                            player.write("GAME|" +id+ "|" + name + "|MOVE|" + playerTurn + "|"+
+                            player.write("GAME|" +id+ "|" + name + "|MOVE|" + playerTurn.getNickname() + "|"+
                                     String.valueOf(pieceToMove) + "|" +
                                     userPlaces.get(playerTurn.getNickname())[pieceToMove]);
                         } catch (Exception e) {
@@ -128,7 +128,7 @@ public class Game {
     }
 
     private void passTurn() {
-        if (turnInt < players.length)
+        if (turnInt < 3)
             turnInt++;
         else
             turnInt = 0;
@@ -137,7 +137,7 @@ public class Game {
         synchronized (players) {
             for (User player : players)
                 try {
-                    player.write("GAME|"+ id + "|" + name +"|TURN "+playerTurn+"|");
+                    player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

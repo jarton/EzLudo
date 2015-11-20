@@ -99,7 +99,6 @@ public class Client {
                     while ((cmd=input.readLine())!=null) {
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("CHAT")) {
-                            System.out.println("recived chat");
                             mainController.displayMessage(command);
                         } else if (command[0].equals("CHAT JOINED")) {
                             mainController.newChatRoom(command);
