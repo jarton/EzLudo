@@ -224,6 +224,8 @@ public class GameController {
                     // Hvis spiller får terningkast som går utenfor brettet \ forbi mål må det flyttes tilbake.
                     else if (redCurrent > 58) {
                         // FUNKER IKKE
+                        // går i loop
+                    //    redCurrent--;
                         moveBack = true;
                         moveBackNr++;
                         System.out.print(redCurrent);
@@ -247,7 +249,6 @@ public class GameController {
                         System.out.print(redCurrent);
                         System.out.print("\n");
                     }
-
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
@@ -258,14 +259,15 @@ public class GameController {
                     moveBack(moveBackNr);
                     System.out.print("moveBack()");
                     System.out.print("\n");
+
                 }
             }
         });
         movingThread.start();
-
     }
 
     public void moveBack(int nr) {
+        redCurrent-=nr-1;
         Thread movingThread = new Thread(new Runnable() {
             public void run() {
                 int i = 6;
@@ -280,12 +282,12 @@ public class GameController {
                     red1View.setImage(red1Image);
                     i--;
                     redCurrent--;
+                        try {
+                            Thread.sleep(500);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 
-                    try {
-                        Thread.sleep(500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
                 }
             }
         });
@@ -299,7 +301,7 @@ public class GameController {
                     diceNr = randomInt(diceMin, diceMax);
                     showImage(diceNr);
                     try {
-                        Thread.sleep(15);
+                        Thread.sleep(20);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
