@@ -1,7 +1,11 @@
 package no.hig.ezludo.client;
 
 import Internationalization.Internationalization;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -11,10 +15,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.Socket;
+import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ResourceBundle;
+import java.util.prefs.BackingStoreException;
+import java.util.prefs.Preferences;
 
 /**
  * This class includes main. See bottom.
@@ -23,7 +30,7 @@ import java.util.ResourceBundle;
  *
  * A user verification to the server happebs when the user inputs login data and click on login button.
  * If the user exist, a new Client will be created and the MainController will be loaded.
- * @Kristian
+ * @author Kristian, Per-Kristian
  * date 29.10.2015.
  */
 public class Login extends JFrame  {
@@ -33,9 +40,15 @@ public class Login extends JFrame  {
     public UserAccount userAccount;
     private String email;
     private String IP;
-    private char[] password;
+    private char[] password = "".toCharArray();
     public JFrame jframe;
     private Socket socket;
+    private static Preferences prefs;
+    private JTextField userText;
+    private JPasswordField passwordText;
+    private JTextField IPText;
+    private static final byte[] keyValue = "krb$[i@9adkk0l0}".getBytes();
+    private static final String ALGORITHM = "AES";
 
     /**
      * Constructor which sets the i18n object with the same language as users OS. If language is
@@ -43,6 +56,9 @@ public class Login extends JFrame  {
      */
     public Login() {
         super("Ez-Ludo");
+        // Get preferences, and see if it contains an email value
+        prefs = Preferences.userNodeForPackage(getClass());
+
         internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
         messages = internationalization.getLang();
         createPanel();
@@ -64,7 +80,8 @@ public class Login extends JFrame  {
         panel.add(userLabel);
 
         // User input field
-        JTextField userText = new JTextField(20);
+        userText = new JTextField(20);
+        fillEmailField();
         userText.setBounds(100, 10, 160, 25);
         userText.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
@@ -86,8 +103,10 @@ public class Login extends JFrame  {
         passwordLabel.setBounds(10, 40, 80, 25);
         panel.add(passwordLabel);
 
-        // Password Input label
-        JPasswordField passwordText = new JPasswordField(20);
+        // PasswordField
+        passwordText = new JPasswordField(20);
+        fillPasswordField();
+
         passwordText.setBounds(100,40,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
@@ -110,7 +129,8 @@ public class Login extends JFrame  {
         panel.add(IPLabel);
 
         // User input field
-        JTextField IPText = new JTextField(20);
+        IPText = new JTextField(20);
+        fillIPAddressField();
         IPText.setBounds(100, 70, 160, 25);
         IPText.getDocument().addDocumentListener(new DocumentListener() {
             public void changedUpdate(DocumentEvent e) {
@@ -136,6 +156,7 @@ public class Login extends JFrame  {
                 try {
                     String[] result = performLogin();
                     if (!result[0].equals("fail")) {
+                        saveCredentials();
                         jframe.dispose();
                         System.out.println(result[0]);
                         System.out.println(result[2]);
@@ -173,12 +194,102 @@ public class Login extends JFrame  {
     /**
      * Sets the panel created above to the JFrame
      */
-
     public void createLayout(JPanel panel) {
         this.add(panel);
         this.setVisible(true);
     }
 
+    /**
+     * This method fills the email field with a locally stored email address. If there's no email stored, it sets
+     * the email field to be blank.
+     */
+    public void fillEmailField() {
+        email = prefs.get("email", "");
+        userText.setText(email);
+    }
+
+    /**
+     * This method fills the password field with a locally stored password. The password is encrypted, so it gets
+     * decrypted before the password field is filled.
+     */
+    public void fillPasswordField() {
+        try {
+            String encryptedPassword = prefs.get("password", "");
+
+            if (!encryptedPassword.equals("")) {
+                String decryptedPassword = decrypt(encryptedPassword);
+                passwordText.setText(decryptedPassword);
+                password = decryptedPassword.toCharArray();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method fills the IP address field with a locally stored IP address. If there's no IP address saved, the
+     * field is filled with an empty string.
+     */
+    public void fillIPAddressField() {
+        String ipAddress = prefs.get("IP", "");
+        IPText.setText(ipAddress);
+        IP = ipAddress;
+    }
+
+    public void saveCredentials() throws Exception {
+        prefs.put("email", email);
+        String passwordToEncrypt = new String(password);
+        prefs.put("password", encrypt(passwordToEncrypt));
+        prefs.put("IP", IP);
+    }
+    /**
+     * This method encrypts data using AES. It returns the encrypted data. Code gotten from code2learn.com, and
+     * modified to suit our needs.
+     * @param rawData data to be encrypted
+     * @return the encrypted data
+     * @throws Exception
+     * @see <html><a href="http://www.code2learn.com/2011/06/encryption-and-decryption-of-data-using.html">code2learn
+     * </a></html>
+     */
+    public String encrypt(String rawData) throws Exception {
+        Key key = generateKey();
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        byte[] encVal = cipher.doFinal(rawData.getBytes());
+        return new BASE64Encoder().encode(encVal);
+    }
+
+    /**
+     * This method decrypts AES-encrypted data. It returns the decrypted data. Code gotten from code2learn.com, and
+     * modified to suit our needs.
+     * @param encryptedData the data to be decrypted
+     * @return decrypted data
+     * @throws Exception
+     * @see <html><a href="http://www.code2learn.com/2011/06/encryption-and-decryption-of-data-using.html">code2learn
+     * </a></html>
+     */
+    public String decrypt(String encryptedData) throws Exception {
+        Key key = generateKey();
+        Cipher cipher = Cipher.getInstance(ALGORITHM);
+        cipher.init(Cipher.DECRYPT_MODE, key);
+        byte[] decodedValue = new BASE64Decoder().decodeBuffer(encryptedData);
+        byte[] decValue = cipher.doFinal(decodedValue);
+        return new String(decValue);
+    }
+
+    /**
+     * This method generates a key for use in encrypting / decrypting the password when stored locally.
+     * Code gotten from code2learn.com, and modified to suit our needs.
+     * @return the key
+     * @throws Exception
+     * @see <html><a href="http://www.code2learn.com/2011/06/encryption-and-decryption-of-data-using.html">code2learn
+     * </a></html>
+     */
+    private static Key generateKey() throws Exception {
+        Key key = new SecretKeySpec(keyValue, ALGORITHM);
+        return key;
+    }
 
     /**
      * This class is called when the user presses the login button. It communicates with the server to see if the
