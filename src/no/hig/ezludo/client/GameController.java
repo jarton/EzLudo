@@ -5,42 +5,81 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-
-import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.net.URL;
 import java.util.Random;
-import java.util.ResourceBundle;
 
 /**
  * Created by Kristian on 12.11.2015.
  */
 public class GameController {
-    @FXML private ListView chatListView;
-    @FXML private ListView userListView;
+
+    //Ludo board
+    LudoBoardCoordinates ludoBoardCoordinates;
     @FXML private ImageView ludoBoardImage;
-    @FXML private ImageView diceImage;
-    @FXML private ImageView redImage;
-    private Dimension size;
     private Image board;
+
+    // Dices
+    @FXML private ImageView diceImage;
     private Image dice;
-    private Image red;
-    String gameName;
     private int diceNr;
     private final int diceMin = 1;
     private final int diceMax = 6;
     private final int rounds = 8;
     private int diceNrFromServ;
-    LudoBoardCoordinates ludoBoardCoordinates;
 
-    private int redCurrent = 0;
+
+
+    // Ludo Pieces
+    @FXML private ImageView red1View;
+    @FXML private ImageView red2View;
+    @FXML private ImageView red3View;
+    @FXML private ImageView red4View;
+    @FXML private ImageView blue1View;
+    @FXML private ImageView blue2View;
+    @FXML private ImageView blue3View;
+    @FXML private ImageView blue4View;
+    @FXML private ImageView yellow1View;
+    @FXML private ImageView yellow2View;
+    @FXML private ImageView yellow3View;
+    @FXML private ImageView yellow4View;
+    @FXML private ImageView green1View;
+    @FXML private ImageView green2View;
+    @FXML private ImageView green3View;
+    @FXML private ImageView greeb4View;
+    private Image red1Image;
+    private Image red2Image;
+    private Image red3Image;
+    private Image red4Image;
+    private Image blue1Image;
+    private Image blue2Image;
+    private Image blue3Image;
+    private Image blue4Image;
+    private Image yellow1Image;
+    private Image yellow2Image;
+    private Image yellow3Image;
+    private Image yellow4Image;
+    private Image green1Image;
+    private Image green2Image;
+    private Image green3Image;
+    private Image greeb4Image;
+
+    // Controller mechanism
     private boolean redInStart;
     private boolean blueInStart;
     private boolean yellowInStart;
     private boolean greenInStart;
-
     private boolean redInFinish;
+    private boolean blueInFinish;
+    private boolean yellowInFinish;
+    private boolean greenInFinish;
+
+
+    // Test
+    @FXML private ImageView redImage;
+    private Image red;
+    String gameName;
+    private int redCurrent = 0;
+
 
     public GameController() { }
 
