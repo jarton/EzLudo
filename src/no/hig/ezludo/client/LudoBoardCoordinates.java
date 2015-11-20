@@ -67,8 +67,6 @@ public class LudoBoardCoordinates {
             }
         }
 
-
-
         blueStart[1][1]=0.7679355783308931;
         blueStart[1][2]=0.7017543859649122;
         blueStart[2][1]=0.7013177159590044;
@@ -268,8 +266,5 @@ public class LudoBoardCoordinates {
         greenFinish[5][2]=0.4678362573099415;
         greenFinish[6][1]=0.40043923865300146; // GOAL X
         greenFinish[6][2]=0.46637426900584794; // GOAL Y
-
-
     }
-
 }

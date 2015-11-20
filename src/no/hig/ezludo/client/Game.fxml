@@ -19,8 +19,26 @@
                    <children>
                        <ImageView fx:id="ludoBoardImage" disable="false" fitHeight="600.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
                     </ImageView>
-                       <ImageView fx:id="redImage" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
-                       </ImageView>
+                       <ImageView fx:id="redImage" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+
+                       <ImageView fx:id="red1View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="red2View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="red3View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="red4View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="blue1View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="blue2View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="blue3View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="blue4View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="yellow1View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="yellow2View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="yellow3View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="yellow4View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="green1View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="green2View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="green3View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+                       <ImageView fx:id="green4View" disable="false" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER"></ImageView>
+
+
                    </children>
                 </Pane>
             </top>

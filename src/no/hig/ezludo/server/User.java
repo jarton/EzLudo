@@ -76,6 +76,15 @@ public class User {
             buffWriter.flush();
     }
 
+    public void closeSocket() {
+        try {
+            socket.close();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     /**
      * indicates if the user has written something in the socketBuffer
      * @return true or false if the user has sendt something

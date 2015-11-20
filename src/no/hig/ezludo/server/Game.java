@@ -19,16 +19,15 @@ public class Game {
     private String name = "Random Game";
     private User playerTurn;
     private int id = -1;
-    private int diceNr;
     private final int diceMin = 1;
     private final int diceMax = 6;
-    private final int rounds = 5;
-    private final int victorySquare = 30;
-    //TODO update this victoty num
+    private final int victorySquare = 59;
+    private int turnInt;
 
     public Game(User players[]) {
         this.players = players;
-        playerTurn = players[0];
+        turnInt = 0;
+        playerTurn = players[turnInt];
         initPlaces();
     }
 
@@ -60,8 +59,8 @@ public class Game {
             for (User player : players)
                 try {
                     player.write("GAME STARTED|" +id+ "|" +name+"|"+ players[0].getNickname() + "|" +
-                            players[1].getNickname() + "|" + players[2].getNickname() + "|" +
-                            players[3].getNickname() + "|" + players[4].getNickname());
+                            players[1].getNickname() );//+ "|" + players[2].getNickname() + "|" +
+                            //players[3].getNickname());
                     player.write("GAME|"+ id + "|" + name +"|TURN "+playerTurn+"|");
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -90,7 +89,12 @@ public class Game {
             if (playerTurn == cmd.getUser()) {
                 int playerSquare[] = userPlaces.get(playerTurn.getNickname());
                 int pieceToMove = Integer.parseInt(cmd.getRawCmd().split("\\|")[4]);
-                playerSquare[pieceToMove] += playerSquare[4];
+
+                if ((playerSquare[pieceToMove] == 0) && (playerSquare[4] == 6))
+                    playerSquare[pieceToMove] += playerSquare[4];
+                else
+                    playerSquare[pieceToMove] += playerSquare[4];
+
                 if (playerSquare.equals(victorySquare)) {
                     //TODO PLAYER WON ALERT EVERYBODY
                 }
@@ -105,27 +109,38 @@ public class Game {
                             e.printStackTrace();
                         }
                 }
+                if (playerSquare[4] != 6)
+                    passTurn();
             }
         }
     }
 
     public String rollDices() {
-        for (int i =0; i<=rounds; i++) {
-            diceNr = randomInt(diceMin, diceMax);
-            delay(1000);
-        }
+            int diceNr = randomInt(diceMin, diceMax);
         return String.valueOf(diceNr);
     }
 
-    public void delay(long time) {
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException ex) {}
-    }
 
-    public int randomInt(int min, int max) {
+    private int randomInt(int min, int max) {
         Random rand = new Random();
         int randomNum = rand.nextInt((max - min) + 1) + min;
         return randomNum;
+    }
+
+    private void passTurn() {
+        if (turnInt < players.length)
+            turnInt++;
+        else
+            turnInt = 0;
+        playerTurn=players[turnInt];
+
+        synchronized (players) {
+            for (User player : players)
+                try {
+                    player.write("GAME|"+ id + "|" + name +"|TURN "+playerTurn+"|");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+        }
     }
 }
