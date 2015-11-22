@@ -289,6 +289,7 @@ public class GameController {
                         imageView.setY(finishArray[6][2] * 600);
                         imageView.setImage(image);
                         redInGoal = true;
+                        // TODO: SET <color>InGoal as above
                         System.out.print(colCurrent);
                         System.out.print("\n");
                     }

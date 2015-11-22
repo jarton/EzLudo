@@ -876,3 +876,7 @@
 2015-11-20 19:52:26,832 INFO  [Server] user Per Hansen added to chatroom: lobby
 2015-11-20 19:52:26,833 WARN  [chatLogger] Per Hansenleft the chatroom
 2015-11-20 19:52:27,033 INFO  [Server] Per Hansen removed user with io exc
+2015-11-22 15:11:02,233 INFO  [Server] Per Hansen logged in
+2015-11-22 15:11:04,419 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-22 15:11:04,419 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-22 15:11:04,422 INFO  [Server] user Per Hansen added to chatroom: lobby
