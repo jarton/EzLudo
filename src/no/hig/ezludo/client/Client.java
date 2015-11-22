@@ -68,6 +68,7 @@ public class Client {
 
     public void movePiece(String gameId, String gameName, String pieceToMove) {
         output.println("GAME|" + gameId + "|" + gameName + "|MOVE|"+ pieceToMove);
+        output.flush();
     }
 
     /**
@@ -85,6 +86,7 @@ public class Client {
      */
     public void setMainController(MainController ctrl) {
         this.mainController = ctrl;
+        this.mainController.setNickName(nickName);
     }
 
     /**
