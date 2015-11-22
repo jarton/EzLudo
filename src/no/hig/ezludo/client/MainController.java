@@ -30,6 +30,8 @@ public class MainController extends Application {
     public ListView chatListView;
     public Scene lobbyScene;
     private String[] users;
+    private String nickName;
+    private String firstTurnCommand[] = null;
 
 
     public static Client client;
@@ -54,7 +56,7 @@ public class MainController extends Application {
             client.setMainController(loader.getController());
 
             primaryStage.setTitle("Ez-Ludo");
-            primaryStage.setScene(lobbyScene = new Scene(root, 500, 300));
+            primaryStage.setScene(lobbyScene = new Scene(root, 1200, 600));
             primaryStage.show();
 
             // Join the lobby chat
@@ -77,14 +79,8 @@ public class MainController extends Application {
             client.sendChatMessage(source.getText(), "0");
     }
 
-    @FXML
-    public void startGame(String[] command) {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                //TODO create a new game tab. add game to hashmap set controller see createNewChatroom func
-            }
-        });
+    public void randomGame() {
+        client.joinRandomGame();
     }
 
     /**
@@ -95,8 +91,7 @@ public class MainController extends Application {
     public void displayLobbyMessage(String text) {
         Platform.runLater(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 chatListView.getItems().add(text);
             }
         });
@@ -188,13 +183,14 @@ public class MainController extends Application {
                     gameController.setGameName(response[2]);
                     gameController.ludoBoard();
                     String players[] = {response[3], response[4], response[5], response[6]};
-                    gameController.setupPlayers(players);
+                    gameController.setupPlayers(players, nickName);
+                    gameController.setGameId(response[1]);
 
-                    //TODO response [3 ---> end == player names
+                    if (firstTurnCommand != null) {
+                        gameController.playerTurn(firstTurnCommand);
+                        firstTurnCommand = null;
+                    }
 
-                   /* if (users != null && users.length > 0) {
-                        tabMap.get(users[1]).updateUsers(users);
-                    }*/
                     tab.setOnClosed(new EventHandler<Event>() {
                         @Override
                         public void handle(Event event) {
@@ -208,25 +204,24 @@ public class MainController extends Application {
         });
     }
 
-
-    public void roll(int gameId, String gameName) {
-        client.rollDice(String.valueOf(gameId), gameName);
-    }
-
-    public void move(int gameId, String gameName, int piece) {
-        client.movePiece(String.valueOf(gameId), gameName, String.valueOf(piece));
-    }
-
     public void playerRoll(String command[]) {
-        //gameMap.get(command[1]). //TODO player has rolled
+        gameMap.get(command[1]).playerRoll(command);
     }
 
     public void playerTurn(String command[]) {
-        //gameMap.get(command[1]). //TODO player turn
+        if (!gameMap.containsKey(command[1])) {
+            firstTurnCommand = command;
+        }
+        else
+            gameMap.get(command[1]).playerTurn(command);
     }
 
     public void playerMove(String command[]) {
         gameMap.get(command[1]).playerMove(command);
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
 

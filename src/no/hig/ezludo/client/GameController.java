@@ -1,8 +1,14 @@
 package no.hig.ezludo.client;
 
+import javafx.application.Platform;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -13,13 +19,23 @@ import java.util.Random;
  */
 public class GameController {
 
+    //Game info
+    String gameName;
+    String gameId;
+
     //Ludo board
     LudoBoardCoordinates ludoBoardCoordinates;
     @FXML private ImageView ludoBoardImage;
     private Image board;
 
     //Players
+    @FXML TextField label;
     HashMap<String, String> players = new HashMap<>();
+    String myNickname;
+    boolean yourTurn = false;
+
+    //chat/Info view
+    @FXML ListView chatView;
 
     // Dices
     @FXML private ImageView diceImage;
@@ -81,11 +97,10 @@ public class GameController {
 
     //make array for each color with one int for each peice
     // Test
-    String gameName;
-    private int redCurrent;
-    private int blueCurrent;
-    private int greenCurrent;
-    private int yellowCurrent;
+    private int[] redCurrent = new int[4];
+    private int[] blueCurrent = new int[4];
+    private int[] greenCurrent = new int[4];
+    private int[] yellowCurrent = new int[4];
 
 
     public GameController() { }
@@ -161,56 +176,123 @@ public class GameController {
             this.yellowPieces[i].setX(ludoBoardCoordinates.yellowStart[i+1][1] * 600);
             this.yellowPieces[i].setY(ludoBoardCoordinates.yellowStart[i+1][2] * 600);
             this.yellowPieces[i].setImage(yellowImage[i]);
+
+
+            redCurrent[i] = 0;
+            blueCurrent[i] = 0;
+            greenCurrent[i] = 0;
+            yellowCurrent[i] = 0;
         }
 
         moveBackNr = 0;
         moveBack = false;
-        redCurrent = 0;
-        blueCurrent = 0;
-        greenCurrent = 0;
-        yellowCurrent = 0;
     }
 
-    public void setupPlayers(String players[]) {
+    public void setupPlayers(String players[], String nickname) {
        this.players.put(players[0], "red");
         this.players.put(players[1], "green");
         this.players.put(players[2], "yellow");
         this.players.put(players[3], "blue");
+        myNickname = nickname;
+        label.setText("\t\t red: " + players[0] + "\t\t green: " + players[1] +
+                "\t\t yellow: " + players[2] + "\t\t blue: " + players[3]);
     }
 
     public void setRedinMain () {
-         redCurrent = 1;
-         this.redPieces[0].setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
-         this.redPieces[0].setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
+         redCurrent[0] = 1;
+         this.redPieces[0].setX(ludoBoardCoordinates.mainArea[redCurrent[0]][1] * 600);
+         this.redPieces[0].setY(ludoBoardCoordinates.mainArea[redCurrent[0]][2] * 600);
          this.redPieces[0].setImage(redImage[0]);
      }
 
     public void setBlueinMain() {
-        blueCurrent = 1;
+        blueCurrent[0] = 1;
         this.bluePieces[0].setX(ludoBoardCoordinates.mainArea[14][1] * 600);
         this.bluePieces[0].setY(ludoBoardCoordinates.mainArea[14][2] * 600);
         this.bluePieces[0].setImage(blueImage[0]);
     }
 
+    @FXML
+    public void playerRoll(String command[]) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chatView.getItems().add(command[4] + "\trolled\t" + command[5]);
+            }
+        });
+        if (command[4].equals(myNickname)) {
+            showDices(command[5]);
+            ImageView pieceArray[];
+            if (players.get(myNickname).equals("red")) {
+                pieceArray = redPieces;
+            }
+            else if (players.get(myNickname).equals("blue")) {
+                pieceArray = bluePieces;
+            }
+            else if (players.get(myNickname).equals("yellow")) {
+                pieceArray = yellowPieces;
+            }
+            else {
+                pieceArray = greenPieces;
+            }
+            for (int i=0;i<4;i++) {
+                int pieceToMove = i;
+                System.out.println("adding click listeners");
+                pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        System.out.println("cliecked");
+                        MainController.client.movePiece(gameId, gameName, String.valueOf(pieceToMove));
+                        movedPiece(pieceArray, event);
+                    }
+                });
+            }
+        }
+    }
+
+    public void movedPiece(ImageView array[], Event event) {
+        yourTurn = false;
+        for (int i=0;i<4;i++) {
+            array[i].setOnMouseClicked(null);
+        }
+    }
+
+    @FXML
+    public void playerTurn(String command[]) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chatView.getItems().add(command[4] + "\t\tturn");
+            }
+        });
+        if (command[4].equals(myNickname)) {
+            yourTurn = true;
+        }
+    }
+
     public void playerMove(String command[]) {
-        if (players.get(command[3]).equals("red")) {
-           movePiece(Integer.parseInt(command[6]), redCurrent, redPieces[Integer.parseInt(command[5])],
-                   redImage[Integer.parseInt(command[5])], ludoBoardCoordinates.redFinish, "red");
+        if (players.get(command[4]).equals("red")) {
+           movePiece(Integer.parseInt(command[6]), redCurrent[Integer.parseInt(command[5])],
+                   redPieces[Integer.parseInt(command[5])], redImage[Integer.parseInt(command[5])],
+                   Integer.parseInt(command[5]), ludoBoardCoordinates.redFinish, "red");
         }
 
-        else if (players.get(command[3]).equals("blue")) {
-            movePiece(Integer.parseInt(command[6]), blueCurrent, bluePieces[Integer.parseInt(command[5])],
-                    blueImage[Integer.parseInt(command[5])], ludoBoardCoordinates.blueFinish, "blue");
+        else if (players.get(command[4]).equals("blue")) {
+            movePiece(Integer.parseInt(command[6]), blueCurrent[Integer.parseInt(command[5])],
+                    bluePieces[Integer.parseInt(command[5])], blueImage[Integer.parseInt(command[5])],
+                    Integer.parseInt(command[5]), ludoBoardCoordinates.blueFinish, "blue");
         }
 
-        else if (players.get(command[3]).equals("yellow")) {
-            movePiece(Integer.parseInt(command[6]), yellowCurrent, yellowPieces[Integer.parseInt(command[5])],
-                    yellowImage[Integer.parseInt(command[5])], ludoBoardCoordinates.yellowFinish, "yellow");
+        else if (players.get(command[4]).equals("yellow")) {
+            movePiece(Integer.parseInt(command[6]), yellowCurrent[Integer.parseInt(command[5])],
+                    yellowPieces[Integer.parseInt(command[5])], yellowImage[Integer.parseInt(command[5])],
+                    Integer.parseInt(command[5]), ludoBoardCoordinates.yellowFinish, "yellow");
         }
 
-        else if (players.get(command[3]).equals("green")) {
-            movePiece(Integer.parseInt(command[6]), greenCurrent, greenPieces[Integer.parseInt(command[5])],
-                    greenImage[Integer.parseInt(command[5])], ludoBoardCoordinates.greenFinish, "green");
+        else if (players.get(command[4]).equals("green")) {
+            movePiece(Integer.parseInt(command[6]), greenCurrent[Integer.parseInt(command[5])],
+                    greenPieces[Integer.parseInt(command[5])], greenImage[Integer.parseInt(command[5])],
+                    Integer.parseInt(command[5]), ludoBoardCoordinates.greenFinish, "green");
         }
 
 
@@ -218,8 +300,8 @@ public class GameController {
 
     // Med animasjon, generell move for alle brikker og farger,
     public void movePiece(int steps, int colorCurrent, ImageView imageView, Image image,
-                         double finishArray[][], String color) {
-        int stop=colorCurrent+steps;
+                         int piece, double finishArray[][], String color) {
+        int stop=steps;
         Thread moveThread = new Thread(new Runnable() {
             public void run() {
                 int colCurrent = colorCurrent;
@@ -341,23 +423,23 @@ public class GameController {
                     }
                 }
                 if(moveBack == true) {
-                    moveBack(moveBackNr, finishArray, color, imageView, image, colCurrent);
+                    moveBack(moveBackNr, finishArray, color, imageView, image, piece, colCurrent);
                     System.out.print("moveBack()");
                     System.out.print("\n");
 
                 }
                 else {
                     if (color.equals("red")) {
-                        redCurrent = colCurrent;
+                        redCurrent[piece] = colCurrent;
                     }
                     else if (color.equals("blue")) {
-                        blueCurrent = colCurrent;
+                        blueCurrent[piece] = colCurrent;
                     }
                     else if (color.equals("yellow")) {
-                        yellowCurrent = colCurrent;
+                        yellowCurrent[piece] = colCurrent;
                     }
                     else if (color.equals("green")) {
-                        greenCurrent = colCurrent;
+                        greenCurrent[piece] = colCurrent;
                     }
                 }
             }
@@ -365,7 +447,8 @@ public class GameController {
         moveThread.start();
     }
 
-    public void moveBack(int nr, double finish[][], String color, ImageView imageView, Image image, int colCurrent) {
+    public void moveBack(int nr, double finish[][], String color, ImageView imageView, Image image,
+                         int piece, int colCurrent) {
         Thread movingThread = new Thread(new Runnable() {
             public void run() {
                 int tempCurrent = colCurrent;
@@ -389,23 +472,29 @@ public class GameController {
 
                 }
                 if (color.equals("red")) {
-                    redCurrent = tempCurrent;
+                    redCurrent[piece] = tempCurrent;
                 }
                 else if (color.equals("blue")) {
-                    blueCurrent = tempCurrent;
+                    blueCurrent[piece] = tempCurrent;
                 }
                 else if (color.equals("yellow")) {
-                    yellowCurrent = tempCurrent;
+                    yellowCurrent[piece] = tempCurrent;
                 }
                 else if (color.equals("green")) {
-                    greenCurrent = tempCurrent;
+                    greenCurrent[piece] = tempCurrent;
                 }
             }
         });
         movingThread.start();
     }
 
-    public void rollDices()  {
+    public void rollDices() {
+        if (yourTurn) {
+            MainController.client.rollDice(gameId, gameName);
+        }
+    }
+
+    public void showDices(String nrToShow)  {
         Thread diceLoadingThread = new Thread(new Runnable() {
             public void run() {
                 for (int i = 0; i<=rounds; i++) {
@@ -417,31 +506,29 @@ public class GameController {
                         e.printStackTrace();
                     }
                 }
-                // TODO Connect to server and get random int as int diceNrFromServ
-                diceNrFromServer = diceNr;
-                dice = new Image("/res/dices/dice" + diceNrFromServer+".png");
+                dice = new Image("/res/dices/dice" + Integer.parseInt(nrToShow) +".png");
                 diceImage.setImage(dice);
 
-                // hvis red ikke st�r i start omr�de
-                if (blueInStart == false) {
-                    //redMove(diceNrFromServer);
-                    movePiece(diceNrFromServer, blueCurrent, bluePieces[0], blueImage[0], ludoBoardCoordinates.blueFinish, "blue");
-                }
+               // // hvis red ikke st�r i start omr�de
+               // if (blueInStart == false) {
+               //     //redMove(diceNrFromServer);
+               //     movePiece(diceNrFromServer+blueCurrent[0], blueCurrent[0], bluePieces[0], blueImage[0],
+               //             0, ludoBoardCoordinates.blueFinish, "blue");
+               // }
 
-                // hvis red st�r i start omr og tering viser 6 = flytt ut til main array
-                if (diceNr == 6 && blueInStart == true && blueInGoal == false) {
-                    blueInStart = false;
-                    setBlueinMain();
-                }
+               // // hvis red st�r i start omr og tering viser 6 = flytt ut til main array
+               // if (diceNr == 6 && blueInStart == true && blueInGoal == false) {
+               //     blueInStart = false;
+               //     setBlueinMain();
+               // }
 
-                if (diceNr == 6 && blueInStart== true && blueInGoal == true) {
-                    blueInStart = false;
-                    setBlueinMain();
-                }
+               // if (diceNr == 6 && blueInStart== true && blueInGoal == true) {
+               //     blueInStart = false;
+               //     setBlueinMain();
+               // }
             }
         });
         diceLoadingThread.start();
-
     }
 
     public static int randomInt(int min, int max) {
@@ -455,10 +542,12 @@ public class GameController {
         this.diceImage.setImage(dice);
     }
 
-    public String getGameName() { return gameName; }
-
     public void setGameName(String gameName) {
         this.gameName = gameName;
+    }
+
+    public void setGameId(String gameid) {
+        this.gameId = gameid;
     }
 
 

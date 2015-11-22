@@ -113,7 +113,7 @@ public class GameBot {
             output.println("JOIN RANDOM");
             output.flush();
 
-            chatSpammer();
+            //chatSpammer();
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -136,6 +136,7 @@ public class GameBot {
                 String cmd;
                 try {
                     while ((cmd=input.readLine())!=null) {
+                        Thread.sleep(1000);
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("GAME STARTED")) {
                             System.out.println(nickname + "game started");

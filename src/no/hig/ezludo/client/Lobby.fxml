@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.hig.ezludo.client.MainController">
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.hig.ezludo.client.MainController">
     <center>
         <TabPane fx:id="tabPane">
             <tabs>
@@ -42,6 +42,7 @@
             <items>
               <MenuItem mnemonicParsing="false" onAction="#chooseChatRoomName" text="New chat" />
                   <MenuItem mnemonicParsing="false" onAction="#chooseGameRoomName" text="New game" />
+                  <MenuItem mnemonicParsing="false" onAction="#randomGame" text="random game" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">

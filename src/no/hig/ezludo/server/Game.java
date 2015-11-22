@@ -69,14 +69,14 @@ public class Game {
     }
 
     public void gameHandler(Command cmd, Vector<User> usersClosedSocets) {
-        if (cmd.getRawCmd().startsWith("GAME|"+id+"|"+name+"|ROLL")) {
+        if (cmd.getRawCmd().startsWith("GAME|" + id + "|" + name + "|ROLL")) {
             String roll;
             if (playerTurn == cmd.getUser()) {
                 roll = rollDices();
                 synchronized (players) {
                     for (User player : players)
                         try {
-                            player.write("GAME|"+id+ "|" + name + "|ROLL|" + playerTurn.getNickname() + "|"+ roll);
+                            player.write("GAME|" + id + "|" + name + "|ROLL|" + playerTurn.getNickname() + "|" + roll);
                             userPlaces.get(playerTurn.getNickname())[4] = Integer.parseInt(roll);
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
@@ -85,7 +85,7 @@ public class Game {
                 }
             }
         }
-        if (cmd.getRawCmd().startsWith("GAME|"+id+"|"+name+"|MOVE")) {
+        if (cmd.getRawCmd().startsWith("GAME|" + id + "|" + name + "|MOVE")) {
             if (playerTurn == cmd.getUser()) {
                 int playerSquare[] = userPlaces.get(playerTurn.getNickname());
                 int pieceToMove = Integer.parseInt(cmd.getRawCmd().split("\\|")[4]);
@@ -101,7 +101,7 @@ public class Game {
                 synchronized (players) {
                     for (User player : players)
                         try {
-                            player.write("GAME|" +id+ "|" + name + "|MOVE|" + playerTurn.getNickname() + "|"+
+                            player.write("GAME|" + id + "|" + name + "|MOVE|" + playerTurn.getNickname() + "|" +
                                     String.valueOf(pieceToMove) + "|" +
                                     userPlaces.get(playerTurn.getNickname())[pieceToMove]);
                         } catch (Exception e) {
@@ -111,6 +111,16 @@ public class Game {
                 }
                 if (playerSquare[4] != 6)
                     passTurn();
+                else {
+                    synchronized (players) {
+                        for (User player : players)
+                            try {
+                                player.write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                    }
+                }
             }
         }
     }
