@@ -3,6 +3,8 @@ package no.hig.ezludo.client;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -16,6 +18,9 @@ public class GameController {
     @FXML private ImageView ludoBoardImage;
     private Image board;
 
+    //Players
+    HashMap<String, String> players = new HashMap<>();
+
     // Dices
     @FXML private ImageView diceImage;
     private Image dice;
@@ -25,39 +30,35 @@ public class GameController {
     private final int rounds = 8;
     private int diceNrFromServer;
 
-    // Ludo Pieces
-    @FXML private ImageView red1View;
-    @FXML private ImageView red2View;
-    @FXML private ImageView red3View;
-    @FXML private ImageView red4View;
-    @FXML private ImageView blue1View;
-    @FXML private ImageView blue2View;
-    @FXML private ImageView blue3View;
-    @FXML private ImageView blue4View;
-    @FXML private ImageView yellow1View;
-    @FXML private ImageView yellow2View;
-    @FXML private ImageView yellow3View;
-    @FXML private ImageView yellow4View;
-    @FXML private ImageView green1View;
-    @FXML private ImageView green2View;
-    @FXML private ImageView green3View;
-    @FXML private ImageView green4View;
-    private Image red1Image;
-    private Image red2Image;
-    private Image red3Image;
-    private Image red4Image;
-    private Image blue1Image;
-    private Image blue2Image;
-    private Image blue3Image;
-    private Image blue4Image;
-    private Image yellow1Image;
-    private Image yellow2Image;
-    private Image yellow3Image;
-    private Image yellow4Image;
-    private Image green1Image;
-    private Image green2Image;
-    private Image green3Image;
-    private Image green4Image;
+    // Ludo Pieces imageViews array
+    @FXML private ImageView redPieces[] = new ImageView[4];
+    @FXML private ImageView bluePieces[] = new ImageView[4];
+    @FXML private ImageView yellowPieces[] = new ImageView[4];
+    @FXML private ImageView greenPieces[] = new ImageView[4];
+
+    // ludo pieces images
+    private Image redImage[] = new Image[4];
+    private Image yellowImage[] = new Image[4];
+    private Image blueImage[] = new Image[4];
+    private Image greenImage[] =  new Image[4];
+
+    // single ludo pieces imageviews
+   @FXML private ImageView red1View;
+   @FXML private ImageView red2View;
+   @FXML private ImageView red3View;
+   @FXML private ImageView red4View;
+   @FXML private ImageView blue1View;
+   @FXML private ImageView blue2View;
+   @FXML private ImageView blue3View;
+   @FXML private ImageView blue4View;
+   @FXML private ImageView yellow1View;
+   @FXML private ImageView yellow2View;
+   @FXML private ImageView yellow3View;
+   @FXML private ImageView yellow4View;
+   @FXML private ImageView green1View;
+   @FXML private ImageView green2View;
+   @FXML private ImageView green3View;
+   @FXML private ImageView green4View;
 
     // Controller mechanism
     private boolean redInStart;
@@ -78,14 +79,18 @@ public class GameController {
     private boolean moveBack;
 
 
+    //make array for each color with one int for each peice
     // Test
     String gameName;
     private int redCurrent;
+    private int blueCurrent;
+    private int greenCurrent;
+    private int yellowCurrent;
 
 
     public GameController() { }
 
-    // constructor: setter opp brett, trening og rød brikke
+    // constructor: setter opp brett, trening og rï¿½d brikke
     public void ludoBoard() {
         ludoBoardCoordinates = new LudoBoardCoordinates();
         board = new Image("/res/board.png");
@@ -93,28 +98,36 @@ public class GameController {
         this.ludoBoardImage.setImage(board);
         this.diceImage.setImage(dice);
 
-        red1Image = new Image("/res/red2final.png");
-        red2Image = new Image("/res/red2final.png");
-        red3Image = new Image("/res/red2final.png");
-        red4Image = new Image("/res/red2final.png");
-        blue1Image = new Image("/res/blue2final.png");
-        blue2Image = new Image("/res/blue2final.png");
-        blue3Image = new Image("/res/blue2final.png");
-        blue4Image = new Image("/res/blue2final.png");
-        green1Image = new Image("/res/green2final.png");
-        green2Image = new Image("/res/green2final.png");
-        green3Image = new Image("/res/green2final.png");
-        green4Image = new Image("/res/green2final.png");
-        yellow1Image = new Image("/res/yellow2final.png");
-        yellow2Image = new Image("/res/yellow2final.png");
-        yellow3Image = new Image("/res/yellow2final.png");
-        yellow4Image = new Image("/res/yellow2final.png");
+        //set ImageViews in array
+        redPieces[0] = red1View;
+        redPieces[1] = red2View;
+        redPieces[2] = red3View;
+        redPieces[3] = red4View;
+        bluePieces[0] = blue1View;
+        bluePieces[1] = blue2View;
+        bluePieces[2] = blue3View;
+        bluePieces[3] = blue4View;
+        greenPieces[0] = green1View;
+        greenPieces[1] = green2View;
+        greenPieces[2] = green3View;
+        greenPieces[3] = green4View;
+        yellowPieces[0] = yellow1View;
+        yellowPieces[1] = yellow2View;
+        yellowPieces[2] = yellow3View;
+        yellowPieces[3] = yellow4View;
 
+        // array of images instead of single vars
+        for (int i=0;i<4;i++) {
+            redImage[i] = new Image("/res/red2final.png");
+            blueImage[i] = new Image("/res/blue2final.png");
+            greenImage[i] = new Image("/res/green2final.png");
+            yellowImage[i] = new Image("/res/yellow2final.png");
+        }
         setupBoard();
     }
 
     // Set all chips in start pos
-    public void setupBoard() {
+    public void setupBoard(){
         redInStart = true;
         blueInStart = true;
         yellowInStart = true;
@@ -129,124 +142,195 @@ public class GameController {
         yellowInGoal = false;
 
 
-        // Set red start pos
-        this.red1View.setX(ludoBoardCoordinates.redStart[1][1] * 600);
-        this.red1View.setY(ludoBoardCoordinates.redStart[1][2] * 600);
-        this.red1View.setImage(red1Image);
-        this.red2View.setX(ludoBoardCoordinates.redStart[2][1] * 600);
-        this.red2View.setY(ludoBoardCoordinates.redStart[2][2] * 600);
-        this.red2View.setImage(red2Image);
-        this.red3View.setX(ludoBoardCoordinates.redStart[3][1] * 600);
-        this.red3View.setY(ludoBoardCoordinates.redStart[3][2] * 600);
-        this.red3View.setImage(red3Image);
-        this.red4View.setX(ludoBoardCoordinates.redStart[4][1] * 600);
-        this.red4View.setY(ludoBoardCoordinates.redStart[4][2] * 600);
-        this.red4View.setImage(red4Image);
 
-        this.blue1View.setX(ludoBoardCoordinates.blueStart[1][1] * 600);
-        this.blue1View.setY(ludoBoardCoordinates.blueStart[1][2] * 600);
-        this.blue1View.setImage(blue1Image);
-        this.blue2View.setX(ludoBoardCoordinates.blueStart[2][1] * 600);
-        this.blue2View.setY(ludoBoardCoordinates.blueStart[2][2] * 600);
-        this.blue2View.setImage(blue2Image);
-        this.blue3View.setX(ludoBoardCoordinates.blueStart[3][1] * 600);
-        this.blue3View.setY(ludoBoardCoordinates.blueStart[3][2] * 600);
-        this.blue3View.setImage(blue3Image);
-        this.blue4View.setX(ludoBoardCoordinates.blueStart[4][1] * 600);
-        this.blue4View.setY(ludoBoardCoordinates.blueStart[4][2] * 600);
-        this.blue4View.setImage(blue4Image);
+        // array implemetation
+        for (int i = 0; i < 4; i++) {
 
-        this.green1View.setX(ludoBoardCoordinates.greenStart[1][1] * 600);
-        this.green1View.setY(ludoBoardCoordinates.greenStart[1][2] * 600);
-        this.green1View.setImage(green1Image);
-        this.green2View.setX(ludoBoardCoordinates.greenStart[2][1] * 600);
-        this.green2View.setY(ludoBoardCoordinates.greenStart[2][2] * 600);
-        this.green2View.setImage(green2Image);
-        this.green3View.setX(ludoBoardCoordinates.greenStart[3][1] * 600);
-        this.green3View.setY(ludoBoardCoordinates.greenStart[3][2] * 600);
-        this.green3View.setImage(green3Image);
-        this.green4View.setX(ludoBoardCoordinates.greenStart[4][1] * 600);
-        this.green4View.setY(ludoBoardCoordinates.greenStart[4][2] * 600);
-        this.green4View.setImage(green4Image);
+            this.redPieces[i].setX(ludoBoardCoordinates.redStart[i+1][1] * 600);
+            this.redPieces[i].setY(ludoBoardCoordinates.redStart[i+1][2] * 600);
+            this.redPieces[i].setImage(redImage[i]);
 
-        this.yellow1View.setX(ludoBoardCoordinates.yellowStart[1][1] * 600);
-        this.yellow1View.setY(ludoBoardCoordinates.yellowStart[1][2] * 600);
-        this.yellow1View.setImage(yellow1Image);
-        this.yellow2View.setX(ludoBoardCoordinates.yellowStart[2][1] * 600);
-        this.yellow2View.setY(ludoBoardCoordinates.yellowStart[2][2] * 600);
-        this.yellow2View.setImage(yellow2Image);
-        this.yellow3View.setX(ludoBoardCoordinates.yellowStart[3][1] * 600);
-        this.yellow3View.setY(ludoBoardCoordinates.yellowStart[3][2] * 600);
-        this.yellow3View.setImage(yellow3Image);
-        this.yellow4View.setX(ludoBoardCoordinates.yellowStart[4][1] * 600);
-        this.yellow4View.setY(ludoBoardCoordinates.yellowStart[4][2] * 600);
-        this.yellow4View.setImage(yellow4Image);
+            this.bluePieces[i].setX(ludoBoardCoordinates.blueStart[i+1][1] * 600);
+            this.bluePieces[i].setY(ludoBoardCoordinates.blueStart[i+1][2] * 600);
+            this.bluePieces[i].setImage(blueImage[i]);
+
+            this.greenPieces[i].setX(ludoBoardCoordinates.greenStart[i+1][1] * 600);
+            this.greenPieces[i].setY(ludoBoardCoordinates.greenStart[i+1][2] * 600);
+            this.greenPieces[i].setImage(greenImage[i]);
+
+            this.yellowPieces[i].setX(ludoBoardCoordinates.yellowStart[i+1][1] * 600);
+            this.yellowPieces[i].setY(ludoBoardCoordinates.yellowStart[i+1][2] * 600);
+            this.yellowPieces[i].setImage(yellowImage[i]);
+        }
 
         moveBackNr = 0;
         moveBack = false;
         redCurrent = 0;
+        blueCurrent = 0;
+        greenCurrent = 0;
+        yellowCurrent = 0;
     }
 
-    // Setter red over til main array etter red får 6 på terning
+    public void setupPlayers(String players[]) {
+       this.players.put(players[0], "red");
+        this.players.put(players[1], "green");
+        this.players.put(players[2], "yellow");
+        this.players.put(players[3], "blue");
+    }
+
     public void setRedinMain () {
-        redCurrent = 1;
-        this.red1View.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
-        this.red1View.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
-        this.red1View.setImage(red1Image);
+         redCurrent = 1;
+         this.redPieces[0].setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
+         this.redPieces[0].setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
+         this.redPieces[0].setImage(redImage[0]);
+     }
+
+    public void setBlueinMain() {
+        blueCurrent = 1;
+        this.bluePieces[0].setX(ludoBoardCoordinates.mainArea[14][1] * 600);
+        this.bluePieces[0].setY(ludoBoardCoordinates.mainArea[14][2] * 600);
+        this.bluePieces[0].setImage(blueImage[0]);
     }
 
-    // Med animasjon
-    public void redMove(int nr) {
-        int stop=redCurrent+nr;
-        Thread movingThread = new Thread(new Runnable() {
+    public void playerMove(String command[]) {
+        if (players.get(command[3]).equals("red")) {
+           movePiece(Integer.parseInt(command[6]), redCurrent, redPieces[Integer.parseInt(command[5])],
+                   redImage[Integer.parseInt(command[5])], ludoBoardCoordinates.redFinish, "red");
+        }
+
+        else if (players.get(command[3]).equals("blue")) {
+            movePiece(Integer.parseInt(command[6]), blueCurrent, bluePieces[Integer.parseInt(command[5])],
+                    blueImage[Integer.parseInt(command[5])], ludoBoardCoordinates.blueFinish, "blue");
+        }
+
+        else if (players.get(command[3]).equals("yellow")) {
+            movePiece(Integer.parseInt(command[6]), yellowCurrent, yellowPieces[Integer.parseInt(command[5])],
+                    yellowImage[Integer.parseInt(command[5])], ludoBoardCoordinates.yellowFinish, "yellow");
+        }
+
+        else if (players.get(command[3]).equals("green")) {
+            movePiece(Integer.parseInt(command[6]), greenCurrent, greenPieces[Integer.parseInt(command[5])],
+                    greenImage[Integer.parseInt(command[5])], ludoBoardCoordinates.greenFinish, "green");
+        }
+
+
+    }
+
+    // Med animasjon, generell move for alle brikker og farger,
+    public void movePiece(int steps, int colorCurrent, ImageView imageView, Image image,
+                         double finishArray[][], String color) {
+        int stop=colorCurrent+steps;
+        Thread moveThread = new Thread(new Runnable() {
             public void run() {
-                while (redCurrent+1 <= stop) {
-                    redCurrent++;
+                int colCurrent = colorCurrent;
+                int squareInArray = 0;
+                if (color.equals("red")) {
+                    squareInArray = colCurrent;
+                }
+                else if (color.equals("blue")) {
+                    squareInArray = colCurrent+14;
+                }
+                else if (color.equals("green")) {
+                    squareInArray = colCurrent+39;
+                }
+                else if (color.equals("yellow")) {
+                    squareInArray = colCurrent+ 27;
+                }
+                while (colCurrent+1 <= stop) {
+                    colCurrent++;
+                    squareInArray++;
 
-                    // begynner på 1 igjen etter main er ferdig
-                    if(redCurrent == 52) {
-                        red1View.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
-                        red1View.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
-                        red1View.setImage(red1Image);
-                        System.out.print(redCurrent);
+                    // begynner pï¿½ 1 igjen etter main er ferdig
+                    if(colCurrent== 52) {
+                        if (color.equals("red")) {
+                            imageView.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
+                            imageView.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
+                        }
+                        else if (color.equals("blue")) {
+                            imageView.setX(ludoBoardCoordinates.mainArea[14][1] * 600);
+                            imageView.setY(ludoBoardCoordinates.mainArea[14][2] * 600);
+                        }
+                        else if (color.equals("green")) {
+                            imageView.setX(ludoBoardCoordinates.mainArea[39][1] * 600);
+                            imageView.setY(ludoBoardCoordinates.mainArea[39][2] * 600);
+                        }
+                        else if (color.equals("yellow")) {
+                            imageView.setX(ludoBoardCoordinates.mainArea[27][1] * 600);
+                            imageView.setY(ludoBoardCoordinates.mainArea[27][2] * 600);
+                        }
+                        imageView.setImage(image);
+                        System.out.print(colCurrent);
                         System.out.print("\n");
                     }
 
-                    //Flytter inn mot mål BUG: flytter kun 1 og 1 rute
-                    else if(redCurrent > 52 && redCurrent < 58) {
-                        red1View.setX(ludoBoardCoordinates.redFinish[redCurrent-52][1] * 600);
-                        red1View.setY(ludoBoardCoordinates.redFinish[redCurrent - 52][2] * 600);
-                        red1View.setImage(red1Image);
-                        System.out.print(redCurrent);
+                    //Flytter inn mot mï¿½l BUG: flytter kun 1 og 1 rute
+                    else if(colCurrent > 52 && colCurrent< 58) {
+                        imageView.setX(finishArray[colCurrent - 52][1] * 600);
+                        imageView.setY(finishArray[colCurrent - 52][2] * 600);
+                        imageView.setImage(image);
+                        System.out.print(colCurrent);
                         System.out.print("\n");
                     }
 
-                    // Hvis spiller får terningkast som går utenfor brettet \ forbi mål må det flyttes tilbake.
-                    else if (redCurrent > 58) {
+                    // Hvis spiller fï¿½r terningkast som gï¿½r utenfor brettet \ forbi mï¿½l mï¿½ det flyttes tilbake.
+                    else if (colCurrent > 58) {
                         // FUNKER IKKE
-                        // går i loop
-                    //    redCurrent--;
+                        // gï¿½r i loop
+                        //    redCurrent--;
                         moveBack = true;
                         moveBackNr++;
-                        System.out.print(redCurrent);
+                        System.out.print(stop + " stop");
                         System.out.print("\n");
                     }
 
-                    // Spilleren er i mål og skal ikke kunen flytte brukken noe mer.
-                    else if (redCurrent == 58 && stop == 58) {
-                        red1View.setX(ludoBoardCoordinates.redFinish[6][1] * 600);
-                        red1View.setY(ludoBoardCoordinates.redFinish[6][2] * 600);
-                        red1View.setImage(red1Image);
+                    // Spilleren er i mï¿½l og skal ikke kunen flytte brukken noe mer.
+                    else if (colCurrent == 58 && stop == 58) {
+                        imageView.setX(finishArray[6][1] * 600);
+                        imageView.setY(finishArray[6][2] * 600);
+                        imageView.setImage(image);
                         redInGoal = true;
-                        System.out.print(redCurrent);
+                        System.out.print(colCurrent);
                         System.out.print("\n");
                     }
-                    else if(redCurrent < 52) {
+                    else if(colCurrent < 52) {
                         // Flytter vanlig i main
-                        red1View.setX(ludoBoardCoordinates.mainArea[redCurrent][1] * 600);
-                        red1View.setY(ludoBoardCoordinates.mainArea[redCurrent][2] * 600);
-                        red1View.setImage(red1Image);
-                        System.out.print(redCurrent);
+                        if (color.equals("red")) {
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
+                        }
+                        else if (color.equals("blue")) {
+                            if (squareInArray < 52) {
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
+                            }
+                            else {
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-51][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-51][2] * 600);
+                            }
+                        }
+                        else if (color.equals("green")) {
+                            if (squareInArray < 52) {
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
+                            }
+                            else {
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-51][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-51][2] * 600);
+                            }
+                        }
+                        else if (color.equals("yellow")) {
+
+                            if (squareInArray < 52) {
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
+                            }
+                            else {
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-51][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-51][2] * 600);
+                            }
+                        }
+                        imageView.setImage(image);
+                        System.out.print(colCurrent);
                         System.out.print("\n");
                     }
                     try {
@@ -256,38 +340,64 @@ public class GameController {
                     }
                 }
                 if(moveBack == true) {
-                    moveBack(moveBackNr);
+                    moveBack(moveBackNr, finishArray, color, imageView, image, colCurrent);
                     System.out.print("moveBack()");
                     System.out.print("\n");
 
                 }
+                else {
+                    if (color.equals("red")) {
+                        redCurrent = colCurrent;
+                    }
+                    else if (color.equals("blue")) {
+                        blueCurrent = colCurrent;
+                    }
+                    else if (color.equals("yellow")) {
+                        yellowCurrent = colCurrent;
+                    }
+                    else if (color.equals("green")) {
+                        greenCurrent = colCurrent;
+                    }
+                }
             }
         });
-        movingThread.start();
+        moveThread.start();
     }
 
-    public void moveBack(int nr) {
-        redCurrent-=nr-1;
+    public void moveBack(int nr, double finish[][], String color, ImageView imageView, Image image, int colCurrent) {
         Thread movingThread = new Thread(new Runnable() {
             public void run() {
+                int tempCurrent = colCurrent;
+                tempCurrent -= nr -1;
                 int i = 6;
                 int j = i - nr;
                 moveBackNr = 0;
                 moveBack = false;
                 while (i >= j) {
-                    System.out.print(redCurrent);
-                    System.out.print("\n");
-                    red1View.setX(ludoBoardCoordinates.redFinish[i][1] * 600);
-                    red1View.setY(ludoBoardCoordinates.redFinish[i][2] * 600);
-                    red1View.setImage(red1Image);
+                    System.out.println(tempCurrent);
+                    imageView.setX(finish[i][1] * 600);
+                    imageView.setY(finish[i][2] * 600);
+                    imageView.setImage(image);
                     i--;
-                    redCurrent--;
+                    tempCurrent--;
                         try {
                             Thread.sleep(500);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
 
+                }
+                if (color.equals("red")) {
+                    redCurrent = tempCurrent;
+                }
+                else if (color.equals("blue")) {
+                    blueCurrent = tempCurrent;
+                }
+                else if (color.equals("yellow")) {
+                    yellowCurrent = tempCurrent;
+                }
+                else if (color.equals("green")) {
+                    greenCurrent = tempCurrent;
                 }
             }
         });
@@ -311,17 +421,22 @@ public class GameController {
                 dice = new Image("/res/dices/dice" + diceNrFromServer+".png");
                 diceImage.setImage(dice);
 
-                // hvis red ikke står i start område
-                if (redInStart == false && redInGoal == false) {
-                    redMove(diceNrFromServer);
+                // hvis red ikke stï¿½r i start omrï¿½de
+                if (blueInStart == false) {
+                    //redMove(diceNrFromServer);
+                    movePiece(diceNrFromServer, blueCurrent, bluePieces[0], blueImage[0], ludoBoardCoordinates.blueFinish, "blue");
                 }
 
-                // hvis red står i start omr og tering viser 6 = flytt ut til main array
-                if (diceNr == 6 && redInStart == true && redInGoal == false) {
-                    redInStart = false;
-                    setRedinMain();
+                // hvis red stï¿½r i start omr og tering viser 6 = flytt ut til main array
+                if (diceNr == 6 && blueInStart == true && blueInGoal == false) {
+                    blueInStart = false;
+                    setBlueinMain();
                 }
 
+                if (diceNr == 6 && blueInStart== true && blueInGoal == true) {
+                    blueInStart = false;
+                    setBlueinMain();
+                }
             }
         });
         diceLoadingThread.start();

@@ -120,7 +120,7 @@ public class MainController extends Application {
     public void chooseGameRoomName() {
 
         //Testing
-        String names[] = {"Nikita","Boris","Vladimir"};
+        String names[] = {"", "-1", "testgame", "Nikita","Boris","Vladimir", "IGOR"};
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("New room");
@@ -187,6 +187,8 @@ public class MainController extends Application {
                     gameMap.put(response[1], gameController);
                     gameController.setGameName(response[2]);
                     gameController.ludoBoard();
+                    String players[] = {response[3], response[4], response[5], response[6]};
+                    gameController.setupPlayers(players);
 
                     //TODO response [3 ---> end == player names
 
@@ -224,7 +226,7 @@ public class MainController extends Application {
     }
 
     public void playerMove(String command[]) {
-        //gameMap.get(command[1]). //TODO player has moved
+        gameMap.get(command[1]).playerMove(command);
     }
 
 
