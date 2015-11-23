@@ -25,6 +25,7 @@ public class Server {
 	private Vector<User> users = new Vector<>();
    private Vector<User> usersWaitingForGame = new Vector<>();
 	private Vector<User> usersClosedSocets = new Vector<>();
+	private Vector<User> usersToadd = new Vector<>();
    private Vector<Game> games = new Vector<>();
 	private LinkedBlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
    private ServerSocket loginServerSocket=null;
@@ -121,8 +122,16 @@ public class Server {
 					e.printStackTrace();
 				}
 				removeClosedSockets();
+				addNewUsers();
 			}
 		}).start();
+	}
+
+	private void addNewUsers() {
+		synchronized (users) {
+			while (usersToadd.size()>0)
+				users.add(usersToadd.remove(0));
+		}
 	}
 
 	private void startCommandHandler() {
@@ -233,8 +242,8 @@ public class Server {
 					while ((socket = mainSocket.accept()) != null) {
 						try {
 							User user = new User(socket, database);
-							synchronized(users) {
-								users.add(user);
+							synchronized(usersToadd) {
+								usersToadd.add(user);
 								serverLogger.info(user.getNickname() + " logged in");
 							}
 						} catch (Exception e) {
