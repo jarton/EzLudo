@@ -880,3 +880,14 @@
 2015-11-22 15:11:04,419 INFO  [Server] received command: JOIN CHAT|lobby
 2015-11-22 15:11:04,419 INFO  [Server] handling command JOIN CHAT|lobby
 2015-11-22 15:11:04,422 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-22 20:54:13,429 INFO  [Server] Per Hansen logged in
+2015-11-22 20:54:15,304 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-22 20:54:15,304 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-22 20:54:15,307 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-22 20:54:38,507 INFO  [Server] received command: JOIN RANDOM
+2015-11-22 20:54:38,507 INFO  [Server] handling command JOIN RANDOM
+2015-11-22 20:54:38,508 INFO  [Server] user Per Hansen added to random game que 
+2015-11-22 20:55:27,996 INFO  [Server] handling command JOIN CHAT|s
+2015-11-22 20:55:27,996 INFO  [Server] chatRoom created: s
+2015-11-22 20:55:27,996 INFO  [Server] user Per Hansen added to chatroom: s
+2015-11-22 20:55:28,008 INFO  [Server] received command: JOIN CHAT|s

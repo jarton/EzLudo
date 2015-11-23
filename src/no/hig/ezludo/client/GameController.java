@@ -19,6 +19,10 @@ import java.util.Random;
  */
 public class GameController {
 
+    // CONSTANTS
+    final private int MOVEPIECELAG = 500;
+    final private int DICELAG = 100;
+
     //Game info
     String gameName;
     String gameId;
@@ -85,10 +89,11 @@ public class GameController {
     private boolean blueInFinish;
     private boolean yellowInFinish;
     private boolean greenInFinish;
-    private boolean redInGoal;
-    private boolean blueInGoal;
-    private boolean yellowInGoal;
-    private boolean greenInGoal;
+
+    private boolean[] redInGoal = new boolean[4];
+    private boolean[] blueInGoal = new boolean[4];
+    private boolean[] yellowInGoal = new boolean[4];
+    private boolean[] greenInGoal = new boolean[4];
 
     // Used if user have to move back
     private int moveBackNr;
@@ -151,12 +156,6 @@ public class GameController {
         blueInFinish = false;
         greenInFinish = false;
         yellowInFinish = false;
-        redInGoal = false;
-        blueInGoal = false;
-        greenInGoal = false;
-        yellowInGoal = false;
-
-
 
         // array implemetation
         for (int i = 0; i < 4; i++) {
@@ -166,15 +165,15 @@ public class GameController {
             this.redPieces[i].setImage(redImage[i]);
 
             this.bluePieces[i].setX(ludoBoardCoordinates.blueStart[i+1][1] * 600);
-            this.bluePieces[i].setY(ludoBoardCoordinates.blueStart[i+1][2] * 600);
+            this.bluePieces[i].setY(ludoBoardCoordinates.blueStart[i + 1][2] * 600);
             this.bluePieces[i].setImage(blueImage[i]);
 
-            this.greenPieces[i].setX(ludoBoardCoordinates.greenStart[i+1][1] * 600);
-            this.greenPieces[i].setY(ludoBoardCoordinates.greenStart[i+1][2] * 600);
+            this.greenPieces[i].setX(ludoBoardCoordinates.greenStart[i + 1][1] * 600);
+            this.greenPieces[i].setY(ludoBoardCoordinates.greenStart[i + 1][2] * 600);
             this.greenPieces[i].setImage(greenImage[i]);
 
-            this.yellowPieces[i].setX(ludoBoardCoordinates.yellowStart[i+1][1] * 600);
-            this.yellowPieces[i].setY(ludoBoardCoordinates.yellowStart[i+1][2] * 600);
+            this.yellowPieces[i].setX(ludoBoardCoordinates.yellowStart[i + 1][1] * 600);
+            this.yellowPieces[i].setY(ludoBoardCoordinates.yellowStart[i + 1][2] * 600);
             this.yellowPieces[i].setImage(yellowImage[i]);
 
 
@@ -182,6 +181,11 @@ public class GameController {
             blueCurrent[i] = 0;
             greenCurrent[i] = 0;
             yellowCurrent[i] = 0;
+
+            redInGoal[i] = false;
+            blueInGoal[i] = false;
+            greenInGoal[i] = false;
+            yellowInGoal[i] = false;
         }
 
         moveBackNr = 0;
@@ -269,27 +273,30 @@ public class GameController {
             yourTurn = true;
         }
     }
+    // ADDED 23.11: && <color>InGoal[Integer.parseInt(command[5])]  == false
+       // If piece is in goal (colCurrent == 58)
+        // Kristian
 
     public void playerMove(String command[]) {
-        if (players.get(command[4]).equals("red")) {
+        if (players.get(command[4]).equals("red") && redInGoal[Integer.parseInt(command[5])] == false) {
            movePiece(Integer.parseInt(command[6]), redCurrent[Integer.parseInt(command[5])],
                    redPieces[Integer.parseInt(command[5])], redImage[Integer.parseInt(command[5])],
                    Integer.parseInt(command[5]), ludoBoardCoordinates.redFinish, "red");
         }
 
-        else if (players.get(command[4]).equals("blue")) {
+        else if (players.get(command[4]).equals("blue") && blueInGoal[Integer.parseInt(command[5])] == false) {
             movePiece(Integer.parseInt(command[6]), blueCurrent[Integer.parseInt(command[5])],
                     bluePieces[Integer.parseInt(command[5])], blueImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.blueFinish, "blue");
         }
 
-        else if (players.get(command[4]).equals("yellow")) {
+        else if (players.get(command[4]).equals("yellow") && yellowInGoal[Integer.parseInt(command[5])] == false) {
             movePiece(Integer.parseInt(command[6]), yellowCurrent[Integer.parseInt(command[5])],
                     yellowPieces[Integer.parseInt(command[5])], yellowImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.yellowFinish, "yellow");
         }
 
-        else if (players.get(command[4]).equals("green")) {
+        else if (players.get(command[4]).equals("green") && greenInGoal[Integer.parseInt(command[5])] == false) {
             movePiece(Integer.parseInt(command[6]), greenCurrent[Integer.parseInt(command[5])],
                     greenPieces[Integer.parseInt(command[5])], greenImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.greenFinish, "green");
@@ -370,8 +377,24 @@ public class GameController {
                         imageView.setX(finishArray[6][1] * 600);
                         imageView.setY(finishArray[6][2] * 600);
                         imageView.setImage(image);
-                        redInGoal = true;
-                        // TODO: SET <color>InGoal as above
+
+                       ////////// ADDED 23.11 Kristian
+                        // if colCurrent is 58.. goal array == true.
+                        // not possible to move piece anymore
+
+                        if (color.equals("red")) {
+                            redInGoal[piece] = true;
+                        }
+                        else if (color.equals("blue")) {
+                            blueInGoal[piece] = true;
+                        }
+                        else if (color.equals("green")) {
+                            greenInGoal[piece] = true;
+                        }
+                        else if (color.equals("yellow")) {
+                            yellowInGoal[piece] = true;
+                        }
+
                         System.out.print(colCurrent);
                         System.out.print("\n");
                     }
@@ -417,7 +440,7 @@ public class GameController {
                         System.out.print("\n");
                     }
                     try {
-                        Thread.sleep(500);
+                        Thread.sleep(MOVEPIECELAG);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -465,7 +488,7 @@ public class GameController {
                     i--;
                     tempCurrent--;
                         try {
-                            Thread.sleep(500);
+                            Thread.sleep(MOVEPIECELAG);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -501,7 +524,7 @@ public class GameController {
                     diceNr = randomInt(diceMin, diceMax);
                     showImage(diceNr);
                     try {
-                        Thread.sleep(20);
+                        Thread.sleep(DICELAG);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
