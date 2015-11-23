@@ -83,22 +83,12 @@ public class MainController extends Application {
         client.joinRandomGame();
     }
 
-    /**
-     * This method receives a message, and displays it in the lobby chat.
-     * @param text
-     */
-    @FXML
-    public void displayLobbyMessage(String text) {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                chatListView.getItems().add(text);
-            }
-        });
-    }
-
     public void displayMessage(String[] text) {
-        tabMap.get(text[1]).displayMessage(text[2] + ": " + text[3]);
+        if (text[0].equals("CHAT")) {
+            tabMap.get(text[1]).displayMessage(text[2] + ": " + text[3]);
+        } else if (text[0].equals("GAME")) {
+            gameMap.get(text[1]).displayMessage(text[4] + ": " + text[5]);
+        }
     }
 
     public void chooseChatRoomName() {
