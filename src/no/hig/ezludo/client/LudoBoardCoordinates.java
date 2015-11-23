@@ -13,12 +13,12 @@ package no.hig.ezludo.client;
  *  - Multiply X by the width of current image of ludo board
  *  - Multiply Y by the height of current image of ludo board
  *
- *  Start arrays define the 4 routs where all chips are placed at start.
- *  A player need to throw a 6 at dice to move from start-arrat to the main array.
+ *  Start arrays define the 4 routs where all pieces are placed at start.
+ *  A player need to throw a 6 at dice to move from start-array to the main array.
  *  When a player has finished the main array, he or she can continue to
  *  finish array.
  *
- *  Main area indlues 1 route for each player / colour
+ *  Main area includes 1 route for each player / colour
  *  - Therefor finish-array starts at the second route with colour.
  */
 public class LudoBoardCoordinates {
@@ -37,7 +37,7 @@ public class LudoBoardCoordinates {
         redStart = new double[5][3];
         yellowStart = new double[5][3];
         greenStart = new double[5][3];
-        mainArea = new double[52][3];
+        mainArea = new double[53][3];
         blueFinish = new double[7][3];
         redFinish = new double[7][3];
         yellowFinish = new double[7][3];
@@ -52,7 +52,7 @@ public class LudoBoardCoordinates {
             }
         }
 
-        for(int i=1; i<=51; i++) {
+        for(int i=1; i<=52; i++) {
             for(int j=1; j<=2; j++) {
                 mainArea[i][j] = 0;
             }
@@ -104,7 +104,7 @@ public class LudoBoardCoordinates {
         greenStart[4][2]=0.16812865497076024;
 
 
-        // Red route: 1 --> 51 --> 1 Then red finish array
+        // Red route: 1 --> 52 --> 1 Then red finish array
         mainArea[1][1]= 0.5351390922401171; // RED START POS X
         mainArea[1][2]= 0.06871345029239766; // RED START POS Y
         mainArea[2][1]= 0.5351390922401171;
@@ -132,7 +132,7 @@ public class LudoBoardCoordinates {
         mainArea[13][1]= 0.9333821376281113;
         mainArea[13][2]= 0.5350877192982456;
 
-        // Blue route: 14 --> 51 --> 14 Then blue finish array
+        // Blue route: 14 --> 52 --> 14 Then blue finish array
         mainArea[14][1]=0.8667642752562226; // Blue Start X
         mainArea[14][2]= 0.533625730994152; // Blue start Y
         mainArea[15][1]= 0.8008784773060029;
@@ -160,11 +160,11 @@ public class LudoBoardCoordinates {
         mainArea[26][1]= 0.40263543191800877;
         mainArea[26][2]= 0.9342105263157895;
 
-        // Yellow route: 27 --> 51 --> 27 Then Yellow finish array
+        // Yellow route: 27 --> 52 --> 27 Then Yellow finish array
         mainArea[27][1]= 0.40263543191800877; // Yellow start X
         mainArea[27][2]= 0.8669590643274854; // Yellow start Y
         mainArea[28][1]=0.40263543191800877;
-        mainArea[28][2]=0.7997076023391813;
+        mainArea[28][2]=0.8011695906432749;
         mainArea[29][1]= 0.40263543191800877;
         mainArea[29][2]=0.7339181286549707;
         mainArea[30][1]= 0.40263543191800877;
@@ -175,8 +175,6 @@ public class LudoBoardCoordinates {
         mainArea[32][2]=0.533625730994152;
         mainArea[33][1]=0.26939970717423134;
         mainArea[33][2]=0.533625730994152;
-        //mainArea[34][1]=0.13689604685212298;  // BUG?
-        //mainArea[34][2]=0.533625730994152;    // BUG ?
         mainArea[34][1]=0.2027818448023426;
         mainArea[34][2]=0.5350877192982456;
         mainArea[35][1]=0.13689604685212298;
@@ -184,37 +182,39 @@ public class LudoBoardCoordinates {
         mainArea[36][1]=0.07027818448023426;
         mainArea[36][2]=0.5350877192982456;
         mainArea[37][1]=0.0036603221083455345;
-        mainArea[37][2]=0.4678362573099415;
+        mainArea[37][2]=0.5350877192982456;
         mainArea[38][1]=0.0036603221083455345;
-        mainArea[38][2]=0.402046783625731;
+        mainArea[38][2]=0.4678362573099415;
+        mainArea[39][1]=0.0036603221083455345;
+        mainArea[39][2]=0.402046783625731;
 
-        // Green route: 39 --> 51 --> 39 Then green finish array
-        mainArea[39][1]=0.07027818448023426; // Green start X
-        mainArea[39][2]=0.402046783625731; // Green start Y
-        mainArea[40][1]=0.13689604685212298;
-        mainArea[40][2]=0.40058479532163743;
-        mainArea[41][1]=0.2027818448023426;
+        // Green route: 40 --> 52 --> 40 Then green finish array
+        mainArea[40][1]=0.07027818448023426;  // Green start;
+        mainArea[40][2]=0.40058479532163743;  // Green start
+        mainArea[41][1]=0.13689604685212298;
         mainArea[41][2]=0.402046783625731;
-        mainArea[42][1]=0.26939970717423134;
+        mainArea[42][1]=0.2027818448023426;
         mainArea[42][2]=0.402046783625731;
-        mainArea[43][1]=0.33601756954612005;
+        mainArea[43][1]=0.26939970717423134;
         mainArea[43][2]=0.402046783625731;
-        mainArea[44][1]=0.40263543191800877;
-        mainArea[44][2]=0.3362573099415205;
+        mainArea[44][1]=0.33601756954612005;
+        mainArea[44][2]=0.402046783625731;
         mainArea[45][1]=0.40263543191800877;
-        mainArea[45][2]=0.26900584795321636;
+        mainArea[45][2]=0.3362573099415205;
         mainArea[46][1]=0.40263543191800877;
-        mainArea[46][2]=0.20321637426900585;
+        mainArea[46][2]=0.26900584795321636;
         mainArea[47][1]=0.40263543191800877;
-        mainArea[47][2]=0.13742690058479531;
+        mainArea[47][2]=0.20321637426900585;
         mainArea[48][1]=0.40263543191800877;
-        mainArea[48][2]=0.07017543859649122;
+        mainArea[48][2]=0.13742690058479531;
         mainArea[49][1]=0.40263543191800877;
-        mainArea[49][2]=0.0043859649122807015;
-        mainArea[50][1]=0.4685212298682284;
-        mainArea[50][2]=0.0029239766081871343;
-        mainArea[51][1]=0.5351390922401171;
-        mainArea[51][2]=0.0029239766081871343;
+        mainArea[49][2]=0.07017543859649122;
+        mainArea[50][1]=0.40263543191800877;
+        mainArea[50][2]=0.0043859649122807015;
+        mainArea[51][1]=0.46925329428989754;
+        mainArea[51][2]=0.0043859649122807015;
+        mainArea[52][1]=0.5351390922401171;
+        mainArea[52][2]=0.0043859649122807015;
 
         blueFinish[1][1]=0.8674963396778916;
         blueFinish[1][2]=0.4692982456140351;

@@ -233,29 +233,40 @@ public class GameController {
         if (command[4].equals(myNickname)) {
             showDices(command[5]);
             ImageView pieceArray[];
+            int colorCurrent[];
             if (players.get(myNickname).equals("red")) {
                 pieceArray = redPieces;
+                colorCurrent = redCurrent;
             }
             else if (players.get(myNickname).equals("blue")) {
                 pieceArray = bluePieces;
+                colorCurrent = blueCurrent;
             }
             else if (players.get(myNickname).equals("yellow")) {
                 pieceArray = yellowPieces;
+                colorCurrent = yellowCurrent;
             }
             else {
                 pieceArray = greenPieces;
+                colorCurrent = greenCurrent;
             }
+            boolean allInStart = true;
             for (int i=0;i<4;i++) {
                 int pieceToMove = i;
                 System.out.println("adding click listeners");
-                pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent event) {
-                        System.out.println("cliecked");
-                        MainController.client.movePiece(gameId, gameName, String.valueOf(pieceToMove));
-                        movedPiece(pieceArray, event);
-                    }
-                });
+                if (colorCurrent[i] != 0 || command[5].equals("6")) {
+                    allInStart = false;
+                    pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            System.out.println("cliecked");
+                            MainController.client.movePiece(gameId, gameName, String.valueOf(pieceToMove));
+                            movedPiece(pieceArray, event);
+                        }
+                    });
+                }
+                if (allInStart)
+                    MainController.client.movePiece(gameId, gameName, "0");
             }
         }
         else {
@@ -325,13 +336,13 @@ public class GameController {
                     squareInArray = colCurrent;
                 }
                 else if (color.equals("blue")) {
-                    squareInArray = colCurrent+14;
+                    squareInArray = colCurrent+13;
                 }
                 else if (color.equals("green")) {
                     squareInArray = colCurrent+39;
                 }
                 else if (color.equals("yellow")) {
-                    squareInArray = colCurrent+ 27;
+                    squareInArray = colCurrent+ 26;
                 }
                 while (colCurrent+1 <= stop) {
                     colCurrent++;
@@ -348,8 +359,8 @@ public class GameController {
                             imageView.setY(ludoBoardCoordinates.mainArea[14][2] * 600);
                         }
                         else if (color.equals("green")) {
-                            imageView.setX(ludoBoardCoordinates.mainArea[39][1] * 600);
-                            imageView.setY(ludoBoardCoordinates.mainArea[39][2] * 600);
+                            imageView.setX(ludoBoardCoordinates.mainArea[40][1] * 600);
+                            imageView.setY(ludoBoardCoordinates.mainArea[40][2] * 600);
                         }
                         else if (color.equals("yellow")) {
                             imageView.setX(ludoBoardCoordinates.mainArea[27][1] * 600);
