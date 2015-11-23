@@ -37,7 +37,7 @@ public class LudoBoardCoordinates {
         redStart = new double[5][3];
         yellowStart = new double[5][3];
         greenStart = new double[5][3];
-        mainArea = new double[52][3];
+        mainArea = new double[53][3];
         blueFinish = new double[7][3];
         redFinish = new double[7][3];
         yellowFinish = new double[7][3];
