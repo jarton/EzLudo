@@ -129,10 +129,8 @@ public class Client {
                             else if (command[3].equals("MOVE")) {
                                 mainController.playerMove(command);
                             }
-                            else if (command[3].equals("CHAT")) {
-                                mainController.displayMessage(command);
-                            }
-                       }
+                            else mainController.displayMessage(command);
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
