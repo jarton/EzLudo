@@ -18,7 +18,12 @@ public class GameBot {
     private int loginPort = 6969;
     private PrintWriter output;
     private BufferedReader input;
-    private String spam[] = {"hei", "hva skjer?", "lol funny", "ludo anyone", "ludy hype", "noen eg kan utfordre?",
+    private String spam[] = {"Vår Far i himmelen!", "La navnet ditt helliges.",
+            "La riket ditt komme.", "La viljen din skje på jorden slik som i himmelen.",
+            "Gi oss i dag vårt daglige brød, og tilgi oss vår skyld, slik også vi tilgir våre skyldnere." ,
+            "Og la oss ikke komme i fristelse, men frels oss fra det onde.",
+            "For riket er ditt og makten og æren i evighet.", "Amen.", "hei",
+            "hva skjer?", "lol funny", "ludo anyone", "ludy hype", "noen eg kan utfordre?",
     "haha", "riot", "liker kinasjakk bedre", "hahahha", "join min chat da vell",  ":D", "nice", "\\^.^/", "plox add me",
     "dette spillet suger", "yoyoyo", "noen som liker kylling", "..................................HEI", "jeg heter per",
     "jeg er best i ludo", "noen utFordre MEG!!!!!"};
