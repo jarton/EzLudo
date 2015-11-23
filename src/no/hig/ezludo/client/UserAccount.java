@@ -39,7 +39,6 @@ public class UserAccount {
     PrintWriter output;
     BufferedReader input;
     private Socket loginClient = null;
-    private final static int loginPort = 6969;
 
 
     /**
@@ -158,9 +157,29 @@ public class UserAccount {
         });
         panel.add(passwordRepeatText);
 
+        // IP label
+        JLabel ipLabel = new JLabel(messages.getString("loginIP"));
+        ipLabel.setBounds(10, 130, 80, 25);
+        panel.add(ipLabel);
+
+
+        // IP input field
+        JTextField ipTextField = new JTextField(20);
+        ipTextField.setBounds(100, 130, 160, 25);
+        ipTextField.getDocument().addDocumentListener(new DocumentListener() {
+            public void changedUpdate(DocumentEvent e) { Constants.serverIP =  ipTextField.getText(); }
+
+            public void removeUpdate(DocumentEvent e) {
+                Constants.serverIP =  ipTextField.getText();
+            }
+
+            public void insertUpdate(DocumentEvent e) { Constants.serverIP =  ipTextField.getText(); }
+        });
+        panel.add( ipTextField);
+
         // Back Button
         JButton backButton = new JButton(messages.getString("back"));
-        backButton.setBounds(10,160,80,25);
+        backButton.setBounds(10,190,80,25);
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -171,7 +190,7 @@ public class UserAccount {
 
         // Register Button
         JButton registerButton = new JButton(messages.getString("register"));
-        registerButton.setBounds(180, 160, 80, 25);
+        registerButton.setBounds(180, 190, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -327,7 +346,7 @@ public class UserAccount {
 
     public void register(String username, String email, String hashedPassword) {
         try {
-            loginClient = new Socket(Constants.serverIP, loginPort);
+            loginClient = new Socket(Constants.serverIP, Constants.loginPortNumber);
             output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
 

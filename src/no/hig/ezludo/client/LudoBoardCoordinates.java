@@ -13,12 +13,12 @@ package no.hig.ezludo.client;
  *  - Multiply X by the width of current image of ludo board
  *  - Multiply Y by the height of current image of ludo board
  *
- *  Start arrays define the 4 routs where all chips are placed at start.
- *  A player need to throw a 6 at dice to move from start-arrat to the main array.
+ *  Start arrays define the 4 routs where all pieces are placed at start.
+ *  A player need to throw a 6 at dice to move from start-array to the main array.
  *  When a player has finished the main array, he or she can continue to
  *  finish array.
  *
- *  Main area indlues 1 route for each player / colour
+ *  Main area includes 1 route for each player / colour
  *  - Therefor finish-array starts at the second route with colour.
  */
 public class LudoBoardCoordinates {
@@ -104,7 +104,7 @@ public class LudoBoardCoordinates {
         greenStart[4][2]=0.16812865497076024;
 
 
-        // Red route: 1 --> 51 --> 1 Then red finish array
+        // Red route: 1 --> 52 --> 1 Then red finish array
         mainArea[1][1]= 0.5351390922401171; // RED START POS X
         mainArea[1][2]= 0.06871345029239766; // RED START POS Y
         mainArea[2][1]= 0.5351390922401171;
@@ -132,7 +132,7 @@ public class LudoBoardCoordinates {
         mainArea[13][1]= 0.9333821376281113;
         mainArea[13][2]= 0.5350877192982456;
 
-        // Blue route: 14 --> 51 --> 14 Then blue finish array
+        // Blue route: 14 --> 52 --> 14 Then blue finish array
         mainArea[14][1]=0.8667642752562226; // Blue Start X
         mainArea[14][2]= 0.533625730994152; // Blue start Y
         mainArea[15][1]= 0.8008784773060029;
@@ -160,7 +160,7 @@ public class LudoBoardCoordinates {
         mainArea[26][1]= 0.40263543191800877;
         mainArea[26][2]= 0.9342105263157895;
 
-        // Yellow route: 27 --> 51 --> 27 Then Yellow finish array
+        // Yellow route: 27 --> 52 --> 27 Then Yellow finish array
         mainArea[27][1]= 0.40263543191800877; // Yellow start X
         mainArea[27][2]= 0.8669590643274854; // Yellow start Y
         mainArea[28][1]=0.40263543191800877;
@@ -175,8 +175,6 @@ public class LudoBoardCoordinates {
         mainArea[32][2]=0.533625730994152;
         mainArea[33][1]=0.26939970717423134;
         mainArea[33][2]=0.533625730994152;
-        //mainArea[34][1]=0.13689604685212298;  // BUG?
-        //mainArea[34][2]=0.533625730994152;    // BUG ?
         mainArea[34][1]=0.2027818448023426;
         mainArea[34][2]=0.5350877192982456;
         mainArea[35][1]=0.13689604685212298;
@@ -190,9 +188,9 @@ public class LudoBoardCoordinates {
         mainArea[39][1]=0.0036603221083455345;
         mainArea[39][2]=0.402046783625731;
 
-        // Green route: 40 --> 51 --> 40 Then green finish array
-        mainArea[40][1]=0.07027818448023426;  // NEW green start;
-        mainArea[40][2]=0.40058479532163743;  // New green start
+        // Green route: 40 --> 52 --> 40 Then green finish array
+        mainArea[40][1]=0.07027818448023426;  // Green start;
+        mainArea[40][2]=0.40058479532163743;  // Green start
         mainArea[41][1]=0.13689604685212298;
         mainArea[41][2]=0.402046783625731;
         mainArea[42][1]=0.2027818448023426;
