@@ -100,6 +100,8 @@ public class LudoBoard extends JPanel {
                 System.out.print("\n");
                 System.out.print(coordY);
                 System.out.print("\n");
+                System.out.print("-------------------------------");
+                System.out.print("\n");
                 double backX = coordX * boardWidth;
                 double backY = coordY * boardHeight;
                 //System.out.print(backX);
