@@ -53,7 +53,7 @@
                 </Pane>
             </left>
             <bottom>
-                <TextField BorderPane.alignment="CENTER" />
+                <TextField fx:id="chatTextField" onAction="#handleTextFieldEvent" BorderPane.alignment="CENTER" />
             </bottom>
         </BorderPane>
     </children>

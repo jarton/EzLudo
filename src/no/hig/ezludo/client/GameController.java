@@ -1,6 +1,7 @@
 package no.hig.ezludo.client;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -271,7 +272,7 @@ public class GameController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                chatView.getItems().add(command[4] + "\t\tturn");
+                displayMessage(command[4] + "'s turn");
             }
         });
         if (command[4].equals(myNickname)) {
@@ -569,6 +570,33 @@ public class GameController {
         dice = new Image("/res/dices/dice"+nr+".png");
         this.diceImage.setImage(dice);
     }
+
+    /**
+     * This method is called when the user presses enter in the text field. It will send the message to the client
+     * object, which further sends the message to the server.
+     * @param event the triggered event of pressing enter in the text field
+     */
+    @FXML
+    public void handleTextFieldEvent(ActionEvent event){
+        TextField source = (TextField) event.getSource();
+        MainController.client.sendGameMessage(source.getText(), gameId, gameName);
+        source.clear();
+    }
+
+    /**
+     * This method receives a message, and displays it in the game chat.
+     * @param text
+     */
+    @FXML
+    public void displayMessage(String text) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                chatView.getItems().add(text);
+            }
+        });
+    }
+
 
     public void setGameName(String gameName) {
         this.gameName = gameName;

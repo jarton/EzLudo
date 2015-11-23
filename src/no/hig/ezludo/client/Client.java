@@ -43,6 +43,17 @@ public class Client {
     }
 
     /**
+     * This method sends a game chat message to the server.
+     * @param message the message
+     * @param id the id of the game
+     * @param gameRoomName the game room name
+     */
+    public void sendGameMessage(String message, String id, String gameRoomName) {
+        output.println("GAME|" + id + "|" + gameRoomName + "|CHAT|" + nickName + "|" + message);
+        output.flush();
+    }
+
+    /**
      * This method tells the server to let the user join a chat room.
      * @param roomName the chat room
      */
@@ -117,6 +128,9 @@ public class Client {
                             }
                             else if (command[3].equals("MOVE")) {
                                 mainController.playerMove(command);
+                            }
+                            else if (command[3].equals("CHAT")) {
+                                mainController.displayMessage(command);
                             }
                        }
                     }
