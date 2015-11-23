@@ -11,7 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -32,6 +34,7 @@ public class GameController {
     LudoBoardCoordinates ludoBoardCoordinates;
     @FXML private ImageView ludoBoardImage;
     private Image board;
+    private ArrayList<EventHandler<MouseEvent>> events = new ArrayList<>();
 
     //Players
     @FXML TextField label;
@@ -253,17 +256,18 @@ public class GameController {
             boolean allInStart = true;
             for (int i=0;i<4;i++) {
                 int pieceToMove = i;
-                System.out.println("adding click listeners");
                 if (colorCurrent[i] != 0 || command[5].equals("6")) {
                     allInStart = false;
-                    pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    EventHandler<MouseEvent> event;
+                    pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, event = new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
                             System.out.println("cliecked");
                             MainController.client.movePiece(gameId, gameName, String.valueOf(pieceToMove));
-                            movedPiece(pieceArray, event);
+                            movedPiece(pieceArray);
                         }
                     });
+                    events.add(i, event);
                 }
                 if (allInStart)
                     MainController.client.movePiece(gameId, gameName, "0");
@@ -274,10 +278,12 @@ public class GameController {
         }
     }
 
-    public void movedPiece(ImageView array[], Event event) {
+    public void movedPiece(ImageView array[]) {
         for (int i=0;i<4;i++) {
-            array[i].setOnMouseClicked(null);
+            if (events.size() >= i)
+                array[i].removeEventHandler(MouseEvent.MOUSE_CLICKED, events.get(i));
         }
+        events.clear();
     }
 
     @FXML

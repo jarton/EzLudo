@@ -102,11 +102,11 @@ public class Game {
             String roll;
             if (playerTurn == cmd.getUser()) {
                 roll = rollDices();
+                userPlaces.get(playerTurn.getNickname())[4] = Integer.parseInt(roll);
                 synchronized (players) {
                     for (User player : players)
                         try {
                             player.write("GAME|" + id + "|" + name + "|ROLL|" + playerTurn.getNickname() + "|" + roll);
-                            userPlaces.get(playerTurn.getNickname())[4] = Integer.parseInt(roll);
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
                             e.printStackTrace();
@@ -120,7 +120,7 @@ public class Game {
                 int pieceToMove = Integer.parseInt(cmd.getRawCmd().split("\\|")[4]);
 
                 if ((playerSquare[pieceToMove] == 0) && (playerSquare[4] == 6)) {
-                        playerSquare[pieceToMove] = 1;
+                    playerSquare[pieceToMove] = 1;
                 }
                 else if (playerSquare[pieceToMove] != 0) {
                     if (playerSquare[pieceToMove] + playerSquare[4] > 59) {
@@ -128,8 +128,9 @@ public class Game {
                         overFlow = overFlow - 59;
                         playerSquare[pieceToMove] = 59 - overFlow;
                     }
-                    else
+                    else {
                         playerSquare[pieceToMove] += playerSquare[4];
+                    }
                 }
 
                 int victory = 0;
@@ -171,6 +172,7 @@ public class Game {
                             try {
                                 player.write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
                             } catch (Exception e) {
+                                usersClosedSocets.add(player);
                                 e.printStackTrace();
                             }
                     }
