@@ -250,9 +250,9 @@ public class GameController {
                 pieceArray = greenPieces;
                 colorCurrent = greenCurrent;
             }
+            boolean allInStart = true;
             for (int i=0;i<4;i++) {
                 int pieceToMove = i;
-                boolean allInStart = true;
                 System.out.println("adding click listeners");
                 if (colorCurrent[i] != 0 || command[5].equals("6")) {
                     allInStart = false;
@@ -339,7 +339,7 @@ public class GameController {
                     squareInArray = colCurrent+13;
                 }
                 else if (color.equals("green")) {
-                    squareInArray = colCurrent+40;
+                    squareInArray = colCurrent+39;
                 }
                 else if (color.equals("yellow")) {
                     squareInArray = colCurrent+ 26;
