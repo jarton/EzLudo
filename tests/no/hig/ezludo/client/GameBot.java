@@ -113,7 +113,7 @@ public class GameBot {
             output.println("JOIN RANDOM");
             output.flush();
 
-            //chatSpammer();
+            chatSpammer();
         }
         catch (Exception ex) {
             ex.printStackTrace();

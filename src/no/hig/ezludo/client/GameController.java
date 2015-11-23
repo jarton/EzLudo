@@ -258,10 +258,12 @@ public class GameController {
                 });
             }
         }
+        else {
+            showDices(command[5]);
+        }
     }
 
     public void movedPiece(ImageView array[], Event event) {
-        yourTurn = false;
         for (int i=0;i<4;i++) {
             array[i].setOnMouseClicked(null);
         }
@@ -520,6 +522,7 @@ public class GameController {
     public void rollDices() {
         if (yourTurn) {
             MainController.client.rollDice(gameId, gameName);
+            yourTurn = false;
         }
     }
 

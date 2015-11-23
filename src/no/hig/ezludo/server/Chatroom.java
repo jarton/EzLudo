@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 /**
- * Created by jdr on 31/10/15.
+ * represents a chatroom on the server.
  */
 public class Chatroom {
     private Vector<User> users = new Vector<>();
