@@ -83,10 +83,17 @@ public class MainController extends Application {
         client.joinRandomGame();
     }
 
+    /**
+     * Displays a message in a chat room or game room, depending on the message from the server.
+     * @param text an array of commands from the server
+     */
     public void displayMessage(String[] text) {
         if (text[0].equals("CHAT")) {
             tabMap.get(text[1]).displayMessage(text[2] + ": " + text[3]);
         } else if (text[0].equals("GAME")) {
+            if (text[4].equals("WIN")) {
+                gameMap.get(text[1]).displayMessage(text[5] + " won the game!");
+            }
             gameMap.get(text[1]).displayMessage(text[4] + ": " + text[5]);
         }
     }

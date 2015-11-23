@@ -182,7 +182,7 @@ public class Login extends JFrame  {
                 userAccount = new UserAccount(internationalization, jframe, panel);
                 userAccountPanel = userAccount.createLayout();
                 remove(panel);
-                setPreferredSize(new Dimension(350, 230));
+                setPreferredSize(new Dimension(350, 260));
                 add(userAccountPanel);
                 pack();
             }
