@@ -339,7 +339,7 @@ public class GameController {
                     squareInArray = colCurrent+13;
                 }
                 else if (color.equals("green")) {
-                    squareInArray = colCurrent+38;
+                    squareInArray = colCurrent+40;
                 }
                 else if (color.equals("yellow")) {
                     squareInArray = colCurrent+ 26;
@@ -359,8 +359,8 @@ public class GameController {
                             imageView.setY(ludoBoardCoordinates.mainArea[14][2] * 600);
                         }
                         else if (color.equals("green")) {
-                            imageView.setX(ludoBoardCoordinates.mainArea[39][1] * 600);
-                            imageView.setY(ludoBoardCoordinates.mainArea[39][2] * 600);
+                            imageView.setX(ludoBoardCoordinates.mainArea[40][1] * 600);
+                            imageView.setY(ludoBoardCoordinates.mainArea[40][2] * 600);
                         }
                         else if (color.equals("yellow")) {
                             imageView.setX(ludoBoardCoordinates.mainArea[27][1] * 600);
