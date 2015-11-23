@@ -127,6 +127,11 @@ public class Server {
 		}).start();
 	}
 
+	/**
+	 * adds users to the user vector. gets called from the worker thread that goes through the user vector after
+	 * it has looped through. this is needed to avoid changing the vector while an iterator is going through it.
+	 * if not we get an exeption.
+	 */
 	private void addNewUsers() {
 		synchronized (users) {
 			while (usersToadd.size()>0)
@@ -134,6 +139,13 @@ public class Server {
 		}
 	}
 
+	/**
+	 * handles commands depending on the type of command object. Handles chat messages and chat commands and
+	 * passes them to the chatroom it is for. If the chatCommand is JOIN a room is gets processed here, this is
+	 * because the room may not exist yet and therefore needs to be created. The 3 other command types are join
+	 * a random game, start a game, and then game commands. The first two are handled in this function but the
+	 * game command gets passed on to the game object.
+	 */
 	private void startCommandHandler() {
 		new Thread (()->{
 			Command cmd;
@@ -262,5 +274,9 @@ public class Server {
 
 	}
 
+	/**
+	 * starts the server
+	 * @param args not used yet.
+	 */
    public static void main(String[] args) { new Server(); }
 }
