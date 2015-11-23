@@ -48,7 +48,7 @@ public class Client {
      * @param id the id of the game
      * @param gameRoomName the game room name
      */
-    public void sendGameMessage(String message, int id, String gameRoomName) {
+    public void sendGameMessage(String message, String id, String gameRoomName) {
         output.println("GAME|" + id + "|" + gameRoomName + "|CHAT|" + nickName + "|" + message);
         output.flush();
     }

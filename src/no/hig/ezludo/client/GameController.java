@@ -574,7 +574,7 @@ public class GameController {
     @FXML
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
-        MainController.client.sendChatMessage(source.getText(), gameName);
+        MainController.client.sendGameMessage(source.getText(), gameId, gameName);
         source.clear();
     }
 
