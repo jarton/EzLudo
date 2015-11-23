@@ -81,14 +81,16 @@ public class GameController {
    @FXML private ImageView green4View;
 
     // Controller mechanism
-    private boolean redInStart;
-    private boolean blueInStart;
-    private boolean yellowInStart;
-    private boolean greenInStart;
+
     private boolean redInFinish;
     private boolean blueInFinish;
     private boolean yellowInFinish;
     private boolean greenInFinish;
+
+    private boolean[] redInStart = new boolean[4];
+    private boolean[] blueInStart = new boolean[4];
+    private boolean[] yellowInStart = new boolean[4];
+    private boolean[] greenInStart = new boolean[4];
 
     private boolean[] redInGoal = new boolean[4];
     private boolean[] blueInGoal = new boolean[4];
@@ -148,10 +150,7 @@ public class GameController {
 
     // Set all chips in start pos
     public void setupBoard(){
-        redInStart = true;
-        blueInStart = true;
-        yellowInStart = true;
-        greenInStart = true;
+
         redInFinish = false;
         blueInFinish = false;
         greenInFinish = false;
@@ -160,11 +159,11 @@ public class GameController {
         // array implemetation
         for (int i = 0; i < 4; i++) {
 
-            this.redPieces[i].setX(ludoBoardCoordinates.redStart[i+1][1] * 600);
-            this.redPieces[i].setY(ludoBoardCoordinates.redStart[i+1][2] * 600);
+            this.redPieces[i].setX(ludoBoardCoordinates.redStart[i + 1][1] * 600);
+            this.redPieces[i].setY(ludoBoardCoordinates.redStart[i + 1][2] * 600);
             this.redPieces[i].setImage(redImage[i]);
 
-            this.bluePieces[i].setX(ludoBoardCoordinates.blueStart[i+1][1] * 600);
+            this.bluePieces[i].setX(ludoBoardCoordinates.blueStart[i + 1][1] * 600);
             this.bluePieces[i].setY(ludoBoardCoordinates.blueStart[i + 1][2] * 600);
             this.bluePieces[i].setImage(blueImage[i]);
 
@@ -176,6 +175,10 @@ public class GameController {
             this.yellowPieces[i].setY(ludoBoardCoordinates.yellowStart[i + 1][2] * 600);
             this.yellowPieces[i].setImage(yellowImage[i]);
 
+            redInStart[i] = true;
+            blueInStart[i] = true;
+            yellowInStart[i] = true;
+            greenInStart[i] = true;
 
             redCurrent[i] = 0;
             blueCurrent[i] = 0;
@@ -186,6 +189,8 @@ public class GameController {
             blueInGoal[i] = false;
             greenInGoal[i] = false;
             yellowInGoal[i] = false;
+
+
         }
 
         moveBackNr = 0;
