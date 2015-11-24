@@ -4029,3 +4029,580 @@
 2015-11-24 12:04:43,012 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|lol funny
 2015-11-24 12:04:43,012 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|lol funny
 2015-11-24 12:04:43,014 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-24 12:47:47,897 INFO  [Server]  logged in
+2015-11-24 12:48:07,980 INFO  [Server] perperper logged in
+2015-11-24 12:48:09,410 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-24 12:48:09,412 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-24 12:48:09,412 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-24 12:48:09,423 WARN  [chatLogger] pirkola69left the chatroom
+2015-11-24 12:48:09,424 WARN  [chatLogger] franZKllaleft the chatroom
+2015-11-24 12:48:09,427 WARN  [chatLogger] nilzWithSkillzleft the chatroom
+2015-11-24 12:48:09,427 WARN  [chatLogger] perperperleft the chatroom
+2015-11-24 12:48:09,512 INFO  [Server] pirkola69 removed user with io exc
+2015-11-24 12:48:09,512 INFO  [Server] perperper removed user with io exc
+2015-11-24 12:48:09,513 INFO  [Server] nilzWithSkillz removed user with io exc
+2015-11-24 12:48:09,512 INFO  [Server] franZKlla removed user with io exc
+2015-11-24 12:48:14,448 INFO  [Server] handling command JOIN RANDOM
+2015-11-24 12:48:14,448 INFO  [Server] received command: JOIN RANDOM
+2015-11-24 12:48:14,448 INFO  [Server] user perperper added to random game que 
+2015-11-24 12:48:20,399 INFO  [Server] pirkola69 logged in
+2015-11-24 12:48:20,403 INFO  [Server] franZKlla logged in
+2015-11-24 12:48:20,407 INFO  [Server] nilzWithSkillz logged in
+2015-11-24 12:48:20,478 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-24 12:48:20,479 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-24 12:48:20,479 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-24 12:48:20,479 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-24 12:48:20,479 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-24 12:48:20,482 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-24 12:48:20,486 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-24 12:48:20,490 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-24 12:48:20,490 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-24 12:48:20,681 INFO  [Server] received command: JOIN RANDOM
+2015-11-24 12:48:20,682 INFO  [Server] received command: JOIN RANDOM
+2015-11-24 12:48:20,682 INFO  [Server] received command: JOIN RANDOM
+2015-11-24 12:48:20,682 INFO  [Server] handling command JOIN RANDOM
+2015-11-24 12:48:20,682 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-24 12:48:20,682 INFO  [Server] handling command JOIN RANDOM
+2015-11-24 12:48:20,682 INFO  [Server] user franZKlla added to random game que 
+2015-11-24 12:48:20,682 INFO  [Server] handling command JOIN RANDOM
+2015-11-24 12:48:20,682 INFO  [Server] user pirkola69 added to random game que 
+2015-11-24 12:48:20,690 INFO  [Server] new random game started
+2015-11-24 12:48:20,690 INFO  [Server] handling command 
+2015-11-24 12:48:20,691 INFO  [Server]  new game started 
+2015-11-24 12:48:20,831 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:48:20,831 INFO  [Server] received command: CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:48:20,831 INFO  [Server] received command: CHAT|lobby|pirkola69|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:48:20,831 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:48:20,832 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:48:20,832 INFO  [Server] handling command CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:48:20,833 WARN  [chatLogger] CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:48:20,833 INFO  [Server] handling command CHAT|lobby|pirkola69|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:48:20,835 WARN  [chatLogger] CHAT|lobby|pirkola69|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:48:30,039 INFO  [Server] received command: CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-24 12:48:30,039 INFO  [Server] handling command CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-24 12:48:30,040 WARN  [chatLogger] CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-24 12:48:35,946 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-24 12:48:35,946 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-24 12:48:35,948 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-24 12:48:44,653 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:48:44,653 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:48:44,655 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:48:46,654 INFO  [Server] received command: CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:48:46,654 INFO  [Server] handling command CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:48:46,656 WARN  [chatLogger] CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:48:56,661 INFO  [Server] received command: CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:48:56,661 INFO  [Server] handling command CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:48:56,663 WARN  [chatLogger] CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:49:01,967 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:49:01,967 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:49:01,969 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:49:11,574 INFO  [Server] handling command CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:49:11,574 INFO  [Server] received command: CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:49:11,575 WARN  [chatLogger] CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:49:17,279 INFO  [Server] received command: CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 12:49:17,279 INFO  [Server] handling command CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 12:49:17,281 WARN  [chatLogger] CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 12:49:17,779 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-24 12:49:17,779 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-24 12:49:17,781 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-24 12:49:18,480 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:49:18,480 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:49:18,481 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:49:28,087 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:49:28,087 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:49:28,088 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:49:41,897 INFO  [Server] received command: CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:49:41,897 INFO  [Server] handling command CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:49:41,899 WARN  [chatLogger] CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:49:42,798 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:49:42,798 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:49:42,799 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:49:52,204 INFO  [Server] received command: CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:49:52,204 INFO  [Server] handling command CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:49:52,206 WARN  [chatLogger] CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:49:52,505 INFO  [Server] handling command CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:49:52,505 INFO  [Server] received command: CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:49:52,506 WARN  [chatLogger] CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:49:54,208 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:49:54,208 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:49:54,209 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:50:06,218 INFO  [Server] received command: CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:50:06,218 INFO  [Server] handling command CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:50:06,219 WARN  [chatLogger] CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:50:09,120 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:50:09,120 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:50:09,121 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:50:11,622 INFO  [Server] received command: CHAT|lobby|franZKlla|join min chat da vell
+2015-11-24 12:50:11,622 INFO  [Server] handling command CHAT|lobby|franZKlla|join min chat da vell
+2015-11-24 12:50:11,624 WARN  [chatLogger] CHAT|lobby|franZKlla|join min chat da vell
+2015-11-24 12:50:16,525 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:50:16,525 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:50:16,527 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:50:29,735 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La riket ditt komme.
+2015-11-24 12:50:29,735 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La riket ditt komme.
+2015-11-24 12:50:29,737 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La riket ditt komme.
+2015-11-24 12:50:30,135 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-24 12:50:30,135 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-24 12:50:30,136 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-24 12:50:30,735 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:50:30,735 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:50:30,736 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:50:37,840 INFO  [Server] received command: CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:50:37,840 INFO  [Server] handling command CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:50:37,841 WARN  [chatLogger] CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:50:42,444 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-24 12:50:42,444 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-24 12:50:42,446 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-24 12:50:48,448 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:50:48,448 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:50:48,449 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:50:49,574 INFO  [Server] received command: CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:50:49,574 INFO  [Server] handling command CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:50:49,576 WARN  [chatLogger] CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:51:03,499 INFO  [Server] received command: CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:51:03,499 INFO  [Server] handling command CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:51:03,500 WARN  [chatLogger] CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:51:10,104 INFO  [Server] received command: CHAT|lobby|pirkola69|haha
+2015-11-24 12:51:10,104 INFO  [Server] handling command CHAT|lobby|pirkola69|haha
+2015-11-24 12:51:10,106 WARN  [chatLogger] CHAT|lobby|pirkola69|haha
+2015-11-24 12:51:10,404 INFO  [Server] received command: CHAT|lobby|franZKlla|riot
+2015-11-24 12:51:10,404 INFO  [Server] handling command CHAT|lobby|franZKlla|riot
+2015-11-24 12:51:10,405 WARN  [chatLogger] CHAT|lobby|franZKlla|riot
+2015-11-24 12:51:11,205 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:51:11,205 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:51:11,206 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:51:23,914 INFO  [Server] received command: CHAT|lobby|pirkola69|Amen.
+2015-11-24 12:51:23,914 INFO  [Server] handling command CHAT|lobby|pirkola69|Amen.
+2015-11-24 12:51:23,916 WARN  [chatLogger] CHAT|lobby|pirkola69|Amen.
+2015-11-24 12:51:25,315 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:51:25,315 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:51:25,317 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:51:31,638 INFO  [Server] received command: CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 12:51:31,638 INFO  [Server] handling command CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 12:51:31,640 WARN  [chatLogger] CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 12:51:36,343 INFO  [Server] received command: CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:51:36,343 INFO  [Server] handling command CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:51:36,345 WARN  [chatLogger] CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:51:41,753 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:51:41,753 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:51:41,755 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:51:44,655 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:51:44,655 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:51:44,657 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:51:49,759 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:51:49,759 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:51:49,760 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:51:50,259 INFO  [Server] received command: CHAT|lobby|franZKlla|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:51:50,259 INFO  [Server] handling command CHAT|lobby|franZKlla|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:51:50,260 WARN  [chatLogger] CHAT|lobby|franZKlla|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:51:50,760 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:51:50,760 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:51:50,761 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:52:02,069 INFO  [Server] received command: CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:52:02,069 INFO  [Server] handling command CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:52:02,070 WARN  [chatLogger] CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:52:04,671 INFO  [Server] received command: CHAT|lobby|franZKlla|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:52:04,671 INFO  [Server] handling command CHAT|lobby|franZKlla|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:52:04,673 WARN  [chatLogger] CHAT|lobby|franZKlla|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:52:05,772 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-24 12:52:05,772 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-24 12:52:05,773 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-24 12:52:08,574 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:52:08,574 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:52:08,576 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:52:16,780 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:52:16,780 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:52:16,781 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:52:17,280 INFO  [Server] received command: CHAT|lobby|pirkola69|hei
+2015-11-24 12:52:17,280 INFO  [Server] handling command CHAT|lobby|pirkola69|hei
+2015-11-24 12:52:17,282 WARN  [chatLogger] CHAT|lobby|pirkola69|hei
+2015-11-24 12:52:22,384 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-24 12:52:22,384 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-24 12:52:22,385 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-24 12:52:33,461 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:52:33,461 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:52:33,463 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:52:38,873 INFO  [Server] received command: CHAT|lobby|franZKlla|ludo anyone
+2015-11-24 12:52:38,873 INFO  [Server] handling command CHAT|lobby|franZKlla|ludo anyone
+2015-11-24 12:52:38,874 WARN  [chatLogger] CHAT|lobby|franZKlla|ludo anyone
+2015-11-24 12:52:40,274 INFO  [Server] received command: CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 12:52:40,274 INFO  [Server] handling command CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 12:52:40,275 WARN  [chatLogger] CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 12:52:41,779 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:52:41,779 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:52:41,784 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:52:47,523 INFO  [Server] received command: CHAT|lobby|franZKlla|join min chat da vell
+2015-11-24 12:52:47,523 INFO  [Server] handling command CHAT|lobby|franZKlla|join min chat da vell
+2015-11-24 12:52:47,524 WARN  [chatLogger] CHAT|lobby|franZKlla|join min chat da vell
+2015-11-24 12:52:56,919 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 12:52:56,919 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 12:52:56,921 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 12:53:00,470 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:53:00,470 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:53:00,472 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:53:08,928 INFO  [Server] received command: CHAT|lobby|franZKlla|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:53:08,928 INFO  [Server] handling command CHAT|lobby|franZKlla|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:53:08,930 WARN  [chatLogger] CHAT|lobby|franZKlla|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:53:19,733 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-24 12:53:19,733 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-24 12:53:19,735 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-24 12:53:20,755 INFO  [Server] received command: CHAT|lobby|franZKlla|haha
+2015-11-24 12:53:20,755 INFO  [Server] handling command CHAT|lobby|franZKlla|haha
+2015-11-24 12:53:20,757 WARN  [chatLogger] CHAT|lobby|franZKlla|haha
+2015-11-24 12:53:23,457 INFO  [Server] received command: CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:53:23,457 INFO  [Server] handling command CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:53:23,459 WARN  [chatLogger] CHAT|lobby|pirkola69|hahahha
+2015-11-24 12:53:31,219 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:53:31,219 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:53:31,221 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:53:41,955 INFO  [Server] received command: CHAT|lobby|pirkola69|hei
+2015-11-24 12:53:41,955 INFO  [Server] handling command CHAT|lobby|pirkola69|hei
+2015-11-24 12:53:41,956 WARN  [chatLogger] CHAT|lobby|pirkola69|hei
+2015-11-24 12:53:42,355 INFO  [Server] received command: CHAT|lobby|franZKlla|riot
+2015-11-24 12:53:42,355 INFO  [Server] handling command CHAT|lobby|franZKlla|riot
+2015-11-24 12:53:42,356 WARN  [chatLogger] CHAT|lobby|franZKlla|riot
+2015-11-24 12:53:42,455 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:53:42,455 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:53:42,456 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:53:47,860 INFO  [Server] handling command CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:53:47,860 INFO  [Server] received command: CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:53:47,861 WARN  [chatLogger] CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:53:48,560 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|V?r Far i himmelen!
+2015-11-24 12:53:48,560 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|V?r Far i himmelen!
+2015-11-24 12:53:48,561 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|V?r Far i himmelen!
+2015-11-24 12:53:48,761 INFO  [Server] received command: CHAT|lobby|franZKlla|ludo anyone
+2015-11-24 12:53:48,761 INFO  [Server] handling command CHAT|lobby|franZKlla|ludo anyone
+2015-11-24 12:53:48,762 WARN  [chatLogger] CHAT|lobby|franZKlla|ludo anyone
+2015-11-24 12:53:56,266 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:53:56,266 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:53:56,267 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:54:04,575 INFO  [Server] received command: CHAT|lobby|pirkola69|Amen.
+2015-11-24 12:54:04,575 INFO  [Server] handling command CHAT|lobby|pirkola69|Amen.
+2015-11-24 12:54:04,576 WARN  [chatLogger] CHAT|lobby|pirkola69|Amen.
+2015-11-24 12:54:13,368 INFO  [Server] received command: CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:54:13,368 INFO  [Server] handling command CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:54:13,368 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:54:13,370 WARN  [chatLogger] CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:54:13,370 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:54:13,371 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:54:19,483 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:54:19,483 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:54:19,485 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:54:21,344 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:54:21,344 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:54:21,345 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-24 12:54:30,068 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:54:30,068 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:54:30,069 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:54:30,968 INFO  [Server] received command: CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:54:30,968 INFO  [Server] handling command CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:54:30,969 WARN  [chatLogger] CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:54:34,371 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-24 12:54:34,371 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-24 12:54:34,372 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-24 12:54:40,575 INFO  [Server] received command: CHAT|lobby|pirkola69|haha
+2015-11-24 12:54:40,575 INFO  [Server] handling command CHAT|lobby|pirkola69|haha
+2015-11-24 12:54:40,577 WARN  [chatLogger] CHAT|lobby|pirkola69|haha
+2015-11-24 12:54:52,068 INFO  [Server] received command: CHAT|lobby|franZKlla|lol funny
+2015-11-24 12:54:52,068 INFO  [Server] handling command CHAT|lobby|franZKlla|lol funny
+2015-11-24 12:54:52,068 WARN  [chatLogger] CHAT|lobby|franZKlla|lol funny
+2015-11-24 12:54:52,668 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:54:52,668 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:54:52,669 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:54:53,669 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:54:53,669 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:54:53,670 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hei
+2015-11-24 12:55:01,862 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:55:01,862 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:55:01,863 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:55:12,191 INFO  [Server] received command: CHAT|lobby|franZKlla|hahahha
+2015-11-24 12:55:12,191 INFO  [Server] handling command CHAT|lobby|franZKlla|hahahha
+2015-11-24 12:55:12,192 WARN  [chatLogger] CHAT|lobby|franZKlla|hahahha
+2015-11-24 12:55:12,992 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 12:55:12,992 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 12:55:12,993 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 12:55:17,795 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-24 12:55:17,795 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-24 12:55:17,796 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-24 12:55:21,498 INFO  [Server] received command: CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:55:21,498 INFO  [Server] handling command CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:55:21,499 WARN  [chatLogger] CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 12:55:23,976 INFO  [Server] received command: CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 12:55:23,976 INFO  [Server] handling command CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 12:55:23,977 WARN  [chatLogger] CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 12:55:25,711 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:55:25,711 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:55:25,712 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:55:44,017 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-24 12:55:44,017 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-24 12:55:44,018 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-24 12:55:45,318 INFO  [Server] received command: CHAT|lobby|franZKlla|nice
+2015-11-24 12:55:45,318 INFO  [Server] handling command CHAT|lobby|franZKlla|nice
+2015-11-24 12:55:45,320 WARN  [chatLogger] CHAT|lobby|franZKlla|nice
+2015-11-24 12:55:45,518 INFO  [Server] received command: CHAT|lobby|pirkola69|hva skjer?
+2015-11-24 12:55:45,518 INFO  [Server] handling command CHAT|lobby|pirkola69|hva skjer?
+2015-11-24 12:55:45,519 WARN  [chatLogger] CHAT|lobby|pirkola69|hva skjer?
+2015-11-24 12:55:50,022 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:55:50,022 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:55:50,023 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:55:57,431 INFO  [Server] received command: CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:55:57,431 INFO  [Server] handling command CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:55:57,432 WARN  [chatLogger] CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:56:09,171 INFO  [Server] received command: CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 12:56:09,171 INFO  [Server] handling command CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 12:56:09,173 WARN  [chatLogger] CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 12:56:09,379 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:56:09,379 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:56:09,382 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:56:11,411 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:56:11,411 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:56:11,412 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:56:20,527 INFO  [Server] received command: CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 12:56:20,527 INFO  [Server] handling command CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 12:56:20,528 WARN  [chatLogger] CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 12:56:27,542 INFO  [Server] received command: CHAT|lobby|franZKlla|riot
+2015-11-24 12:56:27,542 INFO  [Server] handling command CHAT|lobby|franZKlla|riot
+2015-11-24 12:56:27,543 WARN  [chatLogger] CHAT|lobby|franZKlla|riot
+2015-11-24 12:56:32,145 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:56:32,145 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:56:32,146 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:56:36,148 INFO  [Server] received command: CHAT|lobby|franZKlla|ludy hype
+2015-11-24 12:56:36,148 INFO  [Server] handling command CHAT|lobby|franZKlla|ludy hype
+2015-11-24 12:56:36,149 WARN  [chatLogger] CHAT|lobby|franZKlla|ludy hype
+2015-11-24 12:56:37,449 INFO  [Server] received command: CHAT|lobby|pirkola69|haha
+2015-11-24 12:56:37,449 INFO  [Server] handling command CHAT|lobby|pirkola69|haha
+2015-11-24 12:56:37,450 WARN  [chatLogger] CHAT|lobby|pirkola69|haha
+2015-11-24 12:56:43,905 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-24 12:56:43,905 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-24 12:56:43,907 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-24 12:56:48,611 INFO  [Server] received command: CHAT|lobby|pirkola69|riot
+2015-11-24 12:56:48,611 INFO  [Server] handling command CHAT|lobby|pirkola69|riot
+2015-11-24 12:56:48,612 WARN  [chatLogger] CHAT|lobby|pirkola69|riot
+2015-11-24 12:56:56,472 INFO  [Server] received command: CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:56:56,472 INFO  [Server] handling command CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:56:56,475 WARN  [chatLogger] CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:56:57,827 INFO  [Server] received command: CHAT|lobby|pirkola69|hei
+2015-11-24 12:56:57,827 INFO  [Server] handling command CHAT|lobby|pirkola69|hei
+2015-11-24 12:56:57,829 WARN  [chatLogger] CHAT|lobby|pirkola69|hei
+2015-11-24 12:56:59,497 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 12:56:59,515 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 12:56:59,547 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 12:57:02,901 INFO  [Server] received command: CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 12:57:02,901 INFO  [Server] handling command CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 12:57:02,902 WARN  [chatLogger] CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 12:57:15,241 INFO  [Server] received command: CHAT|lobby|pirkola69|hva skjer?
+2015-11-24 12:57:15,241 INFO  [Server] handling command CHAT|lobby|pirkola69|hva skjer?
+2015-11-24 12:57:15,243 WARN  [chatLogger] CHAT|lobby|pirkola69|hva skjer?
+2015-11-24 12:57:20,577 INFO  [Server] received command: CHAT|lobby|pirkola69|V?r Far i himmelen!
+2015-11-24 12:57:20,577 INFO  [Server] handling command CHAT|lobby|pirkola69|V?r Far i himmelen!
+2015-11-24 12:57:20,578 WARN  [chatLogger] CHAT|lobby|pirkola69|V?r Far i himmelen!
+2015-11-24 12:57:20,777 INFO  [Server] received command: CHAT|lobby|franZKlla|ludy hype
+2015-11-24 12:57:20,777 INFO  [Server] handling command CHAT|lobby|franZKlla|ludy hype
+2015-11-24 12:57:20,778 WARN  [chatLogger] CHAT|lobby|franZKlla|ludy hype
+2015-11-24 12:57:22,678 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-24 12:57:22,678 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-24 12:57:22,679 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-24 12:57:31,169 INFO  [Server] received command: CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:57:31,169 INFO  [Server] handling command CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:57:31,172 WARN  [chatLogger] CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:57:34,689 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:57:34,689 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:57:34,692 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 12:57:41,096 INFO  [Server] received command: CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:57:41,096 INFO  [Server] handling command CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:57:41,097 WARN  [chatLogger] CHAT|lobby|franZKlla|La riket ditt komme.
+2015-11-24 12:57:43,098 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-24 12:57:43,098 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-24 12:57:43,099 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-24 12:57:49,727 INFO  [Server] received command: CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:57:49,727 INFO  [Server] handling command CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:57:49,728 WARN  [chatLogger] CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:57:50,028 INFO  [Server] received command: CHAT|lobby|pirkola69|riot
+2015-11-24 12:57:50,028 INFO  [Server] handling command CHAT|lobby|pirkola69|riot
+2015-11-24 12:57:50,030 WARN  [chatLogger] CHAT|lobby|pirkola69|riot
+2015-11-24 12:58:01,939 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-24 12:58:01,939 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-24 12:58:01,940 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-24 12:58:03,842 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:58:03,842 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:58:03,843 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 12:58:08,946 INFO  [Server] received command: CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:58:08,946 INFO  [Server] handling command CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:58:08,947 WARN  [chatLogger] CHAT|lobby|franZKlla|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:58:21,855 INFO  [Server] received command: CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:58:21,855 INFO  [Server] handling command CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:58:21,856 WARN  [chatLogger] CHAT|lobby|pirkola69|La riket ditt komme.
+2015-11-24 12:58:24,357 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 12:58:24,357 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 12:58:24,358 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 12:58:29,485 INFO  [Server] received command: CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:58:29,485 INFO  [Server] handling command CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:58:29,486 WARN  [chatLogger] CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:58:30,186 INFO  [Server] received command: CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:58:30,186 INFO  [Server] handling command CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:58:30,187 WARN  [chatLogger] CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:58:31,387 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:58:31,387 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:58:31,388 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 12:58:38,243 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-24 12:58:38,243 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-24 12:58:38,245 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-24 12:58:41,645 INFO  [Server] received command: CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:58:41,645 INFO  [Server] handling command CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:58:41,646 WARN  [chatLogger] CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-24 12:58:51,352 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:58:51,352 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:58:51,353 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:58:54,154 INFO  [Server] received command: CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:58:54,154 INFO  [Server] handling command CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:58:54,155 WARN  [chatLogger] CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 12:58:56,890 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:58:56,890 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:58:56,891 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 12:59:05,097 INFO  [Server] received command: CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:59:05,097 INFO  [Server] handling command CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:59:05,098 WARN  [chatLogger] CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 12:59:11,802 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-24 12:59:11,802 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-24 12:59:11,803 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-24 12:59:16,222 INFO  [Server] received command: CHAT|lobby|pirkola69|:D
+2015-11-24 12:59:16,222 INFO  [Server] handling command CHAT|lobby|pirkola69|:D
+2015-11-24 12:59:16,222 WARN  [chatLogger] CHAT|lobby|pirkola69|:D
+2015-11-24 12:59:20,912 INFO  [Server] received command: CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:59:20,913 INFO  [Server] handling command CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:59:20,915 WARN  [chatLogger] CHAT|lobby|franZKlla|Amen.
+2015-11-24 12:59:34,346 INFO  [Server] received command: CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:59:34,346 INFO  [Server] handling command CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:59:34,347 WARN  [chatLogger] CHAT|lobby|franZKlla|V?r Far i himmelen!
+2015-11-24 12:59:34,846 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:59:34,846 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:59:34,847 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 12:59:37,348 INFO  [Server] received command: CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:59:37,348 INFO  [Server] handling command CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:59:37,349 WARN  [chatLogger] CHAT|lobby|pirkola69|ludo anyone
+2015-11-24 12:59:50,281 INFO  [Server] received command: CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:59:50,281 INFO  [Server] handling command CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:59:50,282 WARN  [chatLogger] CHAT|lobby|pirkola69|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 12:59:50,381 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La riket ditt komme.
+2015-11-24 12:59:50,381 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La riket ditt komme.
+2015-11-24 12:59:50,382 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La riket ditt komme.
+2015-11-24 12:59:54,084 INFO  [Server] received command: CHAT|lobby|franZKlla|riot
+2015-11-24 12:59:54,084 INFO  [Server] handling command CHAT|lobby|franZKlla|riot
+2015-11-24 12:59:54,085 WARN  [chatLogger] CHAT|lobby|franZKlla|riot
+2015-11-24 13:00:10,111 INFO  [Server] received command: CHAT|lobby|pirkola69|hahahha
+2015-11-24 13:00:10,111 INFO  [Server] handling command CHAT|lobby|pirkola69|hahahha
+2015-11-24 13:00:10,112 WARN  [chatLogger] CHAT|lobby|pirkola69|hahahha
+2015-11-24 13:00:11,412 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:00:11,412 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:00:11,413 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:00:15,916 INFO  [Server] received command: CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 13:00:15,916 INFO  [Server] handling command CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 13:00:15,916 WARN  [chatLogger] CHAT|lobby|franZKlla|La navnet ditt helliges.
+2015-11-24 13:00:23,831 INFO  [Server] received command: CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:00:23,831 INFO  [Server] handling command CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:00:23,832 WARN  [chatLogger] CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:00:25,032 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 13:00:25,032 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 13:00:25,033 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 13:00:32,447 INFO  [Server] received command: CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 13:00:32,447 INFO  [Server] handling command CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 13:00:32,448 WARN  [chatLogger] CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 13:00:43,347 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 13:00:43,347 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 13:00:43,348 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludy hype
+2015-11-24 13:00:45,249 INFO  [Server] received command: CHAT|lobby|franZKlla|nice
+2015-11-24 13:00:45,249 INFO  [Server] handling command CHAT|lobby|franZKlla|nice
+2015-11-24 13:00:45,250 WARN  [chatLogger] CHAT|lobby|franZKlla|nice
+2015-11-24 13:00:46,350 INFO  [Server] received command: CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 13:00:46,350 INFO  [Server] handling command CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 13:00:46,351 WARN  [chatLogger] CHAT|lobby|pirkola69|La navnet ditt helliges.
+2015-11-24 13:00:51,753 INFO  [Server] received command: CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:00:51,753 INFO  [Server] handling command CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:00:51,754 WARN  [chatLogger] CHAT|lobby|franZKlla|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:00:59,860 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-24 13:00:59,860 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-24 13:00:59,861 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-24 13:01:04,064 INFO  [Server] received command: CHAT|lobby|pirkola69|riot
+2015-11-24 13:01:04,064 INFO  [Server] handling command CHAT|lobby|pirkola69|riot
+2015-11-24 13:01:04,065 WARN  [chatLogger] CHAT|lobby|pirkola69|riot
+2015-11-24 13:01:05,365 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 13:01:05,365 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 13:01:05,366 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Gi oss i dag v?rt daglige br?d, og tilgi oss v?r skyld, slik ogs? vi tilgir v?re skyldnere.
+2015-11-24 13:01:09,468 INFO  [Server] received command: CHAT|lobby|franZKlla|haha
+2015-11-24 13:01:09,468 INFO  [Server] handling command CHAT|lobby|franZKlla|haha
+2015-11-24 13:01:09,469 WARN  [chatLogger] CHAT|lobby|franZKlla|haha
+2015-11-24 13:01:12,270 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-24 13:01:12,270 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-24 13:01:12,271 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-24 13:01:22,978 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|V?r Far i himmelen!
+2015-11-24 13:01:22,978 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|V?r Far i himmelen!
+2015-11-24 13:01:22,978 INFO  [Server] received command: CHAT|lobby|franZKlla|:D
+2015-11-24 13:01:22,979 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|V?r Far i himmelen!
+2015-11-24 13:01:22,979 INFO  [Server] handling command CHAT|lobby|franZKlla|:D
+2015-11-24 13:01:22,980 WARN  [chatLogger] CHAT|lobby|franZKlla|:D
+2015-11-24 13:01:26,480 INFO  [Server] received command: CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:01:26,480 INFO  [Server] handling command CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:01:26,481 WARN  [chatLogger] CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:01:39,201 INFO  [Server] received command: CHAT|lobby|pirkola69|riot
+2015-11-24 13:01:39,201 INFO  [Server] handling command CHAT|lobby|pirkola69|riot
+2015-11-24 13:01:39,202 WARN  [chatLogger] CHAT|lobby|pirkola69|riot
+2015-11-24 13:01:39,506 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 13:01:39,506 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 13:01:39,515 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-24 13:01:44,695 INFO  [Server] received command: CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 13:01:44,695 INFO  [Server] handling command CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 13:01:44,697 WARN  [chatLogger] CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 13:01:54,234 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 13:01:54,234 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 13:01:54,235 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-24 13:01:55,735 INFO  [Server] received command: CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 13:01:55,735 INFO  [Server] handling command CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 13:01:55,736 WARN  [chatLogger] CHAT|lobby|pirkola69|join min chat da vell
+2015-11-24 13:02:08,846 INFO  [Server] received command: CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:02:08,846 INFO  [Server] handling command CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:02:08,847 WARN  [chatLogger] CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:02:09,546 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-24 13:02:09,546 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-24 13:02:09,547 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-24 13:02:17,266 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 13:02:17,266 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 13:02:17,267 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La navnet ditt helliges.
+2015-11-24 13:02:22,059 INFO  [Server] received command: CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:02:22,059 INFO  [Server] handling command CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:02:22,060 WARN  [chatLogger] CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-24 13:02:28,284 INFO  [Server] received command: CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 13:02:28,284 INFO  [Server] handling command CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 13:02:28,285 WARN  [chatLogger] CHAT|lobby|franZKlla|hva skjer?
+2015-11-24 13:02:29,785 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 13:02:29,785 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 13:02:29,786 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hva skjer?
+2015-11-24 13:02:32,487 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-24 13:02:32,487 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-24 13:02:32,488 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-24 13:02:33,488 INFO  [Server] received command: CHAT|lobby|franZKlla|hahahha
+2015-11-24 13:02:33,488 INFO  [Server] handling command CHAT|lobby|franZKlla|hahahha
+2015-11-24 13:02:33,489 WARN  [chatLogger] CHAT|lobby|franZKlla|hahahha
+2015-11-24 13:02:42,297 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-24 13:02:42,297 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-24 13:02:42,298 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-24 13:02:47,736 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 13:02:47,736 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 13:02:47,737 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Og la oss ikke komme i fristelse, men frels oss fra det onde.
+2015-11-24 13:02:50,665 INFO  [Server] received command: CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:02:50,665 INFO  [Server] handling command CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:02:50,667 WARN  [chatLogger] CHAT|lobby|pirkola69|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:03:06,495 INFO  [Server] received command: CHAT|lobby|franZKlla|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:03:06,495 INFO  [Server] handling command CHAT|lobby|franZKlla|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:03:06,496 WARN  [chatLogger] CHAT|lobby|franZKlla|For riket er ditt og makten og ?ren i evighet.
+2015-11-24 13:03:07,095 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-24 13:03:07,096 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-24 13:03:07,096 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-24 13:03:11,200 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:03:11,200 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:03:11,201 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|La viljen din skje p? jorden slik som i himmelen.
+2015-11-24 13:03:13,001 INFO  [Server] received command: CHAT|lobby|pirkola69|Amen.
+2015-11-24 13:03:13,001 INFO  [Server] handling command CHAT|lobby|pirkola69|Amen.
+2015-11-24 13:03:13,002 WARN  [chatLogger] CHAT|lobby|pirkola69|Amen.
+2015-11-24 13:03:23,212 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 13:03:23,212 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-24 13:03:23,213 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D

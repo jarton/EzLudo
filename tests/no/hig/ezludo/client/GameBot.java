@@ -18,15 +18,12 @@ public class GameBot {
     private int loginPort = 6969;
     private PrintWriter output;
     private BufferedReader input;
-    private String spam[] = {"Vår Far i himmelen!", "La navnet ditt helliges.",
-            "La riket ditt komme.", "La viljen din skje på jorden slik som i himmelen.",
-            "Gi oss i dag vårt daglige brød, og tilgi oss vår skyld, slik også vi tilgir våre skyldnere." ,
-            "Og la oss ikke komme i fristelse, men frels oss fra det onde.",
-            "For riket er ditt og makten og æren i evighet.", "Amen.", "hei",
-            "hva skjer?", "lol funny", "ludo anyone", "ludy hype", "noen eg kan utfordre?",
+    private String spam[] = {"Ella ella eh eh eh, Under my umbrella!! Rihanna :)","Amen.", "hei","Shine bright like a diamond! Shine bright like a diamond!",
+            "Jeg er Alfa og Omega, den første og den siste, begynnelsen og enden.","Bibelen er veikartet, Sannvittigheten kompasset.",
+            "hva skjer?","Chicken McNuggets oyeah yeah yeah yeah yeah", "lol funny", "I kissed a girl and I liked it, the taste of her cherry chapstick.", "ludo anyone", "ludy hype", "noen eg kan utfordre?",
     "haha", "riot", "liker kinasjakk bedre", "hahahha", "join min chat da vell",  ":D", "nice", "\\^.^/", "plox add me",
-    "dette spillet suger", "yoyoyo", "noen som liker kylling", "..................................HEI", "jeg heter per",
-    "jeg er best i ludo", "noen utFordre MEG!!!!!"};
+    "dette spillet suger", "yoyoyo", "noen som liker kylling?","Boom, boom, boom. Even brighter than the moon, moon, moon. My Katy Perry", "..................................HEI", "jeg heter per",
+    "jeg er best i ludo", "noen utFordre MEG!!!!!","Baby, you're a firework. Come on, let your colours burst. Make 'em go, Aah, aah, aah"};
 
     public GameBot(String uname, String pwd, String nickname) {
        this.uname = uname;
