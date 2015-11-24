@@ -32,9 +32,10 @@ public class UserAccount {
     private String username;
     private char[] password;
     private char[] passwordRepeat ;
+    private String IP;
     private String email;
     private int errorsNumb=0;
-    private String[] errors = new String[20];
+    private String[] errors = new String[25];
     //Server reg
     PrintWriter output;
     BufferedReader input;
@@ -167,13 +168,13 @@ public class UserAccount {
         JTextField ipTextField = new JTextField(20);
         ipTextField.setBounds(100, 130, 160, 25);
         ipTextField.getDocument().addDocumentListener(new DocumentListener() {
-            public void changedUpdate(DocumentEvent e) { Constants.serverIP =  ipTextField.getText(); }
+            public void changedUpdate(DocumentEvent e) { IP =  ipTextField.getText(); }
 
             public void removeUpdate(DocumentEvent e) {
-                Constants.serverIP =  ipTextField.getText();
+                IP =  ipTextField.getText();
             }
 
-            public void insertUpdate(DocumentEvent e) { Constants.serverIP =  ipTextField.getText(); }
+            public void insertUpdate(DocumentEvent e) { IP =  ipTextField.getText(); }
         });
         panel.add( ipTextField);
 
@@ -195,11 +196,12 @@ public class UserAccount {
             @Override
             public void actionPerformed(ActionEvent e) {
                     String output = "";
-                    for (int i = 0; i <= 19; i++) {
+                    for (int i = 0; i <= 24; i++) {
                         errors[i] = null;
                     }
 
-                    if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat)) {
+                    if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat) && validIP(IP)) {
+                        Constants.serverIP = IP;
                         String passwordToHash = String.valueOf(password);
                         String hashedPassword = getSHA256(passwordToHash, email);
                         register(username, email, hashedPassword);
@@ -364,8 +366,41 @@ public class UserAccount {
             else
                 JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, messages.getString("newUserCreatedFail"), messages.getString("newUser"), JOptionPane.WARNING_MESSAGE);
             ex.printStackTrace();
         }
 
+    }
+    /**
+     * Checks if IP is valid format.
+     * Source https://stackoverflow.com/questions/4581877/validating-ipv4-string-in-java
+     */
+
+    public boolean validIP (String ip) {
+            if ( ip == null || ip.isEmpty() ) {
+                errorsNumb++;
+                errors[errorsNumb] = messages.getString("registerIPEmpty");
+                return false;
+            }
+            String[] parts = ip.split( "\\." );
+            if ( parts.length != 4 ) {
+                errorsNumb++;
+                errors[errorsNumb] = messages.getString("registerIPShort");
+                return false;
+            }
+            for ( String s : parts ) {
+                int i = Integer.parseInt( s );
+                if ( (i < 0) || (i > 255) ) {
+                    errorsNumb++;
+                    errors[errorsNumb] = messages.getString("registerIPWrongNumb");
+                    return false;
+                }
+            }
+            if ( ip.endsWith(".") ) {
+                errorsNumb++;
+                errors[errorsNumb] = messages.getString("registerIPEndDot");
+                return false;
+            }
+            return true;
     }
 }
