@@ -474,25 +474,6 @@ public class GameController {
                          int piece, int colCurrent) {
         Thread movingThread = new Thread(new Runnable() {
             public void run() {
-               // int tempCurrent = colCurrent;
-               // tempCurrent -= nr -1;
-               // int i = 6;
-               // int j = i - nr;
-               // moveBackNr = 0;
-               // moveBack = false;
-               // while (i >= j) {
-               //     System.out.println(tempCurrent);
-               //     imageView.setX(finish[i][1] * 600);
-               //     imageView.setY(finish[i][2] * 600);
-               //     imageView.setImage(image);
-               //     i--;
-               //     tempCurrent--;
-               //         try {
-               //             Thread.sleep(MOVEPIECELAG);
-               //         } catch (InterruptedException e) {
-               //             e.printStackTrace();
-               //         }
-
                 System.out.println("is in goal, moving back to: " + String.valueOf(nr));
                 int i = 6;
                 int totalSteps = 59;
@@ -508,18 +489,17 @@ public class GameController {
                         e.printStackTrace();
                     }
                 }
-                int tempCurrent = nr;
                 if (color.equals("red")) {
-                    redCurrent[piece] = tempCurrent;
+                    redCurrent[piece] = nr;
                 }
                 else if (color.equals("blue")) {
-                    blueCurrent[piece] = tempCurrent;
+                    blueCurrent[piece] = nr;
                 }
                 else if (color.equals("yellow")) {
-                    yellowCurrent[piece] = tempCurrent;
+                    yellowCurrent[piece] = nr;
                 }
                 else if (color.equals("green")) {
-                    greenCurrent[piece] = tempCurrent;
+                    greenCurrent[piece] = nr;
                 }
             }
         });
