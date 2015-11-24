@@ -326,6 +326,8 @@ public class GameController {
                     greenPieces[Integer.parseInt(command[5])], greenImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.greenFinish, "green");
         }
+
+
     }
 
     // Med animasjon, generell move for alle brikker og farger,
@@ -376,7 +378,7 @@ public class GameController {
                     }
 
                     //Flytter inn mot m�l BUG: flytter kun 1 og 1 rute
-                    else if(colCurrent > 52 && colCurrent< 59) {
+                    else if(colCurrent > 52 && colCurrent< 58) {
                         imageView.setX(finishArray[colCurrent - 52][1] * 600);
                         imageView.setY(finishArray[colCurrent - 52][2] * 600);
                         imageView.setImage(image);
@@ -385,7 +387,7 @@ public class GameController {
                     }
 
                     // Hvis spiller f�r terningkast som g�r utenfor brettet \ forbi m�l m� det flyttes tilbake.
-                    else if (colCurrent > 59) {
+                    else if (colCurrent > 58) {
                         // FUNKER IKKE
                         // g�r i loop
                         //    redCurrent--;
@@ -396,7 +398,7 @@ public class GameController {
                     }
 
                     // Spilleren er i m�l og skal ikke kunen flytte brukken noe mer.
-                    else if (colCurrent == 59 && stop == 59) {
+                    else if (colCurrent == 58 && stop == 58) {
                         imageView.setX(finishArray[6][1] * 600);
                         imageView.setY(finishArray[6][2] * 600);
                         imageView.setImage(image);
