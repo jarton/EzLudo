@@ -90,6 +90,10 @@ public class ServerTest extends TestCase {
             output.flush();
             output.println("CHAT|1|ezChat|" + nickname + "|LOL TEST");
             output.flush();
+
+            output.close();
+            input.close();
+            client.close();
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -105,38 +105,37 @@ public class Client {
      * the client to use the main socket.
      */
     public void startListener() {
-        new Thread (()->{
-            while (input!=null) {
-                String cmd;
-                try {
-                    while ((cmd=input.readLine())!=null) {
-                        String command[] = cmd.split("\\|");
-                        if (command[0].equals("CHAT")) {
-                            mainController.displayMessage(command);
-                        } else if (command[0].equals("CHAT JOINED")) {
-                            mainController.newChatRoom(command);
-                        } else if (command[0].equals("USERS")) {
-                            mainController.updateUsers(command);
-                        } else if (command[0].equals("GAME STARTED")) {
-                            mainController.newGame(command);
-                        } else if (command[0].equals("GAME")) {
-                            if (command[3].equals("TURN")) {
-                                mainController.playerTurn(command);
+        if (mainController != null) {
+            new Thread(() -> {
+                while (input != null) {
+                    String cmd;
+                    try {
+                        while ((cmd = input.readLine()) != null) {
+                            String command[] = cmd.split("\\|");
+                            if (command[0].equals("CHAT")) {
+                                mainController.displayMessage(command);
+                            } else if (command[0].equals("CHAT JOINED")) {
+                                mainController.newChatRoom(command);
+                            } else if (command[0].equals("USERS")) {
+                                mainController.updateUsers(command);
+                            } else if (command[0].equals("GAME STARTED")) {
+                                mainController.newGame(command);
+                            } else if (command[0].equals("GAME")) {
+                                if (command[3].equals("TURN")) {
+                                    mainController.playerTurn(command);
+                                } else if (command[3].equals("ROLL")) {
+                                    mainController.playerRoll(command);
+                                } else if (command[3].equals("MOVE")) {
+                                    mainController.playerMove(command);
+                                } else mainController.displayMessage(command);
                             }
-                            else if (command[3].equals("ROLL")) {
-                                mainController.playerRoll(command);
-                            }
-                            else if (command[3].equals("MOVE")) {
-                                mainController.playerMove(command);
-                            }
-                            else mainController.displayMessage(command);
                         }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-            }
-        }).start();
+            }).start();
+        }
     }
 
     /**
@@ -200,5 +199,13 @@ public class Client {
     public void logout() {
         output.println("LOGOUT");
         closeConnection();
+    }
+
+    public PrintWriter getOutput() {
+        return output;
+    }
+
+    public BufferedReader getInput() {
+        return input;
     }
 }
