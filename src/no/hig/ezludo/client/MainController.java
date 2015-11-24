@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -231,6 +232,21 @@ public class MainController extends Application {
     }
 
     public static void startScene(String[] args) {
+        try {
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
         launch(args);
     }
 }
