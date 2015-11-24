@@ -28,6 +28,8 @@ public class Game {
     private final int diceMax = 6;
     private final int victorySquare = 59;
     private int turnInt;
+    private boolean moveBack = false;
+    private int moveBackSteps = 0;
 
     /**
      * sets the player names array, the first player gets to start first.
@@ -123,10 +125,12 @@ public class Game {
                     playerSquare[pieceToMove] = 1;
                 }
                 else if (playerSquare[pieceToMove] != 0) {
-                    if (playerSquare[pieceToMove] + playerSquare[4] > 59) {
+                    if ((playerSquare[pieceToMove] + playerSquare[4]) > victorySquare) {
                         int overFlow = playerSquare[pieceToMove] + playerSquare[4];
-                        overFlow = overFlow - 59;
-                        playerSquare[pieceToMove] = 59 - overFlow;
+                        overFlow = overFlow - victorySquare;
+                        playerSquare[pieceToMove] = victorySquare - overFlow;
+                        moveBack = true;
+                        moveBackSteps = overFlow * -1;
                     }
                     else {
                         playerSquare[pieceToMove] += playerSquare[4];
@@ -155,14 +159,20 @@ public class Game {
                 synchronized (players) {
                     for (User player : players)
                         try {
+                            if (!moveBack)
                             player.write("GAME|" + id + "|" + name + "|MOVE|" + playerTurn.getNickname() + "|" +
                                     String.valueOf(pieceToMove) + "|" +
                                     userPlaces.get(playerTurn.getNickname())[pieceToMove]);
+                            else {
+                                player.write("GAME|" + id + "|" + name + "|MOVE|" + playerTurn.getNickname() + "|" +
+                                        String.valueOf(pieceToMove) + "|" + moveBackSteps);
+                            }
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
                             e.printStackTrace();
                         }
                 }
+                moveBack = false;
 
                 if (playerSquare[4] != 6)
                     passTurn();
