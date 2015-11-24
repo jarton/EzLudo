@@ -353,7 +353,7 @@ public class GameController {
                     squareInArray++;
 
                     // begynner p� 1 igjen etter main er ferdig
-                    if(colCurrent== 52) {
+                    if(colCurrent == 53) {
                         if (color.equals("red")) {
                             imageView.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
                             imageView.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
@@ -376,7 +376,7 @@ public class GameController {
                     }
 
                     //Flytter inn mot m�l BUG: flytter kun 1 og 1 rute
-                    else if(colCurrent > 52 && colCurrent< 59) {
+                    else if(colCurrent > 53 && colCurrent < 59) {
                         imageView.setX(finishArray[colCurrent - 52][1] * 600);
                         imageView.setY(finishArray[colCurrent - 52][2] * 600);
                         imageView.setImage(image);
