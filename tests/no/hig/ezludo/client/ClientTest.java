@@ -45,9 +45,9 @@ public class ClientTest {
             String feedBack = input.readLine();
             System.out.println(feedBack);
 
-            if (feedBack.equals("Uknown username/password") {
+            /*if (feedBack.equals("Uknown username/password") {
 
-            }
+            }*/
             input.close();
             output.close();
             loginSocket.close();
