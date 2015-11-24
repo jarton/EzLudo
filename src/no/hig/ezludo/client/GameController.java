@@ -86,11 +86,6 @@ public class GameController {
 
     // Controller mechanism
 
-    private boolean redInFinish;
-    private boolean blueInFinish;
-    private boolean yellowInFinish;
-    private boolean greenInFinish;
-
     private boolean[] redInStart = new boolean[4];
     private boolean[] blueInStart = new boolean[4];
     private boolean[] yellowInStart = new boolean[4];
@@ -155,12 +150,6 @@ public class GameController {
     // Set all chips in start pos
     public void setupBoard(){
 
-        redInFinish = false;
-        blueInFinish = false;
-        greenInFinish = false;
-        yellowInFinish = false;
-
-        // array implemetation
         for (int i = 0; i < 4; i++) {
 
             this.redPieces[i].setX(ludoBoardCoordinates.redStart[i + 1][1] * 600);
@@ -193,8 +182,6 @@ public class GameController {
             blueInGoal[i] = false;
             greenInGoal[i] = false;
             yellowInGoal[i] = false;
-
-
         }
 
         moveBackNr = 0;
@@ -202,27 +189,13 @@ public class GameController {
     }
 
     public void setupPlayers(String players[], String nickname) {
-       this.players.put(players[0], "red");
-        this.players.put(players[1], "green");
+        this.players.put(players[0], "red");
+        this.players.put(players[1], "blue");
         this.players.put(players[2], "yellow");
-        this.players.put(players[3], "blue");
+        this.players.put(players[3], "green");
         myNickname = nickname;
         label.setText("\t\t red: " + players[0] + "\t\t green: " + players[1] +
                 "\t\t yellow: " + players[2] + "\t\t blue: " + players[3]);
-    }
-
-    public void setRedinMain () {
-         redCurrent[0] = 1;
-         this.redPieces[0].setX(ludoBoardCoordinates.mainArea[redCurrent[0]][1] * 600);
-         this.redPieces[0].setY(ludoBoardCoordinates.mainArea[redCurrent[0]][2] * 600);
-         this.redPieces[0].setImage(redImage[0]);
-     }
-
-    public void setBlueinMain() {
-        blueCurrent[0] = 1;
-        this.bluePieces[0].setX(ludoBoardCoordinates.mainArea[14][1] * 600);
-        this.bluePieces[0].setY(ludoBoardCoordinates.mainArea[14][2] * 600);
-        this.bluePieces[0].setImage(blueImage[0]);
     }
 
     @FXML
@@ -262,7 +235,6 @@ public class GameController {
                     pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, event = new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
-                            System.out.println("cliecked");
                             MainController.client.movePiece(gameId, gameName, String.valueOf(pieceToMove));
                             movedPiece(pieceArray);
                         }
@@ -280,7 +252,7 @@ public class GameController {
 
     public void movedPiece(ImageView array[]) {
         for (int i=0;i<4;i++) {
-            if (events.size() >= i)
+            if (events.size() > i)
                 array[i].removeEventHandler(MouseEvent.MOUSE_CLICKED, events.get(i));
         }
         events.clear();
@@ -304,25 +276,25 @@ public class GameController {
 
     public void playerMove(String command[]) {
         if (players.get(command[4]).equals("red") && redInGoal[Integer.parseInt(command[5])] == false) {
-           movePiece(Integer.parseInt(command[6]), redCurrent[Integer.parseInt(command[5])],
+           movePiece(command[6], redCurrent[Integer.parseInt(command[5])],
                    redPieces[Integer.parseInt(command[5])], redImage[Integer.parseInt(command[5])],
                    Integer.parseInt(command[5]), ludoBoardCoordinates.redFinish, "red");
         }
 
         else if (players.get(command[4]).equals("blue") && blueInGoal[Integer.parseInt(command[5])] == false) {
-            movePiece(Integer.parseInt(command[6]), blueCurrent[Integer.parseInt(command[5])],
+            movePiece(command[6], blueCurrent[Integer.parseInt(command[5])],
                     bluePieces[Integer.parseInt(command[5])], blueImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.blueFinish, "blue");
         }
 
         else if (players.get(command[4]).equals("yellow") && yellowInGoal[Integer.parseInt(command[5])] == false) {
-            movePiece(Integer.parseInt(command[6]), yellowCurrent[Integer.parseInt(command[5])],
+            movePiece(command[6], yellowCurrent[Integer.parseInt(command[5])],
                     yellowPieces[Integer.parseInt(command[5])], yellowImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.yellowFinish, "yellow");
         }
 
         else if (players.get(command[4]).equals("green") && greenInGoal[Integer.parseInt(command[5])] == false) {
-            movePiece(Integer.parseInt(command[6]), greenCurrent[Integer.parseInt(command[5])],
+            movePiece(command[6], greenCurrent[Integer.parseInt(command[5])],
                     greenPieces[Integer.parseInt(command[5])], greenImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.greenFinish, "green");
         }
@@ -331,9 +303,8 @@ public class GameController {
     }
 
     // Med animasjon, generell move for alle brikker og farger,
-    public void movePiece(int steps, int colorCurrent, ImageView imageView, Image image,
+    public void movePiece(String moves, int colorCurrent, ImageView imageView, Image image,
                          int piece, double finishArray[][], String color) {
-        int stop=steps;
         Thread moveThread = new Thread(new Runnable() {
             public void run() {
                 int colCurrent = colorCurrent;
@@ -350,12 +321,24 @@ public class GameController {
                 else if (color.equals("yellow")) {
                     squareInArray = colCurrent+ 26;
                 }
+
+                System.out.println(moves + ":" + Integer.parseInt(moves));
+                int finishStop;
+                int stop;
+                if (Integer.parseInt(moves) >= 0)
+                    stop = Integer.parseInt(moves);
+
+                else {
+                    moveBack = true;
+                    stop = 59;
+                    System.out.println("moveback true");
+                }
                 while (colCurrent+1 <= stop) {
                     colCurrent++;
                     squareInArray++;
 
                     // begynner p� 1 igjen etter main er ferdig
-                    if(colCurrent== 52) {
+                    if(colCurrent== 53) {
                         if (color.equals("red")) {
                             imageView.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
                             imageView.setY(ludoBoardCoordinates.mainArea[1][2] * 600);
@@ -373,32 +356,28 @@ public class GameController {
                             imageView.setY(ludoBoardCoordinates.mainArea[27][2] * 600);
                         }
                         imageView.setImage(image);
-                        System.out.print(colCurrent);
-                        System.out.print("\n");
                     }
 
                     //Flytter inn mot m�l BUG: flytter kun 1 og 1 rute
-                    else if(colCurrent > 52 && colCurrent< 58) {
-                        imageView.setX(finishArray[colCurrent - 52][1] * 600);
-                        imageView.setY(finishArray[colCurrent - 52][2] * 600);
+                    else if(colCurrent > 53 && colCurrent< 59) {
+                        imageView.setX(finishArray[colCurrent - 53][1] * 600);
+                        imageView.setY(finishArray[colCurrent - 53][2] * 600);
                         imageView.setImage(image);
-                        System.out.print(colCurrent);
-                        System.out.print("\n");
                     }
 
                     // Hvis spiller f�r terningkast som g�r utenfor brettet \ forbi m�l m� det flyttes tilbake.
-                    else if (colCurrent > 58) {
-                        // FUNKER IKKE
-                        // g�r i loop
-                        //    redCurrent--;
-                        moveBack = true;
-                        moveBackNr++;
-                        System.out.print(stop + " stop");
-                        System.out.print("\n");
-                    }
+                   // else if (colCurrent > 58) {
+                   //     // FUNKER IKKE
+                   //     // g�r i loop
+                   //     //    redCurrent--;
+                   //     moveBack = true;
+                   //     moveBackNr++;
+                   //     System.out.print(stop + " stop");
+                   //     System.out.print("\n");
+                   // }
 
                     // Spilleren er i m�l og skal ikke kunen flytte brukken noe mer.
-                    else if (colCurrent == 58 && stop == 58) {
+                    else if (colCurrent == 59 && stop == 59) {
                         imageView.setX(finishArray[6][1] * 600);
                         imageView.setY(finishArray[6][2] * 600);
                         imageView.setImage(image);
@@ -407,62 +386,58 @@ public class GameController {
                         // if colCurrent is 58.. goal array == true.
                         // not possible to move piece anymore
 
-                        if (color.equals("red")) {
-                            redInGoal[piece] = true;
-                        }
-                        else if (color.equals("blue")) {
-                            blueInGoal[piece] = true;
-                        }
-                        else if (color.equals("green")) {
-                            greenInGoal[piece] = true;
-                        }
-                        else if (color.equals("yellow")) {
-                            yellowInGoal[piece] = true;
+                        if (!moveBack) {
+                            if (color.equals("red")) {
+                                redInGoal[piece] = true;
+                            } else if (color.equals("blue")) {
+                                blueInGoal[piece] = true;
+                            } else if (color.equals("green")) {
+                                greenInGoal[piece] = true;
+                            } else if (color.equals("yellow")) {
+                                yellowInGoal[piece] = true;
+                            }
+                            System.out.println("ongoal");
                         }
 
-                        System.out.print(colCurrent);
-                        System.out.print("\n");
                     }
-                    else if(colCurrent < 52) {
+                    else if(colCurrent < 53) {
                         // Flytter vanlig i main
                         if (color.equals("red")) {
                                 imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
                                 imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
                         }
                         else if (color.equals("blue")) {
-                            if (squareInArray < 52) {
+                            if (squareInArray < 53) {
                                 imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
                                 imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
                             }
                             else {
-                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-51][1] * 600);
-                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-51][2] * 600);
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-52][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-52][2] * 600);
                             }
                         }
                         else if (color.equals("green")) {
-                            if (squareInArray < 52) {
+                            if (squareInArray < 53) {
                                 imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
                                 imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
                             }
                             else {
-                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-51][1] * 600);
-                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-51][2] * 600);
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-52][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-52][2] * 600);
                             }
                         }
                         else if (color.equals("yellow")) {
 
-                            if (squareInArray < 52) {
+                            if (squareInArray < 53) {
                                 imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
                                 imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
                             }
                             else {
-                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-51][1] * 600);
-                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-51][2] * 600);
+                                imageView.setX(ludoBoardCoordinates.mainArea[squareInArray-52][1] * 600);
+                                imageView.setY(ludoBoardCoordinates.mainArea[squareInArray-52][2] * 600);
                             }
                         }
                         imageView.setImage(image);
-                        System.out.print(colCurrent);
-                        System.out.print("\n");
                     }
                     try {
                         Thread.sleep(MOVEPIECELAG);
@@ -470,11 +445,11 @@ public class GameController {
                         e.printStackTrace();
                     }
                 }
-                if(moveBack == true) {
-                    moveBack(moveBackNr, finishArray, color, imageView, image, piece, colCurrent);
-                    System.out.print("moveBack()");
+                if(moveBack) {
+                    moveBack(stop+Integer.parseInt(moves), finishArray, color, imageView, image, piece, colCurrent);
+                    System.out.print("moveBack() called");
                     System.out.print("\n");
-
+                    moveBack = false;
                 }
                 else {
                     if (color.equals("red")) {
@@ -499,37 +474,32 @@ public class GameController {
                          int piece, int colCurrent) {
         Thread movingThread = new Thread(new Runnable() {
             public void run() {
-                int tempCurrent = colCurrent;
-                tempCurrent -= nr -1;
+                System.out.println("is in goal, moving back to: " + String.valueOf(nr));
                 int i = 6;
-                int j = i - nr;
-                moveBackNr = 0;
-                moveBack = false;
-                while (i >= j) {
-                    System.out.println(tempCurrent);
+                int totalSteps = 59;
+                while (totalSteps != nr) {
+                    totalSteps--;
+                    i--;
                     imageView.setX(finish[i][1] * 600);
                     imageView.setY(finish[i][2] * 600);
                     imageView.setImage(image);
-                    i--;
-                    tempCurrent--;
-                        try {
-                            Thread.sleep(MOVEPIECELAG);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-
+                    try {
+                        Thread.sleep(MOVEPIECELAG);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 if (color.equals("red")) {
-                    redCurrent[piece] = tempCurrent;
+                    redCurrent[piece] = nr;
                 }
                 else if (color.equals("blue")) {
-                    blueCurrent[piece] = tempCurrent;
+                    blueCurrent[piece] = nr;
                 }
                 else if (color.equals("yellow")) {
-                    yellowCurrent[piece] = tempCurrent;
+                    yellowCurrent[piece] = nr;
                 }
                 else if (color.equals("green")) {
-                    greenCurrent[piece] = tempCurrent;
+                    greenCurrent[piece] = nr;
                 }
             }
         });
@@ -557,24 +527,6 @@ public class GameController {
                 }
                 dice = new Image("/res/dices/dice" + Integer.parseInt(nrToShow) +".png");
                 diceImage.setImage(dice);
-
-               // // hvis red ikke st�r i start omr�de
-               // if (blueInStart == false) {
-               //     //redMove(diceNrFromServer);
-               //     movePiece(diceNrFromServer+blueCurrent[0], blueCurrent[0], bluePieces[0], blueImage[0],
-               //             0, ludoBoardCoordinates.blueFinish, "blue");
-               // }
-
-               // // hvis red st�r i start omr og tering viser 6 = flytt ut til main array
-               // if (diceNr == 6 && blueInStart == true && blueInGoal == false) {
-               //     blueInStart = false;
-               //     setBlueinMain();
-               // }
-
-               // if (diceNr == 6 && blueInStart== true && blueInGoal == true) {
-               //     blueInStart = false;
-               //     setBlueinMain();
-               // }
             }
         });
         diceLoadingThread.start();
