@@ -7,7 +7,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * Created by Kristian on 01.11.2015.
+ * @author Kristian
+ * date 01.11.2015.
+ * This class inclues a scalable ludoboard insida a JFrame. This is used to define the X and Y coordinates
+ * for every square. Output from X and Y are used further to define LudoBoardCoordinates.java.
+ *
  */
 public class LudoBoard extends JPanel {
     private Dimension size;
@@ -19,21 +23,12 @@ public class LudoBoard extends JPanel {
     public int boardHeight;
 
     public LudoBoard() {
-
         // get Ludo board Image
         ImageIcon tmpBoard = new ImageIcon (getClass().getResource("/res/board.png"));
         int height = tmpBoard.getIconHeight();
         int width = tmpBoard.getIconWidth();
         size = new Dimension(width, height);
         board = tmpBoard.getImage();
-
-        // get red Chip image
-        ImageIcon tmpRed = new ImageIcon (getClass().getResource("/res/red2final.png"));
-        int redHeight = tmpRed.getIconHeight();
-        int redWidth = tmpRed.getIconWidth();
-        redSize = new Dimension(redWidth, redHeight);
-        red = tmpRed.getImage();
-
         repaint();
     }
 
@@ -41,7 +36,6 @@ public class LudoBoard extends JPanel {
     public void paint(Graphics g) {
         // Define g2d
         super.paint(g);
-        double redStart[][] = new double[4][4];
         Graphics2D g2d = (Graphics2D)g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
@@ -52,29 +46,8 @@ public class LudoBoard extends JPanel {
         // Get lodo board height and width for int and double
         boardHeight=getHeight();
         boardWidth=getWidth();
-        double doubleBoardHeight=getHeight();
-        double doubleBoardWidth=getWidth();
-
-        // Define red first position
-        redStart[1][1]=0.5350262697022767;
-        redStart[1][2]=0.1348148148148148;
-
-        // calculate new position from cordinates and size og ludo board
-        double redCordX = redStart[1][1] * doubleBoardWidth;
-        double redCordY = redStart[1][2] * doubleBoardHeight;
-
-        // convert from int to double
-        int intX = (int) redCordX;
-        int intY = (int) redCordY;
-
-        // draw image
-        // g2d.drawImage(image, Xcord, YCord, Img Widgh , IMG Height , this);
-       // g2d.drawImage(red, (intX), (intY), boardWidth/20, boardHeight/20, this);
-
 
     }
-
-    //// MAIN FJERNES////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         JFrame jFrame= new JFrame();
         LudoBoard ludoBoard;
@@ -85,13 +58,7 @@ public class LudoBoard extends JPanel {
             @Override
             public void mouseClicked(MouseEvent e) {
                 double x = e.getX();
-               // System.out.print("X: ");
-               // System.out.print(x);
-               // System.out.print(" - ");
                 double y = e.getY();
-               // System.out.print("Y: ");
-               // System.out.print(y);
-               // System.out.print(" || ");
                 double boardWidth = ludoBoard.boardWidth;
                 double boardHeight = ludoBoard.boardHeight;
                 double coordX = x / boardWidth;
@@ -102,12 +69,6 @@ public class LudoBoard extends JPanel {
                 System.out.print("\n");
                 System.out.print("-------------------------------");
                 System.out.print("\n");
-                double backX = coordX * boardWidth;
-                double backY = coordY * boardHeight;
-                //System.out.print(backX);
-               // System.out.print(" - ");
-                //System.out.print(backY);
-               // System.out.print("\n");
             }
 
 
@@ -116,8 +77,5 @@ public class LudoBoard extends JPanel {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.pack();
         jFrame.setVisible(true);
-
-
     }
-
 }
