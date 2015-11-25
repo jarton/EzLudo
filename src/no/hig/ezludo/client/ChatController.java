@@ -1,14 +1,14 @@
 package no.hig.ezludo.client;
 
 import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 /**
- * Created by piddy on 11/11/15.
+ * @author piddy
+ * date 11/11/15.
  */
 public class ChatController {
 
@@ -30,7 +30,7 @@ public class ChatController {
 
     /**
      * This method receives a message, and displays it in the lobby chat.
-     * @param text
+     * @param text The message
      */
     @FXML
     public void displayMessage(String text) {
@@ -48,7 +48,7 @@ public class ChatController {
 
     /**
      * This method updates the list of connected users in a chat room. This is done in a separate thread.
-     * @param command
+     * @param command The command
      */
     public void updateUsers(String[] command) {
         Platform.runLater(new Runnable() {

@@ -2,27 +2,30 @@ package no.hig.ezludo.client;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Kristian on 29.10.2015.
  */
 public class Client {
+    private Constants constants;
     private String email;
     private String nickName;
     private String password;
     private String mainKey;
     private Socket socket;
-    private int portNumber = 9696;
     private PrintWriter output;
     private BufferedReader input;
     private MainController mainController;
+    private static Logger logger = Logger.getAnonymousLogger();
 
 
     /**
      * This constructor defines necessary private variables, sets up a connection and connects to the lobby.
-     * @param email
-     * @param password
-     * @param mainKey
+     * @param email The username
+     * @param password The password
+     * @param mainKey Main Key for connecting to socket
      */
     public Client(String email, String password, String mainKey) {
         this.email = email;
@@ -105,11 +108,11 @@ public class Client {
      * the client to use the main socket.
      */
     public void startListener() {
-        new Thread (()->{
-            while (input!=null) {
+        new Thread(() -> {
+            while (input != null) {
                 String cmd;
                 try {
-                    while ((cmd=input.readLine())!=null) {
+                    while (mainController != null && (cmd = input.readLine()) != null) {
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("CHAT")) {
                             mainController.displayMessage(command);
@@ -122,18 +125,16 @@ public class Client {
                         } else if (command[0].equals("GAME")) {
                             if (command[3].equals("TURN")) {
                                 mainController.playerTurn(command);
-                            }
-                            else if (command[3].equals("ROLL")) {
+                            } else if (command[3].equals("ROLL")) {
                                 mainController.playerRoll(command);
-                            }
-                            else if (command[3].equals("MOVE")) {
+                            } else if (command[3].equals("MOVE")) {
                                 mainController.playerMove(command);
-                            }
-                            else mainController.displayMessage(command);
+                            } else mainController.displayMessage(command);
                         }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
             }
         }).start();
@@ -146,7 +147,7 @@ public class Client {
     public void setUpConnection() {
         try {
             closeConnection();
-            socket = new Socket(Constants.serverIP, Constants.portNumber);
+            socket = new Socket(constants.getServerIP(), constants.getPortNumber());
             output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
@@ -200,5 +201,21 @@ public class Client {
     public void logout() {
         output.println("LOGOUT");
         closeConnection();
+    }
+
+    /**
+     * Returns a reference to the PrintWriter of the client.
+     * @return the print writer
+     */
+    public PrintWriter getOutput() {
+        return output;
+    }
+
+    /**
+     * Returns a reference to the BufferedReader of the client.
+     * @return the BufferedReader
+     */
+    public BufferedReader getInput() {
+        return input;
     }
 }

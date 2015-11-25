@@ -36,6 +36,7 @@ import java.util.prefs.Preferences;
 public class Login extends JFrame  {
     private Internationalization internationalization;
     private ResourceBundle messages;
+    private Constants constants;
     private JPanel panel;
     public UserAccount userAccount;
     private String email;
@@ -303,8 +304,8 @@ public class Login extends JFrame  {
                 String passwordString = String.valueOf(password);
                 String hashedPassword = getSHA256(passwordString, email);
 
-                Constants.serverIP = IP;
-                socket = new Socket(Constants.serverIP, Constants.loginPortNumber);
+                constants.setServerIP(IP);
+                socket = new Socket(constants.getServerIP(), constants.getLoginPortNumber());
                 PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                 BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -340,7 +341,7 @@ public class Login extends JFrame  {
      * Source: http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
      */
     //
-    private static String getSHA256(String passwordToHash, String salt)
+    public static String getSHA256(String passwordToHash, String salt)
     {
         String generatedPassword = null;
         try {

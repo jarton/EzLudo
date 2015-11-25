@@ -25,6 +25,7 @@ import java.util.ResourceBundle;
  * date 30.10.2015.
  */
 public class UserAccount {
+    private Constants constants;
     private ResourceBundle messages;
     private JPanel panel;
     private JPanel loginPanel;
@@ -201,7 +202,7 @@ public class UserAccount {
                     }
 
                     if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat) && validIP(IP)) {
-                        Constants.serverIP = IP;
+                        constants.setServerIP(IP);
                         String passwordToHash = String.valueOf(password);
                         String hashedPassword = getSHA256(passwordToHash, email);
                         register(username, email, hashedPassword);
@@ -348,7 +349,7 @@ public class UserAccount {
 
     public void register(String username, String email, String hashedPassword) {
         try {
-            loginClient = new Socket(Constants.serverIP, Constants.loginPortNumber);
+            loginClient = new Socket(constants.getServerIP(), constants.getLoginPortNumber());
             output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
 
