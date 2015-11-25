@@ -27,10 +27,10 @@ public class GameTest {
         });
         p.start();
 
-    //    Thread r = new Thread(() -> {
-    //        GameBot GameBot4 = new GameBot("swag@hei.no", "12345678", "kitty");
-    //    });
-    //    r.start();
+        Thread r = new Thread(() -> {
+            GameBot GameBot4 = new GameBot("swag@hei.no", "12345678", "kitty");
+        });
+        r.start();
 
     //    Thread b = new Thread(() -> {
     //        GameBot GameBot5 = new GameBot("heihopp@hei.no", "12345678", "sudoMan");
