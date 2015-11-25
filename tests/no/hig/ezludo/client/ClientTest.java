@@ -25,6 +25,8 @@ public class ClientTest {
     private final String testMessage = "jUnit test message";
 
     private void register() {
+        setUpLoginConnection();
+
         password = Login.getSHA256("testtest", email);
         output.println("REGISTER|" + email + "|" + password + "|" + "testolini");
         output.flush();
@@ -34,6 +36,8 @@ public class ClientTest {
 
     private String login() {
         try {
+            setUpLoginConnection();
+
             password = Login.getSHA256("testtest", email);
             output.println("LOGIN|" + email + "|" + password);
             output.flush();
@@ -60,6 +64,10 @@ public class ClientTest {
 
     private void setUpLoginConnection() {
         try {
+            if (loginSocket != null) loginSocket.close();
+            if (output != null) output.close();
+            if (input != null) input.close();
+
             loginSocket = new Socket("127.0.0.1", 6969);
             output = new PrintWriter(new OutputStreamWriter(loginSocket.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginSocket.getInputStream()));
