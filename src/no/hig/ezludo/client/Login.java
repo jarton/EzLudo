@@ -36,6 +36,7 @@ import java.util.prefs.Preferences;
 public class Login extends JFrame  {
     private Internationalization internationalization;
     private ResourceBundle messages;
+    private Constants constants;
     private JPanel panel;
     public UserAccount userAccount;
     private String email;
@@ -303,8 +304,8 @@ public class Login extends JFrame  {
                 String passwordString = String.valueOf(password);
                 String hashedPassword = getSHA256(passwordString, email);
 
-                Constants.serverIP = IP;
-                socket = new Socket(Constants.serverIP, Constants.loginPortNumber);
+                constants.setServerIP(IP);
+                socket = new Socket(constants.getServerIP(), constants.getLoginPortNumber());
                 PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                 BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 

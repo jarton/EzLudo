@@ -7,6 +7,7 @@ import java.net.Socket;
  * Created by Kristian on 29.10.2015.
  */
 public class Client {
+    private Constants constants;
     private String email;
     private String nickName;
     private String password;
@@ -143,7 +144,7 @@ public class Client {
     public void setUpConnection() {
         try {
             closeConnection();
-            socket = new Socket(Constants.serverIP, Constants.portNumber);
+            socket = new Socket(constants.getServerIP(), constants.getPortNumber());
             output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
