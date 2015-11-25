@@ -17,17 +17,19 @@ public class ClientTest {
     private PrintWriter output;
     private BufferedReader input;
     private Socket mainSocket;
+    private Socket loginSocket;
     private String nickName;
     private Client client;
-    private String email = "test@test.no";
-    private String password = "1234";
+    private final String email = "test@test.no";
+    private String password = "";
+    private final String testMessage = "jUnit test message";
 
-    private String registration() {
+    private String register() {
         try {
-            output.printf("REGISTER|%s|%s|%s\n", email, password, "testolini");
+            password = Login.getSHA256("testtest", email);
+            output.println("REGISTER|" + email + "|" + password + "|" + "testolini");
             output.flush();
-            String feedBack = input.readLine();
-            return feedBack;
+            return input.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -36,18 +38,16 @@ public class ClientTest {
 
     private String login() {
         try {
-            Socket loginSocket = new Socket("127.0.0.1", 6969);
-            PrintWriter output = new PrintWriter(new OutputStreamWriter(loginSocket.getOutputStream()));
-            BufferedReader input = new BufferedReader(new InputStreamReader(loginSocket.getInputStream()));
-
-            output.printf("LOGIN|%s|%s\n", "test@test.no", "1234");
+            password = Login.getSHA256("testtest", email);
+            output.println("LOGIN|" + email + "|" + password);
             output.flush();
             String feedBack = input.readLine();
             System.out.println(feedBack);
 
-            /*if (feedBack.equals("Uknown username/password") {
-
-            }*/
+            if (feedBack.equals("Uknown username/password")) {
+                register();
+                return login();
+            }
             input.close();
             output.close();
             loginSocket.close();
@@ -62,65 +62,80 @@ public class ClientTest {
         return null;
     }
 
+    private void setUpLoginConnection() {
+        try {
+            loginSocket = new Socket("127.0.0.1", 6969);
+            output = new PrintWriter(new OutputStreamWriter(loginSocket.getOutputStream()));
+            input = new BufferedReader(new InputStreamReader(loginSocket.getInputStream()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /* public void startListener() {
+        new Thread(() -> {
+            while (input != null) {
+                String cmd;
+                try {
+                    while ((cmd = input.readLine()) != null) {
+                        String command[] = cmd.split("\\|");
+                        if (command[0].equals("CHAT")) {
+                            String checkResponse = command[3];
+                            assertThat(checkResponse, containsString(testMessage));
+                        } else if (command[0].equals("CHAT JOINED")) {
+                        } else if (command[0].equals("USERS")) {
+                        } else if (command[0].equals("GAME STARTED")) {
+                        } else if (command[0].equals("GAME")) {
+                            if (command[3].equals("TURN")) {
+                            } else if (command[3].equals("ROLL")) {
+                            } else if (command[3].equals("MOVE")) {
+                            }
+                        }
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    } */
+
+    public void checkResponse() {
+        try {
+            if (input != null) {
+                String response = input.readLine();
+                String command[] = response.split("\\|");
+
+                if (command[0].equals("CHAT JOINED")) {
+                    assertThat(command[1], containsString("lobby"));
+                } else if (command[0].equals("CHAT")) {
+                    assertThat(command[3], containsString(testMessage));
+                } else if (response.startsWith("LOGGED IN")) System.out.println(response);
+                else if (command[0].equals("USERS")) assertThat(command[1], containsString("lobby"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     @Test
     public void testClientFunctionality() throws Exception {
+        setUpLoginConnection();
         String key = login();
         client = new Client(email, password, key);
 
         output = client.getOutput();
         input = client.getInput();
 
-        String testMessage = "jUnit test message";
-        client.sendChatMessage(testMessage, "LOBBY");
+        //startListener();
 
-        String response = input.readLine();
-        String command[] = response.split("\\|");
-        assertThat(command[3], containsString(testMessage));
+        client.joinChatRoom("lobby");
 
+        checkResponse();
+        checkResponse();
+        client.sendChatMessage(testMessage, "lobby");
+        checkResponse();
+
+
+        //assertThat(checkResponse, containsString(testMessage));
     }
 
-    @Test
-    public void testStartListener() throws Exception {
-
-    }
-
-    @Test
-    public void testSendGameMessage() throws Exception {
-
-    }
-
-    @Test
-    public void testJoinChatRoom() throws Exception {
-
-    }
-
-    @Test
-    public void testJoinGameRoom() throws Exception {
-
-    }
-
-    @Test
-    public void testJoinRandomGame() throws Exception {
-
-    }
-
-    @Test
-    public void testRollDice() throws Exception {
-
-    }
-
-    @Test
-    public void testMovePiece() throws Exception {
-
-    }
-
-    @Test
-    public void testLeaveChatRoom() throws Exception {
-
-    }
-
-    @Test
-    public void testLogout() throws Exception {
-
-    }
 }

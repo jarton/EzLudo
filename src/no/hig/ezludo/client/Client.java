@@ -109,7 +109,7 @@ public class Client {
             while (input != null) {
                 String cmd;
                 try {
-                    while ((cmd = input.readLine()) != null && mainController != null) {
+                    while (mainController != null && (cmd = input.readLine()) != null) {
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("CHAT")) {
                             mainController.displayMessage(command);
@@ -199,10 +199,18 @@ public class Client {
         closeConnection();
     }
 
+    /**
+     * Returns a reference to the PrintWriter of the client.
+     * @return the print writer
+     */
     public PrintWriter getOutput() {
         return output;
     }
 
+    /**
+     * Returns a reference to the BufferedReader of the client.
+     * @return the BufferedReader
+     */
     public BufferedReader getInput() {
         return input;
     }

@@ -340,7 +340,7 @@ public class Login extends JFrame  {
      * Source: http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
      */
     //
-    private static String getSHA256(String passwordToHash, String salt)
+    public static String getSHA256(String passwordToHash, String salt)
     {
         String generatedPassword = null;
         try {
