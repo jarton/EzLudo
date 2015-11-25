@@ -1,5 +1,6 @@
 package Internationalization;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -9,7 +10,7 @@ import java.util.ResourceBundle;
  * date 02.10.2015
  * Class for internationalization. getLang() returns the message bundle
  */
-public class Internationalization {
+public class Internationalization implements Serializable {
     String language;
     String country;
 

@@ -6752,3 +6752,51 @@
 2015-11-25 20:19:17,308 INFO  [Server] user Ivar68 added to chatroom: hjhk
 2015-11-25 20:19:23,007 INFO  [Server] received command: CREATE GAME|njjnk
 2015-11-25 20:19:23,007 INFO  [Server] handling command CREATE GAME|njjnk
+2015-11-25 20:37:00,436 INFO  [Server] Ivar68 logged in
+2015-11-25 20:37:03,246 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:37:03,246 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:37:03,251 INFO  [Server] user Ivar68 added to chatroom: lobby
+2015-11-25 20:37:08,507 INFO  [Server] received command: CREATE GAME|k
+2015-11-25 20:37:08,507 INFO  [Server] handling command CREATE GAME|k
+2015-11-25 20:39:23,768 INFO  [Server] Ivar68 logged in
+2015-11-25 20:39:25,728 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:39:25,728 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:39:25,729 INFO  [Server] user Ivar68 added to chatroom: lobby
+2015-11-25 20:39:28,150 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 20:39:28,150 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 20:39:28,150 INFO  [Server] user Ivar68 added to random game que 
+2015-11-25 20:39:35,288 INFO  [Server] pirkola69 logged in
+2015-11-25 20:39:35,292 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 20:39:35,295 INFO  [Server] franZKlla logged in
+2015-11-25 20:39:35,297 INFO  [Server]  logged in
+2015-11-25 20:39:35,386 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:39:35,387 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:39:35,387 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 20:39:35,387 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:39:35,387 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:39:35,389 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:39:35,390 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:39:35,390 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 20:39:35,390 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:39:35,391 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 20:39:35,392 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:39:35,392 INFO  [Server] user  added to chatroom: lobby
+2015-11-25 20:39:35,598 INFO  [Server]  removed user with io exc
+2015-11-25 20:39:35,599 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 20:39:35,599 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 20:39:35,599 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 20:39:35,599 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 20:39:35,599 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 20:39:35,600 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 20:39:35,600 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 20:39:35,600 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 20:39:35,600 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 20:39:35,605 INFO  [Server] handling command 
+2015-11-25 20:39:35,606 INFO  [Server]  new game started 
+2015-11-25 20:39:35,607 INFO  [Server] new random game started
+2015-11-25 22:05:19,778 INFO  [Server] Ivar68 logged in
+2015-11-25 22:05:21,416 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 22:05:21,416 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 22:05:21,417 INFO  [Server] user Ivar68 added to chatroom: lobby
+2015-11-25 22:05:24,550 INFO  [Server] received command: CREATE GAME|s
+2015-11-25 22:05:24,550 INFO  [Server] handling command CREATE GAME|s

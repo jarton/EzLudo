@@ -36,8 +36,6 @@ public class MainController extends Application {
     private String nickName;
     private String firstTurnCommand[] = null;
     private static Logger logger = Logger.getAnonymousLogger();
-
-
     public static Client client;
 
     /**
@@ -185,7 +183,6 @@ public class MainController extends Application {
 
     public void exit() {
         client.logout();
-
         System.exit(0);
     }
 

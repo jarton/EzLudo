@@ -107,7 +107,6 @@ public class LoginHandler {
                 writeToBuffer("REGISTRATION OK");
             }
         } catch (SQLException sqlEx) {
-            sqlEx.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", sqlEx);
         }
     }
@@ -123,7 +122,6 @@ public class LoginHandler {
             buffWriter.flush();
         }
         catch (IOException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }

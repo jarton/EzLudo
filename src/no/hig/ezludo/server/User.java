@@ -65,7 +65,6 @@ public class User {
                 write("LOGGED IN|" + nickName);
             }
         } catch (Exception ex) {
-            ex.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", ex);
         }
         return true;
@@ -86,7 +85,6 @@ public class User {
             socket.close();
         }
         catch (Exception ex) {
-            ex.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", ex);
 
         }

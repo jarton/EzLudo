@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.logging.Level;
 
 import no.hig.ezludo.server.commands.*;
 import org.apache.log4j.Logger;
@@ -38,6 +39,7 @@ public class Server {
 	private static final int mainPortNum = 9696;
 	private Chatroom lobby;
 	private Logger serverLogger;
+	private static java.util.logging.Logger logger = java.util.logging.Logger.getAnonymousLogger();
 
 
 	/**
@@ -52,7 +54,7 @@ public class Server {
 	   try {
 		   database =  DriverManager.getConnection(dbUrl);
 	   } catch (SQLException sqlEx) {
-		   sqlEx.printStackTrace();
+		   logger.log(Level.SEVERE, "an exception was thrown", sqlEx);
 	   }
 	   lobby = new Chatroom("lobby", chatRooms);
 	   chatRooms.put("lobby", lobby);
@@ -81,7 +83,7 @@ public class Server {
 						commandQueue.put(new StartNewGame(game));
 						serverLogger.info("new random game started");
 					} catch (Exception e) {
-						e.printStackTrace();
+						logger.log(Level.SEVERE, "an exception was thrown", e);
 					}
 				}
 			}
@@ -123,13 +125,13 @@ public class Server {
 							serverLogger.info("received command: " + cmd);
 						}
 					} catch (Exception e) {
-						e.printStackTrace();
+						logger.log(Level.SEVERE, "an exception was thrown", e);
 					}
 				});
 				try {
 					Thread.sleep(100);
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.log(Level.SEVERE, "an exception was thrown", e);
 				}
 				removeClosedSockets();
 				addNewUsers();
@@ -185,6 +187,7 @@ public class Server {
 								chatRooms.get(chatName).writeUsers(usersClosedSocets);
 							} catch (Exception ex) {
 								usersClosedSocets.add(cmd.getUser());
+								logger.log(Level.SEVERE, "an exception was thrown", ex);
 							}
 						}
 					}
@@ -223,7 +226,7 @@ public class Server {
 								game.addOnePlayer(gameInvite.getUser());
 								} catch (Exception e) {
 									usersClosedSocets.add(gameInvite.getUser());
-									e.printStackTrace();
+									logger.log(Level.SEVERE, "an exception was thrown", e);
 								}
 							}
 						serverLogger.info("player " + gameInvite.getInvitedPlayer() + "reponded and "
@@ -249,7 +252,7 @@ public class Server {
 					}
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				logger.log(Level.SEVERE, "an exception was thrown", e);
 			}
 		}).start();
 	}
@@ -284,16 +287,16 @@ public class Server {
 					   try {
 						   LoginHandler handler = new LoginHandler(socket, database);
 					   } catch (Exception e) {
-							e.printStackTrace();
+						   logger.log(Level.SEVERE, "an exception was thrown", e);
 					   }
 				   }
 				   loginServerSocket.close();
 			   } catch (Exception e) {
-				   e.printStackTrace();
+				   logger.log(Level.SEVERE, "an exception was thrown", e);
 			   }
 		   }).start();
 	   } catch (IOException e1) {
-		   e1.printStackTrace();
+		   logger.log(Level.SEVERE, "an exception was thrown", e1);
 		   System.exit(0);
 	   }
    }
@@ -317,17 +320,17 @@ public class Server {
 								serverLogger.info(user.getNickname() + " logged in");
 							}
 						} catch (Exception e) {
-							e.printStackTrace();
+							logger.log(Level.SEVERE, "an exception was thrown", e);
 						}
 					}
 					mainSocket.close();
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.log(Level.SEVERE, "an exception was thrown", e);
 				}
 			}).start();
 		} catch (IOException e1) {
-			e1.printStackTrace();
 			System.exit(0);
+			logger.log(Level.SEVERE, "an exception was thrown", e1);
 		}
 
 	}

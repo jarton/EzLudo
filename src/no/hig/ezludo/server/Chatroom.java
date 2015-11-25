@@ -20,6 +20,7 @@ public class Chatroom {
     private String name = "new Chatroom";
     private HashMap<String, Chatroom> chatroomsMap;
     private final static Logger logger = Logger.getLogger("chatLogger");
+    private static java.util.logging.Logger excLogger = java.util.logging.Logger.getAnonymousLogger();
 
     public Chatroom(String name, HashMap<String, Chatroom> rooms) {
         this.name = name;
@@ -106,6 +107,7 @@ public class Chatroom {
                         user.write("ping");
                     } catch (Exception e) {
                         usersToRemove.add(user);
+                        excLogger.log(java.util.logging.Level.SEVERE, "an exception was thrown", e);
                     }
                 });
                 removeUsers();
@@ -119,7 +121,7 @@ public class Chatroom {
                 try {
                     Thread.sleep(10000);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    excLogger.log(java.util.logging.Level.SEVERE, "an exception was thrown", e);
                 }
             }
         }).start();
