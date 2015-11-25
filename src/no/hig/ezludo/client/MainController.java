@@ -107,13 +107,10 @@ public class MainController extends Application {
 
         Optional<String> result = dialog.showAndWait();
 
-        result.ifPresent(roomName -> client.joinChatRoom(roomName));
+        result.ifPresent(client::joinChatRoom);
     }
 
     public void chooseGameRoomName() {
-
-        //Testing
-        String names[] = {"", "-1", "testgame", "Nikita","Boris","Vladimir", "IGOR"};
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("New room");
@@ -121,8 +118,7 @@ public class MainController extends Application {
         dialog.setContentText("Enter a unique room name:");
 
         Optional<String> result = dialog.showAndWait();
-        newGame(names);
-        //result.ifPresent(roomName -> client.joinRandomGame());
+        result.ifPresent(client::sendNewGameRequest);
     }
 
     public void newChatRoom(String[] response) {
@@ -153,6 +149,29 @@ public class MainController extends Application {
         });
     }
 
+    /**
+     * This method is called from the listener when a game invitation is received. A pop up dialog will let the user
+     * accept or decline the invitation. The response is sent to the server, and the process of joining the game will
+     * happen automatically as the server will respond with a "GAME JOINED" message.
+     * @param command the initial command array received from the server
+     */
+    public void respondToInvitation(String[] command) {
+        String hostingPlayer = command[2];
+        String gameId = command [1];
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Invitation received");
+        alert.setHeaderText("Join game?");
+        alert.setContentText(hostingPlayer + "invited you to a game! Would you like to join?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            client.sendInvitationResponse("ACCEPT", gameId);
+        } else {
+            client.sendInvitationResponse("DECLINE", gameId);
+        }
+    }
+
     public void updateUsers(String[] command) {
         if (tabMap.get(command[1]) == null) {
             users = command;
@@ -180,9 +199,7 @@ public class MainController extends Application {
                     gameMap.put(response[1], gameController);
                     gameController.setGameName(response[2]);
                     gameController.ludoBoard();
-                    String players[] = {response[3], response[4], response[5], response[6]};
-                    gameController.setupPlayers(players, nickName);
-                    gameController.setGameId(response[1]);
+
 
                     if (firstTurnCommand != null) {
                         gameController.playerTurn(firstTurnCommand);
@@ -200,6 +217,20 @@ public class MainController extends Application {
                 }
             }
         });
+    }
+
+    public void updatePlayers(String[] command) {
+        String gameId = command[1];
+        String gameName = command[2];
+        GameController gameController = gameMap.get(gameId);
+
+        String[] players = new String[4];
+        for(int i = 3; i<command.length; i++) {
+            players[i-3] = command[i];
+        }
+        gameController.setupPlayers(players, nickName);
+
+
     }
 
     public void playerRoll(String command[]) {
