@@ -1,23 +1,19 @@
 package no.hig.ezludo.client;
 
 import Internationalization.Internationalization;
-import no.hig.ezludo.server.Server;
-
 import java.io.*;
 import java.net.Socket;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.security.spec.InvalidKeySpecException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This class includes the user-registration gui included userdata validation.
@@ -25,6 +21,7 @@ import java.util.ResourceBundle;
  * date 30.10.2015.
  */
 public class UserAccount {
+    private static Logger logger;
     private Constants constants;
     private ResourceBundle messages;
     private JPanel panel;
@@ -35,12 +32,12 @@ public class UserAccount {
     private char[] passwordRepeat ;
     private String IP;
     private String email;
-    private int errorsNumb=0;
-    private String[] errors = new String[25];
+    private int errorsNumb;
+    private String[] errors;
     //Server reg
     PrintWriter output;
     BufferedReader input;
-    private Socket loginClient = null;
+    private Socket loginClient;
 
 
     /**
@@ -51,6 +48,10 @@ public class UserAccount {
         messages = internationalization.getLang();
         this.jFrame = jFrame;
         this.loginPanel = loginPanel;
+        loginClient = null;
+        errors = new String[25];
+        errorsNumb=0;
+        logger = Logger.getAnonymousLogger();
     }
     /**
      * This function creates the registration gui.
@@ -77,14 +78,13 @@ public class UserAccount {
         JTextField userText = new JTextField(20);
         userText.setBounds(100, 10, 160, 25);
         userText.getDocument().addDocumentListener(new DocumentListener() {
-            public void changedUpdate(DocumentEvent e) {
-                username = userText.getText();
-            }
-
+            @Override
+            public void changedUpdate(DocumentEvent e) { username = userText.getText();}
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 username = userText.getText();
             }
-
+@           Override
             public void insertUpdate(DocumentEvent e) {
                 username = userText.getText();
             }
@@ -100,14 +100,15 @@ public class UserAccount {
         JTextField emailText = new JTextField(20);
         emailText.setBounds(100, 40, 160, 25);
         emailText.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
             public void changedUpdate(DocumentEvent e) {
                 email = emailText.getText();
             }
-
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 email = emailText.getText();
             }
-
+            @Override
             public void insertUpdate(DocumentEvent e) {
                 email = emailText.getText();
             }
@@ -123,14 +124,15 @@ public class UserAccount {
         JPasswordField passwordText = new JPasswordField(20);
         passwordText.setBounds(100,70,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
             public void changedUpdate(DocumentEvent e) {
                 password = passwordText.getPassword();
             }
-
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 password = passwordText.getPassword();
             }
-
+            @Override
             public void insertUpdate(DocumentEvent e) {
                 password = passwordText.getPassword();
             }
@@ -146,14 +148,15 @@ public class UserAccount {
         JPasswordField passwordRepeatText = new JPasswordField(20);
         passwordRepeatText.setBounds(100,100,160,25);
         passwordRepeatText.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
             public void changedUpdate(DocumentEvent e) {
                 passwordRepeat = passwordRepeatText.getPassword();
             }
-
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 passwordRepeat = passwordRepeatText.getPassword();
             }
-
+            @Override
             public void insertUpdate(DocumentEvent e) {
                 passwordRepeat = passwordRepeatText.getPassword();
             }
@@ -170,12 +173,13 @@ public class UserAccount {
         JTextField ipTextField = new JTextField(20);
         ipTextField.setBounds(100, 130, 160, 25);
         ipTextField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
             public void changedUpdate(DocumentEvent e) { IP =  ipTextField.getText(); }
-
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 IP =  ipTextField.getText();
             }
-
+            @Override
             public void insertUpdate(DocumentEvent e) { IP =  ipTextField.getText(); }
         });
         panel.add( ipTextField);
@@ -202,7 +206,7 @@ public class UserAccount {
                         errors[i] = null;
                     }
 
-                    if (usernameChecker(username) && emailChecker(email) && passwordChecker(password, passwordRepeat) && validIP(IP)) {
+                    if (usernameChecker(username) && emailChecker(email) && pwdChecker(password, passwordRepeat) && validIP(IP)) {
                         constants.setServerIP(IP);
                         String passwordToHash = String.valueOf(password);
                         String hashedPassword = getSHA256(passwordToHash, email);
@@ -228,7 +232,7 @@ public class UserAccount {
      * It also check the length.
      */
 
-    public boolean passwordChecker(char[] a, char[] b) {
+    public boolean pwdChecker(char[] a, char[] b) {
         int length;
 
         if (a == null || b == null) {
@@ -344,6 +348,7 @@ public class UserAccount {
         catch (NoSuchAlgorithmException e)
         {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         return generatedPassword;
     }
@@ -354,7 +359,7 @@ public class UserAccount {
             output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
 
-            output.printf("REGISTER|%s|%s|%s\n", email, hashedPassword, username);
+            output.printf("REGISTER|%s|%s|%s%n", email, hashedPassword, username);
             output.flush();
             String feedBack = input.readLine();
             System.out.println(feedBack);
@@ -362,7 +367,7 @@ public class UserAccount {
             output.close();
             loginClient.close();
             if (!feedBack.startsWith("REGISTRATION OK")) {
-                System.out.println("fail");
+                System.out.print("fail");
                 JOptionPane.showMessageDialog(null, messages.getString("newUserCreatedFail"), messages.getString("newUser"), JOptionPane.WARNING_MESSAGE);
             }
             else
@@ -370,6 +375,7 @@ public class UserAccount {
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, messages.getString("newUserCreatedFail"), messages.getString("newUser"), JOptionPane.WARNING_MESSAGE);
             ex.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", ex);
         }
 
     }
