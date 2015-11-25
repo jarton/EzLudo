@@ -120,7 +120,7 @@ public class ClientTest {
     public void testClientFunctionality() throws Exception {
         setUpLoginConnection();
         String key = login();
-        client = new Client(email, password, key);
+        client = new Client(key);
 
         output = client.getOutput();
         input = client.getInput();
