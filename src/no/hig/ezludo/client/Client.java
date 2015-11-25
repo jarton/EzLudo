@@ -4,7 +4,8 @@ import java.io.*;
 import java.net.Socket;
 
 /**
- * Created by Kristian on 29.10.2015.
+ * @author Per-Kristian, Kristian
+ * @since 29.10.2015
  */
 public class Client {
     private String email;
@@ -117,8 +118,12 @@ public class Client {
                             mainController.newChatRoom(command);
                         } else if (command[0].equals("USERS")) {
                             mainController.updateUsers(command);
-                        } else if (command[0].equals("GAME STARTED")) {
+                        } else if (command[0].equals("GAME JOINED")) {
                             mainController.newGame(command);
+                        } else if (command[0].equals("GAME INVITE")) {
+                            mainController.respondToInvitation(command);
+                        } else if (command[0].equals("GAME USERS")) {
+                            mainController.updatePlayers(command);
                         } else if (command[0].equals("GAME")) {
                             if (command[3].equals("TURN")) {
                                 mainController.playerTurn(command);
@@ -134,6 +139,30 @@ public class Client {
                 }
             }
         }).start();
+    }
+
+    /**
+     * Sends a response to a received game invitation. The response parameter should either be "ACCEPT" or "DECLINE".
+     * @param response "ACCEPT" or "DECLINE"
+     * @param gameId the id of the game
+     */
+    public void sendInvitationResponse(String response, String gameId) {
+        output.println("GAME INVITE|" + gameId + "|" + response);
+        output.flush();
+    }
+
+    public void sendGameInvite(String name, String gameId) {
+        output.println("GAME INVITE|" + gameId + "|" + name);
+        output.flush();
+    }
+
+    /**
+     * This method sends a "new game" request to the server. It is called from MainController::chooseGameRoomName.
+     * @param roomName the name of the game room
+     */
+    public void sendNewGameRequest(String roomName) {
+        output.println("CREATE GAME|" + roomName);
+        output.flush();
     }
 
     /**

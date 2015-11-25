@@ -7,14 +7,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @author Kristian
@@ -189,13 +187,21 @@ public class GameController {
     }
 
     public void setupPlayers(String players[], String nickname) {
-        this.players.put(players[0], "red");
-        this.players.put(players[1], "blue");
-        this.players.put(players[2], "yellow");
-        this.players.put(players[3], "green");
+        String[] colors = new String[4];
+        colors[0] = "red";
+        colors[1] = "blue";
+        colors[2] = "yellow";
+        colors[3] = "green";
+
+        // Add the players and their colors to the players hash map.
+        for (int i = 0; i < players.length; i++) {
+            this.players.put(players[i], colors[i]);
+        }
+
+        // save the client's nick name
         myNickname = nickname;
-        label.setText("\t\t red: " + players[0] + "\t\t green: " + players[1] +
-                "\t\t yellow: " + players[2] + "\t\t blue: " + players[3]);
+        label.setText("\t\t Red: " + players[0] + ",\t\t Green: " + players[1] +
+                ",\t\t Yellow: " + players[2] + ",\t\t Blue: " + players[3]);
     }
 
     @FXML
@@ -256,6 +262,17 @@ public class GameController {
                 array[i].removeEventHandler(MouseEvent.MOUSE_CLICKED, events.get(i));
         }
         events.clear();
+    }
+
+    @FXML
+    public void invitePlayer() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Invite player");
+        dialog.setHeaderText("Invite a player by name");
+        dialog.setContentText("Enter the player name:");
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(name -> MainController.client.sendGameInvite(name, gameId));
     }
 
     @FXML
