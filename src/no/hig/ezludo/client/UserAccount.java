@@ -47,6 +47,7 @@ public class UserAccount {
      * Constructor which gets UI-data and I18N objects from Login-class.
      */
     public UserAccount(Internationalization internationalization, JFrame jFrame, JPanel loginPanel) {
+        constants = new Constants();
         messages = internationalization.getLang();
         this.jFrame = jFrame;
         this.loginPanel = loginPanel;

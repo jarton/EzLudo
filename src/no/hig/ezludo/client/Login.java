@@ -56,10 +56,12 @@ public class Login extends JFrame  {
      * different from Norwegian or US English, default will be set.
      */
     public Login() {
+
         super("Ez-Ludo");
         // Get preferences, and see if it contains an email value
         prefs = Preferences.userNodeForPackage(getClass());
-
+        constants = new Constants();
+        IP="127.0.0.1";
         internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
         messages = internationalization.getLang();
         createPanel();

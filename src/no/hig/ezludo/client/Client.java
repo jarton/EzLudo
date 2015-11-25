@@ -28,6 +28,7 @@ public class Client {
      * @param mainKey Main Key for connecting to socket
      */
     public Client(String email, String password, String mainKey) {
+        constants = new Constants();
         this.email = email;
         this.password = password;
         this.mainKey = mainKey;
