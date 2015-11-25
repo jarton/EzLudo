@@ -222,8 +222,8 @@ public class GameController {
         this.players.put(players[2], "yellow");
         this.players.put(players[3], "green");
         myNickname = nickname;
-        label.setText("\t\t red: " + players[0] + "\t\t green: " + players[1] +
-                "\t\t yellow: " + players[2] + "\t\t blue: " + players[3]);
+        label.setText("\t\t red: " + players[0] + "\t\t blue: " + players[1] +
+                "\t\t yellow: " + players[2] + "\t\t green: " + players[3]);
     }
 
     @FXML
@@ -350,9 +350,36 @@ public class GameController {
 
                 System.out.println(moves + ":" + Integer.parseInt(moves));
                 int stop;
-                if (Integer.parseInt(moves) >= 0)
+                if (Integer.parseInt(moves) > 0)
                     stop = Integer.parseInt(moves);
-
+                else if (Integer.parseInt(moves) == 0) {
+                    if (color.equals("red")) {
+                       redPieces[piece].setX(ludoBoardCoordinates.redStart[piece + 1][1] * 600);
+                       redPieces[piece].setY(ludoBoardCoordinates.redStart[piece + 1][2] * 600);
+                       redPieces[piece].setImage(redImage[piece]);
+                       redCurrent[piece] = 0;
+                    }
+                    else if (color.equals("blue")) {
+                        bluePieces[piece].setX(ludoBoardCoordinates.blueStart[piece + 1][1] * 600);
+                        bluePieces[piece].setY(ludoBoardCoordinates.blueStart[piece + 1][2] * 600);
+                        bluePieces[piece].setImage(blueImage[piece]);
+                        blueCurrent[piece] = 0;
+                    }
+                    else if (color.equals("green")) {
+                        greenPieces[piece].setX(ludoBoardCoordinates.greenStart[piece + 1][1] * 600);
+                        greenPieces[piece].setY(ludoBoardCoordinates.greenStart[piece + 1][2] * 600);
+                        greenPieces[piece].setImage(greenImage[piece]);
+                        greenCurrent[piece] = 0;
+                    }
+                   else  if (color.equals("yellow")) {
+                        yellowPieces[piece].setX(ludoBoardCoordinates.yellowStart[piece + 1][1] * 600);
+                        yellowPieces[piece].setY(ludoBoardCoordinates.yellowStart[piece + 1][2] * 600);
+                        yellowPieces[piece].setImage(yellowImage[piece]);
+                        yellowCurrent[piece] = 0;
+                   }
+                    stop = 0;
+                    System.out.println("back to start");
+                }
                 else {
                     moveBack = true;
                     stop = 59;

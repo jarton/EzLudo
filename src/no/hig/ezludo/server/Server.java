@@ -6,7 +6,9 @@ import java.net.Socket;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -23,12 +25,13 @@ public class Server {
 	private final static String dbUrl = "jdbc:derby:ezLudoServer;";
 	private static Connection database;
 	private Vector<User> users = new Vector<>();
-   private Vector<User> usersWaitingForGame = new Vector<>();
+   	private Vector<User> usersWaitingForGame = new Vector<>();
 	private Vector<User> usersClosedSocets = new Vector<>();
 	private Vector<User> usersToadd = new Vector<>();
-   private Vector<Game> games = new Vector<>();
+   	private List<Vector<User>> gameInvites = new ArrayList<>();
+	private Vector<Game> games = new Vector<>();
 	private LinkedBlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
-   private ServerSocket loginServerSocket=null;
+   	private ServerSocket loginServerSocket=null;
 	private ServerSocket mainSocket =null;
 	private HashMap<String, Chatroom> chatRooms = new HashMap<>();
 	private static final int loginPortNum = 6969;
@@ -70,7 +73,8 @@ public class Server {
 				if (usersWaitingForGame.size()>3) {
 					User players[] = {usersWaitingForGame.remove(0), usersWaitingForGame.remove(0),
 					usersWaitingForGame.remove(0), usersWaitingForGame.remove(0)};
-					Game game = new Game(players);
+					Game game = new Game();
+					game.addAllPlayers(players);
 					games.add(game);
 					game.setId(games.indexOf(game));
 					try {
@@ -107,6 +111,12 @@ public class Server {
 								commandQueue.put(new JoinRandomGame(cmd, user));
 							else if (cmd.startsWith("GAME"))
 								commandQueue.put(new GameCommand(cmd, user));
+							else if (cmd.startsWith("CREATE GAME"))
+								commandQueue.put(new CreatePremadeGame(cmd, user));
+							else if (cmd.startsWith("GAME INVITE"))
+								commandQueue.put(new GameInvite(cmd, user));
+							else if (cmd.startsWith("GAME START"))
+								commandQueue.put(new StartPremadeGame(cmd, user));
 							else if (cmd.startsWith("LOGOUT")) {
 								usersClosedSocets.add(user);
 							}
@@ -184,12 +194,58 @@ public class Server {
 								" added to random game que ");
 					}
 					else if (cmd instanceof StartNewGame) {
-						((StartNewGame)cmd).getGame().startGame();
+						((StartNewGame)cmd).getGame().setUpGame();
+						((StartNewGame)cmd).getGame().gameCreated(usersClosedSocets);
+						((StartNewGame)cmd).getGame().startGame(usersClosedSocets);
 						serverLogger.info(" new game started ");
 					}
 					else if (cmd instanceof GameCommand) {
 						games.get(((GameCommand)cmd).getGameId()).gameHandler(cmd, usersClosedSocets);
 						serverLogger.info(" game commands recived ");
+					}
+					else if (cmd instanceof CreatePremadeGame) {
+						Game game = new Game();
+						games.add(game);
+						game.setId(games.indexOf(game));
+						game.addOnePlayer(cmd.getUser());
+						game.setName(((CreatePremadeGame)cmd).getGameName());
+						game.gameCreated(usersClosedSocets);
+						serverLogger.info(" Create premade game command received");
+					}
+					else if (cmd instanceof GameInvite) {
+						GameInvite gameInvite = ((GameInvite)cmd);
+						if (gameInvite.getResponse()) {
+							if (gameInvite.getChoise().equals("ACCEPT")) {
+								Game game = games.get(gameInvite.getGameId());
+								try {
+								gameInvite.getUser().write("GAME JOINED|" + gameInvite.getGameId() +
+										"|" + game.getName());
+								game.addOnePlayer(gameInvite.getUser());
+								} catch (Exception e) {
+									usersClosedSocets.add(gameInvite.getUser());
+									e.printStackTrace();
+								}
+							}
+						serverLogger.info("player " + gameInvite.getInvitedPlayer() + "reponded and "
+							+ gameInvite.getChoise());
+						}
+						else {
+							for (User usr : users) {
+								if (usr.getNickname().equals(gameInvite.getInvitedPlayer())) {
+									usr.write("GAME INVITE|" + games.get(gameInvite.getGameId()).getName() +
+											"|" + gameInvite.getUser().getNickname());
+									serverLogger.info("player " + usr.getNickname() + " was invited to "
+											+ games.get(gameInvite.getGameId()).getName());
+								}
+							}
+						}
+					}
+					else if (cmd instanceof StartPremadeGame) {
+						StartPremadeGame startPremade = ((StartPremadeGame)cmd);
+						Game game = games.get(startPremade.getGameId());
+						game.setUpGame();
+						game.startGame(usersClosedSocets);
+						serverLogger.info("started premade Game " + game.getName());
 					}
 				}
 			} catch (Exception e) {
@@ -206,6 +262,8 @@ public class Server {
 		synchronized (usersClosedSocets) {
 			usersClosedSocets.stream().parallel().forEach(user-> {
 				users.remove(user);
+				if(usersWaitingForGame.contains(user))
+					usersWaitingForGame.remove(user);
 				serverLogger.info(user.getNickname() + " removed user with io exc");
 			});
 		}
