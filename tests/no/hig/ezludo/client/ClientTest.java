@@ -24,16 +24,12 @@ public class ClientTest {
     private String password = "";
     private final String testMessage = "jUnit test message";
 
-    private String register() {
-        try {
-            password = Login.getSHA256("testtest", email);
-            output.println("REGISTER|" + email + "|" + password + "|" + "testolini");
-            output.flush();
-            return input.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
+    private void register() {
+        password = Login.getSHA256("testtest", email);
+        output.println("REGISTER|" + email + "|" + password + "|" + "testolini");
+        output.flush();
+        String response = checkResponse();
+        assertThat(response, containsString("REGISTRATION OK"));
     }
 
     private String login() {
@@ -99,7 +95,7 @@ public class ClientTest {
         }).start();
     } */
 
-    public void checkResponse() {
+    public String checkResponse() {
         try {
             if (input != null) {
                 String response = input.readLine();
@@ -111,10 +107,14 @@ public class ClientTest {
                     assertThat(command[3], containsString(testMessage));
                 } else if (response.startsWith("LOGGED IN")) System.out.println(response);
                 else if (command[0].equals("USERS")) assertThat(command[1], containsString("lobby"));
+                else if (command[0].equals("REGISTRATION OK")) return command[0];
+                else if (command[0].equals("Username Occupied")) fail();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return "bottom";
     }
     @Test
     public void testClientFunctionality() throws Exception {
