@@ -11,13 +11,13 @@ import java.util.Vector;
  * what to do and the state of the game.
  */
 public class Game {
-    private User players[] = new User[4];
+    private User players[];
 
     // the square the different pieces to a player is in. the 5 int is the last roll of that player
-    private int[] player0 = new int[5];
-    private int[] player1 = new int[5];
-    private int[] player2 = new int[5];
-    private int[] player3 = new int[5];
+    private int[] player0 = new int[6];
+    private int[] player1 = new int[6];
+    private int[] player2 = new int[6];
+    private int[] player3 = new int[6];
 
     // maps the usernames to the placement array of the users
     private HashMap<String, int[]> userPlaces = new HashMap<>();
@@ -28,15 +28,54 @@ public class Game {
     private final int diceMax = 6;
     private final int victorySquare = 59;
     private int turnInt;
+    private int numPlayers = 0;
     private boolean moveBack = false;
     private int moveBackSteps = 0;
+    private int realBoardMap [][] = new int[4][53];
 
     /**
      * sets the player names array, the first player gets to start first.
+     */
+    public Game(){
+    }
+
+    /**
      * @param players the name of the players in the game
      */
-    public Game(User players[]) {
+    public void addAllPlayers(User players[]) {
         this.players = players;
+        numPlayers = 4;
+    }
+
+    /**
+     */
+    public boolean addOnePlayer(User player) {
+        if (numPlayers <4) {
+            this.players[numPlayers] = player;
+            numPlayers++;
+            synchronized (players) {
+                for (User plyr: players)
+                    try {
+                        StringBuilder gameUsers = new StringBuilder("GAME USERS|" + id + "|" + name);
+                        for (int i=0;i<numPlayers;i++) {
+                            gameUsers.append("|");
+                            gameUsers.append(players[i].getNickname());
+                        }
+                        plyr.write(gameUsers.toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        playerLeft(player);
+                    }
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+
+    /**
+     */
+    public void setUpGame() {
         turnInt = 0;
         playerTurn = players[turnInt];
         initPlaces();
@@ -46,7 +85,7 @@ public class Game {
      * zeroes out the player placement array and fills the hashmap with the names and arrays.
      */
     private void initPlaces() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 6; i++) {
             player0[i] = 0;
             player1[i] = 0;
             player2[i] = 0;
@@ -56,6 +95,43 @@ public class Game {
         userPlaces.put(players[1].getNickname(), player1);
         userPlaces.put(players[2].getNickname(), player2);
         userPlaces.put(players[3].getNickname(), player3);
+
+        int j = 1;
+        for (int i=1;i<53;i++) {
+            realBoardMap[0][i] = j;
+            j++;
+        }
+
+        j = 14;
+        for (int i=1;i<53;i++) {
+            if (j ==53)
+               j = 1;
+            realBoardMap[1][i] = j;
+            j++;
+        }
+
+        j = 27;
+        for (int i=1;i<53;i++) {
+            if (j ==53)
+                j = 1;
+            realBoardMap[2][i] = j;
+            j++;
+        }
+
+        j = 40;
+        for (int i=1;i<53;i++) {
+            if (j ==53)
+                j = 1;
+            realBoardMap[3][i] = j;
+            j++;
+        }
+    }
+
+    /**
+     * sets the id for the game
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -78,16 +154,38 @@ public class Game {
      * starts a game, writes to all players that the game has started, also includes the name of the
      * players in the game. Then tells them who is the first player to play their turn.
      */
-    public void startGame() {
+    public void startGame(Vector<User> closed) {
         synchronized (players) {
             for (User player : players)
                 try {
-                    player.write("GAME STARTED|" +id+ "|" +name+"|"+ players[0].getNickname() + "|" +
-                            players[1].getNickname() + "|" + players[2].getNickname() + "|" +
-                            players[3].getNickname());
+                    StringBuilder gameUsers = new StringBuilder("GAME USERS|" + id + "|" + name);
+                    for (int i=0;i<numPlayers;i++) {
+                        gameUsers.append("|");
+                        gameUsers.append(players[i].getNickname());
+                    }
+                    player.write(gameUsers.toString());
                     player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
+                    closed.add(player);
                     e.printStackTrace();
+                    playerLeft(player);
+                }
+        }
+    }
+
+    /**
+     * starts a game, writes to all players that the game has started, also includes the name of the
+     * players in the game. Then tells them who is the first player to play their turn.
+     */
+    public void gameCreated(Vector<User> closed) {
+        synchronized (players) {
+            for (User player : players)
+                try {
+                    player.write("GAME JOINED|" +id+ "|" +name);
+                } catch (Exception e) {
+                    closed.add(player);
+                    e.printStackTrace();
+                    playerLeft(player);
                 }
         }
     }
@@ -105,12 +203,14 @@ public class Game {
             if (playerTurn == cmd.getUser()) {
                 roll = rollDices();
                 userPlaces.get(playerTurn.getNickname())[4] = Integer.parseInt(roll);
+                userPlaces.get(playerTurn.getNickname())[5] += 1;
                 synchronized (players) {
                     for (User player : players)
                         try {
                             player.write("GAME|" + id + "|" + name + "|ROLL|" + playerTurn.getNickname() + "|" + roll);
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
+                            playerLeft(player);
                             e.printStackTrace();
                         }
                 }
@@ -123,6 +223,8 @@ public class Game {
 
                 if ((playerSquare[pieceToMove] == 0) && (playerSquare[4] == 6)) {
                     playerSquare[pieceToMove] = 1;
+                    checkMoveBackTostart(playerSquare, pieceToMove, usersClosedSocets);
+
                 }
                 else if (playerSquare[pieceToMove] != 0) {
                     if ((playerSquare[pieceToMove] + playerSquare[4]) > victorySquare) {
@@ -134,6 +236,7 @@ public class Game {
                     }
                     else {
                         playerSquare[pieceToMove] += playerSquare[4];
+                        checkMoveBackTostart(playerSquare, pieceToMove, usersClosedSocets);
                     }
                 }
 
@@ -151,6 +254,7 @@ public class Game {
                                 player.write("GAME|" + id + "|" + name + "|WIN|" + playerTurn.getNickname());
                             } catch (Exception e) {
                                 usersClosedSocets.add(player);
+                                playerLeft(player);
                                 e.printStackTrace();
                             }
                     }
@@ -169,23 +273,40 @@ public class Game {
                             }
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
+                            playerLeft(player);
                             e.printStackTrace();
                         }
                 }
                 moveBack = false;
 
-                if (playerSquare[4] != 6)
-                    passTurn();
-                else {
+                if (playerSquare[4] != 6 && playerSquare[0] == 0 && playerSquare[1] == 0
+                        && playerSquare[2] == 0 && playerSquare[3] == 0 && playerSquare[5] != 3 ){
                     synchronized (players) {
                         for (User player : players)
                             try {
                                 player.write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
                             } catch (Exception e) {
                                 usersClosedSocets.add(player);
+                                playerLeft(player);
                                 e.printStackTrace();
                             }
                     }
+                }
+                else if (playerSquare[4] == 6 && playerSquare[5] != 3) {
+                    synchronized (players) {
+                        for (User player : players)
+                            try {
+                                player.write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
+                            } catch (Exception e) {
+                                usersClosedSocets.add(player);
+                                playerLeft(player);
+                                e.printStackTrace();
+                            }
+                    }
+                }
+                else {
+                    playerSquare[5] = 0;
+                    passTurn(usersClosedSocets);
                 }
             }
         }
@@ -227,8 +348,8 @@ public class Game {
      * passes the turn to the next player. Goes in the array of players from 0->4 and then back to 0.
      * Writes to all players whos turn it is after it has changed.
      */
-    private void passTurn() {
-        if (turnInt < 3)
+    private void passTurn(Vector<User> closed) {
+        if (turnInt < numPlayers - 1)
             turnInt++;
         else
             turnInt = 0;
@@ -239,8 +360,66 @@ public class Game {
                 try {
                     player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
+                    closed.add(player);
                     e.printStackTrace();
+                    playerLeft(player);
                 }
         }
     }
+
+    private void checkMoveBackTostart(int playerSquare[], int pieceToMove, Vector<User> closedSockets) {
+            for (int i=0;i<4;i++) {
+                for (int j=0;j<4;j++) {
+                    if (! players[i].getNickname().equals(playerTurn.getNickname())) {
+                        int pieces[] = userPlaces.get(players[i].getNickname());
+                        if (pieces[j] < 53 && playerSquare[pieceToMove] < 53) {
+                            if (realBoardMap[turnInt][playerSquare[pieceToMove]] == realBoardMap[i][pieces[j]]) {
+                                System.out.println("player moved to: " + playerSquare[pieceToMove] +
+                                        " : " + realBoardMap[turnInt][playerSquare[pieceToMove]] + " already : "
+                                        + pieces[j] + " : " + realBoardMap[i][pieces[j]]);
+                                synchronized (players) {
+                                    for (User player : players)
+                                        try {
+                                            player.write("GAME|" + id + "|" + name + "|MOVE|" +
+                                                    players[i].getNickname() + "|" + j + "|" + 0);
+                                        } catch (Exception e) {
+                                            playerLeft(player);
+                                            closedSockets.add(player);
+                                            e.printStackTrace();
+                                        }
+                                }
+                                userPlaces.get(players[i].getNickname())[j] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+    }
+
+    private void playerLeft(User player) {
+        int playerIndex = -1;
+        for (int i = 0; i < numPlayers; i++) {
+            if (players[i] == player) {
+                playerIndex = i;
+            }
+        }
+        if (playerIndex != -1) {
+            int j = playerIndex;
+            for (int i = playerIndex + 1; i < numPlayers; i++) {
+                players[j] = players[i];
+            }
+            numPlayers--;
+            synchronized (players) {
+                for (User user : players) {
+                    try {
+                        user.write("GAME|" + id + "|" + name + "|LEFT|" + player.getNickname());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        playerLeft(user);
+                    }
+                }
+            }
+        }
+    }
+
 }

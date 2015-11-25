@@ -19,7 +19,7 @@ public class GameBot {
     private PrintWriter output;
     private BufferedReader input;
     private String spam[] = {"Ella ella eh eh eh, Under my umbrella!! Rihanna :)","Amen.", "hei","Shine bright like a diamond! Shine bright like a diamond!",
-            "Jeg er Alfa og Omega, den første og den siste, begynnelsen og enden.","Bibelen er veikartet, Sannvittigheten kompasset.",
+            "Jeg er Alfa og Omega, den fï¿½rste og den siste, begynnelsen og enden.","Bibelen er veikartet, Sannvittigheten kompasset.",
             "hva skjer?","Chicken McNuggets oyeah yeah yeah yeah yeah", "lol funny", "I kissed a girl and I liked it, the taste of her cherry chapstick.", "ludo anyone", "ludy hype", "noen eg kan utfordre?",
     "haha", "riot", "liker kinasjakk bedre", "hahahha", "join min chat da vell",  ":D", "nice", "\\^.^/", "plox add me",
     "dette spillet suger", "yoyoyo", "noen som liker kylling?","Boom, boom, boom. Even brighter than the moon, moon, moon. My Katy Perry", "..................................HEI", "jeg heter per",
@@ -115,7 +115,7 @@ public class GameBot {
             output.println("JOIN RANDOM");
             output.flush();
 
-            chatSpammer();
+            //chatSpammer();
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -138,7 +138,7 @@ public class GameBot {
                 String cmd;
                 try {
                     while ((cmd=input.readLine())!=null) {
-                        Thread.sleep(1000);
+                        Thread.sleep(100);
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("GAME STARTED")) {
                             System.out.println(nickname + "game started");

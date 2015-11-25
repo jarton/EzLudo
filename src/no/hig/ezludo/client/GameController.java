@@ -342,9 +342,36 @@ public class GameController {
                 System.out.println(moves + ":" + Integer.parseInt(moves));
                 int finishStop;
                 int stop;
-                if (Integer.parseInt(moves) >= 0)
+                if (Integer.parseInt(moves) > 0)
                     stop = Integer.parseInt(moves);
-
+                else if (Integer.parseInt(moves) == 0) {
+                    if (color.equals("red")) {
+                       redPieces[piece].setX(ludoBoardCoordinates.redStart[piece + 1][1] * 600);
+                       redPieces[piece].setY(ludoBoardCoordinates.redStart[piece + 1][2] * 600);
+                       redPieces[piece].setImage(redImage[piece]);
+                       redCurrent[piece] = 0;
+                    }
+                    else if (color.equals("blue")) {
+                        bluePieces[piece].setX(ludoBoardCoordinates.blueStart[piece + 1][1] * 600);
+                        bluePieces[piece].setY(ludoBoardCoordinates.blueStart[piece + 1][2] * 600);
+                        bluePieces[piece].setImage(blueImage[piece]);
+                        blueCurrent[piece] = 0;
+                    }
+                    else if (color.equals("green")) {
+                        greenPieces[piece].setX(ludoBoardCoordinates.greenStart[piece + 1][1] * 600);
+                        greenPieces[piece].setY(ludoBoardCoordinates.greenStart[piece + 1][2] * 600);
+                        greenPieces[piece].setImage(greenImage[piece]);
+                        greenCurrent[piece] = 0;
+                    }
+                   else  if (color.equals("yellow")) {
+                        yellowPieces[piece].setX(ludoBoardCoordinates.yellowStart[piece + 1][1] * 600);
+                        yellowPieces[piece].setY(ludoBoardCoordinates.yellowStart[piece + 1][2] * 600);
+                        yellowPieces[piece].setImage(yellowImage[piece]);
+                        yellowCurrent[piece] = 0;
+                   }
+                    stop = 0;
+                    System.out.println("back to start");
+                }
                 else {
                     moveBack = true;
                     stop = 59;
@@ -381,17 +408,6 @@ public class GameController {
                         imageView.setY(finishArray[colCurrent - 53][2] * 600);
                         imageView.setImage(image);
                     }
-
-                    // Hvis spiller f�r terningkast som g�r utenfor brettet \ forbi m�l m� det flyttes tilbake.
-                   // else if (colCurrent > 58) {
-                   //     // FUNKER IKKE
-                   //     // g�r i loop
-                   //     //    redCurrent--;
-                   //     moveBack = true;
-                   //     moveBackNr++;
-                   //     System.out.print(stop + " stop");
-                   //     System.out.print("\n");
-                   // }
 
                     // Spilleren er i m�l og skal ikke kunen flytte brukken noe mer.
                     else if (colCurrent == 59 && stop == 59) {
