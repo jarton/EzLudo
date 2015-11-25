@@ -101,7 +101,6 @@ public class GameController {
     private boolean[] greenInGoal;
 
     // Used if user have to move back
-    private int moveBackNr;
     private boolean moveBack;
 
 
@@ -112,8 +111,6 @@ public class GameController {
     private int[] greenCurrent;
     private int[] yellowCurrent;
 
-
-    public GameController() { }
 
     // constructor: setter opp brett, trening og r�d brikke
     public void ludoBoard() {
@@ -213,8 +210,7 @@ public class GameController {
             greenInGoal[i] = false;
             yellowInGoal[i] = false;
         }
-
-        moveBackNr = 0;
+        
         moveBack = false;
     }
 
@@ -237,7 +233,7 @@ public class GameController {
     }
 
     @FXML
-    public void playerRoll(String command[]) {
+    public void playerRoll(String[] command) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -248,15 +244,15 @@ public class GameController {
             showDices(command[5]);
             ImageView pieceArray[];
             int colorCurrent[];
-            if (players.get(myNickname).equals("red")) {
+            if (("red").equals(players.get(myNickname))) {
                 pieceArray = redPieces;
                 colorCurrent = redCurrent;
             }
-            else if (players.get(myNickname).equals("blue")) {
+            else if (("blue").equals(players.get(myNickname))) {
                 pieceArray = bluePieces;
                 colorCurrent = blueCurrent;
             }
-            else if (players.get(myNickname).equals("yellow")) {
+            else if (("yellow").equals(players.get(myNickname))) {
                 pieceArray = yellowPieces;
                 colorCurrent = yellowCurrent;
             }
@@ -267,7 +263,7 @@ public class GameController {
             boolean allInStart = true;
             for (int i=0;i<4;i++) {
                 int pieceToMove = i;
-                if (colorCurrent[i] != 0 || command[5].equals("6")) {
+                if (colorCurrent[i] != 0 || ("6").equals(command[5])) {
                     allInStart = false;
                     EventHandler<MouseEvent> event;
                     pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, event = new EventHandler<MouseEvent>() {
@@ -288,7 +284,7 @@ public class GameController {
         }
     }
 
-    public void movedPiece(ImageView array[]) {
+    public void movedPiece(ImageView[] array) {
         for (int i=0;i<4;i++) {
             if (events.size() > i)
                 array[i].removeEventHandler(MouseEvent.MOUSE_CLICKED, events.get(i));
@@ -308,7 +304,7 @@ public class GameController {
     }
 
     @FXML
-    public void playerTurn(String command[]) {
+    public void playerTurn(String[] command) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -320,26 +316,26 @@ public class GameController {
         }
     }
 
-    public void playerMove(String command[]) {
-        if (players.get(command[4]).equals("red") && redInGoal[Integer.parseInt(command[5])] == false) {
+    public void playerMove(String[] command) {
+        if (("red").equals(players.get(command[4])) && !redInGoal[Integer.parseInt(command[5])]) {
            movePiece(command[6], redCurrent[Integer.parseInt(command[5])],
                    redPieces[Integer.parseInt(command[5])], redImage[Integer.parseInt(command[5])],
                    Integer.parseInt(command[5]), ludoBoardCoordinates.redFinish, "red");
         }
 
-        else if (players.get(command[4]).equals("blue") && blueInGoal[Integer.parseInt(command[5])] == false) {
+        else if (("blue").equals(players.get(command[4])) && !blueInGoal[Integer.parseInt(command[5])]) {
             movePiece(command[6], blueCurrent[Integer.parseInt(command[5])],
                     bluePieces[Integer.parseInt(command[5])], blueImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.blueFinish, "blue");
         }
 
-        else if (players.get(command[4]).equals("yellow") && yellowInGoal[Integer.parseInt(command[5])] == false) {
+        else if (("yellow").equals(players.get(command[4])) && !yellowInGoal[Integer.parseInt(command[5])]) {
             movePiece(command[6], yellowCurrent[Integer.parseInt(command[5])],
                     yellowPieces[Integer.parseInt(command[5])], yellowImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.yellowFinish, "yellow");
         }
 
-        else if (players.get(command[4]).equals("green") && greenInGoal[Integer.parseInt(command[5])] == false) {
+        else if (("green").equals(players.get(command[4])) && !greenInGoal[Integer.parseInt(command[5])]) {
             movePiece(command[6], greenCurrent[Integer.parseInt(command[5])],
                     greenPieces[Integer.parseInt(command[5])], greenImage[Integer.parseInt(command[5])],
                     Integer.parseInt(command[5]), ludoBoardCoordinates.greenFinish, "green");
@@ -350,7 +346,7 @@ public class GameController {
 
 
     public void movePiece(String moves, int colorCurrent, ImageView imageView, Image image,
-                         int piece, double finishArray[][], String color) {
+                         int piece, double[][] finishArray, String color) {
         Thread moveThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -374,25 +370,25 @@ public class GameController {
                 if (Integer.parseInt(moves) > 0)
                     stop = Integer.parseInt(moves);
                 else if (Integer.parseInt(moves) == 0) {
-                    if (color.equals("red")) {
+                    if (("red").equals(color)) {
                        redPieces[piece].setX(ludoBoardCoordinates.redStart[piece + 1][1] * 600);
                        redPieces[piece].setY(ludoBoardCoordinates.redStart[piece + 1][2] * 600);
                        redPieces[piece].setImage(redImage[piece]);
                        redCurrent[piece] = 0;
                     }
-                    else if (color.equals("blue")) {
+                    else if (("blue").equals(color)) {
                         bluePieces[piece].setX(ludoBoardCoordinates.blueStart[piece + 1][1] * 600);
                         bluePieces[piece].setY(ludoBoardCoordinates.blueStart[piece + 1][2] * 600);
                         bluePieces[piece].setImage(blueImage[piece]);
                         blueCurrent[piece] = 0;
                     }
-                    else if (color.equals("green")) {
+                    else if (("green").equals(color)) {
                         greenPieces[piece].setX(ludoBoardCoordinates.greenStart[piece + 1][1] * 600);
                         greenPieces[piece].setY(ludoBoardCoordinates.greenStart[piece + 1][2] * 600);
                         greenPieces[piece].setImage(greenImage[piece]);
                         greenCurrent[piece] = 0;
                     }
-                   else  if (color.equals("yellow")) {
+                   else  if (("yellow").equals(color)) {
                         yellowPieces[piece].setX(ludoBoardCoordinates.yellowStart[piece + 1][1] * 600);
                         yellowPieces[piece].setY(ludoBoardCoordinates.yellowStart[piece + 1][2] * 600);
                         yellowPieces[piece].setImage(yellowImage[piece]);
@@ -508,16 +504,16 @@ public class GameController {
                     moveBack = false;
                 }
                 else {
-                    if (color.equals("red")) {
+                    if (("red").equals(color)) {
                         redCurrent[piece] = colCurrent;
                     }
-                    else if (color.equals("blue")) {
+                    else if (("bluw").equals(color)) {
                         blueCurrent[piece] = colCurrent;
                     }
-                    else if (color.equals("yellow")) {
+                    else if (("yellow").equals(color)) {
                         yellowCurrent[piece] = colCurrent;
                     }
-                    else if (color.equals("green")) {
+                    else if (("green").equals(color)) {
                         greenCurrent[piece] = colCurrent;
                     }
                 }
@@ -526,11 +522,12 @@ public class GameController {
         moveThread.start();
     }
 
-    public void moveBack(int nr, double finish[][], String color, ImageView imageView, Image image,
+    public void moveBack(int nr, double[][] finish, String color, ImageView imageView, Image image,
                          int piece, int colCurrent) {
         Thread movingThread = new Thread(new Runnable() {
+            @Override
             public void run() {
-                System.out.println("is in goal, moving back to: " + String.valueOf(nr));
+                System.out.print("is in goal, moving back to: " + String.valueOf(nr));
                 int i = 6;
                 int totalSteps = 59;
                 while (totalSteps != nr) {
@@ -571,6 +568,7 @@ public class GameController {
 
     public void showDices(String nrToShow)  {
         Thread diceLoadingThread = new Thread(new Runnable() {
+            @Override
             public void run() {
                 for (int i = 0; i<=rounds; i++) {
                     diceNr = randomInt(diceMin, diceMax);
@@ -590,7 +588,7 @@ public class GameController {
 
     public static int randomInt(int min, int max) {
         Random rand = new Random();
-        return (rand.nextInt((max - min) + 1) + min);
+        return rand.nextInt((max - min) + 1) + min;
 
     }
 
