@@ -2,6 +2,8 @@ package no.hig.ezludo.client;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Kristian on 29.10.2015.
@@ -13,17 +15,17 @@ public class Client {
     private String password;
     private String mainKey;
     private Socket socket;
-    private int portNumber = 9696;
     private PrintWriter output;
     private BufferedReader input;
     private MainController mainController;
+    private static Logger logger = Logger.getAnonymousLogger();
 
 
     /**
      * This constructor defines necessary private variables, sets up a connection and connects to the lobby.
-     * @param email
-     * @param password
-     * @param mainKey
+     * @param email The username
+     * @param password The password
+     * @param mainKey Main Key for connecting to socket
      */
     public Client(String email, String password, String mainKey) {
         this.email = email;
@@ -132,6 +134,7 @@ public class Client {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                    logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
             }
         }).start();
