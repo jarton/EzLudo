@@ -111,7 +111,7 @@ public class Server {
 								commandQueue.put(new Chatcommand(cmd, user));
 							else if (cmd.startsWith("JOIN RANDOM"))
 								commandQueue.put(new JoinRandomGame(cmd, user));
-							else if (cmd.startsWith("GAME"))
+							else if (cmd.startsWith("GAME|"))
 								commandQueue.put(new GameCommand(cmd, user));
 							else if (cmd.startsWith("CREATE GAME"))
 								commandQueue.put(new CreatePremadeGame(cmd, user));
@@ -235,7 +235,7 @@ public class Server {
 						else {
 							for (User usr : users) {
 								if (usr.getNickname().equals(gameInvite.getInvitedPlayer())) {
-									usr.write("GAME INVITE|" + games.get(gameInvite.getGameId()).getName() +
+									usr.write("GAME INVITE|" + gameInvite.getGameId() +
 											"|" + gameInvite.getUser().getNickname());
 									serverLogger.info("player " + usr.getNickname() + " was invited to "
 											+ games.get(gameInvite.getGameId()).getName());

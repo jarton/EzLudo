@@ -18,6 +18,7 @@ public class Client {
     private BufferedReader input;
     private MainController mainController;
     private static Logger logger = Logger.getAnonymousLogger();
+    public Thread listnerThread;
 
 
     /**
@@ -104,11 +105,11 @@ public class Client {
      * the client to use the main socket.
      */
     public void startListener() {
-        new Thread(() -> {
+        listnerThread = new Thread(() -> {
             while (input != null) {
                 String cmd;
                 try {
-                    while (mainController != null && (cmd = input.readLine()) != null) {
+                    while ((cmd = input.readLine()) != null) {
                         String command[] = cmd.split("\\|");
                         if (command[0].equals("CHAT")) {
                             mainController.displayMessage(command);
@@ -136,7 +137,8 @@ public class Client {
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
             }
-        }).start();
+        });
+        listnerThread.start();
     }
 
     /**

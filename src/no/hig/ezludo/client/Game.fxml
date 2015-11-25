@@ -45,13 +45,16 @@
                 <TextField prefHeight="30.0" prefWidth="100.0" text="placeholder" fx:id="label" />
             </top>
             <left>
-                <Pane prefHeight="100.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                <GridPane prefHeight="300.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                     <children>
-                        <ImageView fx:id="diceImage" disable="false" fitHeight="100.0" fitWidth="100.0" onMouseClicked="#rollDices" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_RIGHT">
+                        <ImageView fx:id="diceImage" disable="false" fitHeight="100.0" fitWidth="100.0"
+                                   onMouseClicked="#rollDices" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="BOTTOM_RIGHT"
+                                    GridPane.rowIndex="1">
                         </ImageView>
-                        <Button fx:id="inviteButton" layoutX="128.0" layoutY="178.0" onAction="#invitePlayer" mnemonicParsing="false" text="Button" />
+                        <Button fx:id="inviteButton" layoutX="128.0" layoutY="178.0" onAction="#invitePlayer"
+                                mnemonicParsing="false" text="invite player" GridPane.rowIndex="2"/>
                     </children>
-                </Pane>
+                </GridPane>
             </left>
             <bottom>
                 <TextField fx:id="chatTextField" onAction="#handleTextFieldEvent" BorderPane.alignment="CENTER" />

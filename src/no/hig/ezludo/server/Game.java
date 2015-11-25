@@ -40,6 +40,7 @@ public class Game {
      * sets the player names array, the first player gets to start first.
      */
     public Game(){
+        players = new User[4];
     }
 
     /**
@@ -53,18 +54,17 @@ public class Game {
     /**
      */
     public boolean addOnePlayer(User player) {
-        if (numPlayers <4) {
+        if (numPlayers < 4) {
             this.players[numPlayers] = player;
             numPlayers++;
-            synchronized (players) {
-                for (User plyr: players)
+                for (int i = 0;i<numPlayers;i++) {
                     try {
                         StringBuilder gameUsers = new StringBuilder("GAME USERS|" + id + "|" + name);
-                        for (int i=0;i<numPlayers;i++) {
+                        for (int j=0;j<numPlayers;j++) {
                             gameUsers.append("|");
-                            gameUsers.append(players[i].getNickname());
+                            gameUsers.append(players[j].getNickname());
                         }
-                        plyr.write(gameUsers.toString());
+                        players[i].write(gameUsers.toString());
                     } catch (Exception e) {
                         playerLeft(player);
                         logger.log(Level.SEVERE, "an exception was thrown", e);
@@ -158,19 +158,18 @@ public class Game {
      * players in the game. Then tells them who is the first player to play their turn.
      */
     public void startGame(Vector<User> closed) {
-        synchronized (players) {
-            for (User player : players)
+        for (int i=0;i<numPlayers;i++) {
                 try {
                     StringBuilder gameUsers = new StringBuilder("GAME USERS|" + id + "|" + name);
-                    for (int i=0;i<numPlayers;i++) {
+                    for (int j=0;j<numPlayers;j++) {
                         gameUsers.append("|");
-                        gameUsers.append(players[i].getNickname());
+                        gameUsers.append(players[j].getNickname());
                     }
-                    player.write(gameUsers.toString());
-                    player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
+                    players[i].write(gameUsers.toString());
+                    players[i].write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
-                    closed.add(player);
-                    playerLeft(player);
+                    closed.add(players[i]);
+                    playerLeft(players[i]);
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
         }
@@ -181,13 +180,12 @@ public class Game {
      * players in the game. Then tells them who is the first player to play their turn.
      */
     public void gameCreated(Vector<User> closed) {
-        synchronized (players) {
-            for (User player : players)
+        for (int i=0;i<numPlayers;i++) {
                 try {
-                    player.write("GAME JOINED|" +id+ "|" +name);
+                    players[i].write("GAME JOINED|" +id+ "|" +name);
                 } catch (Exception e) {
-                    closed.add(player);
-                    playerLeft(player);
+                    closed.add(players[i]);
+                    playerLeft(players[i]);
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
         }
@@ -207,13 +205,12 @@ public class Game {
                 roll = rollDices();
                 userPlaces.get(playerTurn.getNickname())[4] = Integer.parseInt(roll);
                 userPlaces.get(playerTurn.getNickname())[5] += 1;
-                synchronized (players) {
-                    for (User player : players)
+                    for (int i=0;i<numPlayers;i++) {
                         try {
-                            player.write("GAME|" + id + "|" + name + "|ROLL|" + playerTurn.getNickname() + "|" + roll);
+                            players[i].write("GAME|" + id + "|" + name + "|ROLL|" + playerTurn.getNickname() + "|" + roll);
                         } catch (Exception e) {
-                            usersClosedSocets.add(player);
-                            playerLeft(player);
+                            usersClosedSocets.add(players[i]);
+                            playerLeft(players[i]);
                             logger.log(Level.SEVERE, "an exception was thrown", e);
                         }
                 }
@@ -251,46 +248,42 @@ public class Game {
                 }
 
                 if (victory == 4) {
-                    synchronized (players) {
-                        for (User player : players)
+                        for (int i=0;i<numPlayers;i++) {
                             try {
-                                player.write("GAME|" + id + "|" + name + "|WIN|" + playerTurn.getNickname());
+                                players[i].write("GAME|" + id + "|" + name + "|WIN|" + playerTurn.getNickname());
                             } catch (Exception e) {
-                                usersClosedSocets.add(player);
-                                playerLeft(player);
+                                usersClosedSocets.add(players[i]);
+                                playerLeft(players[i]);
                                 logger.log(Level.SEVERE, "an exception was thrown", e);
                             }
                     }
                 }
-
-                synchronized (players) {
-                    for (User player : players)
-                        try {
-                            if (!moveBack)
-                            player.write("GAME|" + id + "|" + name + "|MOVE|" + playerTurn.getNickname() + "|" +
-                                    String.valueOf(pieceToMove) + "|" +
-                                    userPlaces.get(playerTurn.getNickname())[pieceToMove]);
-                            else {
-                                player.write("GAME|" + id + "|" + name + "|MOVE|" + playerTurn.getNickname() + "|" +
-                                        String.valueOf(pieceToMove) + "|" + moveBackSteps);
-                            }
-                        } catch (Exception e) {
-                            usersClosedSocets.add(player);
-                            playerLeft(player);
-                            logger.log(Level.SEVERE, "an exception was thrown", e);
-                        }
+                for (int i=0;i<numPlayers;i++) {
+                   try {
+                       if (!moveBack)
+                       players[i].write("GAME|" + id + "|" + name + "|MOVE|" + playerTurn.getNickname() + "|" +
+                               String.valueOf(pieceToMove) + "|" +
+                               userPlaces.get(playerTurn.getNickname())[pieceToMove]);
+                       else {
+                           players[i].write("GAME|" + id + "|" + name + "|MOVE|" + playerTurn.getNickname() + "|" +
+                                   String.valueOf(pieceToMove) + "|" + moveBackSteps);
+                       }
+                   } catch (Exception e) {
+                       usersClosedSocets.add(players[i]);
+                       playerLeft(players[i]);
+                       logger.log(Level.SEVERE, "an exception was thrown", e);
+                   }
                 }
                 moveBack = false;
 
                 if (playerSquare[4] != 6 && playerSquare[0] == 0 && playerSquare[1] == 0
                         && playerSquare[2] == 0 && playerSquare[3] == 0 && playerSquare[5] != 3 ){
-                    synchronized (players) {
-                        for (User player : players)
+                        for (int i=0;i<numPlayers;i++) {
                             try {
-                                player.write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
+                                players[i].write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
                             } catch (Exception e) {
-                                usersClosedSocets.add(player);
-                                playerLeft(player);
+                                usersClosedSocets.add(players[i]);
+                                playerLeft(players[i]);
                                 logger.log(Level.SEVERE, "an exception was thrown", e);
                             }
                     }

@@ -15,9 +15,10 @@ public class GameInvite extends Command {
 
     public GameInvite(String rawcmd, User user) {
         super(user, rawcmd);
+        System.out.println(rawcmd);
         String cmd[] = rawcmd.split("\\|");
         gameId = Integer.parseInt(cmd[1]);
-        if (cmd[2] == "ACCEPT" || cmd[2] == "DECLINE") {
+        if (cmd[2].equals("ACCEPT") || cmd[2].equals("DECLINE")) {
             response = true;
             choise = cmd[2];
         }

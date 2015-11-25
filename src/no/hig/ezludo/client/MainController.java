@@ -160,17 +160,22 @@ public class MainController extends Application {
         String hostingPlayer = command[2];
         String gameId = command [1];
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Invitation received");
-        alert.setHeaderText("Join game?");
-        alert.setContentText(hostingPlayer + "invited you to a game! Would you like to join?");
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Invitation received");
+                alert.setHeaderText("Join game?");
+                alert.setContentText(hostingPlayer + "\ninvited you to a game! Would you like to join?");
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
-            client.sendInvitationResponse("ACCEPT", gameId);
-        } else {
-            client.sendInvitationResponse("DECLINE", gameId);
-        }
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK){
+                    client.sendInvitationResponse("ACCEPT", gameId);
+                } else {
+                    client.sendInvitationResponse("DECLINE", gameId);
+                }
+            }
+        });
     }
 
     public void updateUsers(String[] command) {
@@ -197,6 +202,7 @@ public class MainController extends Application {
                     tab.setContent((Node) loader.load());
                     GameController gameController = loader.getController();
                     gameMap.put(response[1], gameController);
+                    gameController.setGameId(response[1]);
                     gameController.setGameName(response[2]);
                     gameController.ludoBoard();
 
@@ -221,16 +227,16 @@ public class MainController extends Application {
 
     public void updatePlayers(String[] command) {
         String gameId = command[1];
-        String gameName = command[2];
-        GameController gameController = gameMap.get(gameId);
 
-        String[] players = new String[4];
-        for(int i = 3; i<command.length; i++) {
-            players[i-3] = command[i];
+        if (gameMap.containsKey(gameId)) {
+            GameController gameController = gameMap.get(gameId);
+
+            String[] players = new String[4];
+            for(int i = 3; i<command.length; i++) {
+                players[i-3] = command[i];
+            }
+            gameController.setupPlayers(players, nickName);
         }
-        gameController.setupPlayers(players, nickName);
-
-
     }
 
     public void playerRoll(String command[]) {
