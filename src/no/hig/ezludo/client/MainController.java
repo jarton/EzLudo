@@ -188,6 +188,7 @@ public class MainController extends Application {
 
     public void exit() {
         client.logout();
+        //TODO finn et alternativ til sysexit. Sysexit stenger hele JVM. feks dispose() ?
         System.exit(0);
     }
 

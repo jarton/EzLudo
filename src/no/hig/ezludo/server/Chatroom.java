@@ -51,6 +51,7 @@ public class Chatroom {
                     try {
                         user.write(cmd.getRawCmd());
                     } catch (Exception e) {
+                        excLogger.log(java.util.logging.Level.SEVERE, "an exception was thrown", e);
                         usersClosedSocets.add(user);
                         usersToRemove.add(user);
                         logger.warn(user.getNickname() + "left the chatroom");
@@ -80,6 +81,7 @@ public class Chatroom {
                 try {
                     user.write(usrList);
                 } catch (Exception e) {
+                    excLogger.log(java.util.logging.Level.SEVERE, "an exception was thrown", e);
                     if (usersClosedSocets != null)
                         usersClosedSocets.add(user);
                     usersToRemove.add(user);

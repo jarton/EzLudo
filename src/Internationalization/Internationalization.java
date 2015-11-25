@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
  * date 02.10.2015
  * Class for internationalization. getLang() returns the message bundle
  */
-public class Internationalization implements Serializable {
+public class Internationalization{
     String language;
     String country;
 
