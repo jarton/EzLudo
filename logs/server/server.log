@@ -6718,3 +6718,37 @@
 2015-11-25 18:08:40,472 INFO  [Server] new random game started
 2015-11-25 18:08:40,472 INFO  [Server] handling command 
 2015-11-25 18:08:40,474 INFO  [Server]  new game started 
+2015-11-25 20:17:13,068 INFO  [Server] Ivar68 logged in
+2015-11-25 20:17:14,652 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:17:14,653 INFO  [Server] user Ivar68 added to chatroom: lobby
+2015-11-25 20:17:14,657 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:17:29,677 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 20:17:29,677 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 20:17:29,678 INFO  [Server] user Ivar68 added to random game que 
+2015-11-25 20:18:06,407 INFO  [Server] pirkola69 logged in
+2015-11-25 20:18:06,409 INFO  [Server]  logged in
+2015-11-25 20:18:06,412 INFO  [Server] franZKlla logged in
+2015-11-25 20:18:06,446 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:18:06,447 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:18:06,446 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 20:18:06,446 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:18:06,449 INFO  [Server] user  added to chatroom: lobby
+2015-11-25 20:18:06,450 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:18:06,450 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 20:18:06,451 WARN  [chatLogger] left the chatroom
+2015-11-25 20:18:06,451 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 20:18:06,451 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 20:18:06,622 INFO  [Server]  removed user with io exc
+2015-11-25 20:18:06,622 INFO  [Server]  removed user with io exc
+2015-11-25 20:18:06,624 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 20:18:06,625 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 20:18:06,625 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 20:18:06,625 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 20:18:06,625 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 20:18:06,625 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 20:19:17,308 INFO  [Server] received command: JOIN CHAT|hjhk
+2015-11-25 20:19:17,308 INFO  [Server] handling command JOIN CHAT|hjhk
+2015-11-25 20:19:17,308 INFO  [Server] chatRoom created: hjhk
+2015-11-25 20:19:17,308 INFO  [Server] user Ivar68 added to chatroom: hjhk
+2015-11-25 20:19:23,007 INFO  [Server] received command: CREATE GAME|njjnk
+2015-11-25 20:19:23,007 INFO  [Server] handling command CREATE GAME|njjnk

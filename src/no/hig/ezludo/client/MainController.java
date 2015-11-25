@@ -258,7 +258,8 @@ public class MainController extends Application {
 
 
     public static void setClient(List<String> args) {
-        client = new Client(args.get(0), args.get(1), args.get(2));
+        //client = new Client(args.get(0), args.get(1), args.get(2));
+        client = new Client(args.get(2));
     }
 
     public static void main(String[] args) {
@@ -271,14 +272,11 @@ public class MainController extends Application {
                     UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException e) {
             logger.log(Level.SEVERE, "an exception was thrown", e);
-        }
-        catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException e) {
             logger.log(Level.SEVERE, "an exception was thrown", e);
-        }
-        catch (InstantiationException e) {
+        } catch (InstantiationException e) {
             logger.log(Level.SEVERE, "an exception was thrown", e);
-        }
-        catch (IllegalAccessException e) {
+        } catch (IllegalAccessException e) {
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         launch(args);

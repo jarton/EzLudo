@@ -11,9 +11,7 @@ import java.util.logging.Logger;
  */
 public class Client {
     private Constants constants;
-    private String email;
     private String nickName;
-    private String password;
     private String mainKey;
     private Socket socket;
     private PrintWriter output;
@@ -24,14 +22,10 @@ public class Client {
 
     /**
      * This constructor defines necessary private variables, sets up a connection and connects to the lobby.
-     * @param email The username
-     * @param password The password
      * @param mainKey Main Key for connecting to socket
      */
-    public Client(String email, String password, String mainKey) {
+    public Client(String mainKey) {
         constants = new Constants();
-        this.email = email;
-        this.password = password;
         this.mainKey = mainKey;
         setUpConnection();
         connectToLobby();
