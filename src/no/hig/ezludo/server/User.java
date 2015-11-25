@@ -38,7 +38,6 @@ public class User {
                 socket.close();
             }
 		} catch (IOException e) {
-			e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
 		}
     }

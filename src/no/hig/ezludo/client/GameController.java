@@ -498,7 +498,6 @@ public class GameController {
                     try {
                         Thread.sleep(movePieceLag);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
                 }
@@ -543,7 +542,6 @@ public class GameController {
                     try {
                         Thread.sleep(movePieceLag);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
                 }
@@ -580,7 +578,6 @@ public class GameController {
                     try {
                         Thread.sleep(diceLag);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
                 }

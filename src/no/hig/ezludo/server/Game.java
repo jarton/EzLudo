@@ -66,7 +66,6 @@ public class Game {
                         }
                         plyr.write(gameUsers.toString());
                     } catch (Exception e) {
-                        e.printStackTrace();
                         playerLeft(player);
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
@@ -171,7 +170,6 @@ public class Game {
                     player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
                     closed.add(player);
-                    e.printStackTrace();
                     playerLeft(player);
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
@@ -189,7 +187,6 @@ public class Game {
                     player.write("GAME JOINED|" +id+ "|" +name);
                 } catch (Exception e) {
                     closed.add(player);
-                    e.printStackTrace();
                     playerLeft(player);
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
@@ -217,7 +214,6 @@ public class Game {
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
                             playerLeft(player);
-                            e.printStackTrace();
                             logger.log(Level.SEVERE, "an exception was thrown", e);
                         }
                 }
@@ -262,7 +258,6 @@ public class Game {
                             } catch (Exception e) {
                                 usersClosedSocets.add(player);
                                 playerLeft(player);
-                                e.printStackTrace();
                                 logger.log(Level.SEVERE, "an exception was thrown", e);
                             }
                     }
@@ -282,7 +277,6 @@ public class Game {
                         } catch (Exception e) {
                             usersClosedSocets.add(player);
                             playerLeft(player);
-                            e.printStackTrace();
                             logger.log(Level.SEVERE, "an exception was thrown", e);
                         }
                 }
@@ -297,7 +291,6 @@ public class Game {
                             } catch (Exception e) {
                                 usersClosedSocets.add(player);
                                 playerLeft(player);
-                                e.printStackTrace();
                                 logger.log(Level.SEVERE, "an exception was thrown", e);
                             }
                     }
@@ -310,7 +303,6 @@ public class Game {
                             } catch (Exception e) {
                                 usersClosedSocets.add(player);
                                 playerLeft(player);
-                                e.printStackTrace();
                                 logger.log(Level.SEVERE, "an exception was thrown", e);
                             }
                     }
@@ -327,7 +319,6 @@ public class Game {
                     try {
                         player.write(cmd.getRawCmd());
                     } catch (Exception e) {
-                        e.printStackTrace();
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
             }
@@ -373,7 +364,6 @@ public class Game {
                     player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
                     closed.add(player);
-                    e.printStackTrace();
                     playerLeft(player);
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
@@ -398,7 +388,6 @@ public class Game {
                                         } catch (Exception e) {
                                             playerLeft(player);
                                             closedSockets.add(player);
-                                            e.printStackTrace();
                                             logger.log(Level.SEVERE, "an exception was thrown", e);
                                         }
                                 }
@@ -428,7 +417,6 @@ public class Game {
                     try {
                         user.write("GAME|" + id + "|" + name + "|LEFT|" + player.getNickname());
                     } catch (Exception e) {
-                        e.printStackTrace();
                         playerLeft(user);
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }

@@ -347,7 +347,6 @@ public class UserAccount {
         }
         catch (NoSuchAlgorithmException e)
         {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         return generatedPassword;
@@ -374,7 +373,6 @@ public class UserAccount {
                 JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, messages.getString("newUserCreatedFail"), messages.getString("newUser"), JOptionPane.WARNING_MESSAGE);
-            ex.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", ex);
         }
 

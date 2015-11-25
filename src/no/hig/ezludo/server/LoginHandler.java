@@ -39,7 +39,6 @@ public class LoginHandler {
                 throw new Exception ("Unknown command from client");
             }
         } catch (IOException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
@@ -77,15 +76,12 @@ public class LoginHandler {
                 writeToBuffer("LOGIN OK|" + key);
             }
         } catch (SQLException sqlEx) {
-            sqlEx.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", sqlEx);
             writeToBuffer("Database error");
         } catch (UnsupportedEncodingException encEx) {
-            encEx.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", encEx);
 
         } catch (NoSuchAlgorithmException algEx) {
-            algEx.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", algEx);
         }
 

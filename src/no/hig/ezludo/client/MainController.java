@@ -68,7 +68,6 @@ public class MainController extends Application {
 
         }
         catch (Exception e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
@@ -147,7 +146,6 @@ public class MainController extends Application {
                         }
                     });
                 } catch (IOException e) {
-                    e.printStackTrace();
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
             }
@@ -218,7 +216,6 @@ public class MainController extends Application {
                         }
                     });
                 } catch (IOException e) {
-                    e.printStackTrace();
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
             }
@@ -273,19 +270,15 @@ public class MainController extends Application {
             UIManager.setLookAndFeel(
                     UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (ClassNotFoundException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (InstantiationException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (IllegalAccessException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         launch(args);

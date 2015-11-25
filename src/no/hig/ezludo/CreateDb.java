@@ -28,7 +28,6 @@ public class CreateDb {
                 //"UNIQUE (email))");
                 con.close();
             } catch (SQLException e) {
-                e.printStackTrace();
                 logger.log(Level.SEVERE, "an exception was thrown", e);
             }
         }

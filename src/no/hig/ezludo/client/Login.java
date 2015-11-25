@@ -175,7 +175,6 @@ public class Login extends JFrame  {
                      System.out.println("Login failed");
                     }
                 } catch (Exception ex) {
-                    ex.printStackTrace();
                     logger.log(Level.SEVERE, "an exception was thrown", ex);
                     }
             }
@@ -233,7 +232,6 @@ public class Login extends JFrame  {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
@@ -340,7 +338,6 @@ public class Login extends JFrame  {
         }
 
         } catch(IOException exception) {
-            exception.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", exception);
         }
         // Return "fail" message if login fails
@@ -368,7 +365,6 @@ public class Login extends JFrame  {
         }
         catch (NoSuchAlgorithmException e)
         {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         return generatedPassword;
@@ -382,19 +378,15 @@ public class Login extends JFrame  {
             UIManager.setLookAndFeel(
                     UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (ClassNotFoundException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (InstantiationException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (IllegalAccessException e) {
-            e.printStackTrace();
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
 
