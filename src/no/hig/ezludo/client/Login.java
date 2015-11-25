@@ -20,6 +20,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
@@ -50,6 +52,7 @@ public class Login extends JFrame  {
     private JTextField IPText;
     private static final byte[] keyValue = "krb$[i@9adkk0l0}".getBytes();
     private static final String ALGORITHM = "AES";
+    private static Logger logger = Logger.getAnonymousLogger();
 
     /**
      * Constructor which sets the i18n object with the same language as users OS. If language is
@@ -87,14 +90,15 @@ public class Login extends JFrame  {
         fillEmailField();
         userText.setBounds(100, 10, 160, 25);
         userText.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
             public void changedUpdate(DocumentEvent e) {
                 email = userText.getText();
             }
-
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 email = userText.getText();
             }
-
+            @Override
             public void insertUpdate(DocumentEvent e) {
                 email = userText.getText();
             }
@@ -112,14 +116,15 @@ public class Login extends JFrame  {
 
         passwordText.setBounds(100,40,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
             public void changedUpdate(DocumentEvent e) {
                 password = passwordText.getPassword();
             }
-
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 password = passwordText.getPassword();
             }
-
+            @Override
             public void insertUpdate(DocumentEvent e) {
                 password = passwordText.getPassword();
             }
@@ -136,14 +141,15 @@ public class Login extends JFrame  {
         fillIPAddressField();
         IPText.setBounds(100, 70, 160, 25);
         IPText.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
             public void changedUpdate(DocumentEvent e) {
                 IP = IPText.getText();
             }
-
+            @Override
             public void removeUpdate(DocumentEvent e) {
                 IP = IPText.getText();
             }
-
+            @Override
             public void insertUpdate(DocumentEvent e) {
                 IP = IPText.getText();
             }
@@ -170,6 +176,7 @@ public class Login extends JFrame  {
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
+                    logger.log(Level.SEVERE, "an exception was thrown", ex);
                     }
             }
         });
@@ -227,6 +234,7 @@ public class Login extends JFrame  {
 
         } catch (Exception e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
 
@@ -333,6 +341,7 @@ public class Login extends JFrame  {
 
         } catch(IOException exception) {
             exception.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", exception);
         }
         // Return "fail" message if login fails
         return new String[]{"fail"};
@@ -360,6 +369,7 @@ public class Login extends JFrame  {
         catch (NoSuchAlgorithmException e)
         {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         return generatedPassword;
     }
@@ -373,15 +383,19 @@ public class Login extends JFrame  {
                     UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (ClassNotFoundException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (InstantiationException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (IllegalAccessException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
 
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();

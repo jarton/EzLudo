@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * class handles login and registration of users. a object of this class
@@ -19,6 +21,7 @@ public class LoginHandler {
     private BufferedReader buffReader;
     private BufferedWriter buffWriter;
     private Connection database;
+    private static Logger logger = Logger.getAnonymousLogger();
 
     public LoginHandler (Socket socket, Connection db) throws Exception {
         database = db;
@@ -37,6 +40,7 @@ public class LoginHandler {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
 
@@ -74,12 +78,15 @@ public class LoginHandler {
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", sqlEx);
             writeToBuffer("Database error");
         } catch (UnsupportedEncodingException encEx) {
             encEx.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", encEx);
 
         } catch (NoSuchAlgorithmException algEx) {
             algEx.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", algEx);
         }
 
     }
@@ -105,6 +112,7 @@ public class LoginHandler {
             }
         } catch (SQLException sqlEx) {
             sqlEx.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", sqlEx);
         }
     }
 
@@ -120,6 +128,7 @@ public class LoginHandler {
         }
         catch (IOException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
 }

@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * This class handles the GUI of the lobby, and whatever events may happen in the window.
@@ -33,6 +35,7 @@ public class MainController extends Application {
     private String[] users;
     private String nickName;
     private String firstTurnCommand[] = null;
+    private static Logger logger = Logger.getAnonymousLogger();
 
 
     public static Client client;
@@ -66,6 +69,7 @@ public class MainController extends Application {
         }
         catch (Exception e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
 
@@ -144,6 +148,7 @@ public class MainController extends Application {
                     });
                 } catch (IOException e) {
                     e.printStackTrace();
+                    logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
             }
         });
@@ -214,6 +219,7 @@ public class MainController extends Application {
                     });
                 } catch (IOException e) {
                     e.printStackTrace();
+                    logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
             }
         });
@@ -268,15 +274,19 @@ public class MainController extends Application {
                     UIManager.getSystemLookAndFeelClassName());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (ClassNotFoundException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (InstantiationException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         catch (IllegalAccessException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
         launch(args);
     }

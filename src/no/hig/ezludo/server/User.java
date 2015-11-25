@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * this class represents a user on the server.
@@ -21,6 +23,8 @@ public class User {
     private BufferedWriter buffWriter;
     private int uid = -1;
     private Connection database;
+    private static Logger logger = Logger.getAnonymousLogger();
+
 
     public User (Socket socket, Connection db) throws Exception {
         this.socket = socket;
@@ -35,6 +39,7 @@ public class User {
             }
 		} catch (IOException e) {
 			e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
 		}
     }
 
@@ -61,7 +66,8 @@ public class User {
                 write("LOGGED IN|" + nickName);
             }
         } catch (Exception ex) {
-           ex.printStackTrace();
+            ex.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", ex);
         }
         return true;
     }
@@ -82,6 +88,8 @@ public class User {
         }
         catch (Exception ex) {
             ex.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", ex);
+
         }
     }
 

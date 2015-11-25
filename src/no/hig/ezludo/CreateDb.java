@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jdr on 29/10/15.
@@ -11,6 +13,7 @@ import java.sql.Statement;
 public class CreateDb {
 
         private final static String dbUrl = "jdbc:derby:ezLudoServer;create=true";
+    private static Logger logger = Logger.getAnonymousLogger();
 
         public static void setup () {
             try {
@@ -26,6 +29,7 @@ public class CreateDb {
                 con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
+                logger.log(Level.SEVERE, "an exception was thrown", e);
             }
         }
 

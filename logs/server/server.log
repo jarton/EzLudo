@@ -5445,3 +5445,1276 @@
 2015-11-25 11:32:05,771 INFO  [Server] received command: JOIN CHAT|lobby
 2015-11-25 11:32:52,483 INFO  [Server] perperper logged in
 2015-11-25 11:32:54,192 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:35:53,355 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:35:53,361 INFO  [Server] pirkola69 logged in
+2015-11-25 15:35:53,493 INFO  [Server] franZKlla logged in
+2015-11-25 15:35:53,496 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:35:53,497 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:35:53,497 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:35:53,499 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 15:35:53,511 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:35:53,511 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:35:53,775 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:35:53,775 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:35:53,776 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:35:53,819 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:35:53,820 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:35:53,820 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 15:35:53,820 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:35:53,820 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:35:53,819 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:35:53,960 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-25 15:35:53,960 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-25 15:35:53,990 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:35:54,066 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|ludo anyone
+2015-11-25 15:35:54,067 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:35:54,171 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:35:54,300 INFO  [Server] received command: CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:35:54,323 INFO  [Server] received command: CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:35:54,300 INFO  [Server] handling command CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:35:54,328 WARN  [chatLogger] CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:35:54,329 INFO  [Server] handling command CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:35:54,330 WARN  [chatLogger] CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:36:01,811 INFO  [Server] received command: CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:36:01,811 INFO  [Server] handling command CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:36:01,813 WARN  [chatLogger] CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:36:09,619 INFO  [Server] handling command CHAT|lobby|franZKlla|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:36:09,619 INFO  [Server] received command: CHAT|lobby|franZKlla|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:36:09,621 WARN  [chatLogger] CHAT|lobby|franZKlla|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:36:09,920 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-25 15:36:09,920 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-25 15:36:09,922 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Amen.
+2015-11-25 15:36:13,322 INFO  [Server] received command: CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:36:13,322 INFO  [Server] handling command CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:36:13,323 WARN  [chatLogger] CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:36:15,842 INFO  [Server] received command: CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:36:15,842 INFO  [Server] handling command CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:36:15,844 WARN  [chatLogger] CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:36:28,983 INFO  [Server] received command: CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:36:28,983 INFO  [Server] handling command CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:36:28,984 WARN  [chatLogger] CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:36:30,484 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:36:30,484 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:36:30,486 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:36:30,984 INFO  [Server] received command: CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:36:30,984 INFO  [Server] handling command CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:36:30,985 WARN  [chatLogger] CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:36:42,511 INFO  [Server] received command: CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:36:42,511 INFO  [Server] handling command CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:36:42,513 WARN  [chatLogger] CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:36:43,712 INFO  [Server] received command: CHAT|lobby|franZKlla|ludo anyone
+2015-11-25 15:36:43,712 INFO  [Server] handling command CHAT|lobby|franZKlla|ludo anyone
+2015-11-25 15:36:43,716 WARN  [chatLogger] CHAT|lobby|franZKlla|ludo anyone
+2015-11-25 15:36:47,816 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:36:47,816 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:36:47,818 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:36:57,510 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:36:57,510 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:36:57,512 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:37:05,080 INFO  [Server] received command: CHAT|lobby|franZKlla|haha
+2015-11-25 15:37:05,080 INFO  [Server] handling command CHAT|lobby|franZKlla|haha
+2015-11-25 15:37:05,082 WARN  [chatLogger] CHAT|lobby|franZKlla|haha
+2015-11-25 15:37:06,944 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:37:06,944 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:37:06,948 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:37:11,015 INFO  [Server] received command: CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:37:11,015 INFO  [Server] handling command CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:37:11,016 WARN  [chatLogger] CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:37:16,020 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:37:16,020 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:37:16,021 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:37:22,365 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-25 15:37:22,366 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-25 15:37:22,372 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-25 15:37:29,086 INFO  [Server] received command: CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:37:29,086 INFO  [Server] handling command CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:37:29,087 WARN  [chatLogger] CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:37:29,787 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:37:29,787 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:37:29,789 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:37:37,980 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:37:37,980 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:37:37,982 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:37:43,499 INFO  [Server] received command: CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:37:43,499 INFO  [Server] handling command CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:37:43,501 WARN  [chatLogger] CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:37:45,401 INFO  [Server] received command: CHAT|lobby|pirkola69|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:37:45,401 INFO  [Server] handling command CHAT|lobby|pirkola69|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:37:45,403 WARN  [chatLogger] CHAT|lobby|pirkola69|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:37:58,322 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-25 15:37:58,322 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-25 15:37:58,324 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hahahha
+2015-11-25 15:38:00,925 INFO  [Server] received command: CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:38:00,925 INFO  [Server] handling command CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:38:00,927 WARN  [chatLogger] CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:38:04,578 INFO  [Server] handling command CHAT|lobby|pirkola69|ludo anyone
+2015-11-25 15:38:04,579 WARN  [chatLogger] CHAT|lobby|pirkola69|ludo anyone
+2015-11-25 15:38:04,579 INFO  [Server] received command: CHAT|lobby|pirkola69|ludo anyone
+2015-11-25 15:38:05,988 INFO  [Server] received command: CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:38:05,988 INFO  [Server] handling command CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:38:05,989 WARN  [chatLogger] CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:38:13,205 INFO  [Server] handling command CHAT|lobby|pirkola69|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:38:13,209 WARN  [chatLogger] CHAT|lobby|pirkola69|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:38:13,210 INFO  [Server] received command: CHAT|lobby|pirkola69|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:38:13,683 INFO  [Server] received command: CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:38:13,684 INFO  [Server] handling command CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:38:13,706 WARN  [chatLogger] CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:38:16,443 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:38:16,443 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:38:16,448 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:38:21,704 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:38:21,704 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:38:21,713 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:38:22,386 INFO  [Server] received command: CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:38:22,386 INFO  [Server] handling command CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:38:22,396 WARN  [chatLogger] CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:38:28,089 INFO  [Server] handling command CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:38:28,090 WARN  [chatLogger] CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:38:28,090 INFO  [Server] received command: CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:38:31,330 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:38:31,330 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:38:31,331 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:38:36,920 INFO  [Server] received command: CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:38:36,920 INFO  [Server] handling command CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:38:36,922 WARN  [chatLogger] CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:38:42,029 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:38:42,029 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:38:42,031 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:38:47,132 INFO  [Server] received command: CHAT|lobby|pirkola69|ludo anyone
+2015-11-25 15:38:47,132 INFO  [Server] handling command CHAT|lobby|pirkola69|ludo anyone
+2015-11-25 15:38:47,133 WARN  [chatLogger] CHAT|lobby|pirkola69|ludo anyone
+2015-11-25 15:38:47,733 INFO  [Server] received command: CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:38:47,733 INFO  [Server] handling command CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:38:47,734 WARN  [chatLogger] CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:39:03,861 INFO  [Server] received command: CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:39:03,861 INFO  [Server] handling command CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:39:03,934 WARN  [chatLogger] CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:39:04,293 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-25 15:39:04,294 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-25 15:39:04,295 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-25 15:39:05,647 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:39:05,647 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:39:05,649 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:39:23,498 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:39:23,504 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:39:23,506 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:39:24,703 INFO  [Server] received command: CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:39:24,703 INFO  [Server] handling command CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:39:24,707 WARN  [chatLogger] CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:39:28,832 INFO  [Server] received command: CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:39:28,832 INFO  [Server] handling command CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:39:28,835 WARN  [chatLogger] CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:39:43,410 INFO  [Server] received command: CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:39:43,410 INFO  [Server] handling command CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:39:43,411 WARN  [chatLogger] CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:39:46,102 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:39:46,102 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:39:46,103 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:39:51,097 INFO  [Server] received command: CHAT|lobby|pirkola69|hva skjer?
+2015-11-25 15:39:51,097 INFO  [Server] handling command CHAT|lobby|pirkola69|hva skjer?
+2015-11-25 15:39:51,099 WARN  [chatLogger] CHAT|lobby|pirkola69|hva skjer?
+2015-11-25 15:39:52,674 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:39:52,674 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:39:52,675 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:40:02,211 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-25 15:40:02,211 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-25 15:40:02,213 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-25 15:40:02,474 INFO  [Server] received command: CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:40:02,474 INFO  [Server] handling command CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:40:02,478 WARN  [chatLogger] CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:40:10,765 INFO  [Server] handling command CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:40:10,766 WARN  [chatLogger] CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:40:10,767 INFO  [Server] received command: CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:40:18,623 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:40:18,624 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:40:18,625 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:40:19,575 INFO  [Server] handling command CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-25 15:40:19,576 INFO  [Server] received command: CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-25 15:40:19,577 WARN  [chatLogger] CHAT|lobby|pirkola69|noen eg kan utfordre?
+2015-11-25 15:40:20,576 INFO  [Server] perperper logged in
+2015-11-25 15:40:22,592 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:40:22,592 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:40:22,592 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:40:25,797 INFO  [Server] received command: CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:40:25,797 INFO  [Server] handling command CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:40:25,798 WARN  [chatLogger] CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:40:25,898 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:40:25,898 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:40:25,899 INFO  [Server] user perperper added to random game que 
+2015-11-25 15:40:25,904 INFO  [Server] new random game started
+2015-11-25 15:40:25,904 INFO  [Server] handling command 
+2015-11-25 15:40:25,905 INFO  [Server]  new game started 
+2015-11-25 15:40:28,817 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:40:28,818 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:40:28,818 INFO  [Server]  game commands recived 
+2015-11-25 15:40:29,820 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:40:29,820 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:40:29,821 INFO  [Server]  game commands recived 
+2015-11-25 15:40:31,823 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:40:31,823 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:40:31,824 INFO  [Server]  game commands recived 
+2015-11-25 15:40:32,852 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:40:32,856 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:40:32,859 INFO  [Server]  game commands recived 
+2015-11-25 15:40:33,183 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:40:33,183 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:40:33,185 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:40:34,906 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:40:34,908 INFO  [Server]  game commands recived 
+2015-11-25 15:40:34,909 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:40:35,132 INFO  [Server] perperper removed user with io exc
+2015-11-25 15:40:37,181 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:40:37,181 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:40:37,184 INFO  [Server]  game commands recived 
+2015-11-25 15:40:37,297 INFO  [Server] perperper removed user with io exc
+2015-11-25 15:40:42,445 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:40:42,445 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:40:42,446 WARN  [chatLogger] perperperleft the chatroom
+2015-11-25 15:40:42,447 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:40:42,560 INFO  [Server] perperper removed user with io exc
+2015-11-25 15:40:46,999 INFO  [Server] received command: CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:40:47,000 INFO  [Server] handling command CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:40:47,001 WARN  [chatLogger] CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:40:51,819 INFO  [Server] perperper logged in
+2015-11-25 15:40:54,426 INFO  [Server] received command: CHAT|lobby|pirkola69|haha
+2015-11-25 15:40:54,426 INFO  [Server] handling command CHAT|lobby|pirkola69|haha
+2015-11-25 15:40:54,428 WARN  [chatLogger] CHAT|lobby|pirkola69|haha
+2015-11-25 15:40:54,771 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:40:54,771 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:40:54,772 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:40:54,919 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:40:54,919 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:40:54,920 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:41:02,985 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:41:02,985 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:41:02,986 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:41:05,392 INFO  [Server] received command: CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:41:05,392 INFO  [Server] handling command CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:41:05,394 WARN  [chatLogger] CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:41:17,107 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:41:17,107 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:41:17,109 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:41:18,420 INFO  [Server] received command: CHAT|lobby|pirkola69|haha
+2015-11-25 15:41:18,420 INFO  [Server] handling command CHAT|lobby|pirkola69|haha
+2015-11-25 15:41:18,422 WARN  [chatLogger] CHAT|lobby|pirkola69|haha
+2015-11-25 15:41:19,770 INFO  [Server] received command: CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:41:19,770 INFO  [Server] handling command CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:41:19,785 WARN  [chatLogger] CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:41:26,553 INFO  [Server] received command: CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:41:26,553 INFO  [Server] handling command CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:41:26,555 WARN  [chatLogger] CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:41:28,320 INFO  [Server] received command: CHAT|lobby|franZKlla|nice
+2015-11-25 15:41:28,320 INFO  [Server] handling command CHAT|lobby|franZKlla|nice
+2015-11-25 15:41:28,321 WARN  [chatLogger] CHAT|lobby|franZKlla|nice
+2015-11-25 15:41:29,521 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:41:29,521 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:41:29,522 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:41:48,791 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-25 15:41:48,791 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-25 15:41:48,792 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-25 15:41:50,616 INFO  [Server] received command: CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:41:50,616 INFO  [Server] handling command CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:41:50,618 WARN  [chatLogger] CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:41:54,033 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:41:54,033 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:41:54,035 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:41:54,035 INFO  [Server] received command: CHAT|lobby|franZKlla|ludy hype
+2015-11-25 15:41:54,035 INFO  [Server] handling command CHAT|lobby|franZKlla|ludy hype
+2015-11-25 15:41:54,036 WARN  [chatLogger] CHAT|lobby|franZKlla|ludy hype
+2015-11-25 15:42:01,771 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:01,798 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:01,799 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:08,286 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:42:08,286 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:42:08,288 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:42:11,542 INFO  [Server] received command: CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:11,542 INFO  [Server] handling command CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:11,543 WARN  [chatLogger] CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:13,461 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:42:13,461 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:42:13,463 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:42:17,847 INFO  [Server] received command: CHAT|lobby|pirkola69|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:42:17,848 INFO  [Server] handling command CHAT|lobby|pirkola69|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:42:17,849 WARN  [chatLogger] CHAT|lobby|pirkola69|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:42:22,937 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:42:22,937 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:42:22,939 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|riot
+2015-11-25 15:42:29,379 INFO  [Server] received command: CHAT|lobby|franZKlla|riot
+2015-11-25 15:42:29,379 INFO  [Server] handling command CHAT|lobby|franZKlla|riot
+2015-11-25 15:42:29,381 WARN  [chatLogger] CHAT|lobby|franZKlla|riot
+2015-11-25 15:42:34,839 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:42:34,839 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:42:34,841 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:42:42,022 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:42,022 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:42,023 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:47,647 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:47,647 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:47,649 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:48,155 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:48,155 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:48,156 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:42:49,672 INFO  [Server] received command: CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:49,672 INFO  [Server] handling command CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:49,673 WARN  [chatLogger] CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:42:54,710 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-25 15:42:54,710 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-25 15:42:54,714 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-25 15:43:04,802 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:43:04,802 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:43:04,803 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:43:11,657 INFO  [Server] received command: CHAT|lobby|pirkola69|hahahha
+2015-11-25 15:43:11,657 INFO  [Server] handling command CHAT|lobby|pirkola69|hahahha
+2015-11-25 15:43:11,658 WARN  [chatLogger] CHAT|lobby|pirkola69|hahahha
+2015-11-25 15:43:12,558 INFO  [Server] received command: CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:43:12,558 INFO  [Server] handling command CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:43:12,559 WARN  [chatLogger] CHAT|lobby|franZKlla|liker kinasjakk bedre
+2015-11-25 15:43:29,248 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:43:29,248 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:43:29,267 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:43:33,859 INFO  [Server] received command: CHAT|lobby|pirkola69|riot
+2015-11-25 15:43:33,859 INFO  [Server] handling command CHAT|lobby|pirkola69|riot
+2015-11-25 15:43:33,861 WARN  [chatLogger] CHAT|lobby|pirkola69|riot
+2015-11-25 15:43:35,077 INFO  [Server] received command: CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:43:35,077 INFO  [Server] handling command CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:43:35,079 WARN  [chatLogger] CHAT|lobby|franZKlla|\^.^/
+2015-11-25 15:43:35,986 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:43:35,986 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:43:35,987 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:43:40,691 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-25 15:43:40,691 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-25 15:43:40,692 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-25 15:43:44,894 INFO  [Server] received command: CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:43:44,894 INFO  [Server] handling command CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:43:44,895 WARN  [chatLogger] CHAT|lobby|pirkola69|ludy hype
+2015-11-25 15:43:50,050 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:43:50,050 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:43:50,063 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:43:59,928 INFO  [Server] received command: CHAT|lobby|franZKlla|join min chat da vell
+2015-11-25 15:43:59,928 INFO  [Server] handling command CHAT|lobby|franZKlla|join min chat da vell
+2015-11-25 15:43:59,929 WARN  [chatLogger] CHAT|lobby|franZKlla|join min chat da vell
+2015-11-25 15:44:03,041 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:44:03,042 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:44:03,043 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:44:05,178 INFO  [Server] received command: CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:05,178 INFO  [Server] handling command CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:05,180 WARN  [chatLogger] CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:14,893 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:44:14,893 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:44:14,894 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|lol funny
+2015-11-25 15:44:19,400 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:44:19,400 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:44:19,402 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:44:20,903 INFO  [Server] received command: CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:44:20,903 INFO  [Server] handling command CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:44:20,904 WARN  [chatLogger] CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:44:25,311 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:44:25,311 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:44:25,312 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:44:32,843 INFO  [Server] received command: CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:32,843 INFO  [Server] handling command CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:32,844 WARN  [chatLogger] CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:38,946 INFO  [Server] received command: CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:44:38,946 INFO  [Server] handling command CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:44:38,947 WARN  [chatLogger] CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:44:40,547 INFO  [Server] received command: CHAT|lobby|pirkola69|hahahha
+2015-11-25 15:44:40,547 INFO  [Server] handling command CHAT|lobby|pirkola69|hahahha
+2015-11-25 15:44:40,548 WARN  [chatLogger] CHAT|lobby|pirkola69|hahahha
+2015-11-25 15:44:49,165 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:49,165 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:44:49,167 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:45:19,155 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:45:19,163 INFO  [Server] pirkola69 logged in
+2015-11-25 15:45:19,186 INFO  [Server] franZKlla logged in
+2015-11-25 15:45:19,202 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:45:19,202 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:45:19,202 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:45:19,204 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 15:45:19,213 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:45:19,213 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:45:19,214 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:45:19,215 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:45:19,215 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:45:19,350 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:45:19,350 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:45:19,350 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:45:19,350 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:45:19,350 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:45:19,350 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 15:45:19,350 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:45:19,351 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:45:19,352 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:45:19,468 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:45:19,468 INFO  [Server] received command: CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:45:19,468 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:45:19,468 INFO  [Server] received command: CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:45:19,472 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:45:19,473 INFO  [Server] handling command CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:45:19,474 WARN  [chatLogger] CHAT|lobby|franZKlla|Amen.
+2015-11-25 15:45:19,474 INFO  [Server] handling command CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:45:19,475 WARN  [chatLogger] CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:45:27,698 INFO  [Server] received command: CHAT|lobby|pirkola69|:D
+2015-11-25 15:45:27,698 INFO  [Server] handling command CHAT|lobby|pirkola69|:D
+2015-11-25 15:45:27,701 WARN  [chatLogger] CHAT|lobby|pirkola69|:D
+2015-11-25 15:45:28,719 INFO  [Server] perperper logged in
+2015-11-25 15:45:31,115 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:45:31,115 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:45:31,115 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:45:33,916 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:45:33,916 INFO  [Server] user perperper added to random game que 
+2015-11-25 15:45:33,916 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:45:33,920 INFO  [Server] new random game started
+2015-11-25 15:45:33,920 INFO  [Server] handling command 
+2015-11-25 15:45:33,920 INFO  [Server]  new game started 
+2015-11-25 15:45:36,019 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:45:36,019 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:45:36,020 INFO  [Server]  game commands recived 
+2015-11-25 15:45:37,024 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:37,024 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:37,025 INFO  [Server]  game commands recived 
+2015-11-25 15:45:37,124 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:45:37,124 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:45:37,124 INFO  [Server]  game commands recived 
+2015-11-25 15:45:38,255 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:45:38,255 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:45:38,256 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|nice
+2015-11-25 15:45:39,070 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:45:39,070 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:45:39,071 INFO  [Server]  game commands recived 
+2015-11-25 15:45:40,072 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:40,072 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:40,073 INFO  [Server]  game commands recived 
+2015-11-25 15:45:40,572 INFO  [Server] received command: CHAT|lobby|franZKlla|hei
+2015-11-25 15:45:40,572 INFO  [Server] handling command CHAT|lobby|franZKlla|hei
+2015-11-25 15:45:40,573 WARN  [chatLogger] CHAT|lobby|franZKlla|hei
+2015-11-25 15:45:42,074 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:42,074 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:42,074 INFO  [Server]  game commands recived 
+2015-11-25 15:45:42,687 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-25 15:45:42,687 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-25 15:45:42,688 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-25 15:45:44,033 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:45:44,033 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:45:44,034 INFO  [Server]  game commands recived 
+2015-11-25 15:45:47,135 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:47,135 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:47,136 INFO  [Server]  game commands recived 
+2015-11-25 15:45:49,139 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:45:49,139 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:45:49,141 INFO  [Server]  game commands recived 
+2015-11-25 15:45:50,241 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:50,241 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:45:50,242 INFO  [Server]  game commands recived 
+2015-11-25 15:46:54,020 INFO  [Server] perperper logged in
+2015-11-25 15:46:55,575 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:46:55,576 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:46:55,577 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:46:58,849 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:46:58,849 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:46:58,849 INFO  [Server] user perperper added to random game que 
+2015-11-25 15:47:07,309 INFO  [Server] franZKlla logged in
+2015-11-25 15:47:07,312 INFO  [Server]  logged in
+2015-11-25 15:47:07,315 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:47:07,338 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:47:07,338 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:47:07,338 INFO  [Server] user  added to chatroom: lobby
+2015-11-25 15:47:07,338 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:47:07,339 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:47:07,340 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:47:07,340 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:47:07,341 WARN  [chatLogger] left the chatroom
+2015-11-25 15:47:07,342 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:47:07,342 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:47:07,444 INFO  [Server]  removed user with io exc
+2015-11-25 15:47:07,444 INFO  [Server]  removed user with io exc
+2015-11-25 15:47:07,445 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:47:07,445 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:47:07,445 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:47:07,446 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:47:07,446 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:47:07,446 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:47:07,559 INFO  [Server] received command: CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:47:07,559 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-25 15:47:07,560 INFO  [Server] handling command CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:47:07,564 WARN  [chatLogger] CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:47:07,565 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-25 15:47:07,566 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|noen eg kan utfordre?
+2015-11-25 15:47:49,376 INFO  [Server]  logged in
+2015-11-25 15:47:57,795 INFO  [Server]  logged in
+2015-11-25 15:48:16,131 INFO  [Server] perperper logged in
+2015-11-25 15:48:18,164 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:48:18,165 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:48:18,166 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:48:20,282 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:48:20,282 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:48:20,282 INFO  [Server] user perperper added to random game que 
+2015-11-25 15:48:27,076 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:48:27,078 INFO  [Server]  logged in
+2015-11-25 15:48:27,082 INFO  [Server] franZKlla logged in
+2015-11-25 15:48:27,098 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:48:27,104 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:48:27,104 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:48:27,104 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:48:27,105 INFO  [Server] user  added to chatroom: lobby
+2015-11-25 15:48:27,106 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:48:27,106 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:48:27,107 WARN  [chatLogger] left the chatroom
+2015-11-25 15:48:27,107 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:48:27,107 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:48:27,209 INFO  [Server]  removed user with io exc
+2015-11-25 15:48:27,209 INFO  [Server]  removed user with io exc
+2015-11-25 15:48:27,209 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:48:27,209 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:48:27,209 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:48:27,210 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:48:27,210 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:48:27,210 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:48:27,327 INFO  [Server] received command: CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:48:27,328 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:48:27,328 INFO  [Server] handling command CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:48:27,331 WARN  [chatLogger] CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:48:27,331 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:48:27,333 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:48:45,513 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:48:45,517 INFO  [Server] pirkola69 logged in
+2015-11-25 15:48:45,520 INFO  [Server] franZKlla logged in
+2015-11-25 15:48:45,577 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:48:45,577 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:48:45,577 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:48:45,577 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:48:45,578 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 15:48:45,579 WARN  [chatLogger] franZKllaleft the chatroom
+2015-11-25 15:48:45,579 WARN  [chatLogger] nilzWithSkillzleft the chatroom
+2015-11-25 15:48:45,579 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:48:45,580 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:48:45,580 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:48:45,580 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:48:45,682 INFO  [Server] franZKlla removed user with io exc
+2015-11-25 15:48:45,682 INFO  [Server] nilzWithSkillz removed user with io exc
+2015-11-25 15:48:45,687 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:48:45,687 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:48:45,688 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:48:45,688 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:48:45,688 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:48:45,688 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:48:45,688 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 15:48:45,688 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:48:45,688 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:48:45,693 INFO  [Server] handling command 
+2015-11-25 15:48:45,697 INFO  [Server]  new game started 
+2015-11-25 15:48:45,698 INFO  [Server] new random game started
+2015-11-25 15:48:45,800 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|hei
+2015-11-25 15:48:45,800 INFO  [Server] received command: CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:48:45,800 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|hei
+2015-11-25 15:48:45,802 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|hei
+2015-11-25 15:48:45,804 INFO  [Server] handling command CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:48:45,806 WARN  [chatLogger] CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:48:45,809 INFO  [Server] received command: CHAT|lobby|pirkola69|:D
+2015-11-25 15:48:45,810 INFO  [Server] handling command CHAT|lobby|pirkola69|:D
+2015-11-25 15:48:45,811 WARN  [chatLogger] CHAT|lobby|pirkola69|:D
+2015-11-25 15:48:52,151 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:48:52,152 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:48:52,153 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:48:53,676 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-25 15:48:53,676 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-25 15:48:53,678 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-25 15:48:54,176 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:48:54,176 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:48:54,177 INFO  [Server] user perperper added to random game que 
+2015-11-25 15:49:04,003 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:04,003 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:04,004 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:08,024 INFO  [Server] received command: CHAT|lobby|franZKlla|ludo anyone
+2015-11-25 15:49:08,024 INFO  [Server] handling command CHAT|lobby|franZKlla|ludo anyone
+2015-11-25 15:49:08,025 WARN  [chatLogger] CHAT|lobby|franZKlla|ludo anyone
+2015-11-25 15:49:09,982 INFO  [Server] received command: CHAT|lobby|pirkola69|liker kinasjakk bedre
+2015-11-25 15:49:09,982 INFO  [Server] handling command CHAT|lobby|pirkola69|liker kinasjakk bedre
+2015-11-25 15:49:09,983 WARN  [chatLogger] CHAT|lobby|pirkola69|liker kinasjakk bedre
+2015-11-25 15:49:12,079 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:49:12,079 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:49:12,081 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|haha
+2015-11-25 15:49:19,394 INFO  [Server] handling command CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:49:19,395 WARN  [chatLogger] CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:49:19,395 INFO  [Server] received command: CHAT|lobby|pirkola69|Ella ella eh eh eh, Under my umbrella!! Rihanna :)
+2015-11-25 15:49:20,948 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:49:20,948 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:49:20,949 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:49:22,590 INFO  [Server] received command: CHAT|lobby|franZKlla|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:49:22,590 INFO  [Server] handling command CHAT|lobby|franZKlla|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:49:22,591 WARN  [chatLogger] CHAT|lobby|franZKlla|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:49:28,698 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:49:28,699 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:49:28,700 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:49:36,289 INFO  [Server] handling command CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:49:36,291 WARN  [chatLogger] CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:49:36,291 INFO  [Server] received command: CHAT|lobby|pirkola69|Amen.
+2015-11-25 15:49:43,614 INFO  [Server] received command: CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:43,614 INFO  [Server] handling command CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:43,615 WARN  [chatLogger] CHAT|lobby|franZKlla|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:45,617 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:45,617 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:45,619 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|I kissed a girl and I liked it, the taste of her cherry chapstick.
+2015-11-25 15:49:55,258 INFO  [Server] received command: CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:49:55,258 INFO  [Server] handling command CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:49:55,259 WARN  [chatLogger] CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:49:57,698 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:49:57,700 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:49:57,702 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:50:02,162 INFO  [Server] received command: CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:50:02,162 INFO  [Server] handling command CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:50:02,163 WARN  [chatLogger] CHAT|lobby|franZKlla|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:50:08,617 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:50:08,617 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:50:08,618 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:50:16,787 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-25 15:50:16,787 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-25 15:50:16,788 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|liker kinasjakk bedre
+2015-11-25 15:50:20,403 INFO  [Server] received command: CHAT|lobby|pirkola69|hei
+2015-11-25 15:50:20,403 INFO  [Server] handling command CHAT|lobby|pirkola69|hei
+2015-11-25 15:50:20,405 WARN  [chatLogger] CHAT|lobby|pirkola69|hei
+2015-11-25 15:50:25,436 INFO  [Server] received command: CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:50:25,436 INFO  [Server] handling command CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:50:25,437 WARN  [chatLogger] CHAT|lobby|franZKlla|noen eg kan utfordre?
+2015-11-25 15:50:29,693 INFO  [Server] handling command CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:50:29,695 WARN  [chatLogger] CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:50:29,696 INFO  [Server] received command: CHAT|lobby|pirkola69|lol funny
+2015-11-25 15:50:39,139 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:50:39,139 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:50:39,140 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|:D
+2015-11-25 15:50:41,941 INFO  [Server] received command: CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:50:41,941 INFO  [Server] handling command CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:50:41,942 WARN  [chatLogger] CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:50:43,843 INFO  [Server] received command: CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:50:43,843 INFO  [Server] handling command CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:50:43,845 WARN  [chatLogger] CHAT|lobby|franZKlla|Chicken McNuggets oyeah yeah yeah yeah yeah
+2015-11-25 15:50:55,370 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:50:55,370 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:50:55,372 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|join min chat da vell
+2015-11-25 15:51:03,078 INFO  [Server] received command: CHAT|lobby|pirkola69|nice
+2015-11-25 15:51:03,078 INFO  [Server] handling command CHAT|lobby|pirkola69|nice
+2015-11-25 15:51:03,079 WARN  [chatLogger] CHAT|lobby|pirkola69|nice
+2015-11-25 15:51:04,979 INFO  [Server] received command: CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:51:04,979 INFO  [Server] handling command CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:51:04,980 WARN  [chatLogger] CHAT|lobby|franZKlla|hahahha
+2015-11-25 15:51:10,683 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:51:10,683 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:51:10,685 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:51:12,084 INFO  [Server] received command: CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:51:12,084 INFO  [Server] handling command CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:51:12,085 WARN  [chatLogger] CHAT|lobby|pirkola69|Bibelen er veikartet, Sannvittigheten kompasset.
+2015-11-25 15:51:22,398 INFO  [Server] received command: CHAT|lobby|franZKlla|hva skjer?
+2015-11-25 15:51:22,398 INFO  [Server] handling command CHAT|lobby|franZKlla|hva skjer?
+2015-11-25 15:51:22,399 WARN  [chatLogger] CHAT|lobby|franZKlla|hva skjer?
+2015-11-25 15:51:25,101 INFO  [Server] received command: CHAT|lobby|pirkola69|haha
+2015-11-25 15:51:25,101 INFO  [Server] handling command CHAT|lobby|pirkola69|haha
+2015-11-25 15:51:25,103 WARN  [chatLogger] CHAT|lobby|pirkola69|haha
+2015-11-25 15:51:30,532 INFO  [Server] received command: CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:51:30,532 INFO  [Server] handling command CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:51:30,534 WARN  [chatLogger] CHAT|lobby|nilzWithSkillz|Jeg er Alfa og Omega, den f?rste og den siste, begynnelsen og enden.
+2015-11-25 15:51:31,937 INFO  [Server] received command: CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:51:31,937 INFO  [Server] handling command CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:51:31,939 WARN  [chatLogger] CHAT|lobby|pirkola69|Shine bright like a diamond! Shine bright like a diamond!
+2015-11-25 15:51:37,897 INFO  [Server] received command: CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:51:37,897 INFO  [Server] handling command CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:51:37,899 WARN  [chatLogger] CHAT|lobby|franZKlla|lol funny
+2015-11-25 15:52:02,438 INFO  [Server] perperper logged in
+2015-11-25 15:52:04,644 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:04,644 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:04,646 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:52:06,914 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:06,914 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:06,915 INFO  [Server] user perperper added to random game que 
+2015-11-25 15:52:14,631 INFO  [Server] received command: JOIN CHAT|df
+2015-11-25 15:52:14,631 INFO  [Server] handling command JOIN CHAT|df
+2015-11-25 15:52:14,631 INFO  [Server] chatRoom created: df
+2015-11-25 15:52:14,632 INFO  [Server] user perperper added to chatroom: df
+2015-11-25 15:52:23,856 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:52:23,860 INFO  [Server] pirkola69 logged in
+2015-11-25 15:52:23,864 INFO  [Server] franZKlla logged in
+2015-11-25 15:52:23,940 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:23,941 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:23,941 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 15:52:23,940 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:23,941 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:23,943 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:23,943 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:52:23,945 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:23,945 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:52:24,065 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:24,065 INFO  [Server] kitty logged in
+2015-11-25 15:52:24,070 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:24,071 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:24,071 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 15:52:24,073 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:24,073 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:52:24,073 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:24,073 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:52:24,065 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:24,079 INFO  [Server] new random game started
+2015-11-25 15:52:24,083 INFO  [Server] handling command 
+2015-11-25 15:52:24,084 INFO  [Server]  new game started 
+2015-11-25 15:52:24,214 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:24,215 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:24,215 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-25 15:52:24,465 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:24,466 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:24,466 INFO  [Server] user kitty added to random game que 
+2015-11-25 15:52:58,814 INFO  [Server] pirkola69 logged in
+2015-11-25 15:52:58,824 INFO  [Server] franZKlla logged in
+2015-11-25 15:52:58,832 INFO  [Server] kitty logged in
+2015-11-25 15:52:58,835 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:52:58,891 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:58,891 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:58,892 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:58,893 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:58,893 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:52:58,894 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:52:58,899 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:58,899 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:52:58,900 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:58,900 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-25 15:52:58,902 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:52:58,902 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 15:52:59,011 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:59,011 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:59,011 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:59,011 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 15:52:59,011 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:59,011 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:59,011 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:52:59,011 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:52:59,012 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:59,013 INFO  [Server] user kitty added to random game que 
+2015-11-25 15:52:59,013 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:52:59,013 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:52:59,018 INFO  [Server] handling command 
+2015-11-25 15:52:59,022 INFO  [Server]  new game started 
+2015-11-25 15:52:59,022 INFO  [Server] new random game started
+2015-11-25 15:52:59,437 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:52:59,437 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:52:59,438 INFO  [Server]  game commands recived 
+2015-11-25 15:52:59,541 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:52:59,542 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:52:59,543 INFO  [Server]  game commands recived 
+2015-11-25 15:52:59,767 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:52:59,767 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:52:59,768 INFO  [Server]  game commands recived 
+2015-11-25 15:52:59,885 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:52:59,886 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:52:59,886 INFO  [Server]  game commands recived 
+2015-11-25 15:53:00,154 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:00,154 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:00,155 INFO  [Server]  game commands recived 
+2015-11-25 15:53:00,262 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:00,262 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:00,263 INFO  [Server]  game commands recived 
+2015-11-25 15:53:00,365 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:00,365 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:00,365 INFO  [Server]  game commands recived 
+2015-11-25 15:53:00,776 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:00,776 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:00,777 INFO  [Server]  game commands recived 
+2015-11-25 15:53:00,978 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:00,978 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:00,979 INFO  [Server]  game commands recived 
+2015-11-25 15:53:01,281 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:01,281 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:01,282 INFO  [Server]  game commands recived 
+2015-11-25 15:53:01,481 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:01,481 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:01,482 INFO  [Server]  game commands recived 
+2015-11-25 15:53:01,683 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:01,683 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:01,684 INFO  [Server]  game commands recived 
+2015-11-25 15:53:01,883 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:01,883 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:01,884 INFO  [Server]  game commands recived 
+2015-11-25 15:53:02,184 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:02,184 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:02,185 INFO  [Server]  game commands recived 
+2015-11-25 15:53:02,384 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:02,384 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:02,385 INFO  [Server]  game commands recived 
+2015-11-25 15:53:02,685 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:02,685 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:02,686 INFO  [Server]  game commands recived 
+2015-11-25 15:53:02,885 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:02,885 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:02,886 INFO  [Server]  game commands recived 
+2015-11-25 15:53:03,185 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:03,186 INFO  [Server]  game commands recived 
+2015-11-25 15:53:03,187 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:03,287 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:03,287 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:03,288 INFO  [Server]  game commands recived 
+2015-11-25 15:53:03,587 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:03,587 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:03,587 INFO  [Server]  game commands recived 
+2015-11-25 15:53:03,688 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:03,688 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:03,689 INFO  [Server]  game commands recived 
+2015-11-25 15:53:03,989 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:03,989 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:03,990 INFO  [Server]  game commands recived 
+2015-11-25 15:53:04,189 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:04,189 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:04,190 INFO  [Server]  game commands recived 
+2015-11-25 15:53:04,489 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:04,489 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:04,490 INFO  [Server]  game commands recived 
+2015-11-25 15:53:04,689 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:04,689 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:04,690 INFO  [Server]  game commands recived 
+2015-11-25 15:53:04,989 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:04,989 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:04,990 INFO  [Server]  game commands recived 
+2015-11-25 15:53:05,190 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:05,190 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:05,190 INFO  [Server]  game commands recived 
+2015-11-25 15:53:05,493 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:05,493 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:05,494 INFO  [Server]  game commands recived 
+2015-11-25 15:53:05,593 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:05,593 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:05,594 INFO  [Server]  game commands recived 
+2015-11-25 15:53:05,693 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:05,693 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:05,693 INFO  [Server]  game commands recived 
+2015-11-25 15:53:05,893 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:05,893 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:05,894 INFO  [Server]  game commands recived 
+2015-11-25 15:53:05,993 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:05,993 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:05,994 INFO  [Server]  game commands recived 
+2015-11-25 15:53:06,093 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:06,093 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:06,093 INFO  [Server]  game commands recived 
+2015-11-25 15:53:06,193 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:06,193 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:06,193 INFO  [Server]  game commands recived 
+2015-11-25 15:53:06,293 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:06,293 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:06,294 INFO  [Server]  game commands recived 
+2015-11-25 15:53:06,493 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:06,493 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:06,494 INFO  [Server]  game commands recived 
+2015-11-25 15:53:06,794 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:06,794 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:06,795 INFO  [Server]  game commands recived 
+2015-11-25 15:53:06,994 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:06,995 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:06,995 INFO  [Server]  game commands recived 
+2015-11-25 15:53:07,295 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:07,295 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:07,295 INFO  [Server]  game commands recived 
+2015-11-25 15:53:07,395 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:07,395 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:07,396 INFO  [Server]  game commands recived 
+2015-11-25 15:53:07,696 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:07,696 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:07,697 INFO  [Server]  game commands recived 
+2015-11-25 15:53:07,896 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:07,896 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:07,897 INFO  [Server]  game commands recived 
+2015-11-25 15:53:07,997 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:07,997 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:07,998 INFO  [Server]  game commands recived 
+2015-11-25 15:53:08,197 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:08,197 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:08,198 INFO  [Server]  game commands recived 
+2015-11-25 15:53:08,297 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:08,297 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:08,298 INFO  [Server]  game commands recived 
+2015-11-25 15:53:08,397 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:08,397 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:08,397 INFO  [Server]  game commands recived 
+2015-11-25 15:53:08,597 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:08,597 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:08,597 INFO  [Server]  game commands recived 
+2015-11-25 15:53:08,697 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:08,697 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:08,698 INFO  [Server]  game commands recived 
+2015-11-25 15:53:08,997 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:08,997 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:08,998 INFO  [Server]  game commands recived 
+2015-11-25 15:53:09,197 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:09,197 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:09,198 INFO  [Server]  game commands recived 
+2015-11-25 15:53:09,498 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:09,498 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:09,498 INFO  [Server]  game commands recived 
+2015-11-25 15:53:09,598 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:09,598 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:09,599 INFO  [Server]  game commands recived 
+2015-11-25 15:53:09,898 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:09,898 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:09,898 INFO  [Server]  game commands recived 
+2015-11-25 15:53:09,998 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:09,998 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:09,999 INFO  [Server]  game commands recived 
+2015-11-25 15:53:10,298 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:10,298 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:10,299 INFO  [Server]  game commands recived 
+2015-11-25 15:53:10,399 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:10,399 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:10,400 INFO  [Server]  game commands recived 
+2015-11-25 15:53:10,699 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:10,699 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:10,699 INFO  [Server]  game commands recived 
+2015-11-25 15:53:10,800 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:10,800 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:10,801 INFO  [Server]  game commands recived 
+2015-11-25 15:53:11,100 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:11,100 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:11,100 INFO  [Server]  game commands recived 
+2015-11-25 15:53:11,200 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:11,200 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:11,201 INFO  [Server]  game commands recived 
+2015-11-25 15:53:11,500 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:11,500 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:11,500 INFO  [Server]  game commands recived 
+2015-11-25 15:53:11,600 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:11,600 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:11,601 INFO  [Server]  game commands recived 
+2015-11-25 15:53:11,900 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:11,900 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:11,900 INFO  [Server]  game commands recived 
+2015-11-25 15:53:12,000 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:12,000 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:12,001 INFO  [Server]  game commands recived 
+2015-11-25 15:53:12,301 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:12,301 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:12,302 INFO  [Server]  game commands recived 
+2015-11-25 15:53:12,501 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:12,501 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:12,502 INFO  [Server]  game commands recived 
+2015-11-25 15:53:12,601 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:12,601 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:12,601 INFO  [Server]  game commands recived 
+2015-11-25 15:53:12,801 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:12,801 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:12,801 INFO  [Server]  game commands recived 
+2015-11-25 15:53:12,901 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:12,901 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:12,902 INFO  [Server]  game commands recived 
+2015-11-25 15:53:13,001 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:13,001 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:13,001 INFO  [Server]  game commands recived 
+2015-11-25 15:53:13,301 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:13,301 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:13,301 INFO  [Server]  game commands recived 
+2015-11-25 15:53:13,401 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:13,401 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:13,402 INFO  [Server]  game commands recived 
+2015-11-25 15:53:13,602 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:13,602 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:13,603 INFO  [Server]  game commands recived 
+2015-11-25 15:53:13,702 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:13,702 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:13,703 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,002 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,002 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,003 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,202 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:14,202 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:14,203 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,302 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,302 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,302 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,502 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,502 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,502 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,602 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:14,602 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:14,602 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,702 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,702 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,702 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,802 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:14,802 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:14,802 INFO  [Server]  game commands recived 
+2015-11-25 15:53:14,903 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,903 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:14,903 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,003 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,003 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,004 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,103 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,103 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,103 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,303 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,304 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,304 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,404 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,404 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,405 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,504 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,504 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,504 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,604 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,604 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,604 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,704 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,704 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,704 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,704 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,704 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:15,705 INFO  [Server]  game commands recived 
+2015-11-25 15:53:15,904 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,904 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:15,905 INFO  [Server]  game commands recived 
+2015-11-25 15:53:16,105 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:16,105 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:16,105 INFO  [Server]  game commands recived 
+2015-11-25 15:53:16,306 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:16,306 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:16,306 INFO  [Server]  game commands recived 
+2015-11-25 15:53:16,606 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:16,606 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:16,606 INFO  [Server]  game commands recived 
+2015-11-25 15:53:16,706 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:16,706 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:16,707 INFO  [Server]  game commands recived 
+2015-11-25 15:53:16,806 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:16,806 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:16,806 INFO  [Server]  game commands recived 
+2015-11-25 15:53:17,006 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:17,006 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:17,006 INFO  [Server]  game commands recived 
+2015-11-25 15:53:17,106 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,106 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,107 INFO  [Server]  game commands recived 
+2015-11-25 15:53:17,207 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,207 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,207 INFO  [Server]  game commands recived 
+2015-11-25 15:53:17,407 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:17,407 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:17,407 INFO  [Server]  game commands recived 
+2015-11-25 15:53:17,507 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,507 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,508 INFO  [Server]  game commands recived 
+2015-11-25 15:53:17,808 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:17,808 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:17,808 INFO  [Server]  game commands recived 
+2015-11-25 15:53:17,908 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,908 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:17,909 INFO  [Server]  game commands recived 
+2015-11-25 15:53:18,208 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:18,208 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:18,208 INFO  [Server]  game commands recived 
+2015-11-25 15:53:18,408 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:18,408 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:18,409 INFO  [Server]  game commands recived 
+2015-11-25 15:53:35,002 INFO  [Server] perperper logged in
+2015-11-25 15:53:37,034 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:53:37,035 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:53:37,036 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:53:48,178 INFO  [Server] pirkola69 logged in
+2015-11-25 15:53:48,185 INFO  [Server] kitty logged in
+2015-11-25 15:53:48,190 INFO  [Server] franZKlla logged in
+2015-11-25 15:53:48,407 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:53:48,473 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:53:48,476 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:53:48,476 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-25 15:53:48,476 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:53:48,477 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:53:48,478 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:53:48,479 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:53:48,479 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:53:48,480 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:53:48,480 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 15:53:48,483 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:53:48,483 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 15:53:48,584 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:53:48,584 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:53:48,585 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:53:48,585 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:53:48,585 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:53:48,585 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 15:53:48,585 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:53:48,588 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:53:48,588 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:53:48,588 INFO  [Server] user kitty added to random game que 
+2015-11-25 15:53:48,588 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:53:48,588 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 15:53:48,596 INFO  [Server] handling command 
+2015-11-25 15:53:48,597 INFO  [Server]  new game started 
+2015-11-25 15:53:48,598 INFO  [Server] new random game started
+2015-11-25 15:53:49,235 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:49,235 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:49,236 INFO  [Server]  game commands recived 
+2015-11-25 15:53:49,337 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:49,337 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:49,338 INFO  [Server]  game commands recived 
+2015-11-25 15:53:49,547 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:49,547 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:49,547 INFO  [Server]  game commands recived 
+2015-11-25 15:53:49,650 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:49,650 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:49,651 INFO  [Server]  game commands recived 
+2015-11-25 15:53:49,869 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:49,869 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:49,870 INFO  [Server]  game commands recived 
+2015-11-25 15:53:49,974 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:49,975 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:49,976 INFO  [Server]  game commands recived 
+2015-11-25 15:53:50,106 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:50,106 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:50,107 INFO  [Server]  game commands recived 
+2015-11-25 15:53:50,474 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:50,474 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:50,475 INFO  [Server]  game commands recived 
+2015-11-25 15:53:50,600 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:50,600 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:50,601 INFO  [Server]  game commands recived 
+2015-11-25 15:53:50,844 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-25 15:53:50,844 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-25 15:53:50,845 INFO  [Server]  game commands recived 
+2015-11-25 15:53:50,967 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:50,968 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-25 15:53:50,969 INFO  [Server]  game commands recived 
+2015-11-25 15:54:21,677 INFO  [Server] perperper logged in
+2015-11-25 15:54:23,280 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:54:23,280 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:54:23,282 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 15:54:28,887 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:54:28,887 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:54:28,888 INFO  [Server] user perperper added to random game que 
+2015-11-25 15:54:36,520 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 15:54:36,673 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:54:36,674 INFO  [Server] pirkola69 logged in
+2015-11-25 15:54:36,678 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:54:36,678 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 15:54:36,679 INFO  [Server] kitty logged in
+2015-11-25 15:54:36,681 INFO  [Server]  logged in
+2015-11-25 15:54:36,877 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:54:36,878 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:54:36,878 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 15:54:37,123 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:54:37,124 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:54:37,124 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:54:37,124 INFO  [Server] user  added to chatroom: lobby
+2015-11-25 15:54:37,123 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 15:54:37,128 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:54:37,129 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 15:54:37,130 WARN  [chatLogger] left the chatroom
+2015-11-25 15:54:37,130 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 15:54:37,130 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-25 15:54:37,241 INFO  [Server]  removed user with io exc
+2015-11-25 15:54:37,241 INFO  [Server]  removed user with io exc
+2015-11-25 15:54:37,242 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:54:37,242 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:54:37,244 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 15:54:37,244 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 15:54:37,244 INFO  [Server] user kitty added to random game que 
+2015-11-25 15:54:37,242 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 15:54:37,250 INFO  [Server] new random game started
+2015-11-25 15:54:37,250 INFO  [Server] handling command 
+2015-11-25 15:54:37,251 INFO  [Server]  new game started 
+2015-11-25 16:58:02,305 INFO  [Server] perperper logged in
+2015-11-25 16:58:04,497 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 16:58:04,499 INFO  [Server] user perperper added to chatroom: lobby
+2015-11-25 16:58:04,503 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 16:58:07,322 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 16:58:07,322 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 16:58:07,323 INFO  [Server] user perperper added to random game que 
+2015-11-25 16:58:15,344 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 16:58:15,347 INFO  [Server] pirkola69 logged in
+2015-11-25 16:58:15,350 INFO  [Server] franZKlla logged in
+2015-11-25 16:58:15,354 INFO  [Server] kitty logged in
+2015-11-25 16:58:15,385 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 16:58:15,385 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 16:58:15,386 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 16:58:15,385 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 16:58:15,387 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 16:58:15,387 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 16:58:15,388 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 16:58:15,388 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-25 16:58:15,389 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 16:58:15,389 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 16:58:15,391 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 16:58:15,391 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 16:58:15,490 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 16:58:15,490 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 16:58:15,491 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 16:58:15,491 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 16:58:15,491 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 16:58:15,491 INFO  [Server] user kitty added to random game que 
+2015-11-25 16:58:15,492 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 16:58:15,492 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 16:58:15,491 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 16:58:15,511 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 16:58:15,511 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 16:58:15,513 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 16:58:15,519 INFO  [Server] new random game started
+2015-11-25 16:58:15,519 INFO  [Server] handling command 
+2015-11-25 16:58:15,521 INFO  [Server]  new game started 
+2015-11-25 16:59:34,036 INFO  [Server] handling command CREATE GAME|dfds
+2015-11-25 16:59:34,036 INFO  [Server] received command: CREATE GAME|dfds
+2015-11-25 16:59:41,404 INFO  [Server] received command: JOIN CHAT|sdfds
+2015-11-25 17:02:37,620 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 17:02:37,626 INFO  [Server] pirkola69 logged in
+2015-11-25 17:02:37,628 INFO  [Server]  logged in
+2015-11-25 17:02:37,634 INFO  [Server] kitty logged in
+2015-11-25 17:02:37,756 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 17:02:37,757 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 17:02:37,757 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 17:02:37,757 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 17:02:37,760 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 17:02:37,761 INFO  [Server] user  added to chatroom: lobby
+2015-11-25 17:02:37,762 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 17:02:37,762 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 17:02:37,766 WARN  [chatLogger] left the chatroom
+2015-11-25 17:02:37,767 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 17:02:37,768 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 17:02:37,769 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 17:02:37,769 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-25 17:02:37,960 INFO  [Server]  removed user with io exc
+2015-11-25 17:02:37,960 INFO  [Server]  removed user with io exc
+2015-11-25 17:02:37,965 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 17:02:37,965 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 17:02:37,965 INFO  [Server] user kitty added to random game que 
+2015-11-25 17:02:37,965 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 17:02:37,966 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 17:02:37,966 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 17:02:37,965 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 17:02:37,965 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 17:02:37,966 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 18:07:47,848 INFO  [Server] Ivar68 logged in
+2015-11-25 18:07:50,047 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 18:07:50,049 INFO  [Server] user Ivar68 added to chatroom: lobby
+2015-11-25 18:07:50,055 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 18:08:34,821 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 18:08:34,821 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 18:08:34,822 INFO  [Server] user Ivar68 added to random game que 
+2015-11-25 18:08:40,331 INFO  [Server] nilzWithSkillz logged in
+2015-11-25 18:08:40,335 INFO  [Server] pirkola69 logged in
+2015-11-25 18:08:40,339 INFO  [Server] franZKlla logged in
+2015-11-25 18:08:40,343 INFO  [Server] kitty logged in
+2015-11-25 18:08:40,360 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 18:08:40,361 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 18:08:40,361 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 18:08:40,361 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 18:08:40,363 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-25 18:08:40,361 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-25 18:08:40,364 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 18:08:40,364 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-25 18:08:40,365 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 18:08:40,365 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-25 18:08:40,367 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-25 18:08:40,367 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-25 18:08:40,465 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 18:08:40,465 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 18:08:40,465 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 18:08:40,465 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 18:08:40,466 INFO  [Server] received command: JOIN RANDOM
+2015-11-25 18:08:40,466 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-25 18:08:40,467 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 18:08:40,467 INFO  [Server] user franZKlla added to random game que 
+2015-11-25 18:08:40,467 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 18:08:40,467 INFO  [Server] user kitty added to random game que 
+2015-11-25 18:08:40,467 INFO  [Server] handling command JOIN RANDOM
+2015-11-25 18:08:40,467 INFO  [Server] user pirkola69 added to random game que 
+2015-11-25 18:08:40,472 INFO  [Server] new random game started
+2015-11-25 18:08:40,472 INFO  [Server] handling command 
+2015-11-25 18:08:40,474 INFO  [Server]  new game started 

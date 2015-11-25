@@ -182,6 +182,7 @@ public class Client {
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
 
@@ -201,6 +202,7 @@ public class Client {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
 
@@ -222,6 +224,7 @@ public class Client {
             System.out.println(response);
         } catch (IOException e){
             e.printStackTrace();
+            logger.log(Level.SEVERE, "an exception was thrown", e);
         }
     }
 
