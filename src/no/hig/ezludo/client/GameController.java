@@ -210,7 +210,7 @@ public class GameController {
             greenInGoal[i] = false;
             yellowInGoal[i] = false;
         }
-        
+
         moveBack = false;
     }
 

@@ -15,6 +15,10 @@ public class CreateDb {
         private final static String dbUrl = "jdbc:derby:ezLudoServer;create=true";
     private static Logger logger = Logger.getAnonymousLogger();
 
+        private CreateDb () {
+            setup();
+        }
+
         public static void setup () {
             try {
                 Connection con =  DriverManager.getConnection(dbUrl);
@@ -28,11 +32,12 @@ public class CreateDb {
                 //"UNIQUE (email))");
                 con.close();
             } catch (SQLException e) {
+                e.printStackTrace();
                 logger.log(Level.SEVERE, "an exception was thrown", e);
             }
         }
 
     public static void main(String[] args) {
-            setup ();
+            new CreateDb();
         }
 }

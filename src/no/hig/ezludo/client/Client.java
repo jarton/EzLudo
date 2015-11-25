@@ -17,7 +17,7 @@ public class Client {
     private PrintWriter output;
     private BufferedReader input;
     private MainController mainController;
-    private static Logger logger = Logger.getAnonymousLogger();
+    private static Logger logger;
     public Thread listnerThread;
 
 
@@ -26,6 +26,7 @@ public class Client {
      * @param mainKey Main Key for connecting to socket
      */
     public Client(String mainKey) {
+        logger = Logger.getAnonymousLogger();
         constants = new Constants();
         this.mainKey = mainKey;
         setUpConnection();
@@ -111,24 +112,24 @@ public class Client {
                 try {
                     while ((cmd = input.readLine()) != null) {
                         String command[] = cmd.split("\\|");
-                        if (command[0].equals("CHAT")) {
+                        if (("CHAT").equals(command[0])) {
                             mainController.displayMessage(command);
-                        } else if (command[0].equals("CHAT JOINED")) {
+                        } else if (("CHAT JOINED").equals(command[0])) {
                             mainController.newChatRoom(command);
-                        } else if (command[0].equals("USERS")) {
+                        } else if (("USERS").equals(command[0])) {
                             mainController.updateUsers(command);
-                        } else if (command[0].equals("GAME JOINED")) {
+                        } else if (("GAME JOINED").equals(command[0])) {
                             mainController.newGame(command);
-                        } else if (command[0].equals("GAME INVITE")) {
+                        } else if (("GAME INVITE").equals(command[0])) {
                             mainController.respondToInvitation(command);
-                        } else if (command[0].equals("GAME USERS")) {
+                        } else if (("GAME USERS").equals(command[0])) {
                             mainController.updatePlayers(command);
-                        } else if (command[0].equals("GAME")) {
-                            if (command[3].equals("TURN")) {
+                        } else if (("GAME").equals(command[0])) {
+                            if (("TURN").equals(command[3])) {
                                 mainController.playerTurn(command);
-                            } else if (command[3].equals("ROLL")) {
+                            } else if (("ROLL").equals(command[3])) {
                                 mainController.playerRoll(command);
-                            } else if (command[3].equals("MOVE")) {
+                            } else if (("MOVE").equals(command[3])) {
                                 mainController.playerMove(command);
                             } else mainController.displayMessage(command);
                         }

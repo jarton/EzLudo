@@ -6800,3 +6800,16 @@
 2015-11-25 22:05:21,417 INFO  [Server] user Ivar68 added to chatroom: lobby
 2015-11-25 22:05:24,550 INFO  [Server] received command: CREATE GAME|s
 2015-11-25 22:05:24,550 INFO  [Server] handling command CREATE GAME|s
+2015-11-26 00:03:54,062 INFO  [Server] Per Hansen logged in
+2015-11-26 00:03:55,691 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 00:03:55,692 INFO  [Server] user Per Hansen added to chatroom: lobby
+2015-11-26 00:03:55,703 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 00:03:58,390 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 00:03:58,390 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 00:03:58,390 INFO  [Server] user Per Hansen added to random game que 
+2015-11-26 00:04:02,226 INFO  [Server] received command: JOIN CHAT|n
+2015-11-26 00:04:02,226 INFO  [Server] handling command JOIN CHAT|n
+2015-11-26 00:04:02,226 INFO  [Server] chatRoom created: n
+2015-11-26 00:04:02,226 INFO  [Server] user Per Hansen added to chatroom: n
+2015-11-26 00:04:05,648 INFO  [Server] received command: CREATE GAME|n
+2015-11-26 00:04:05,648 INFO  [Server] handling command CREATE GAME|n

@@ -14,20 +14,13 @@ import java.awt.event.MouseEvent;
  *
  */
 public class LudoBoard extends JPanel {
-    private Dimension size;
     private Image board;
-
-    private Dimension redSize;
-    private Image red;
     public int boardWidth;
     public int boardHeight;
 
     public LudoBoard() {
         // get Ludo board Image
         ImageIcon tmpBoard = new ImageIcon (getClass().getResource("/res/board.png"));
-        int height = tmpBoard.getIconHeight();
-        int width = tmpBoard.getIconWidth();
-        size = new Dimension(width, height);
         board = tmpBoard.getImage();
         repaint();
     }
