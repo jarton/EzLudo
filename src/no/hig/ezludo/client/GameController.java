@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -40,6 +41,10 @@ public class GameController {
     @FXML private ImageView ludoBoardImage;
     Image board;
     private ArrayList<EventHandler<MouseEvent>> events = new ArrayList<>();
+
+    //Buttons
+    @FXML Button inviteButton;
+    @FXML Button startGame;
 
     //Players
     @FXML TextField label;
@@ -305,6 +310,12 @@ public class GameController {
 
     @FXML
     public void playerTurn(String[] command) {
+        if (inviteButton.isVisible())
+            inviteButton.setVisible(false);
+
+        if (startGame.isVisible())
+            startGame.setVisible(false);
+
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -623,6 +634,9 @@ public class GameController {
         });
     }
 
+    public void startGame() {
+        //TODO Send startgame to server
+    }
 
     public void setGameName(String gameName) {
         this.gameName = gameName;
