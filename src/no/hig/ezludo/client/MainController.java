@@ -212,7 +212,6 @@ public class MainController extends Application {
                         gameController.setupPlayers(playerNames, nickName);
                     }
 
-
                     if (firstTurnCommand != null) {
                         gameController.playerTurn(firstTurnCommand);
                         firstTurnCommand = null;

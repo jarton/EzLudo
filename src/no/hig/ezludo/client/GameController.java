@@ -228,7 +228,8 @@ public class GameController {
 
         // Add the players and their colors to the players hash map.
         for (int i = 0; i < players.length; i++) {
-            this.players.put(players[i], colors[i]);
+            if (players[i] != (null))
+                this.players.put(players[i], colors[i]);
         }
 
         // save the client's nick name
@@ -515,17 +516,22 @@ public class GameController {
                     moveBack = false;
                 }
                 else {
+                    System.out.println("updated current");
                     if (("red").equals(color)) {
                         redCurrent[piece] = colCurrent;
+                        System.out.println("updated red" + redCurrent[piece]+":"+colCurrent);
                     }
-                    else if (("bluw").equals(color)) {
+                    else if (("blue").equals(color)) {
                         blueCurrent[piece] = colCurrent;
+                        System.out.println("updated blue " + blueCurrent[piece]+":"+colCurrent);
                     }
                     else if (("yellow").equals(color)) {
                         yellowCurrent[piece] = colCurrent;
+                        System.out.println("updated yellow" + yellowCurrent[piece]+":"+colCurrent);
                     }
                     else if (("green").equals(color)) {
                         greenCurrent[piece] = colCurrent;
+                        System.out.println("updated green " + greenCurrent[piece]+":"+colCurrent);
                     }
                 }
             }
