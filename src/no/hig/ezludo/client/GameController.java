@@ -25,10 +25,7 @@ import java.util.*;
 public class GameController {
     private static Logger logger = Logger.getAnonymousLogger();
 
-    /**
-     * Constant
-     * Defines the sleepingtime for diceroll and piecemove
-     * */
+    // Constant: Defines the sleepingtime for diceroll and piecemove
     final static private int movePieceLag = 500;
     final static private int diceLag = 100;
 
