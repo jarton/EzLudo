@@ -129,6 +129,7 @@ public class ClientTest {
         setUpLoginConnection();
         String key = login();
         client = new Client(key);
+        client.listnerThread.interrupt();
 
         output = client.getOutput();
         input = client.getInput();

@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -51,11 +52,11 @@ public class MainController extends Application {
 
             Parameters parameters = getParameters();
             List<String> rawArguments = parameters.getRaw();
-            MainController.setClient(rawArguments);
 
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Lobby.fxml"));
             Parent root = (Parent) loader.load();
 
+            MainController.setClient(rawArguments);
             client.setMainController(loader.getController());
 
             primaryStage.setTitle("Ez-Ludo");
@@ -64,6 +65,12 @@ public class MainController extends Application {
 
             // Join the lobby chat
             client.joinChatRoom("lobby");
+
+            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    exit();
+                }
+            });
 
         }
         catch (Exception e) {
@@ -189,7 +196,9 @@ public class MainController extends Application {
 
     public void exit() {
         client.logout();
-        System.exit(0);
+        client.closeConnection();
+        client.listnerThread.interrupt();
+        System.exit(0); //NOSONAR
     }
 
     public void about() {
