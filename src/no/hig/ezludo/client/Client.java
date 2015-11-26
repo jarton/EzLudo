@@ -179,7 +179,7 @@ public class Client {
         return listenerThread;
     }
     /**
-     * Sends a response to a received game invitation. The response parameter should either be "ACCEPT" or "DECLINE".
+     * Sends a response to a received game invitation. The "response" parameter should either be "ACCEPT" or "DECLINE".
      * @param response "ACCEPT" or "DECLINE"
      * @param gameId the id of the game
      */
@@ -188,6 +188,12 @@ public class Client {
         output.flush();
     }
 
+    /**
+     * This method sends a game invitation to another player. Provide the method with the name of the player, as well
+     * as the game id.
+     * @param name
+     * @param gameId
+     */
     public void sendGameInvite(String name, String gameId) {
         output.println("GAME INVITE|" + gameId + "|" + name);
         output.flush();
@@ -227,7 +233,7 @@ public class Client {
     }
 
     /**
-     * This method closes the socket, input and output.
+     * This method closes the socket, PrintWriter and BufferedReader.
      */
     public void closeConnection() {
         try {
@@ -255,6 +261,7 @@ public class Client {
             output.flush();
             String response = input.readLine();
             if (response.startsWith("LOGGED IN")) {
+                // split the response up, get the nickname and start the listener
                 String[] command = response.split("\\|");
                 nickName = command[1];
                 startListener();
