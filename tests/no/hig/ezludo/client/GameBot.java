@@ -19,7 +19,7 @@ public class GameBot {
     private PrintWriter output;
     private BufferedReader input;
     private String spam[] = {"Ella ella eh eh eh, Under my umbrella!! Rihanna :)","Amen.", "hei","Shine bright like a diamond! Shine bright like a diamond!",
-            "Jeg er Alfa og Omega, den f�rste og den siste, begynnelsen og enden.","Bibelen er veikartet, Sannvittigheten kompasset.",
+            "Bibelen er veikartet, Sannvittigheten kompasset.",
             "hva skjer?","Chicken McNuggets oyeah yeah yeah yeah yeah", "lol funny", "I kissed a girl and I liked it, the taste of her cherry chapstick.", "ludo anyone", "ludy hype", "noen eg kan utfordre?",
     "haha", "riot", "liker kinasjakk bedre", "hahahha", "join min chat da vell",  ":D", "nice", "\\^.^/", "plox add me",
     "dette spillet suger", "yoyoyo", "noen som liker kylling?","Boom, boom, boom. Even brighter than the moon, moon, moon. My Katy Perry", "..................................HEI", "jeg heter per",
