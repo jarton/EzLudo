@@ -14,7 +14,7 @@ import java.awt.event.MouseEvent;
  *
  */
 public class LudoBoard extends JPanel {
-    private Image board;
+    private transient Image board;
     public int boardWidth;
     public int boardHeight;
 

@@ -35,16 +35,16 @@ import java.util.prefs.Preferences;
  * @author Kristian, Per-Kristian
  * date 29.10.2015.
  */
-public class Login extends JFrame  {
-    private Internationalization internationalization;
-    private ResourceBundle messages;
+public class Login extends JFrame   {
+    private transient Internationalization internationalization;
+    public static ResourceBundle messages;
     private JPanel panel;
-    public UserAccount userAccount;
+    public transient UserAccount userAccount;
     private String email;
     private String IP;
     private char[] password = "".toCharArray();
     public JFrame jframe;
-    private Socket socket;
+    private transient Socket socket;
     private static Preferences prefs;
     private JTextField userText;
     private JPasswordField passwordText;
@@ -221,7 +221,8 @@ public class Login extends JFrame  {
      */
     public void fillPasswordField() {
         try {
-            String encryptedPassword = prefs.get("password", "");
+            String pw = "password";
+            String encryptedPassword = prefs.get(pw, "");
 
             if (!encryptedPassword.equals("")) {
                 String decryptedPassword = decrypt(encryptedPassword);

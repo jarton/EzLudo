@@ -95,7 +95,7 @@ public class MainController extends Application {
             tabMap.get(text[1]).displayMessage(text[2] + ": " + text[3]);
         } else if (text[0].equals("GAME")) {
             if (text[4].equals("WIN")) {
-                gameMap.get(text[1]).displayMessage(text[5] + " won the game!");
+                gameMap.get(text[1]).displayMessage(text[5] + " "+Login.messages.getString("winner"));
             }
             gameMap.get(text[1]).displayMessage(text[4] + ": " + text[5]);
         }
@@ -103,9 +103,9 @@ public class MainController extends Application {
 
     public void chooseChatRoomName() {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("New room");
-        dialog.setHeaderText("Create your room");
-        dialog.setContentText("Enter a unique room name:");
+        dialog.setTitle(Login.messages.getString("newRoom"));
+        dialog.setHeaderText(Login.messages.getString("createRoom"));
+        dialog.setContentText(Login.messages.getString("enterRoomName"));
 
         Optional<String> result = dialog.showAndWait();
 
@@ -115,9 +115,9 @@ public class MainController extends Application {
     public void chooseGameRoomName() {
 
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("New room");
-        dialog.setHeaderText("Create your room");
-        dialog.setContentText("Enter a unique room name:");
+        dialog.setTitle(Login.messages.getString("newRoom"));
+        dialog.setHeaderText(Login.messages.getString("createRoom"));
+        dialog.setContentText(Login.messages.getString("enterRoomName"));
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(client::sendNewGameRequest);
@@ -165,9 +165,9 @@ public class MainController extends Application {
             @Override
             public void run() {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Invitation received");
-                alert.setHeaderText("Join game?");
-                alert.setContentText(hostingPlayer + "\ninvited you to a game! Would you like to join?");
+                alert.setTitle(Login.messages.getString("invitation"));
+                alert.setHeaderText(Login.messages.getString("joineGame"));
+                alert.setContentText(hostingPlayer + "\n"+Login.messages.getString("inviteJoine"));
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
@@ -189,8 +189,15 @@ public class MainController extends Application {
 
     public void exit() {
         client.logout();
-        //TODO finn et alternativ til sysexit. Sysexit stenger hele JVM. feks dispose() ?
         System.exit(0);
+    }
+
+    public void about() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(Login.messages.getString("about"));
+        alert.setHeaderText(null);
+        alert.setContentText("Jardar, Kristian, Per-Kristian");
+        alert.showAndWait();
     }
 
     public void newGame(String response[]) {

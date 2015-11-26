@@ -339,5 +339,5 @@ public class Server {
 	 * starts the server
 	 * @param args not used yet.
 	 */
-   public static void main(String[] args) { new Server(); }
+   public static void main(String[] args) { Server server;  server = new Server(); }
 }
