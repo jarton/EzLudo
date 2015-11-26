@@ -16,10 +16,7 @@ public class Game {
     private User players[];
 
     // the square the different pieces to a player is in. the 5 int is the last roll of that player
-    private int[] player0 = new int[6];
-    private int[] player1 = new int[6];
-    private int[] player2 = new int[6];
-    private int[] player3 = new int[6];
+    private int[][] playerSquares = new int[4][6];
 
     // maps the usernames to the placement array of the users
     private HashMap<String, int[]> userPlaces = new HashMap<>();
@@ -89,15 +86,16 @@ public class Game {
      */
     private void initPlaces() {
         for (int i = 0; i < 6; i++) {
-            player0[i] = 0;
-            player1[i] = 0;
-            player2[i] = 0;
-            player3[i] = 0;
+            playerSquares[0][i] = 0;
+            playerSquares[1][i] = 0;
+            playerSquares[2][i] = 0;
+            playerSquares[3][i] = 0;
         }
-        userPlaces.put(players[0].getNickname(), player0);
-        userPlaces.put(players[1].getNickname(), player1);
-        userPlaces.put(players[2].getNickname(), player2);
-        userPlaces.put(players[3].getNickname(), player3);
+
+        for (int i=0;i<numPlayers;i++) {
+            userPlaces.put(players[i].getNickname(), playerSquares[i]);
+        }
+
 
         int j = 1;
         for (int i=1;i<53;i++) {
@@ -289,13 +287,12 @@ public class Game {
                     }
                 }
                 else if (playerSquare[4] == 6 && playerSquare[5] != 3) {
-                    synchronized (players) {
-                        for (User player : players)
+                        for (int i=0;i<numPlayers;i++) {
                             try {
-                                player.write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
+                                players[i].write("GAME|" + id + "|" + name + "|TURN|" + playerTurn.getNickname());
                             } catch (Exception e) {
-                                usersClosedSocets.add(player);
-                                playerLeft(player);
+                                usersClosedSocets.add(players[i]);
+                                playerLeft(players[i]);
                                 logger.log(Level.SEVERE, "an exception was thrown", e);
                             }
                     }
@@ -307,10 +304,9 @@ public class Game {
             }
         }
         else if (cmd.getRawCmd().startsWith("GAME|" + id + "|" + name + "|CHAT")) {
-            synchronized (players) {
-                for (User player : players)
+                for (int i=0;i<numPlayers;i++) {
                     try {
-                        player.write(cmd.getRawCmd());
+                        players[i].write(cmd.getRawCmd());
                     } catch (Exception e) {
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
@@ -351,20 +347,19 @@ public class Game {
             turnInt = 0;
         playerTurn=players[turnInt];
 
-        synchronized (players) {
-            for (User player : players)
+            for (int i=0;i<numPlayers;i++) {
                 try {
-                    player.write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
+                    players[i].write("GAME|"+ id + "|" + name +"|TURN|"+playerTurn.getNickname());
                 } catch (Exception e) {
-                    closed.add(player);
-                    playerLeft(player);
+                    closed.add(players[i]);
+                    playerLeft(players[i]);
                     logger.log(Level.SEVERE, "an exception was thrown", e);
                 }
         }
     }
 
     private void checkMoveBackTostart(int playerSquare[], int pieceToMove, Vector<User> closedSockets) {
-            for (int i=0;i<4;i++) {
+            for (int i=0;i<numPlayers;i++) {
                 for (int j=0;j<4;j++) {
                     if (! players[i].getNickname().equals(playerTurn.getNickname())) {
                         int pieces[] = userPlaces.get(players[i].getNickname());
@@ -373,14 +368,13 @@ public class Game {
                                 System.out.println("player moved to: " + playerSquare[pieceToMove] +
                                         " : " + realBoardMap[turnInt][playerSquare[pieceToMove]] + " already : "
                                         + pieces[j] + " : " + realBoardMap[i][pieces[j]]);
-                                synchronized (players) {
-                                    for (User player : players)
+                                    for (int k=0;k<numPlayers;k++) {
                                         try {
-                                            player.write("GAME|" + id + "|" + name + "|MOVE|" +
+                                            players[k].write("GAME|" + id + "|" + name + "|MOVE|" +
                                                     players[i].getNickname() + "|" + j + "|" + 0);
                                         } catch (Exception e) {
-                                            playerLeft(player);
-                                            closedSockets.add(player);
+                                            playerLeft(players[k]);
+                                            closedSockets.add(players[k]);
                                             logger.log(Level.SEVERE, "an exception was thrown", e);
                                         }
                                 }
@@ -405,16 +399,14 @@ public class Game {
                 players[j] = players[i];
             }
             numPlayers--;
-            synchronized (players) {
-                for (User user : players) {
+                for (int i=0;i<numPlayers;i++) {
                     try {
-                        user.write("GAME|" + id + "|" + name + "|LEFT|" + player.getNickname());
+                        players[i].write("GAME|" + id + "|" + name + "|LEFT|" + player.getNickname());
                     } catch (Exception e) {
-                        playerLeft(user);
+                        playerLeft(players[i]);
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
                 }
-            }
         }
     }
 

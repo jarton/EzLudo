@@ -9,20 +9,24 @@
     <center>
         <TabPane fx:id="tabPane">
             <tabs>
-                <Tab closable="false" text="Game">
+                <Tab closable="false" text="velcome">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <BorderPane layoutX="300.0" layoutY="46.0" prefHeight="538.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <top>
-                              <Pane prefHeight="406.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
+                              <Pane prefHeight="406.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <ButtonBar layoutX="139.0" layoutY="183.0" prefHeight="40.0" prefWidth="522.0">
+                                      <buttons>
+                                        <Button mnemonicParsing="false" onAction="#randomGame" prefHeight="27.0" prefWidth="158.0" text="join random game" />
+                                          <Button mnemonicParsing="false" onAction="#chooseChatRoomName" text="create chat" />
+                                          <Button mnemonicParsing="false" onAction="#chooseGameRoomName" text="create game" />
+                                      </buttons>
+                                    </ButtonBar>
+                                    <Label layoutX="350.0" layoutY="80.0" text="velkommentekst" />
+                                 </children></Pane>
                            </top>
-                           <bottom>
-                              <TextField BorderPane.alignment="CENTER" />
-                           </bottom>
-                           <center>
-                              <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-                           </center>
                         </BorderPane>
                      </children></AnchorPane>
                     </content>

@@ -233,8 +233,8 @@ public class GameController {
 
         // save the client's nick name
         myNickname = nickname;
-        label.setText("\t\t Red: " + players[0] + ",\t\t Green: " + players[1] +
-                ",\t\t Yellow: " + players[2] + ",\t\t Blue: " + players[3]);
+        label.setText("\t\t Red: " + players[0] + ",\t\t Blue: " + players[1] +
+                ",\t\t Yellow: " + players[2] + ",\t\t Green: " + players[3]);
     }
 
     @FXML
@@ -280,9 +280,9 @@ public class GameController {
                     });
                     events.add(i, event);
                 }
-                if (allInStart)
-                    MainController.client.movePiece(gameId, gameName, "0");
             }
+            if (allInStart)
+                MainController.client.movePiece(gameId, gameName, "0");
         }
         else {
             showDices(command[5]);
