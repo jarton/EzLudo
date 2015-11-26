@@ -99,7 +99,7 @@ public class MainController extends Application {
             tabMap.get(text[1]).displayMessage(text[2] + ": " + text[3]);
         } else if (text[0].equals("GAME")) {
             if (text[4].equals("WIN")) {
-                gameMap.get(text[1]).displayMessage(text[5] + " "+Login.messages.getString("winner"));
+                gameMap.get(text[1]).displayMessage(text[5] + " " + Login.getTranslation().getString("winner"));
             }
             gameMap.get(text[1]).displayMessage(text[4] + ": " + text[5]);
         }
@@ -107,9 +107,9 @@ public class MainController extends Application {
 
     public void chooseChatRoomName() {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle(Login.messages.getString("newRoom"));
-        dialog.setHeaderText(Login.messages.getString("createRoom"));
-        dialog.setContentText(Login.messages.getString("enterRoomName"));
+        dialog.setTitle(Login.getTranslation().getString("newRoom"));
+        dialog.setHeaderText(Login.getTranslation().getString("createRoom"));
+        dialog.setContentText(Login.getTranslation().getString("enterRoomName"));
 
         Optional<String> result = dialog.showAndWait();
 
@@ -119,9 +119,9 @@ public class MainController extends Application {
     public void chooseGameRoomName() {
 
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle(Login.messages.getString("newRoom"));
-        dialog.setHeaderText(Login.messages.getString("createRoom"));
-        dialog.setContentText(Login.messages.getString("enterRoomName"));
+        dialog.setTitle(Login.getTranslation().getString("newRoom"));
+        dialog.setHeaderText(Login.getTranslation().getString("createRoom"));
+        dialog.setContentText(Login.getTranslation().getString("enterRoomName"));
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(client::sendNewGameRequest);
@@ -169,9 +169,9 @@ public class MainController extends Application {
             @Override
             public void run() {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle(Login.messages.getString("invitation"));
-                alert.setHeaderText(Login.messages.getString("joineGame"));
-                alert.setContentText(hostingPlayer + "\n"+Login.messages.getString("inviteJoine"));
+                alert.setTitle(Login.getTranslation().getString("invitation"));
+                alert.setHeaderText(Login.getTranslation().getString("joineGame"));
+                alert.setContentText(hostingPlayer + "\n" + Login.getTranslation().getString("inviteJoine"));
 
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK){
@@ -200,7 +200,7 @@ public class MainController extends Application {
 
     public void about() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(Login.messages.getString("about"));
+        alert.setTitle(Login.getTranslation().getString("about"));
         alert.setHeaderText(null);
         alert.setContentText("Jardar, Kristian, Per-Kristian");
         alert.showAndWait();

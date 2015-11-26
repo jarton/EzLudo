@@ -37,7 +37,7 @@ import java.util.prefs.Preferences;
  */
 public class Login extends JFrame   {
     private transient Internationalization internationalization;
-    public static ResourceBundle messages;
+    private static ResourceBundle messages;
     private JPanel panel;
     public transient UserAccount userAccount;
     private String email;
@@ -186,7 +186,7 @@ public class Login extends JFrame   {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JPanel userAccountPanel;
-                userAccount = new UserAccount(internationalization, jframe, panel);
+                userAccount = new UserAccount(jframe, panel);
                 userAccountPanel = userAccount.createLayout();
                 remove(panel);
                 setPreferredSize(new Dimension(350, 260));
@@ -368,6 +368,14 @@ public class Login extends JFrame   {
         }
         return generatedPassword;
     }
+
+    /**
+     * Returns the resourcebundle for I18N
+     * */
+    public static ResourceBundle getTranslation() {
+        return messages;
+    }
+
     /**
      * Main method. Creates look and feel.
      * And creates a new login object which is placed in center of screen.

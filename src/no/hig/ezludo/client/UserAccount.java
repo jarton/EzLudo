@@ -11,7 +11,6 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,39 +21,28 @@ import java.util.logging.Logger;
  */
 public class UserAccount {
     private static Logger logger;
-    private ResourceBundle messages;
     private JPanel panel;
     private JPanel loginPanel;
     private JFrame jFrame;
 
-    /**
-     * Userdata
-     */
+    //Userdata
     private String username;
     private char[] password;
     private char[] passwordRepeat ;
     private String email;
 
-    /**
-     * Number of errors and errormessages from registration
-     */
+    //Number of errors and errormessages from registration
     private int errorsNumb;
     private String[] errors;
 
-    /**
-     * Variables for communication with server
-     */
+     // Variables for communication with server
     PrintWriter output;
     BufferedReader input;
     private Socket loginClient;
     private String IP;
 
-
-    /**
-     * Constructor which gets UI-data and I18N objects from Login-class.
-     */
-    public UserAccount(Internationalization internationalization, JFrame jFrame, JPanel loginPanel) {
-        messages = internationalization.getLang();
+    //Constructor which gets UI-data and I18N objects from Login-class.
+    public UserAccount(JFrame jFrame, JPanel loginPanel) {
         logger = Logger.getAnonymousLogger();
         this.jFrame = jFrame;
         this.loginPanel = loginPanel;
@@ -79,38 +67,39 @@ public class UserAccount {
         panel = new JPanel();
         panel.setLayout(null);
 
-        /**
-         * Username label
-         */
-        JLabel userLabel = new JLabel(messages.getString("username"));
+        //Username label
+        JLabel userLabel = new JLabel(Login.getTranslation().getString("username"));
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
 
-        /**
-         * Username input field
-         */
+        //Username input field
         JTextField userText = new JTextField(20);
         userText.setBounds(100, 10, 160, 25);
         userText.getDocument().addDocumentListener(new DocumentListener() {
             @Override
-            public void changedUpdate(DocumentEvent e) { username = userText.getText();}
+            public void changedUpdate(DocumentEvent e) {
+                username = userText.getText();
+            }
+
             @Override
-            public void removeUpdate(DocumentEvent e) { username = userText.getText(); }
-@           Override
-            public void insertUpdate(DocumentEvent e) { username = userText.getText(); }
+            public void removeUpdate(DocumentEvent e) {
+                username = userText.getText();
+            }
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                username = userText.getText();
+            }
         });
         panel.add(userText);
 
-        /**
-         * E-mail label
-         */
-        JLabel emailLabel = new JLabel(messages.getString("loginEmail"));
+        //E-mail label
+        JLabel emailLabel = new JLabel(Login.getTranslation().getString("loginEmail"));
         emailLabel.setBounds(10, 40, 80, 25);
         panel.add(emailLabel);
 
-        /**
-         * E-mail input field
-         */
+
+        //E-mail input field
         JTextField emailText = new JTextField(20);
         emailText.setBounds(100, 40, 160, 25);
         emailText.getDocument().addDocumentListener(new DocumentListener() {
@@ -118,10 +107,12 @@ public class UserAccount {
             public void changedUpdate(DocumentEvent e) {
                 email = emailText.getText();
             }
+
             @Override
             public void removeUpdate(DocumentEvent e) {
                 email = emailText.getText();
             }
+
             @Override
             public void insertUpdate(DocumentEvent e) {
                 email = emailText.getText();
@@ -129,16 +120,12 @@ public class UserAccount {
         });
         panel.add(emailText);
 
-        /**
-         * Password label
-         */
-        JLabel passwordLabel = new JLabel(messages.getString("loginPassword"));
+        //Password label
+        JLabel passwordLabel = new JLabel(Login.getTranslation().getString("loginPassword"));
         passwordLabel.setBounds(10, 70, 80, 25);
         panel.add(passwordLabel);
 
-        /**
-         * Password input field
-         */
+        //Password input field
         JPasswordField passwordText = new JPasswordField(20);
         passwordText.setBounds(100,70,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
@@ -157,16 +144,12 @@ public class UserAccount {
         });
         panel.add(passwordText);
 
-        /**
-         * Password repeat label
-         */
-        JLabel passwordLabelRepeat = new JLabel(messages.getString("loginPasswordRepeat"));
+        //Password repeat label
+        JLabel passwordLabelRepeat = new JLabel(Login.getTranslation().getString("loginPasswordRepeat"));
         passwordLabelRepeat.setBounds(10, 100, 80, 25);
         panel.add(passwordLabelRepeat);
 
-        /**
-         * Password repeat input field
-         */
+        //Password repeat input field
         JPasswordField passwordRepeatText = new JPasswordField(20);
         passwordRepeatText.setBounds(100,100,160,25);
         passwordRepeatText.getDocument().addDocumentListener(new DocumentListener() {
@@ -174,10 +157,12 @@ public class UserAccount {
             public void changedUpdate(DocumentEvent e) {
                 passwordRepeat = passwordRepeatText.getPassword();
             }
+
             @Override
             public void removeUpdate(DocumentEvent e) {
                 passwordRepeat = passwordRepeatText.getPassword();
             }
+
             @Override
             public void insertUpdate(DocumentEvent e) {
                 passwordRepeat = passwordRepeatText.getPassword();
@@ -185,17 +170,12 @@ public class UserAccount {
         });
         panel.add(passwordRepeatText);
 
-        /**
-         * IP label
-         */
-        JLabel ipLabel = new JLabel(messages.getString("loginIP"));
+         //IP label
+        JLabel ipLabel = new JLabel(Login.getTranslation().getString("loginIP"));
         ipLabel.setBounds(10, 130, 80, 25);
         panel.add(ipLabel);
 
-
-        /**
-         * IP input field
-         */
+        //IP input field
         JTextField ipTextField = new JTextField(20);
         ipTextField.setBounds(100, 130, 160, 25);
         ipTextField.getDocument().addDocumentListener(new DocumentListener() {
@@ -210,10 +190,9 @@ public class UserAccount {
         });
         panel.add( ipTextField);
 
-        /**
-         * Back button: Return to Login
-         */
-        JButton backButton = new JButton(messages.getString("back"));
+
+         //Back button: Return to Login
+        JButton backButton = new JButton(Login.getTranslation().getString("back"));
         backButton.setBounds(10,190,80,25);
         backButton.addActionListener(new ActionListener() {
             @Override
@@ -223,11 +202,10 @@ public class UserAccount {
         });
         panel.add(backButton);
 
-        /**
-         * Register button
-         * Checks userdata and connects to server for registering
-         */
-        JButton registerButton = new JButton(messages.getString("register"));
+
+        // Register button
+        // Checks userdata and connects to server for registering
+        JButton registerButton = new JButton(Login.getTranslation().getString("register"));
         registerButton.setBounds(180, 190, 80, 25);
         registerButton.addActionListener(new ActionListener() {
             @Override
@@ -237,10 +215,8 @@ public class UserAccount {
                         errors[i] = null;
                     }
 
-                    /**
-                    * Checks if userdata is valid and returns user to login screen
-                     * If invalid userdata: Errormessage according to error
-                    */
+                     //Checks if userdata is valid and returns user to login screen
+                     // If invalid userdata: Errormessage according to error
                     if (usernameChecker(username) && emailChecker(email) && pwdChecker(password, passwordRepeat) && validIP(IP)) {
                         Constants.setServerIP(IP);
                         String passwordToHash = String.valueOf(password);
@@ -252,7 +228,7 @@ public class UserAccount {
                             if (errors[i] != null)
                                 output = output + "\n" + errors[i];
                         }
-                        JOptionPane.showMessageDialog(null, output, messages.getString("errormsg"), JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, output, Login.getTranslation().getString("errormsg"), JOptionPane.WARNING_MESSAGE);
                     }
             }
 
@@ -273,25 +249,25 @@ public class UserAccount {
         int length;
         if (a == null || b == null) {
             errorsNumb++;
-            errors[errorsNumb] = messages.getString("registerNoPassword");
+            errors[errorsNumb] = Login.getTranslation().getString("registerNoPassword");
             return false;
         }
         if (a.length != b.length) {
             errorsNumb++;
-            errors[errorsNumb] = messages.getString("registerPasswordNoMatch");
+            errors[errorsNumb] = Login.getTranslation().getString("registerPasswordNoMatch");
             return false;
         }
         else
             length = a.length;
         if (length < 8) {
             errorsNumb++;
-            errors[errorsNumb] = messages.getString("registerPasswordTooShort");
+            errors[errorsNumb] = Login.getTranslation().getString("registerPasswordTooShort");
             return false;
         }
         for (int i = 0; i < length; i++){
             if (a[i] != b[i]) {
                 errorsNumb++;
-                errors[errorsNumb] = messages.getString("registerPasswordNoMatch");
+                errors[errorsNumb] = Login.getTranslation().getString("registerPasswordNoMatch");
                 return false;
             }
         }
@@ -308,7 +284,7 @@ public class UserAccount {
     public boolean emailChecker(String email) {
         if (email == null) {
             errorsNumb++;
-            errors[errorsNumb] = messages.getString("registerNoEmail");
+            errors[errorsNumb] = Login.getTranslation().getString("registerNoEmail");
             return false;
         }
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
@@ -316,7 +292,7 @@ public class UserAccount {
         java.util.regex.Matcher m = p.matcher(email);
         if(!m.matches()) {
             errorsNumb++;
-            errors[errorsNumb] = messages.getString("registerEmailNotValid");
+            errors[errorsNumb] = Login.getTranslation().getString("registerEmailNotValid");
         }
         return m.matches();
     }
@@ -330,17 +306,17 @@ public class UserAccount {
     public boolean usernameChecker (String username) {
         if (username == null) {
             errorsNumb++;
-            errors[errorsNumb] = messages.getString("registerNoUsername");
+            errors[errorsNumb] = Login.getTranslation().getString("registerNoUsername");
             return false;
         }
         if (username.length() < 3 || username.length() > 15) {
             if (username.length() < 3) {
                 errorsNumb++;
-                errors[errorsNumb] = messages.getString("registerShortUsername");
+                errors[errorsNumb] = Login.getTranslation().getString("registerShortUsername");
             }
             if (username.length() > 15) {
                 errorsNumb++;
-                errors[errorsNumb] = messages.getString("registerLongUsername");
+                errors[errorsNumb] = Login.getTranslation().getString("registerLongUsername");
             }
             return false;
         }
@@ -398,12 +374,12 @@ public class UserAccount {
             loginClient.close();
             if (!feedBack.startsWith("REGISTRATION OK")) {
                 System.out.print("fail");
-                JOptionPane.showMessageDialog(null, messages.getString("newUserCreatedFail"), messages.getString("newUser"), JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, Login.getTranslation().getString("newUserCreatedFail"), Login.getTranslation().getString("newUser"), JOptionPane.WARNING_MESSAGE);
             }
             else
-                JOptionPane.showMessageDialog(null, messages.getString("newUserCreated"), messages.getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, Login.getTranslation().getString("newUserCreated"), Login.getTranslation().getString("newUser"), JOptionPane.INFORMATION_MESSAGE);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, messages.getString("newUserCreatedFail"), messages.getString("newUser"), JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, Login.getTranslation().getString("newUserCreatedFail"), Login.getTranslation().getString("newUser"), JOptionPane.WARNING_MESSAGE);
             logger.log(Level.SEVERE, "an exception was thrown", ex);
         }
 
@@ -417,26 +393,26 @@ public class UserAccount {
     public boolean validIP (String ip) {
             if ( ip == null || ip.isEmpty() ) {
                 errorsNumb++;
-                errors[errorsNumb] = messages.getString("registerIPEmpty");
+                errors[errorsNumb] = Login.getTranslation().getString("registerIPEmpty");
                 return false;
             }
             String[] parts = ip.split( "\\." );
             if ( parts.length != 4 ) {
                 errorsNumb++;
-                errors[errorsNumb] = messages.getString("registerIPShort");
+                errors[errorsNumb] = Login.getTranslation().getString("registerIPShort");
                 return false;
             }
             for ( String s : parts ) {
                 int i = Integer.parseInt( s );
                 if ( (i < 0) || (i > 255) ) {
                     errorsNumb++;
-                    errors[errorsNumb] = messages.getString("registerIPWrongNumb");
+                    errors[errorsNumb] = Login.getTranslation().getString("registerIPWrongNumb");
                     return false;
                 }
             }
             if ( ip.endsWith(".") ) {
                 errorsNumb++;
-                errors[errorsNumb] = messages.getString("registerIPEndDot");
+                errors[errorsNumb] = Login.getTranslation().getString("registerIPEndDot");
                 return false;
             }
             return true;

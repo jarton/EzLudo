@@ -9,8 +9,8 @@ import java.awt.event.MouseEvent;
 /**
  * @author Kristian
  * date 01.11.2015.
- * This class inclues a scalable ludoboard insida a JFrame. This is used to define the X and Y coordinates
- * for every square. Output from X and Y are used further to define LudoBoardCoordinates.java.
+ * This class contains a scalable ludoboard insida a JFrame. This is used to define the X and Y coordinates
+ * for every square at the ludoboard. Output from X and Y are used further to define LudoBoardCoordinates.java.
  *
  */
 public class LudoBoard extends JPanel {
@@ -18,35 +18,44 @@ public class LudoBoard extends JPanel {
     public int boardWidth;
     public int boardHeight;
 
+    /**
+     * Constructor to set the ludoboard to JFrame
+     * */
     public LudoBoard() {
-        // get Ludo board Image
         ImageIcon tmpBoard = new ImageIcon (getClass().getResource("/res/board.png"));
         board = tmpBoard.getImage();
         repaint();
     }
 
+    /**
+     * Repaint the ludoboard when JFrame changes size
+     * */
     @Override
     public void paint(Graphics g) {
-        // Define g2d
         super.paint(g);
         Graphics2D g2d = (Graphics2D)g;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
-
-        // add Ludo board
-        g2d.drawImage(board, 0, 0, getWidth(), getHeight() , this);
-
-        // Get lodo board height and width for int and double
+        g2d.drawImage(board, 0, 0, getWidth(), getHeight(), this);
         boardHeight=getHeight();
         boardWidth=getWidth();
 
     }
+    /**
+     * MAIN
+     * Mouselistener is used to find coordinates on loaded image.
+     * X is divide by the width
+     * Y is divided by the height
+     *
+     * The outpur is:
+     * X Coord
+     * Y Coord
+     * --------------------
+     * */
     public static void main(String[] args) {
         JFrame jFrame= new JFrame();
         LudoBoard ludoBoard;
         ludoBoard = new LudoBoard();
-
-        // Mouselistener is used to find coordinates on loaded image
         ludoBoard.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
