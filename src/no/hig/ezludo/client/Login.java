@@ -38,7 +38,6 @@ import java.util.prefs.Preferences;
 public class Login extends JFrame  {
     private Internationalization internationalization;
     private ResourceBundle messages;
-    private Constants constants;
     private JPanel panel;
     public UserAccount userAccount;
     private String email;
@@ -63,7 +62,6 @@ public class Login extends JFrame  {
         super("Ez-Ludo");
         // Get preferences, and see if it contains an email value
         prefs = Preferences.userNodeForPackage(getClass());
-        constants = new Constants();
         IP="127.0.0.1";
         internationalization = new Internationalization(System.getProperty("user.language"), System.getProperty("user.country"));
         messages = internationalization.getLang();
@@ -312,8 +310,8 @@ public class Login extends JFrame  {
                 String passwordString = String.valueOf(password);
                 String hashedPassword = getSHA256(passwordString, email);
 
-                constants.setServerIP(IP);
-                socket = new Socket(constants.getServerIP(), constants.getLoginPortNumber());
+                Constants.setServerIP(IPText.getText());
+                socket = new Socket(Constants.getServerIP(), Constants.getLoginPortNumber());
                 PrintWriter output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
                 BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 

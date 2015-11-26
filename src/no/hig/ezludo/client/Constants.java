@@ -4,29 +4,29 @@ package no.hig.ezludo.client;
  * Created by jdr on 13/11/15.
  */
 public class Constants {
-    private String serverIP;
-    private static int portNumber;
-    private static int loginPortNumber;
+    private static String serverIP = "127.0.0.1";
+    private static final int portNumber = 9696;
+    private static final int loginPortNumber = 6969;
 
-    public Constants() {
+    /* public Constants() {
         serverIP="127.0.0.1";
         portNumber = 9696;
         loginPortNumber = 6969;
-    }
+    }*/
 
-    public String getServerIP () {
+    public static String getServerIP () {
         return serverIP;
     }
 
-    public int getPortNumber () {
+    public static int getPortNumber () {
         return portNumber;
     }
 
-    public int getLoginPortNumber () {
+    public static int getLoginPortNumber () {
         return loginPortNumber;
     }
 
-    public void setServerIP (String serverIP) {
-        this.serverIP = serverIP;
+    public static void setServerIP (String newServerIP) {
+        serverIP = newServerIP;
     }
 }

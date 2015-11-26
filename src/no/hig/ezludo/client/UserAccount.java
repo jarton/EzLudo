@@ -22,7 +22,6 @@ import java.util.logging.Logger;
  */
 public class UserAccount {
     private static Logger logger;
-    private Constants constants;
     private ResourceBundle messages;
     private JPanel panel;
     private JPanel loginPanel;
@@ -44,7 +43,6 @@ public class UserAccount {
      * Constructor which gets UI-data and I18N objects from Login-class.
      */
     public UserAccount(Internationalization internationalization, JFrame jFrame, JPanel loginPanel) {
-        constants = new Constants();
         messages = internationalization.getLang();
         this.jFrame = jFrame;
         this.loginPanel = loginPanel;
@@ -207,7 +205,7 @@ public class UserAccount {
                     }
 
                     if (usernameChecker(username) && emailChecker(email) && pwdChecker(password, passwordRepeat) && validIP(IP)) {
-                        constants.setServerIP(IP);
+                        Constants.setServerIP(IP);
                         String passwordToHash = String.valueOf(password);
                         String hashedPassword = getSHA256(passwordToHash, email);
                         register(username, email, hashedPassword);
@@ -354,7 +352,7 @@ public class UserAccount {
 
     public void register(String username, String email, String hashedPassword) {
         try {
-            loginClient = new Socket(constants.getServerIP(), constants.getLoginPortNumber());
+            loginClient = new Socket(Constants.getServerIP(), Constants.getLoginPortNumber());
             output = new PrintWriter(new OutputStreamWriter(loginClient.getOutputStream()));
             input = new BufferedReader(new InputStreamReader(loginClient.getInputStream()));
 
