@@ -24,7 +24,7 @@ public class ChatController {
     @FXML
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
-        MainController.client.sendChatMessage(source.getText(), roomName);
+        MainController.getClient().sendChatMessage(source.getText(), roomName);
         source.clear();
     }
 

@@ -232,7 +232,7 @@ public class GameController {
                 this.players.put(players[i], colors[i]);
         }
 
-        // save the client's nick name
+        // save the client's nickname
         myNickname = nickname;
         label.setText("\t\t "+Login.messages.getString("red")+": " + players[0] + ",\t\t "+Login.messages.getString("blue")+": " + players[1] +
                 ",\t\t "+Login.messages.getString("yellow")+": " + players[2] + ",\t\t "+Login.messages.getString("green")+": " + players[3]);
@@ -275,7 +275,7 @@ public class GameController {
                     pieceArray[i].addEventHandler(MouseEvent.MOUSE_CLICKED, event = new EventHandler<MouseEvent>() {
                         @Override
                         public void handle(MouseEvent event) {
-                            MainController.client.movePiece(gameId, gameName, String.valueOf(pieceToMove));
+                            MainController.getClient().movePiece(gameId, gameName, String.valueOf(pieceToMove));
                             movedPiece(pieceArray);
                         }
                     });
@@ -283,7 +283,7 @@ public class GameController {
                 }
             }
             if (allInStart)
-                MainController.client.movePiece(gameId, gameName, "0");
+                MainController.getClient().movePiece(gameId, gameName, "0");
         }
         else {
             showDices(command[5]);
@@ -307,7 +307,7 @@ public class GameController {
         dialog.setContentText(Login.messages.getString("inviteName"));
 
         Optional<String> result = dialog.showAndWait();
-        result.ifPresent(name -> MainController.client.sendGameInvite(name, gameId));
+        result.ifPresent(name -> MainController.getClient().sendGameInvite(name, gameId));
     }
 
     @FXML
@@ -579,7 +579,7 @@ public class GameController {
 
     public void rollDices() {
         if (yourTurn) {
-            MainController.client.rollDice(gameId, gameName);
+            MainController.getClient().rollDice(gameId, gameName);
             yourTurn = false;
         }
     }
@@ -623,7 +623,7 @@ public class GameController {
     @FXML
     public void handleTextFieldEvent(ActionEvent event){
         TextField source = (TextField) event.getSource();
-        MainController.client.sendGameMessage(source.getText(), gameId, gameName);
+        MainController.getClient().sendGameMessage(source.getText(), gameId, gameName);
         source.clear();
     }
 
@@ -642,7 +642,7 @@ public class GameController {
     }
 
     public void startGame() {
-        MainController.client.startGame(gameId);
+        MainController.getClient().startGame(gameId);
     }
 
     public void setGameName(String gameName) {

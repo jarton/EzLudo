@@ -76,33 +76,6 @@ public class ClientTest {
         }
     }
 
-    /* public void startListener() {
-        new Thread(() -> {
-            while (input != null) {
-                String cmd;
-                try {
-                    while ((cmd = input.readLine()) != null) {
-                        String command[] = cmd.split("\\|");
-                        if (command[0].equals("CHAT")) {
-                            String checkResponse = command[3];
-                            assertThat(checkResponse, containsString(testMessage));
-                        } else if (command[0].equals("CHAT JOINED")) {
-                        } else if (command[0].equals("USERS")) {
-                        } else if (command[0].equals("GAME STARTED")) {
-                        } else if (command[0].equals("GAME")) {
-                            if (command[3].equals("TURN")) {
-                            } else if (command[3].equals("ROLL")) {
-                            } else if (command[3].equals("MOVE")) {
-                            }
-                        }
-                    }
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    } */
-
     public String checkResponse() {
         try {
             if (input != null) {
@@ -124,6 +97,7 @@ public class ClientTest {
         }
         return "bottom";
     }
+
     @Test
     public void testClientFunctionality() throws Exception {
         setUpLoginConnection();
@@ -134,17 +108,11 @@ public class ClientTest {
         output = client.getOutput();
         input = client.getInput();
 
-        //startListener();
-
         client.joinChatRoom("lobby");
 
         checkResponse();
         checkResponse();
         client.sendChatMessage(testMessage, "lobby");
         checkResponse();
-
-
-        //assertThat(checkResponse, containsString(testMessage));
     }
-
 }
