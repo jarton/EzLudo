@@ -227,7 +227,7 @@ public class MainController extends Application {
                     tab.setOnClosed(new EventHandler<Event>() {
                         @Override
                         public void handle(Event event) {
-                            //TODO leave game
+                            client.leaveGameRoom(gameController.gameId, gameController.gameName);
                         }
                     });
                 } catch (IOException e) {

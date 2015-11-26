@@ -90,6 +90,11 @@ public class Client {
         output.flush();
     }
 
+    public void leaveGameRoom(String gameId, String roomName) {
+        output.println("GAME|" + gameId + "|" + roomName + "|LEAVE");
+        output.flush();
+    }
+
     /**
      * This method saves a reference to the main controller.
      * @param ctrl the main controller
