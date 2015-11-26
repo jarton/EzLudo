@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class includes the user-registration gui included userdata validation.
+ * This class contains the user-registration gui included userdata validation.
  * @author Kristian
  * date 30.10.2015.
  */
@@ -26,17 +26,28 @@ public class UserAccount {
     private JPanel panel;
     private JPanel loginPanel;
     private JFrame jFrame;
+
+    /**
+     * Userdata
+     */
     private String username;
     private char[] password;
     private char[] passwordRepeat ;
-    private String IP;
     private String email;
+
+    /**
+     * Number of errors and errormessages from registration
+     */
     private int errorsNumb;
     private String[] errors;
-    //Server reg
+
+    /**
+     * Variables for communication with server
+     */
     PrintWriter output;
     BufferedReader input;
     private Socket loginClient;
+    private String IP;
 
 
     /**
@@ -44,12 +55,13 @@ public class UserAccount {
      */
     public UserAccount(Internationalization internationalization, JFrame jFrame, JPanel loginPanel) {
         messages = internationalization.getLang();
+        logger = Logger.getAnonymousLogger();
         this.jFrame = jFrame;
         this.loginPanel = loginPanel;
         loginClient = null;
         errors = new String[25];
         errorsNumb=0;
-        logger = Logger.getAnonymousLogger();
+
     }
     /**
      * This function creates the registration gui.
@@ -67,34 +79,38 @@ public class UserAccount {
         panel = new JPanel();
         panel.setLayout(null);
 
-        // Username label
+        /**
+         * Username label
+         */
         JLabel userLabel = new JLabel(messages.getString("username"));
         userLabel.setBounds(10, 10, 80, 25);
         panel.add(userLabel);
 
-        // Username input field
+        /**
+         * Username input field
+         */
         JTextField userText = new JTextField(20);
         userText.setBounds(100, 10, 160, 25);
         userText.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void changedUpdate(DocumentEvent e) { username = userText.getText();}
             @Override
-            public void removeUpdate(DocumentEvent e) {
-                username = userText.getText();
-            }
+            public void removeUpdate(DocumentEvent e) { username = userText.getText(); }
 @           Override
-            public void insertUpdate(DocumentEvent e) {
-                username = userText.getText();
-            }
+            public void insertUpdate(DocumentEvent e) { username = userText.getText(); }
         });
         panel.add(userText);
 
-        // E-Mail label
+        /**
+         * E-mail label
+         */
         JLabel emailLabel = new JLabel(messages.getString("loginEmail"));
         emailLabel.setBounds(10, 40, 80, 25);
         panel.add(emailLabel);
 
-        // E-Mail input field
+        /**
+         * E-mail input field
+         */
         JTextField emailText = new JTextField(20);
         emailText.setBounds(100, 40, 160, 25);
         emailText.getDocument().addDocumentListener(new DocumentListener() {
@@ -113,12 +129,16 @@ public class UserAccount {
         });
         panel.add(emailText);
 
-        // Password label
+        /**
+         * Password label
+         */
         JLabel passwordLabel = new JLabel(messages.getString("loginPassword"));
         passwordLabel.setBounds(10, 70, 80, 25);
         panel.add(passwordLabel);
 
-        // Password Input label
+        /**
+         * Password input field
+         */
         JPasswordField passwordText = new JPasswordField(20);
         passwordText.setBounds(100,70,160,25);
         passwordText.getDocument().addDocumentListener(new DocumentListener() {
@@ -137,12 +157,16 @@ public class UserAccount {
         });
         panel.add(passwordText);
 
-        // Password Repeat label
+        /**
+         * Password repeat label
+         */
         JLabel passwordLabelRepeat = new JLabel(messages.getString("loginPasswordRepeat"));
         passwordLabelRepeat.setBounds(10, 100, 80, 25);
         panel.add(passwordLabelRepeat);
 
-        // Password Repeat Input label
+        /**
+         * Password repeat input field
+         */
         JPasswordField passwordRepeatText = new JPasswordField(20);
         passwordRepeatText.setBounds(100,100,160,25);
         passwordRepeatText.getDocument().addDocumentListener(new DocumentListener() {
@@ -161,13 +185,17 @@ public class UserAccount {
         });
         panel.add(passwordRepeatText);
 
-        // IP label
+        /**
+         * IP label
+         */
         JLabel ipLabel = new JLabel(messages.getString("loginIP"));
         ipLabel.setBounds(10, 130, 80, 25);
         panel.add(ipLabel);
 
 
-        // IP input field
+        /**
+         * IP input field
+         */
         JTextField ipTextField = new JTextField(20);
         ipTextField.setBounds(100, 130, 160, 25);
         ipTextField.getDocument().addDocumentListener(new DocumentListener() {
@@ -182,7 +210,9 @@ public class UserAccount {
         });
         panel.add( ipTextField);
 
-        // Back Button
+        /**
+         * Back button: Return to Login
+         */
         JButton backButton = new JButton(messages.getString("back"));
         backButton.setBounds(10,190,80,25);
         backButton.addActionListener(new ActionListener() {
@@ -193,7 +223,10 @@ public class UserAccount {
         });
         panel.add(backButton);
 
-        // Register Button
+        /**
+         * Register button
+         * Checks userdata and connects to server for registering
+         */
         JButton registerButton = new JButton(messages.getString("register"));
         registerButton.setBounds(180, 190, 80, 25);
         registerButton.addActionListener(new ActionListener() {
@@ -204,6 +237,10 @@ public class UserAccount {
                         errors[i] = null;
                     }
 
+                    /**
+                    * Checks if userdata is valid and returns user to login screen
+                     * If invalid userdata: Errormessage according to error
+                    */
                     if (usernameChecker(username) && emailChecker(email) && pwdChecker(password, passwordRepeat) && validIP(IP)) {
                         Constants.setServerIP(IP);
                         String passwordToHash = String.valueOf(password);
@@ -227,19 +264,18 @@ public class UserAccount {
 
     /**
      * The password checker checks if the password and the repeated password is identical.
-     * It also check the length.
+     * It also check the length where minimus iss 8 characters
+     * @param a Users password
+     * @param b Users repeated password
      */
 
     public boolean pwdChecker(char[] a, char[] b) {
         int length;
-
         if (a == null || b == null) {
             errorsNumb++;
             errors[errorsNumb] = messages.getString("registerNoPassword");
             return false;
         }
-
-
         if (a.length != b.length) {
             errorsNumb++;
             errors[errorsNumb] = messages.getString("registerPasswordNoMatch");
@@ -266,6 +302,7 @@ public class UserAccount {
     /**
      * the email checker contains a regex which check if a email is valid.
      * Or if the email is empty
+     * @param email Users email
      */
 
     public boolean emailChecker(String email) {
@@ -288,8 +325,8 @@ public class UserAccount {
      * The username checker checks if the username is set and has max length
      * of 15 characters and min 3 characters.
      * Also check if its empty
+     * @param username User username
      */
-
     public boolean usernameChecker (String username) {
         if (username == null) {
             errorsNumb++;
@@ -312,21 +349,10 @@ public class UserAccount {
     }
 
     /**
-     * Return the user to login screen.
-     * Its removes the current registration panel and set it back to login
-     */
-
-    public void toLogin() {
-        jFrame.remove(panel);
-        jFrame.setPreferredSize(new Dimension(350, 190));
-        jFrame.add(loginPanel);
-        jFrame.pack();
-
-    }
-
-    /**
-     * SHA-256 function.
+     * SHA-256 function. Hashed the password with SHA256 with the email as salt
      * Source: http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
+     * @param passwordToHash Users password
+     * @param salt Users email
      */
     //
     private static String getSHA256(String passwordToHash, String salt)
@@ -349,7 +375,14 @@ public class UserAccount {
         }
         return generatedPassword;
     }
-
+    /**
+     * register connect to the server for registration of a new user.
+     * User data will be added to the database.
+     * @param username Users name
+     * @param email Users email
+     * @param hashedPassword Users SHA456 hased password
+     *
+     * */
     public void register(String username, String email, String hashedPassword) {
         try {
             loginClient = new Socket(Constants.getServerIP(), Constants.getLoginPortNumber());
@@ -378,6 +411,7 @@ public class UserAccount {
     /**
      * Checks if IP is valid format.
      * Source https://stackoverflow.com/questions/4581877/validating-ipv4-string-in-java
+     * @param ip Input IP
      */
 
     public boolean validIP (String ip) {
@@ -406,5 +440,16 @@ public class UserAccount {
                 return false;
             }
             return true;
+    }
+
+    /**
+     * Return the user to login screen.
+     * Its removes the current registration panel and set it back to login
+     */
+    public void toLogin() {
+        jFrame.remove(panel);
+        jFrame.setPreferredSize(new Dimension(350, 190));
+        jFrame.add(loginPanel);
+        jFrame.pack();
     }
 }
