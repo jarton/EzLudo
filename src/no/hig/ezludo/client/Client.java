@@ -165,6 +165,15 @@ public class Client {
     }
 
     /**
+     * This method tells the server to start the game with the specified id from the method parameter.
+     * @param gameId the game id
+     */
+    public void startGame(String gameId) {
+        output.println("GAME START|" + gameId);
+        output.flush();
+    }
+
+    /**
      * This method sets up the socket, and the input- and output streams for that socket. If there's already a
      * connection, it will close the existing socket, output and input first.
      */

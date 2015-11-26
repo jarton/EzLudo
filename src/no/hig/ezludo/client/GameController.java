@@ -635,7 +635,7 @@ public class GameController {
     }
 
     public void startGame() {
-        //TODO Send startgame to server
+        MainController.client.startGame(gameId);
     }
 
     public void setGameName(String gameName) {

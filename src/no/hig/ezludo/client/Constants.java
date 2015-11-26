@@ -8,12 +8,6 @@ public class Constants {
     private static final int portNumber = 9696;
     private static final int loginPortNumber = 6969;
 
-    /* public Constants() {
-        serverIP="127.0.0.1";
-        portNumber = 9696;
-        loginPortNumber = 6969;
-    }*/
-
     public static String getServerIP () {
         return serverIP;
     }
