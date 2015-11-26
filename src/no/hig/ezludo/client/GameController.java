@@ -2,7 +2,6 @@ package no.hig.ezludo.client;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,10 +11,7 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,38 +20,54 @@ import java.util.*;
 /**
  * @author Kristian
  * date 12.11.2015.
+ * This class contains all game-mechnaism done on the client.
  */
 public class GameController {
     private static Logger logger = Logger.getAnonymousLogger();
 
-    // CONSTANTS
+    /**
+     * Constant
+     * Defines the sleepingtime for diceroll and piecemove
+     * */
     final static private int movePieceLag = 500;
     final static private int diceLag = 100;
 
-    //Game info
+    /**
+     * Game-information varibales
+     * */
     String gameName;
     String gameId;
 
-    //Ludo board
+    /**
+     * Ludo board
+     * */
     LudoBoardCoordinates ludoBoardCoordinates;
     @FXML private ImageView ludoBoardImage;
     Image board;
     private HashMap<Integer, EventHandler<MouseEvent>> events = new HashMap<>();
 
-    //Buttons
+    /**
+     * Buttons
+     * */
     @FXML Button inviteButton;
     @FXML Button startGame;
 
-    //Players
+    /**
+     * Player
+     * */
     @FXML TextField label;
     HashMap<String, String> players = new HashMap<>();
     String myNickname;
     boolean yourTurn = false;
 
-    //chat/Info view
+    /**
+     * Chat
+     * */
     @FXML ListView chatView;
 
-    // Dices
+    /**
+     * Dices
+     * */
     @FXML private ImageView diceImage;
     private Image dice;
     private int diceNr;
@@ -63,19 +75,25 @@ public class GameController {
     private static final int diceMax = 6;
     private static final int rounds = 8;
 
-    // Ludo Pieces imageViews array
+    /**
+     * Ludo piece imageview arrays
+     * */
     @FXML private ImageView redPieces[];
     @FXML private ImageView bluePieces[];
     @FXML private ImageView yellowPieces[];
     @FXML private ImageView greenPieces[];
 
-    // ludo pieces images
+    /**
+     * Image of ludo pieces
+     * */
     private Image redImage[];
     private Image yellowImage[];
     private Image blueImage[];
     private Image greenImage[];
 
-    // single ludo pieces imageviews
+    /**
+     * ImageView for each ludo-piece
+     * */
    @FXML private ImageView red1View;
    @FXML private ImageView red2View;
    @FXML private ImageView red3View;
@@ -93,8 +111,10 @@ public class GameController {
    @FXML private ImageView green3View;
    @FXML private ImageView green4View;
 
-    // Controller mechanism
-
+    /**
+     * Controller mechanisms
+     * Boolean variabels to control where the pieces are
+     * */
     private boolean[] redInStart;
     private boolean[] blueInStart;
     private boolean[] yellowInStart;
@@ -105,37 +125,58 @@ public class GameController {
     private boolean[] yellowInGoal;
     private boolean[] greenInGoal;
 
-    // Used if user have to move back
+    /**
+     * Used if a player has to move back from goal
+     * */
     private boolean moveBack;
 
 
-    //make array for each color with one int for each peice
-    // Test
+    /**
+     * Array for each piece.
+     * Controls the position of each pice with a single number
+     * that equals a square in the ludo board
+     * */
     private int[] redCurrent;
     private int[] blueCurrent;
     private int[] greenCurrent;
     private int[] yellowCurrent;
 
 
-    // constructor: setter opp brett, trening og r�d brikke
+    /**
+     * Ludoboard constructor.
+     * Setup the board board and the dice.
+     * Also sets all necessary variables which is defined above
+     * */
     public void ludoBoard() {
+
+        /**
+         * Set the ludo board and the dice
+         * */
         ludoBoardCoordinates = new LudoBoardCoordinates();
         board = new Image("/res/board.png");
         dice = new Image("/res/dices/dice1.png");
         this.ludoBoardImage.setImage(board);
         this.diceImage.setImage(dice);
 
-
+        /**
+         * Create image views the pieces
+         * */
         redPieces = new ImageView[4];
         bluePieces = new ImageView[4];
         yellowPieces = new ImageView[4];
         greenPieces = new ImageView[4];
 
+        /**
+         * Creates images for each piece;
+         * */
         redImage = new Image[4];
         yellowImage = new Image[4];
         blueImage = new Image[4];
         greenImage =  new Image[4];
 
+        /**
+         * Creates boolean variables for control mechanisms
+         * */
         redInStart = new boolean[4];
         blueInStart = new boolean[4];
         yellowInStart = new boolean[4];
@@ -146,12 +187,17 @@ public class GameController {
         yellowInGoal = new boolean[4];
         greenInGoal = new boolean[4];
 
+        /**
+         * Creates the placeholder variables
+         * */
         redCurrent = new int[4];
         blueCurrent = new int[4];
         greenCurrent = new int[4];
         yellowCurrent = new int[4];
 
-        //set ImageViews in array
+        /**
+         * sets all imageviews
+         * */
         redPieces[0] = red1View;
         redPieces[1] = red2View;
         redPieces[2] = red3View;
@@ -169,7 +215,9 @@ public class GameController {
         yellowPieces[2] = yellow3View;
         yellowPieces[3] = yellow4View;
 
-        // array of images instead of single vars
+        /**
+         * Sets all images of pieces
+         * */
         for (int i=0;i<4;i++) {
             redImage[i] = new Image("/res/red2final.png");
             blueImage[i] = new Image("/res/blue2final.png");
@@ -179,11 +227,13 @@ public class GameController {
         setupBoard();
     }
 
-    // Set all chips in start pos
+    /**
+     * Adds all pieces to the ludo board and initialize all controller mechanisms.
+     * Sets all pices in start area with position 0 and bolean Start as true.
+     * Boolean in goal as False and moveback as false.
+     * */
     public void setupBoard(){
-
         for (int i = 0; i < 4; i++) {
-
             this.redPieces[i].setX(ludoBoardCoordinates.redStart[i + 1][1] * 600);
             this.redPieces[i].setY(ludoBoardCoordinates.redStart[i + 1][2] * 600);
             this.redPieces[i].setImage(redImage[i]);
@@ -215,29 +265,42 @@ public class GameController {
             greenInGoal[i] = false;
             yellowInGoal[i] = false;
         }
-
         moveBack = false;
     }
 
-    public void setupPlayers(String players[], String nickname) {
+    /**
+     * Assign each player to a color.
+     * @param players The players names
+     * @param nickname Alias of the player
+     *
+     * */
+    public void setupPlayers(String[] players, String nickname) {
         String[] colors = new String[4];
         colors[0] = "red";
         colors[1] = "blue";
         colors[2] = "yellow";
         colors[3] = "green";
 
-        // Add the players and their colors to the players hash map.
+        /**
+         * Add the players and their colors to the players hash map.
+         * */
         for (int i = 0; i < players.length; i++) {
             if (players[i] != (null))
                 this.players.put(players[i], colors[i]);
         }
 
-        // save the client's nickname
+        // Adding the player's nickname and type of color to the screen
         myNickname = nickname;
         label.setText("\t\t "+Login.messages.getString("red")+": " + players[0] + ",\t\t "+Login.messages.getString("blue")+": " + players[1] +
                 ",\t\t "+Login.messages.getString("yellow")+": " + players[2] + ",\t\t "+Login.messages.getString("green")+": " + players[3]);
     }
 
+    /**
+     * TODO
+     * @param command Player data.
+     * command[4] is the players name.
+     * command[5] is how many moves \ random int as dice
+     * */
     @FXML
     public void playerRoll(String[] command) {
         Platform.runLater(new Runnable() {
@@ -290,6 +353,10 @@ public class GameController {
         }
     }
 
+    /**
+     * Removes mouseevents after players turn
+     * @param array Array of pieces
+     **/
     public void movedPiece(ImageView[] array) {
         for (int i=0;i<4;i++) {
             if (events.containsKey(i)) {
@@ -299,6 +366,9 @@ public class GameController {
         events.clear();
     }
 
+    /**
+     * Textbox dialog for inviting a player
+     **/
     @FXML
     public void invitePlayer() {
         TextInputDialog dialog = new TextInputDialog();
@@ -310,6 +380,10 @@ public class GameController {
         result.ifPresent(name -> MainController.getClient().sendGameInvite(name, gameId));
     }
 
+    /**
+     * //TODO
+     * @param command Player data from server
+     **/
     @FXML
     public void playerTurn(String[] command) {
         if (inviteButton.isVisible())
@@ -329,6 +403,13 @@ public class GameController {
         }
     }
 
+    /**
+     * //TODO
+     * @param command Players data from server
+     * command[4] is the players name.
+     * command[5] is how many moves \ random int as dice
+     * command[6] //TODO
+     **/
     public void playerMove(String[] command) {
         if (("red").equals(players.get(command[4])) && !redInGoal[Integer.parseInt(command[5])]) {
            movePiece(command[6], redCurrent[Integer.parseInt(command[5])],

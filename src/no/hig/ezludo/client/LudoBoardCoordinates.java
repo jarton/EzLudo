@@ -1,37 +1,42 @@
 package no.hig.ezludo.client;
 
 /**
- * This class includes all coordinates from the ludo board.
+ * This class contrains all coordinates from the ludo board.
  * @author Kristian
  * Created date 13.11.2015.
  *
- * All coordinates is from the upper left corner for every route.
- * array[routeNr][1] = X
- * array[routeNr][2] = Y
+ * All coordinates is from the upper left corner for every square in the board.
+ * The class LudeBoard.java is used to get all cordinates. The format is a double
+ * with multiple deciales bacause it is ment to fit all size of a ludo board.
+ * Example:
+ * array[squareNr][1] = X
+ * array[squareNr][2] = Y
+ * The X coordinate multiplied with the width of the board defines the real X
+ * The Y coordinate multiplied with the height of the board defines the real Y
  *
- * To get the coordinates in right format:
- *  - Multiply X by the width of current image of ludo board
- *  - Multiply Y by the height of current image of ludo board
- *
- *  Start arrays define the 4 routs where all pieces are placed at start.
+ *  Start arrays define the 4 squares where all pieces are placed at start.
  *  A player need to throw a 6 at dice to move from start-array to the main array.
  *  When a player has finished the main array, he or she can continue to
  *  finish array.
  *
  *  Main area includes 1 route for each player / colour
- *  - Therefor finish-array starts at the second route with colour.
+ *  - Therefor finish-array starts at the second square with colour.
+ *     - mainArea[1] is the first and the last square for red
  */
 public class LudoBoardCoordinates {
-    double blueStart[][];  // Red start Area
-    double redStart[][];  // Blue start Area
-    double yellowStart[][]; // Yellow start Area
-    double greenStart[][];  // Green start Are
-    double mainArea[][]; // Main area for all players
-    double blueFinish[][]; // Blue finish area
-    double redFinish[][];  // Red finish area
-    double yellowFinish[][];  // Yellow finish area
-    double greenFinish[][];  // Green finish area
+    double blueStart[][];  /** Red start Area */
+    double redStart[][];  /** Blue start Area */
+    double yellowStart[][]; /** Yellow start Area */
+    double greenStart[][];  /** Green start Area */
+    double mainArea[][]; /** Main area for all players */
+    double blueFinish[][]; /** Blue finish area */
+    double redFinish[][];  /** Red finish area */
+    double yellowFinish[][];  /** Yellow finish area */
+    double greenFinish[][];  /** Green finish area */
 
+    /**
+     * Constructor to initialize all variables
+     * */
     public LudoBoardCoordinates() {
         blueStart = new double[5][3];
         redStart = new double[5][3];
@@ -104,9 +109,9 @@ public class LudoBoardCoordinates {
         greenStart[4][2]=0.16812865497076024;
 
 
-        // Red route: 1 --> 52 --> 1 Then red finish array
-        mainArea[1][1]= 0.5351390922401171; // RED START POS X
-        mainArea[1][2]= 0.06871345029239766; // RED START POS Y
+        /** Red route: 1 --> 52 --> 1 Then red finish array */
+        mainArea[1][1]= 0.5351390922401171; /** RED START POS X */
+        mainArea[1][2]= 0.06871345029239766; /** RED START POS Y */
         mainArea[2][1]= 0.5351390922401171;
         mainArea[2][2]= 0.13742690058479531;
         mainArea[3][1]= 0.5351390922401171;
@@ -132,9 +137,9 @@ public class LudoBoardCoordinates {
         mainArea[13][1]= 0.9333821376281113;
         mainArea[13][2]= 0.5350877192982456;
 
-        // Blue route: 14 --> 52 --> 14 Then blue finish array
-        mainArea[14][1]=0.8667642752562226; // Blue Start X
-        mainArea[14][2]= 0.533625730994152; // Blue start Y
+        /** Blue route: 14 --> 52 --> 14 Then blue finish array */
+        mainArea[14][1]=0.8667642752562226; /** Blue Start X */
+        mainArea[14][2]= 0.533625730994152; /** Blue start Y */
         mainArea[15][1]= 0.8008784773060029;
         mainArea[15][2]= 0.5350877192982456;
         mainArea[16][1]= 0.7342606149341142;
@@ -160,9 +165,9 @@ public class LudoBoardCoordinates {
         mainArea[26][1]= 0.40263543191800877;
         mainArea[26][2]= 0.9342105263157895;
 
-        // Yellow route: 27 --> 52 --> 27 Then Yellow finish array
-        mainArea[27][1]= 0.40263543191800877; // Yellow start X
-        mainArea[27][2]= 0.8669590643274854; // Yellow start Y
+        /** Yellow route: 27 --> 52 --> 27 Then Yellow finish array */
+        mainArea[27][1]= 0.40263543191800877; /** Yellow start X */
+        mainArea[27][2]= 0.8669590643274854; /** Yellow start Y */
         mainArea[28][1]=0.40263543191800877;
         mainArea[28][2]=0.8011695906432749;
         mainArea[29][1]= 0.40263543191800877;
@@ -188,9 +193,9 @@ public class LudoBoardCoordinates {
         mainArea[39][1]=0.0036603221083455345;
         mainArea[39][2]=0.402046783625731;
 
-        // Green route: 40 --> 52 --> 40 Then green finish array
-        mainArea[40][1]=0.07027818448023426;  // Green start;
-        mainArea[40][2]=0.40058479532163743;  // Green start
+        /** Green route: 40 --> 52 --> 40 Then green finish array */
+        mainArea[40][1]=0.07027818448023426;  /** Green start */
+        mainArea[40][2]=0.40058479532163743;  /** Green start */
         mainArea[41][1]=0.13689604685212298;
         mainArea[41][2]=0.402046783625731;
         mainArea[42][1]=0.2027818448023426;
@@ -226,8 +231,8 @@ public class LudoBoardCoordinates {
         blueFinish[4][2]=0.4692982456140351;
         blueFinish[5][1]=0.6017569546120058;
         blueFinish[5][2]=0.4692982456140351;
-        blueFinish[6][1]=0.5344070278184481;  // GOAL X
-        blueFinish[6][2]=0.4649122807017544;  // GOAL Y
+        blueFinish[6][1]=0.5344070278184481;  /** GOAL X */
+        blueFinish[6][2]=0.4649122807017544;  /** GOAL Y */
 
         redFinish[1][1]=0.4685212298682284;
         redFinish[1][2]=0.06871345029239766;
@@ -239,8 +244,8 @@ public class LudoBoardCoordinates {
         redFinish[4][2]=0.26900584795321636;
         redFinish[5][1]=0.4677891654465593;
         redFinish[5][2]=0.3347953216374269;
-        redFinish[6][1]=0.465592972181552; // GOAL X
-        redFinish[6][2]=0.3991228070175439; // GOAL Y
+        redFinish[6][1]=0.465592972181552; /** GOAL X */
+        redFinish[6][2]=0.3991228070175439; /** GOAL Y */
 
 
         yellowFinish[1][1]=0.4685212298682284;
@@ -253,8 +258,8 @@ public class LudoBoardCoordinates {
         yellowFinish[4][2]=0.6666666666666666;
         yellowFinish[5][1]=0.4677891654465593;
         yellowFinish[5][2]=0.5994152046783626;
-        yellowFinish[6][1]=0.46486090775988287; // GOAL X
-        yellowFinish[6][2]=0.5248538011695907;  // GOAL Y
+        yellowFinish[6][1]=0.46486090775988287; /** GOAL X */
+        yellowFinish[6][2]=0.5248538011695907;  /** GOAL Y */
 
         greenFinish[1][1]=0.07027818448023426;
         greenFinish[1][2]=0.4678362573099415;
@@ -266,7 +271,7 @@ public class LudoBoardCoordinates {
         greenFinish[4][2]=0.4678362573099415;
         greenFinish[5][1]=0.33601756954612005;
         greenFinish[5][2]=0.4678362573099415;
-        greenFinish[6][1]=0.40043923865300146; // GOAL X
-        greenFinish[6][2]=0.46637426900584794; // GOAL Y
+        greenFinish[6][1]=0.40043923865300146; /** GOAL X */
+        greenFinish[6][2]=0.46637426900584794; /** GOAL Y */
     }
 }
