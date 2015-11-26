@@ -234,8 +234,8 @@ public class GameController {
 
         // save the client's nick name
         myNickname = nickname;
-        label.setText("\t\t Red: " + players[0] + ",\t\t Blue: " + players[1] +
-                ",\t\t Yellow: " + players[2] + ",\t\t Green: " + players[3]);
+        label.setText("\t\t "+Login.messages.getString("red")+": " + players[0] + ",\t\t "+Login.messages.getString("blue")+": " + players[1] +
+                ",\t\t "+Login.messages.getString("yellow")+": " + players[2] + ",\t\t "+Login.messages.getString("green")+": " + players[3]);
     }
 
     @FXML
@@ -243,7 +243,7 @@ public class GameController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                chatView.getItems().add(command[4] + "\trolled\t" + command[5]);
+                chatView.getItems().add(command[4] + "\t"+Login.messages.getString("rolled")+"\t" + command[5]);
             }
         });
         if (command[4].equals(myNickname)) {
@@ -301,9 +301,9 @@ public class GameController {
     @FXML
     public void invitePlayer() {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("Invite player");
-        dialog.setHeaderText("Invite a player by name");
-        dialog.setContentText("Enter the player name:");
+        dialog.setTitle(Login.messages.getString("invitePlayer"));
+        dialog.setHeaderText(Login.messages.getString("inviteByName"));
+        dialog.setContentText(Login.messages.getString("inviteName"));
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(name -> MainController.client.sendGameInvite(name, gameId));
@@ -320,7 +320,7 @@ public class GameController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                displayMessage(command[4] + "'s turn");
+                displayMessage(command[4] + Login.messages.getString("turn"));
             }
         });
         if (command[4].equals(myNickname)) {
