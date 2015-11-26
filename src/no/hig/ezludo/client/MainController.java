@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -22,22 +23,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This class handles the GUI of the lobby, and whatever events may happen in the window.
+ * This class handles the GUI of the lobby, and whatever events may happen in the window. It contains
  * Date: 30.10.2015
  * @author Per-Kristian Nilsen
+ * @since 30.10.2015
  */
 public class MainController extends Application {
     @FXML private TabPane tabPane;
     private HashMap<String, ChatController> tabMap = new HashMap<>();
     private HashMap<String, GameController> gameMap = new HashMap<>();
-    public ListView chatListView;
-    public Scene lobbyScene;
     private String[] users;
     private String[] playerNames;
     private String nickName;
     private String firstTurnCommand[] = null;
     private static Logger logger = Logger.getAnonymousLogger();
-    public static Client client;
+    private static Client client;
 
     /**
      * This method loads the lobby window.
@@ -46,24 +46,28 @@ public class MainController extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception{
-
         try {
-
             Parameters parameters = getParameters();
             List<String> rawArguments = parameters.getRaw();
-            MainController.setClient(rawArguments);
 
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Lobby.fxml"));
             Parent root = (Parent) loader.load();
 
+            MainController.setClient(rawArguments);
             client.setMainController(loader.getController());
 
             primaryStage.setTitle("Ez-Ludo");
-            primaryStage.setScene(lobbyScene = new Scene(root, 1200, 600));
+            primaryStage.setScene(new Scene(root, 1200, 600));
             primaryStage.show();
 
             // Join the lobby chat
             client.joinChatRoom("lobby");
+
+            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+                    exit();
+                }
+            });
 
         }
         catch (Exception e) {
@@ -189,7 +193,9 @@ public class MainController extends Application {
 
     public void exit() {
         client.logout();
-        System.exit(0);
+        client.closeConnection();
+        client.listnerThread.interrupt();
+        System.exit(0); //NOSONAR
     }
 
     public void about() {
@@ -276,8 +282,11 @@ public class MainController extends Application {
 
 
     public static void setClient(List<String> args) {
-        //client = new Client(args.get(0), args.get(1), args.get(2));
         client = new Client(args.get(2));
+    }
+
+    public static Client getClient() {
+        return client;
     }
 
     public static void main(String[] args) {

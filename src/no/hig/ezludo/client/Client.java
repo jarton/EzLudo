@@ -113,7 +113,7 @@ public class Client {
             while (input != null) {
                 String cmd;
                 try {
-                    while ((cmd = input.readLine()) != null) {
+                    while (mainController != null && (cmd = input.readLine()) != null) {
                         String command[] = cmd.split("\\|");
                         if (("CHAT").equals(command[0])) {
                             mainController.displayMessage(command);
