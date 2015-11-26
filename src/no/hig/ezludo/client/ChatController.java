@@ -7,7 +7,9 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 /**
- * @author piddy
+ * This class is handles the GUI of a chat room. Any changes to the functionality of the GUI should happen here. The
+ * controller is attached to Chatroom.fxml. Every chat room needs its own ChatController.
+ * @author Per-Kristian
  * date 11/11/15.
  */
 public class ChatController {
@@ -42,6 +44,10 @@ public class ChatController {
         });
     }
 
+    /**
+     * Standard "setter" for the roomName".
+     * @param roomName the name of the room
+     */
     public void setRoomName(String roomName) {
         this.roomName = roomName;
     }
@@ -64,6 +70,10 @@ public class ChatController {
         });
     }
 
+    /**
+     * Standard "getter" of the room name.
+     * @return the room name
+     */
     public String getRoomName() {
         return roomName;
     }
