@@ -53,6 +53,8 @@
                         </ImageView>
                         <Button fx:id="inviteButton" layoutX="128.0" layoutY="178.0" onAction="#invitePlayer"
                                 mnemonicParsing="false" text="invite player" GridPane.rowIndex="2"/>
+                        <Button fx:id="startGame" layoutX="128.0" layoutY="178.0" onAction="#startGame"
+                                mnemonicParsing="false" text="invite player" GridPane.rowIndex="3"/>
                     </children>
                 </GridPane>
             </left>

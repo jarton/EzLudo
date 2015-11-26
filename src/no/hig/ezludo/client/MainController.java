@@ -33,6 +33,7 @@ public class MainController extends Application {
     public ListView chatListView;
     public Scene lobbyScene;
     private String[] users;
+    private String[] playerNames;
     private String nickName;
     private String firstTurnCommand[] = null;
     private static Logger logger = Logger.getAnonymousLogger();
@@ -207,6 +208,10 @@ public class MainController extends Application {
                     gameController.setGameName(response[2]);
                     gameController.ludoBoard();
 
+                    if (playerNames != null) {
+                        gameController.setupPlayers(playerNames, nickName);
+                    }
+
 
                     if (firstTurnCommand != null) {
                         gameController.playerTurn(firstTurnCommand);
@@ -229,14 +234,17 @@ public class MainController extends Application {
     public void updatePlayers(String[] command) {
         String gameId = command[1];
 
+        String[] players = new String[4];
+        for(int i = 3; i<command.length; i++) {
+            players[i - 3] = command[i];
+        }
         if (gameMap.containsKey(gameId)) {
             GameController gameController = gameMap.get(gameId);
 
-            String[] players = new String[4];
-            for(int i = 3; i<command.length; i++) {
-                players[i-3] = command[i];
-            }
             gameController.setupPlayers(players, nickName);
+        }
+        else {
+            playerNames = players;
         }
     }
 
