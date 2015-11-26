@@ -210,7 +210,7 @@ public class Server {
 						Game game = new Game();
 						games.add(game);
 						game.setId(games.indexOf(game));
-						game.addOnePlayer(cmd.getUser());
+						game.addOnePlayer(cmd.getUser(), usersClosedSocets);
 						game.setName(((CreatePremadeGame)cmd).getGameName());
 						game.gameCreated(usersClosedSocets);
 						serverLogger.info(" Create premade game command received");
@@ -223,7 +223,7 @@ public class Server {
 								try {
 								gameInvite.getUser().write("GAME JOINED|" + gameInvite.getGameId() +
 										"|" + game.getName());
-								game.addOnePlayer(gameInvite.getUser());
+								game.addOnePlayer(gameInvite.getUser(), usersClosedSocets);
 								} catch (Exception e) {
 									usersClosedSocets.add(gameInvite.getUser());
 									logger.log(Level.SEVERE, "an exception was thrown", e);

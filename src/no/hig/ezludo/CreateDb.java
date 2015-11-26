@@ -28,8 +28,9 @@ public class CreateDb {
                         "email varchar(128) NOT NULL, "+
                         "password char(128) NOT NULL, "+
                         "loginkey char(128), "+
-                        "PRIMARY KEY  (id))");
-                //"UNIQUE (email))");
+                        "PRIMARY KEY  (id)), "+
+                        "UNIQUE (email)), " +
+                        "UNIQUE (nickname))");
                 con.close();
             } catch (SQLException e) {
                 logger.log(Level.SEVERE, "an exception was thrown", e);
