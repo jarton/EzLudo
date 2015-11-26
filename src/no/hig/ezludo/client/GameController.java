@@ -29,42 +29,34 @@ public class GameController {
     final static private int movePieceLag = 500;
     final static private int diceLag = 100;
 
-    /**
-     * Game-information varibales
-     * */
+
+    //Game-information varibales
     String gameName;
     String gameId;
 
-    /**
-     * Ludo board
-     * */
+
+    //Ludo board
     LudoBoardCoordinates ludoBoardCoordinates;
     @FXML private ImageView ludoBoardImage;
     Image board;
     private HashMap<Integer, EventHandler<MouseEvent>> events = new HashMap<>();
 
-    /**
-     * Buttons
-     * */
+     // Buttons
     @FXML Button inviteButton;
     @FXML Button startGame;
 
-    /**
-     * Player
-     * */
+
+    // Player
     @FXML TextField label;
     HashMap<String, String> players = new HashMap<>();
     String myNickname;
     boolean yourTurn = false;
 
-    /**
-     * Chat
-     * */
+
+    //Chat
     @FXML ListView chatView;
 
-    /**
-     * Dices
-     * */
+    // Dices
     @FXML private ImageView diceImage;
     private Image dice;
     private int diceNr;
@@ -72,25 +64,22 @@ public class GameController {
     private static final int diceMax = 6;
     private static final int rounds = 8;
 
-    /**
-     * Ludo piece imageview arrays
-     * */
+
+    // Ludo piece imageview arrays
     @FXML private ImageView redPieces[];
     @FXML private ImageView bluePieces[];
     @FXML private ImageView yellowPieces[];
     @FXML private ImageView greenPieces[];
 
-    /**
-     * Image of ludo pieces
-     * */
+
+    //Image of ludo pieces
     private Image redImage[];
     private Image yellowImage[];
     private Image blueImage[];
     private Image greenImage[];
 
-    /**
-     * ImageView for each ludo-piece
-     * */
+
+   //ImageView for each ludo-piece
    @FXML private ImageView red1View;
    @FXML private ImageView red2View;
    @FXML private ImageView red3View;
@@ -108,10 +97,9 @@ public class GameController {
    @FXML private ImageView green3View;
    @FXML private ImageView green4View;
 
-    /**
-     * Controller mechanisms
-     * Boolean variabels to control where the pieces are
-     * */
+
+     // Controller mechanisms
+     // Boolean variabels to control where the pieces are
     private boolean[] redInStart;
     private boolean[] blueInStart;
     private boolean[] yellowInStart;
@@ -122,17 +110,15 @@ public class GameController {
     private boolean[] yellowInGoal;
     private boolean[] greenInGoal;
 
-    /**
-     * Used if a player has to move back from goal
-     * */
+    //Used if a player has to move back from goal
     private boolean moveBack;
 
 
-    /**
-     * Array for each piece.
-     * Controls the position of each pice with a single number
-     * that equals a square in the ludo board
-     * */
+
+    // Array for each piece.
+    // Controls the position of each pice with a single number
+    // that equals a square in the ludo board
+
     private int[] redCurrent;
     private int[] blueCurrent;
     private int[] greenCurrent;
@@ -146,34 +132,26 @@ public class GameController {
      * */
     public void ludoBoard() {
 
-        /**
-         * Set the ludo board and the dice
-         * */
+        //Set the ludo board and the dice
         ludoBoardCoordinates = new LudoBoardCoordinates();
         board = new Image("/res/board.png");
         dice = new Image("/res/dices/dice1.png");
         this.ludoBoardImage.setImage(board);
         this.diceImage.setImage(dice);
 
-        /**
-         * Create image views the pieces
-         * */
+        //Create image views the pieces
         redPieces = new ImageView[4];
         bluePieces = new ImageView[4];
         yellowPieces = new ImageView[4];
         greenPieces = new ImageView[4];
 
-        /**
-         * Creates images for each piece;
-         * */
+        //Creates images for each piece
         redImage = new Image[4];
         yellowImage = new Image[4];
         blueImage = new Image[4];
         greenImage =  new Image[4];
 
-        /**
-         * Creates boolean variables for control mechanisms
-         * */
+        //Creates boolean variables for control mechanisms
         redInStart = new boolean[4];
         blueInStart = new boolean[4];
         yellowInStart = new boolean[4];
@@ -184,17 +162,13 @@ public class GameController {
         yellowInGoal = new boolean[4];
         greenInGoal = new boolean[4];
 
-        /**
-         * Creates the placeholder variables
-         * */
+        //Creates the placeholder variables
         redCurrent = new int[4];
         blueCurrent = new int[4];
         greenCurrent = new int[4];
         yellowCurrent = new int[4];
 
-        /**
-         * sets all imageviews
-         * */
+        //Set all imageviews
         redPieces[0] = red1View;
         redPieces[1] = red2View;
         redPieces[2] = red3View;
@@ -212,9 +186,7 @@ public class GameController {
         yellowPieces[2] = yellow3View;
         yellowPieces[3] = yellow4View;
 
-        /**
-         * Sets all images of pieces
-         * */
+        //Sets all images of pieces
         for (int i=0;i<4;i++) {
             redImage[i] = new Image("/res/red2final.png");
             blueImage[i] = new Image("/res/blue2final.png");
@@ -278,9 +250,8 @@ public class GameController {
         colors[2] = "yellow";
         colors[3] = "green";
 
-        /**
-         * Add the players and their colors to the players hash map.
-         * */
+
+        //Add the players and their colors to the players hash map.
         for (int i = 0; i < players.length; i++) {
             if (players[i] != (null))
                 this.players.put(players[i], colors[i]);
@@ -288,8 +259,8 @@ public class GameController {
 
         // Adding the player's nickname and type of color to the screen
         myNickname = nickname;
-        label.setText("\t\t "+Login.messages.getString("red")+": " + players[0] + ",\t\t "+Login.messages.getString("blue")+": " + players[1] +
-                ",\t\t "+Login.messages.getString("yellow")+": " + players[2] + ",\t\t "+Login.messages.getString("green")+": " + players[3]);
+        label.setText("\t\t "+Login.getTranslation().getString("red")+": " + players[0] + ",\t\t "+Login.getTranslation().getString("blue")+": " + players[1] +
+                ",\t\t "+Login.getTranslation().getString("yellow")+": " + players[2] + ",\t\t "+Login.getTranslation().getString("green")+": " + players[3]);
     }
 
     /**
@@ -303,7 +274,7 @@ public class GameController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                chatView.getItems().add(command[4] + "\t" + Login.messages.getString("rolled") + "\t" + command[5]);
+                chatView.getItems().add(command[4] + "\t" + Login.getTranslation().getString("rolled") + "\t" + command[5]);
             }
         });
         if (command[4].equals(myNickname)) {
@@ -369,9 +340,9 @@ public class GameController {
     @FXML
     public void invitePlayer() {
         TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle(Login.messages.getString("invitePlayer"));
-        dialog.setHeaderText(Login.messages.getString("inviteByName"));
-        dialog.setContentText(Login.messages.getString("inviteName"));
+        dialog.setTitle(Login.getTranslation().getString("invitePlayer"));
+        dialog.setHeaderText(Login.getTranslation().getString("inviteByName"));
+        dialog.setContentText(Login.getTranslation().getString("inviteName"));
 
         Optional<String> result = dialog.showAndWait();
         result.ifPresent(name -> MainController.getClient().sendGameInvite(name, gameId));
@@ -392,7 +363,7 @@ public class GameController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                displayMessage(command[4] + Login.messages.getString("turn"));
+                displayMessage(command[4] + Login.getTranslation().getString("turn"));
             }
         });
         if (command[4].equals(myNickname)) {
