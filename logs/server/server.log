@@ -6846,3 +6846,357 @@
 2015-11-26 13:50:09,482 INFO  [Server] received command: JOIN CHAT|lobby
 2015-11-26 13:50:09,483 WARN  [chatLogger] Per Hansenleft the chatroom
 2015-11-26 13:50:09,587 INFO  [Server] Per Hansen removed user with io exc
+2015-11-26 14:51:30,010 INFO  [Server] test logged in
+2015-11-26 14:51:31,236 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:51:31,238 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 14:51:31,243 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:51:33,304 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:51:33,304 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:51:33,304 INFO  [Server] user test added to random game que 
+2015-11-26 14:51:46,840 INFO  [Server] kitty logged in
+2015-11-26 14:51:46,845 INFO  [Server] franZKlla logged in
+2015-11-26 14:51:46,850 INFO  [Server] nilzWithSkillz logged in
+2015-11-26 14:51:46,853 INFO  [Server] pirkola69 logged in
+2015-11-26 14:51:46,916 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:51:46,917 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:51:46,917 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:51:46,916 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:51:46,917 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:51:46,918 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-26 14:51:46,920 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:51:46,920 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-26 14:51:46,922 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:51:46,922 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-26 14:51:46,923 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:51:46,923 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-26 14:51:47,019 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:51:47,019 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:51:47,019 INFO  [Server] user kitty added to random game que 
+2015-11-26 14:51:47,021 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:51:47,021 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:51:47,022 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:51:47,022 INFO  [Server] user pirkola69 added to random game que 
+2015-11-26 14:51:47,022 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:51:47,022 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-26 14:51:47,022 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:51:47,023 INFO  [Server] user franZKlla added to random game que 
+2015-11-26 14:51:47,022 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:51:47,031 INFO  [Server] handling command 
+2015-11-26 14:51:47,033 INFO  [Server]  new game started 
+2015-11-26 14:51:47,033 INFO  [Server] new random game started
+2015-11-26 14:53:01,972 INFO  [Server] test logged in
+2015-11-26 14:53:03,210 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:53:03,210 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:53:03,210 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 14:53:03,284 WARN  [chatLogger] franZKllaleft the chatroom
+2015-11-26 14:53:03,302 WARN  [chatLogger] nilzWithSkillzleft the chatroom
+2015-11-26 14:53:03,305 WARN  [chatLogger] testleft the chatroom
+2015-11-26 14:53:03,310 WARN  [chatLogger] pirkola69left the chatroom
+2015-11-26 14:53:03,313 WARN  [chatLogger] kittyleft the chatroom
+2015-11-26 14:53:03,317 INFO  [Server] nilzWithSkillz removed user with io exc
+2015-11-26 14:53:03,317 INFO  [Server] franZKlla removed user with io exc
+2015-11-26 14:53:03,317 INFO  [Server] kitty removed user with io exc
+2015-11-26 14:53:03,317 INFO  [Server] pirkola69 removed user with io exc
+2015-11-26 14:53:03,317 INFO  [Server] test removed user with io exc
+2015-11-26 14:53:09,351 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:53:09,351 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:53:09,351 INFO  [Server] user test added to random game que 
+2015-11-26 14:53:14,373 INFO  [Server] nilzWithSkillz logged in
+2015-11-26 14:53:14,374 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:53:14,375 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:53:14,375 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-26 14:53:14,380 INFO  [Server] kitty logged in
+2015-11-26 14:53:14,383 INFO  [Server] pirkola69 logged in
+2015-11-26 14:53:14,387 INFO  [Server] franZKlla logged in
+2015-11-26 14:53:14,477 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:53:14,477 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:53:14,478 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-26 14:53:14,478 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:53:14,478 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:53:14,478 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:53:14,478 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-26 14:53:14,478 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:53:14,479 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:53:14,480 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-26 14:53:14,482 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:53:14,482 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-26 14:53:14,579 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:53:14,579 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:53:14,579 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:53:14,579 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:53:14,579 INFO  [Server] user franZKlla added to random game que 
+2015-11-26 14:53:14,580 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:53:14,580 INFO  [Server] user kitty added to random game que 
+2015-11-26 14:53:14,580 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:53:14,580 INFO  [Server] new random game started
+2015-11-26 14:53:14,580 INFO  [Server] user pirkola69 added to random game que 
+2015-11-26 14:53:14,580 INFO  [Server] handling command 
+2015-11-26 14:53:14,581 INFO  [Server]  new game started 
+2015-11-26 14:53:19,370 INFO  [Server] received command: GAME|1|Random Game|ROLL
+2015-11-26 14:53:19,370 INFO  [Server] handling command GAME|1|Random Game|ROLL
+2015-11-26 14:53:19,371 INFO  [Server]  game commands recived 
+2015-11-26 14:53:19,470 INFO  [Server] received command: GAME|1|Random Game|MOVE|0
+2015-11-26 14:53:19,470 INFO  [Server] handling command GAME|1|Random Game|MOVE|0
+2015-11-26 14:53:19,474 INFO  [Server]  game commands recived 
+2015-11-26 14:53:22,002 INFO  [Server] received command: GAME|1|Random Game|ROLL
+2015-11-26 14:53:22,002 INFO  [Server] handling command GAME|1|Random Game|ROLL
+2015-11-26 14:53:22,003 INFO  [Server]  game commands recived 
+2015-11-26 14:53:26,105 INFO  [Server] received command: GAME|1|Random Game|MOVE|2
+2015-11-26 14:53:26,105 INFO  [Server] handling command GAME|1|Random Game|MOVE|2
+2015-11-26 14:53:26,106 INFO  [Server]  game commands recived 
+2015-11-26 14:53:27,506 INFO  [Server] received command: GAME|1|Random Game|ROLL
+2015-11-26 14:53:27,506 INFO  [Server] handling command GAME|1|Random Game|ROLL
+2015-11-26 14:53:27,507 INFO  [Server]  game commands recived 
+2015-11-26 14:58:10,006 INFO  [Server] test logged in
+2015-11-26 14:58:11,223 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:58:11,223 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:58:11,225 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 14:58:11,264 WARN  [chatLogger] franZKllaleft the chatroom
+2015-11-26 14:58:11,274 WARN  [chatLogger] kittyleft the chatroom
+2015-11-26 14:58:11,384 INFO  [Server] franZKlla removed user with io exc
+2015-11-26 14:58:11,384 INFO  [Server] kitty removed user with io exc
+2015-11-26 14:58:11,400 WARN  [chatLogger] pirkola69left the chatroom
+2015-11-26 14:58:11,402 WARN  [chatLogger] testleft the chatroom
+2015-11-26 14:58:11,404 WARN  [chatLogger] nilzWithSkillzleft the chatroom
+2015-11-26 14:58:11,492 INFO  [Server] pirkola69 removed user with io exc
+2015-11-26 14:58:11,493 INFO  [Server] nilzWithSkillz removed user with io exc
+2015-11-26 14:58:11,493 INFO  [Server] test removed user with io exc
+2015-11-26 14:58:16,918 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:58:16,918 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:58:16,918 INFO  [Server] user test added to random game que 
+2015-11-26 14:58:23,956 INFO  [Server] franZKlla logged in
+2015-11-26 14:58:23,959 INFO  [Server]  logged in
+2015-11-26 14:58:23,962 INFO  [Server] nilzWithSkillz logged in
+2015-11-26 14:58:23,965 INFO  [Server] kitty logged in
+2015-11-26 14:58:24,051 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:58:24,053 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:58:24,053 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:58:24,053 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:58:24,056 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:58:24,053 INFO  [Server] user  added to chatroom: lobby
+2015-11-26 14:58:24,058 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:58:24,059 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-26 14:58:24,064 WARN  [chatLogger] left the chatroom
+2015-11-26 14:58:24,064 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:58:24,064 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-26 14:58:24,067 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:58:24,067 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-26 14:58:24,368 INFO  [Server]  removed user with io exc
+2015-11-26 14:58:24,498 INFO  [Server]  removed user with io exc
+2015-11-26 14:58:24,500 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:58:24,502 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:58:24,502 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:58:24,502 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:58:24,502 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-26 14:58:24,502 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:58:24,503 INFO  [Server] user kitty added to random game que 
+2015-11-26 14:58:24,503 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:58:24,503 INFO  [Server] user franZKlla added to random game que 
+2015-11-26 14:58:24,504 INFO  [Server] handling command 
+2015-11-26 14:58:24,509 INFO  [Server]  new game started 
+2015-11-26 14:58:24,560 INFO  [Server] new random game started
+2015-11-26 14:59:16,617 INFO  [Server]  logged in
+2015-11-26 14:59:24,482 INFO  [Server]  logged in
+2015-11-26 14:59:42,771 INFO  [Server] test logged in
+2015-11-26 14:59:44,445 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:59:44,445 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:59:44,447 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 14:59:46,080 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:59:46,080 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:59:46,080 INFO  [Server] user test added to random game que 
+2015-11-26 14:59:50,394 INFO  [Server]  logged in
+2015-11-26 14:59:50,396 INFO  [Server]  logged in
+2015-11-26 14:59:50,401 INFO  [Server] franZKlla logged in
+2015-11-26 14:59:50,408 INFO  [Server] kitty logged in
+2015-11-26 14:59:50,701 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:59:50,708 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:59:50,708 INFO  [Server] user  added to chatroom: lobby
+2015-11-26 14:59:50,708 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:59:50,708 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:59:50,710 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 14:59:50,739 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:59:50,740 INFO  [Server] user  added to chatroom: lobby
+2015-11-26 14:59:50,754 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:59:50,754 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-26 14:59:50,835 WARN  [chatLogger] left the chatroom
+2015-11-26 14:59:50,838 WARN  [chatLogger] left the chatroom
+2015-11-26 14:59:50,839 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 14:59:50,839 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-26 14:59:50,962 INFO  [Server]  removed user with io exc
+2015-11-26 14:59:50,962 INFO  [Server]  removed user with io exc
+2015-11-26 14:59:50,962 INFO  [Server]  removed user with io exc
+2015-11-26 14:59:50,963 INFO  [Server]  removed user with io exc
+2015-11-26 14:59:50,964 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:59:50,964 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:59:50,964 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:59:50,965 INFO  [Server] user franZKlla added to random game que 
+2015-11-26 14:59:50,965 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:59:50,965 INFO  [Server] user kitty added to random game que 
+2015-11-26 14:59:57,210 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 14:59:57,210 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 14:59:57,211 INFO  [Server] user test added to random game que 
+2015-11-26 14:59:57,215 INFO  [Server] new random game started
+2015-11-26 14:59:57,216 INFO  [Server] handling command 
+2015-11-26 14:59:57,217 INFO  [Server]  new game started 
+2015-11-26 15:35:25,301 INFO  [Server] test logged in
+2015-11-26 15:35:26,762 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 15:35:26,762 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 15:35:26,764 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 15:35:28,571 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 15:35:28,571 INFO  [Server] user test added to random game que 
+2015-11-26 15:35:28,572 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 15:35:32,739 INFO  [Server] kitty logged in
+2015-11-26 15:35:32,744 INFO  [Server] nilzWithSkillz logged in
+2015-11-26 15:35:32,746 INFO  [Server]  logged in
+2015-11-26 15:35:32,748 INFO  [Server]  logged in
+2015-11-26 15:35:32,825 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 15:35:32,825 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 15:35:32,825 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 15:35:32,825 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 15:35:32,825 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-26 15:35:32,826 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 15:35:32,827 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 15:35:32,828 INFO  [Server] user  added to chatroom: lobby
+2015-11-26 15:35:32,964 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 15:35:32,964 INFO  [Server] user  added to chatroom: lobby
+2015-11-26 15:35:32,967 INFO  [Server]  removed user with io exc
+2015-11-26 15:35:32,967 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 15:35:32,967 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 15:35:32,967 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 15:35:32,971 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 15:35:32,971 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-26 15:35:32,981 WARN  [chatLogger] left the chatroom
+2015-11-26 15:35:32,986 WARN  [chatLogger] left the chatroom
+2015-11-26 15:35:32,987 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 15:35:32,987 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-26 15:35:32,987 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 15:35:32,990 INFO  [Server] user  added to random game que 
+2015-11-26 15:35:32,990 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 15:35:32,990 INFO  [Server] user kitty added to random game que 
+2015-11-26 15:35:32,995 INFO  [Server] new random game started
+2015-11-26 15:35:32,995 INFO  [Server] handling command 
+2015-11-26 15:35:33,060 INFO  [Server]  new game started 
+2015-11-26 15:35:33,164 INFO  [Server]  removed user with io exc
+2015-11-26 15:35:33,164 INFO  [Server]  removed user with io exc
+2015-11-26 15:35:33,165 INFO  [Server]  removed user with io exc
+2015-11-26 15:35:33,165 INFO  [Server]  removed user with io exc
+2015-11-26 15:35:40,181 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:40,181 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:40,182 INFO  [Server]  game commands recived 
+2015-11-26 15:35:40,291 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:40,291 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:40,292 INFO  [Server]  game commands recived 
+2015-11-26 15:35:44,485 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:44,485 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:44,486 INFO  [Server]  game commands recived 
+2015-11-26 15:35:44,609 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:44,609 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:44,612 INFO  [Server]  game commands recived 
+2015-11-26 15:35:46,637 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:46,637 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:46,638 INFO  [Server]  game commands recived 
+2015-11-26 15:35:46,738 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:46,738 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:46,739 INFO  [Server]  game commands recived 
+2015-11-26 15:35:47,038 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:47,038 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:47,039 INFO  [Server]  game commands recived 
+2015-11-26 15:35:47,238 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:47,238 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:47,239 INFO  [Server]  game commands recived 
+2015-11-26 15:35:47,441 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:47,441 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:47,441 INFO  [Server]  game commands recived 
+2015-11-26 15:35:47,542 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:47,542 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:47,543 INFO  [Server]  game commands recived 
+2015-11-26 15:35:47,743 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:47,743 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:47,744 INFO  [Server]  game commands recived 
+2015-11-26 15:35:47,852 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:47,852 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:47,856 INFO  [Server]  game commands recived 
+2015-11-26 15:35:48,076 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,078 INFO  [Server]  game commands recived 
+2015-11-26 15:35:48,082 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,209 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:48,211 INFO  [Server]  game commands recived 
+2015-11-26 15:35:48,211 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:48,420 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,420 INFO  [Server]  game commands recived 
+2015-11-26 15:35:48,421 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,531 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:48,531 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:48,532 INFO  [Server]  game commands recived 
+2015-11-26 15:35:48,746 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,746 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,746 INFO  [Server]  game commands recived 
+2015-11-26 15:35:48,856 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:48,856 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:48,856 INFO  [Server]  game commands recived 
+2015-11-26 15:35:48,966 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,966 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:48,966 INFO  [Server]  game commands recived 
+2015-11-26 15:35:50,674 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:50,674 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:50,675 INFO  [Server]  game commands recived 
+2015-11-26 15:35:50,774 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:50,774 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:50,775 INFO  [Server]  game commands recived 
+2015-11-26 15:35:52,213 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:52,213 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:52,213 INFO  [Server]  game commands recived 
+2015-11-26 15:35:52,323 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:52,323 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:35:52,324 INFO  [Server]  game commands recived 
+2015-11-26 15:35:54,748 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:35:54,748 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:35:54,749 INFO  [Server]  game commands recived 
+2015-11-26 15:36:05,561 INFO  [Server] received command: GAME|0|Random Game|MOVE|1
+2015-11-26 15:36:05,561 INFO  [Server] handling command GAME|0|Random Game|MOVE|1
+2015-11-26 15:36:05,562 INFO  [Server]  game commands recived 
+2015-11-26 15:36:05,782 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:05,782 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:05,783 INFO  [Server]  game commands recived 
+2015-11-26 15:36:05,901 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:05,901 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:05,902 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,105 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,105 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,106 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,219 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:06,219 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:06,225 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,433 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,433 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,433 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,534 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:06,534 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:06,534 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,634 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,634 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,635 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,737 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,737 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:06,737 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,838 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:06,839 INFO  [Server]  game commands recived 
+2015-11-26 15:36:06,842 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:11,162 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:11,162 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:11,162 INFO  [Server]  game commands recived 
+2015-11-26 15:36:14,790 INFO  [Server] received command: GAME|0|Random Game|MOVE|1
+2015-11-26 15:36:14,790 INFO  [Server] handling command GAME|0|Random Game|MOVE|1
+2015-11-26 15:36:14,791 INFO  [Server]  game commands recived 
+2015-11-26 15:36:14,994 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:14,994 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:14,994 INFO  [Server]  game commands recived 
+2015-11-26 15:36:15,099 INFO  [Server] received command: GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:15,099 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:15,101 INFO  [Server]  game commands recived 
+2015-11-26 15:36:15,306 INFO  [Server] handling command GAME|0|Random Game|ROLL
+2015-11-26 15:36:15,307 INFO  [Server]  game commands recived 
+2015-11-26 15:36:15,307 INFO  [Server] received command: GAME|0|Random Game|ROLL
+2015-11-26 15:36:15,411 INFO  [Server] handling command GAME|0|Random Game|MOVE|0
+2015-11-26 15:36:15,412 INFO  [Server]  game commands recived 
+2015-11-26 15:36:15,413 INFO  [Server] received command: GAME|0|Random Game|MOVE|0

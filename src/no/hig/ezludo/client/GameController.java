@@ -40,7 +40,7 @@ public class GameController {
     LudoBoardCoordinates ludoBoardCoordinates;
     @FXML private ImageView ludoBoardImage;
     Image board;
-    private ArrayList<EventHandler<MouseEvent>> events = new ArrayList<>();
+    private HashMap<Integer, EventHandler<MouseEvent>> events = new HashMap<>();
 
     //Buttons
     @FXML Button inviteButton;
@@ -243,7 +243,7 @@ public class GameController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                chatView.getItems().add(command[4] + "\t"+Login.messages.getString("rolled")+"\t" + command[5]);
+                chatView.getItems().add(command[4] + "\t" + Login.messages.getString("rolled") + "\t" + command[5]);
             }
         });
         if (command[4].equals(myNickname)) {
@@ -279,7 +279,7 @@ public class GameController {
                             movedPiece(pieceArray);
                         }
                     });
-                    events.add(i, event);
+                    events.put(i, event);
                 }
             }
             if (allInStart)
@@ -292,8 +292,9 @@ public class GameController {
 
     public void movedPiece(ImageView[] array) {
         for (int i=0;i<4;i++) {
-            if (events.size() > i)
+            if (events.containsKey(i)) {
                 array[i].removeEventHandler(MouseEvent.MOUSE_CLICKED, events.get(i));
+            }
         }
         events.clear();
     }
