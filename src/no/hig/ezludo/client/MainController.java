@@ -194,7 +194,7 @@ public class MainController extends Application {
     public void exit() {
         client.logout();
         client.closeConnection();
-        client.listnerThread.interrupt();
+        client.getListenerThread().interrupt();
         System.exit(0); //NOSONAR
     }
 

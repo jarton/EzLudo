@@ -103,7 +103,7 @@ public class ClientTest {
         setUpLoginConnection();
         String key = login();
         client = new Client(key);
-        client.listnerThread.interrupt();
+        client.getListenerThread().interrupt();
 
         output = client.getOutput();
         input = client.getInput();

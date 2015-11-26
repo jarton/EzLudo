@@ -6,6 +6,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * This class represents the client in the client-server relationship. It handles the communication to the server (after
+ * the login process), and provides various methods that other classes will use to send commands to the server. The
+ * client listens for messages from the server in a separate thread. The listener is started in startListener(), and
+ * will automatically run functions depending on the message from the server. A static reference to the client can be
+ * found in MainController.
  * @author Per-Kristian, Kristian
  * @since 29.10.2015
  */
@@ -17,12 +22,12 @@ public class Client {
     private BufferedReader input;
     private MainController mainController;
     private static Logger logger;
-    public Thread listnerThread;
+    private Thread listenerThread;
 
 
     /**
      * This constructor defines necessary private variables, sets up a connection and connects to the lobby.
-     * @param mainKey Main Key for connecting to socket
+     * @param mainKey key for connecting to socket
      */
     public Client(String mainKey) {
         logger = Logger.getAnonymousLogger();
@@ -32,7 +37,8 @@ public class Client {
     }
 
     /**
-     * This method sends a chat message to the server.
+     * This method sends a chat message to the server. Provide the method with the chat message and the name of the chat
+     * room, and it will construct the proper message to send the server, as well as actually sending it.
      * @param message the message
      * @param chatRoomName the chat room
      */
@@ -42,7 +48,9 @@ public class Client {
     }
 
     /**
-     * This method sends a game chat message to the server.
+     * This method sends a game-message to the server. Provide the method with the chat message, the game id and the
+     * name of the game room, and it will construct the proper message to send the server, as well as actually sending
+     * it.
      * @param message the message
      * @param id the id of the game
      * @param gameRoomName the game room name
@@ -53,7 +61,7 @@ public class Client {
     }
 
     /**
-     * This method tells the server to let the user join a chat room.
+     * This method tells the server to let the user join a chat room. Provide the method with the chat room name.
      * @param roomName the chat room
      */
     public void joinChatRoom(String roomName) {
@@ -61,28 +69,39 @@ public class Client {
         output.flush();
     }
 
-    public void joinGameRoom(String roomName) {
-        output.println("JOIN GAME|" + roomName);
-        output.flush();
-    }
-
+    /**
+     * This method tells the server that the user would like to join a random game.
+     */
     public void joinRandomGame() {
         output.println("JOIN RANDOM");
         output.flush();
     }
 
+    /**
+     * This method tells the server to roll the dice. Provide the method with the game id and name of the game room.
+     * @param gameId the game id
+     * @param gameName the game name
+     */
     public void rollDice(String gameId, String gameName) {
         output.println("GAME|" + gameId + "|" + gameName + "|ROLL");
         output.flush();
     }
 
+    /**
+     * This tells the server which piece the player has chosen to move. Provide the method with the game id, game name
+     * and the piece to move.
+     * @param gameId the game id
+     * @param gameName
+     * @param pieceToMove
+     */
     public void movePiece(String gameId, String gameName, String pieceToMove) {
         output.println("GAME|" + gameId + "|" + gameName + "|MOVE|"+ pieceToMove);
         output.flush();
     }
 
     /**
-     * This method handles leaving a chat room. The chatroom name is specified in the parameter.
+     * This method handles leaving a chat room. Provide the method with the chat room name, and the proper message will
+     * be sent to the server.
      * @param roomName the name of the chat room
      */
     public void leaveChatRoom(String roomName) {
@@ -90,6 +109,12 @@ public class Client {
         output.flush();
     }
 
+    /**
+     * This method handles leaving a game. Provide the method with the game id and game room name, and the proper
+     * message will be sent to the server.
+     * @param gameId the game id
+     * @param roomName the game room name
+     */
     public void leaveGameRoom(String gameId, String roomName) {
         output.println("GAME|" + gameId + "|" + roomName + "|LEAVE");
         output.flush();
@@ -106,10 +131,11 @@ public class Client {
 
     /**
      * This function starts a new thread for listening for messages from the server. It is called when the server allows
-     * the client to use the main socket.
+     * the client to use the main socket. The listener will run appropriate methods depending on the message received
+     * from the server.
      */
     public void startListener() {
-        listnerThread = new Thread(() -> {
+        listenerThread = new Thread(() -> {
             while (input != null) {
                 String cmd;
                 try {
@@ -142,9 +168,16 @@ public class Client {
                 }
             }
         });
-        listnerThread.start();
+        listenerThread.start();
     }
 
+    /**
+     * This method returns a reference to the listener thread. It is used to stop the listener from jUnit tests.
+     * @return the listener thread
+     */
+    public Thread getListenerThread() {
+        return listenerThread;
+    }
     /**
      * Sends a response to a received game invitation. The response parameter should either be "ACCEPT" or "DECLINE".
      * @param response "ACCEPT" or "DECLINE"
@@ -225,9 +258,7 @@ public class Client {
                 String[] command = response.split("\\|");
                 nickName = command[1];
                 startListener();
-                System.out.println("listener started");
             }
-            System.out.println(response);
         } catch (IOException e){
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
