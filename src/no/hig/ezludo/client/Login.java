@@ -319,7 +319,6 @@ public class Login extends JFrame   {
                 output.println("LOGIN|" + email + "|" + hashedPassword);
                 output.flush();
 
-                // TODO: figure out if reading the input without looping on it works even if the DB is slow
                 // Reads the respons from the server and closes connection
                 String response = input.readLine();
                 output.close();
