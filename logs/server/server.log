@@ -8124,3 +8124,74 @@
 2015-11-27 11:00:26,071 INFO  [Server] received command: JOIN CHAT|lobby
 2015-11-27 11:00:26,132 WARN  [chatLogger] testleft the chatroom
 2015-11-27 11:00:26,222 INFO  [Server] test removed user with io exc
+2015-11-27 12:07:57,864 INFO  [Server]  logged in
+2015-11-27 12:11:20,067 INFO  [Server] test logged in
+2015-11-27 12:11:21,027 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 12:11:21,027 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 12:11:21,028 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 12:11:21,043 WARN  [chatLogger] testleft the chatroom
+2015-11-27 12:11:21,161 INFO  [Server] test removed user with io exc
+2015-11-27 12:11:23,697 INFO  [Server] received command: CREATE GAME|sdfds
+2015-11-27 12:11:23,697 INFO  [Server] handling command CREATE GAME|sdfds
+2015-11-27 12:11:23,707 INFO  [Server]  Create premade game command received
+2015-11-27 12:11:27,257 INFO  [Server] received command: GAME START|0
+2015-11-27 12:11:27,257 INFO  [Server] handling command GAME START|0
+2015-11-27 12:11:27,259 INFO  [Server] started premade Game sdfds
+2015-11-27 12:11:28,761 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:28,761 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:28,762 INFO  [Server]  game commands recived 
+2015-11-27 12:11:28,861 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:28,861 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:28,862 INFO  [Server]  game commands recived 
+2015-11-27 12:11:30,363 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:30,363 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:30,364 INFO  [Server]  game commands recived 
+2015-11-27 12:11:30,463 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:30,463 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:30,464 INFO  [Server]  game commands recived 
+2015-11-27 12:11:31,780 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:31,780 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:31,780 INFO  [Server]  game commands recived 
+2015-11-27 12:11:31,880 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:31,880 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:31,881 INFO  [Server]  game commands recived 
+2015-11-27 12:11:33,433 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:33,433 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:33,433 INFO  [Server]  game commands recived 
+2015-11-27 12:11:33,536 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:33,536 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:33,538 INFO  [Server]  game commands recived 
+2015-11-27 12:11:35,065 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:35,065 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:35,065 INFO  [Server]  game commands recived 
+2015-11-27 12:11:35,165 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:35,165 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:35,165 INFO  [Server]  game commands recived 
+2015-11-27 12:11:36,966 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:36,966 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:36,966 INFO  [Server]  game commands recived 
+2015-11-27 12:11:37,066 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:37,067 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:37,068 INFO  [Server]  game commands recived 
+2015-11-27 12:11:38,667 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:38,667 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:38,667 INFO  [Server]  game commands recived 
+2015-11-27 12:11:38,767 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:38,767 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:38,769 INFO  [Server]  game commands recived 
+2015-11-27 12:15:46,346 INFO  [Server] test logged in
+2015-11-27 12:15:47,176 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 12:15:47,176 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 12:15:47,176 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 12:15:47,247 WARN  [chatLogger] testleft the chatroom
+2015-11-27 12:15:47,396 INFO  [Server] test removed user with io exc
+2015-11-27 12:16:13,346 INFO  [Server]  logged in
+2015-11-27 12:18:46,669 INFO  [Server] test logged in
+2015-11-27 12:18:47,608 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 12:18:47,608 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 12:18:47,609 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 12:18:47,614 WARN  [chatLogger] testleft the chatroom
+2015-11-27 12:18:47,890 INFO  [Server] test removed user with io exc
+2015-11-27 12:18:50,805 INFO  [Server] received command: CREATE GAME|dsdffads
+2015-11-27 12:18:50,805 INFO  [Server] handling command CREATE GAME|dsdffads
+2015-11-27 12:18:50,805 INFO  [Server]  Create premade game command received
