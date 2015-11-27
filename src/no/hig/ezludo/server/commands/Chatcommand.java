@@ -3,7 +3,9 @@ package no.hig.ezludo.server.commands;
 import no.hig.ezludo.server.User;
 
 /**
- * Created by jdr on 12/11/15.
+ * This class is used for the handling of users joining and leaving chat rooms. It extends Command, and represents a
+ * leave/join request. The requests are sequentially handled by the commandHandler in Server.java.
+ * @author Jardar
  * @since 12/11/15
  */
 public class Chatcommand extends Command{
@@ -11,9 +13,10 @@ public class Chatcommand extends Command{
     private String type;
 
     /**
-     * //todo
-     * @param rawcmd
-     * @param user
+     * This constructor takes a raw command as a parameter, as well as a user object. It splits up the command into
+     * individual commands and stores the chat room name and type (leave or join).
+     * @param rawcmd the raw command from the user
+     * @param user the user
      */
     public Chatcommand(String rawcmd, User user) {
         super(user, rawcmd);
@@ -23,16 +26,16 @@ public class Chatcommand extends Command{
     }
 
     /**
-     * //todo
-     * @return
+     * Standard "getter" for the chat room name.
+     * @return the chat room name
      */
     public String getChatName() {
         return chatName;
     }
 
     /**
-     * //todo
-     * @return
+     * Standard "getter" for the type. The type is either "JOIN CHAT" or "LEAVE CHAT".
+     * @return the type
      */
     public String getType() {
         return type;

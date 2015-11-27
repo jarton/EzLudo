@@ -6,8 +6,8 @@ import no.hig.ezludo.server.User;
  * This command class is user for all game commands like roll,
  * move, leave, game chat. When the command handler gets this object it forwards it
  * to the game it belongs to based on id, and the game object handles the command.
- * Created by jdr on 12/11/15
- * @sicne 12/11/15
+ * @author Jardar
+ * @since 12/11/15
  */
 public class GameCommand extends Command {
     int gameId;
