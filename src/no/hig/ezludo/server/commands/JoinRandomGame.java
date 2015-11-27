@@ -3,12 +3,18 @@ package no.hig.ezludo.server.commands;
 import no.hig.ezludo.server.User;
 
 /**
- * Created by jdr on 12/11/15.
+ * This class is used for the handling of users wanting to join a random game. It extends Command, and represents a
+ * request. The requests are sequentially handled by the commandHandler in Server.java.
+ * @author Jardar
+ * @since 12.11.15
  */
 public class JoinRandomGame extends Command {
-    private String rawcmd;
-    private User user;
-
+    /**
+     * This constructor takes a raw command as a parameter, as well as a user object. It sends the information up the
+     * hierarchy to the Command class.
+     * @param rawcmd the raw command from the user
+     * @param user the user
+     */
     public JoinRandomGame(String rawcmd, User user) {
         super(user, rawcmd);
     }

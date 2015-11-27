@@ -3,7 +3,10 @@ package no.hig.ezludo.server.commands;
 import no.hig.ezludo.server.User;
 
 /**
- * Created by jdr on 12/11/15.
+ * This class is used for the handling of game invitations. It is used for handling both users sending invitations, and
+ * responding to them. It extends Command, and stores the necessary data. The "response" boolean is true if the command
+ * is a response to an invitation, and false if it's an invitation. The commands are sequentially handled by the
+ * CommandHandler in Server.java.
  * @since 12/11/15
  */
 public class GameInvite extends Command {
@@ -15,9 +18,11 @@ public class GameInvite extends Command {
     private String choise;
 
     /**
-     *
-     * @param rawcmd
-     * @param user
+     * This constructor takes a raw command as a parameter, as well as a user object. It splits up the command into
+     * individual commands and stores the whether or not it's a response to an invitation, and what the eventual
+     * choice is. If it's an invitation being sent, response is set to false.
+     * @param rawcmd the raw command from the user
+     * @param user the user
      */
     public GameInvite(String rawcmd, User user) {
         super(user, rawcmd);
