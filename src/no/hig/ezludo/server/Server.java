@@ -203,7 +203,7 @@ public class Server {
 						((StartNewGame)cmd).getGame().setUpGame();
 						((StartNewGame)cmd).getGame().gameCreated(usersClosedSocets);
 						((StartNewGame)cmd).getGame().startGame(usersClosedSocets);
-						serverLogger.info(" new game started ");
+						serverLogger.info(" new random game started ");
 					}
 					else if (cmd instanceof GameCommand) {
 						games.get(((GameCommand)cmd).getGameId()).gameHandler(cmd, usersClosedSocets);
@@ -216,7 +216,7 @@ public class Server {
 						game.addOnePlayer(cmd.getUser(), usersClosedSocets);
 						game.setName(((CreatePremadeGame)cmd).getGameName());
 						game.gameCreated(usersClosedSocets);
-						serverLogger.info(" Create premade game command received");
+						serverLogger.info(" Create premade game " +((CreatePremadeGame)cmd).getGameName());
 					}
 					else if (cmd instanceof GameInvite) {
 						GameInvite gameInvite = ((GameInvite)cmd);

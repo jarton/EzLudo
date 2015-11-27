@@ -206,12 +206,15 @@ public class Game {
 
     /**
      * handles all game commands and logic. Does different things depending on what type of command it is,
-     * handles roll, move, and chat commands. also passes the turn when a player is done. Checks if a player has
-     * won and alerts all players if thats the case.
+     * handles roll, move, and chat commands. also passes the turn when a player is done. All this is done
+     * by writing to the users in the game what other players are doing, what to do next, and the state of the game.
+     * Checks if a player has won and alerts all players if thats the case.
+     * Function gets called from the commandHandler if it handles a GameCommand object.
      * @param cmd the command object containging the game command
      * @param usersClosedSocets the list of users who has closed sockets
      */
     public void gameHandler(Command cmd, Vector<User> usersClosedSocets) {
+        // rolls the dice and lets all players know what the roll was. saves the roll in that users array.
         if (cmd.getRawCmd().startsWith("GAME|" + id + "|" + name + "|ROLL")) {
             String roll;
             if (playerTurn == cmd.getUser()) {
@@ -234,12 +237,15 @@ public class Game {
                 int playerSquare[] = userPlaces.get(playerTurn.getNickname());
                 int pieceToMove = Integer.parseInt(cmd.getRawCmd().split("\\|")[4]);
 
+                // if player in start and rolls 6 move to square 1
                 if ((playerSquare[pieceToMove] == 0) && (playerSquare[4] == 6)) {
                     playerSquare[pieceToMove] = 1;
                     checkMoveBackTostart(playerSquare, pieceToMove, usersClosedSocets);
 
                 }
+                // if player not in start
                 else if (playerSquare[pieceToMove] != 0) {
+                    // if move will push player beyond the goal square, moveback = true;
                     if ((playerSquare[pieceToMove] + playerSquare[4]) > victorySquare) {
                         int overFlow = playerSquare[pieceToMove] + playerSquare[4];
                         overFlow = overFlow - victorySquare;
@@ -247,12 +253,14 @@ public class Game {
                         moveBack = true;
                         moveBackSteps = overFlow * -1;
                     }
+                    // move normally
                     else {
                         playerSquare[pieceToMove] += playerSquare[4];
                         checkMoveBackTostart(playerSquare, pieceToMove, usersClosedSocets);
                     }
                 }
 
+                // checks for win condition
                 int victory = 0;
                 for (int i=0;i<4;i++) {
                     if (playerSquare[i] == (victorySquare)) {
@@ -260,6 +268,7 @@ public class Game {
                     }
                 }
 
+                // if player won alert all players
                 if (victory == 4) {
                         for (int i=0;i<numPlayers;i++) {
                             try {
@@ -271,6 +280,7 @@ public class Game {
                             }
                     }
                 }
+                // sends movement of piece to all players, if moveback send negative int, gameController handles that.
                 for (int i=0;i<numPlayers;i++) {
                    try {
                        if (!moveBack)
@@ -289,6 +299,7 @@ public class Game {
                 }
                 moveBack = false;
 
+                // if not rolled 6 and all pieces in start, and rolled less than 3 times in row get another roll
                 if (playerSquare[4] != 6 && playerSquare[0] == 0 && playerSquare[1] == 0
                         && playerSquare[2] == 0 && playerSquare[3] == 0 && playerSquare[5] != 3 ){
                         for (int i=0;i<numPlayers;i++) {
@@ -301,6 +312,7 @@ public class Game {
                             }
                     }
                 }
+                // if rolled 6 and rolled less then 3 times in row get anther roll.
                 else if (playerSquare[4] == 6 && playerSquare[5] != 3) {
                         for (int i=0;i<numPlayers;i++) {
                             try {
@@ -312,12 +324,14 @@ public class Game {
                             }
                     }
                 }
+                // else put times rolled in row = 0 and pass turn to next player
                 else {
                     playerSquare[5] = 0;
                     passTurn(usersClosedSocets);
                 }
             }
         }
+        // writes chat to all players in game
         else if (cmd.getRawCmd().startsWith("GAME|" + id + "|" + name + "|CHAT")) {
                 for (int i=0;i<numPlayers;i++) {
                     try {
@@ -327,6 +341,7 @@ public class Game {
                     }
             }
         }
+        // leave command. remove player
         else if (cmd.getRawCmd().startsWith("GAME|" + id + "|" + name + "|LEAVE")) {
             playerLeft(cmd.getUser(), usersClosedSocets);
         }
@@ -357,6 +372,7 @@ public class Game {
     /**
      * passes the turn to the next player. Goes in the array of players from 0->4 and then back to 0.
      * Writes to all players whos turn it is after it has changed.
+     * @param closed the list of users with closed sockets to add player to.
      */
     private void passTurn(Vector<User> closed) {
         if (turnInt < numPlayers - 1)
@@ -379,7 +395,8 @@ public class Game {
     /**
      * Checks if the player who just moved a piece landed on another players piece.
      * If thats the case the player who the current player landed on will go have his or her
-     * piece go back to start.
+     * piece go back to start. Game only knows how many moves the players has done. realBoardMap
+     * maps blue 1 to red's 14 ect. so we can see if they are one the same place in the board but not logically.
      * @param playerSquare the array with the location of the current players pieces.
      * @param pieceToMove the int value 0-3 representing one of the 4 pieces.
      * @param closedSockets the list of the users to remove from the server.
@@ -391,9 +408,7 @@ public class Game {
                         int pieces[] = userPlaces.get(players[i].getNickname());
                         if (pieces[j] < 53 && playerSquare[pieceToMove] < 53) {
                             if (realBoardMap[turnInt][playerSquare[pieceToMove]] == realBoardMap[i][pieces[j]]) {
-                                System.out.println("player moved to: " + playerSquare[pieceToMove] +
-                                        " : " + realBoardMap[turnInt][playerSquare[pieceToMove]] + " already : "
-                                        + pieces[j] + " : " + realBoardMap[i][pieces[j]]);
+                                    // writes move command to update players game ui.
                                     for (int k=0;k<numPlayers;k++) {
                                         try {
                                             players[k].write("GAME|" + id + "|" + name + "|MOVE|" +
@@ -404,6 +419,7 @@ public class Game {
                                             logger.log(Level.SEVERE, "an exception was thrown", e);
                                         }
                                 }
+                                //update location of piece that was knocked back
                                 userPlaces.get(players[i].getNickname())[j] = 0;
                             }
                         }
@@ -413,9 +429,13 @@ public class Game {
     }
 
     /**
-     * //TODO
-     * @param player
-     * @param closed
+     * Function removes a player from the game and makes changes so the game can continue on.
+     * It looks through the user array for the game and if it can find the player it moves all
+     * players after it in the array one step back, updates the count of players.
+     * If the player that left was the one that had the turn, the turn gets passed to the next player.
+     * Then writes too all remaining players that a user left the game.
+     * @param player User object of the player that left.
+     * @param closed the list of users with closed sockets.
      */
     private void playerLeft(User player, Vector<User> closed) {
         int playerIndex = -1;

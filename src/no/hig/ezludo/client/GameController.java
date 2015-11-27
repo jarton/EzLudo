@@ -264,10 +264,15 @@ public class GameController {
     }
 
     /**
-     * TODO
-     * @param command Player data.
+     * this gets called when the server sends out a roll command to the players. puts the info in the
+     * chatView of the game. Then checks if the player that rolled was this player. If thats the case it finds your
+     * color and checks your pices to see if there should be a onclick listner on them for moving.
+     * Only pieces that are out on the board or of the roll was 6 will get a onlick listner.
+     * Regardless of witch player rolled the dice animation will show the roll and the result.
+     * The clickListners get saved in a hashmap so they can be removed later.
+     * @param command the roll command from the server.
      * command[4] is the players name.
-     * command[5] is how many moves \ random int as dice
+     * command[5] is the rolled int
      * */
     @FXML
     public void playerRoll(String[] command) {
@@ -322,8 +327,11 @@ public class GameController {
     }
 
     /**
-     * Removes mouseevents after players turn
-     * @param array Array of pieces
+     * Removes event listners from the pieces after the player has clicked one of them.
+     * gets called from the listners function. the click events get stored in an hashmap where
+     * the key is the number (0-3) of the piece and value is the eventListner.
+     * the reference to them gets used to remove them here. then the map gets cleared.
+     * @param array Array of imageViews for the pieces.
      **/
     public void movedPiece(ImageView[] array) {
         for (int i=0;i<4;i++) {
@@ -372,11 +380,13 @@ public class GameController {
     }
 
     /**
-     * //TODO
-     * @param command Players data from server
+     * gets called when a move command is recieved from the server. It checks checks the hashmap
+     * that maps the player names to colors to find what color to move and if the piece is already in goal.
+     * then calls movePiece with sqare to end up on, the image, imageViews, finishArray, of that color. Plus more.
+     * @param command command from server
      * command[4] is the players name.
-     * command[5] is how many moves \ random int as dice
-     * command[6] //TODO
+     * command[5] is the piece to move. (0-3)
+     * command[6] is the square to end up on.
      **/
     public void playerMove(String[] command) {
         if (("red").equals(players.get(command[4])) && !redInGoal[Integer.parseInt(command[5])]) {
@@ -406,7 +416,20 @@ public class GameController {
 
     }
 
-
+    /**
+     * Creates a thread that places a imageview on the squares for as many steps as needed to get to the sqaure to land
+     * on. Handles offset for the different colors since the array of cordinates is the same for the main area of all
+     * colors. Switches to the finisharray if number of steps > 53. Also handles moving back to start. And calls
+     * moveback if that is needed. each color has its array[4] with location of its pieces. this is used here for
+     * moving and gets updated after the move so the client knows where all the players pieces are at all times.
+     * @param moves the square to end up on, can be negative if the piece needs to move back, ie. -5 move back 5 steps.
+     * @param colorCurrent the square the piece is currently on.
+     * @param imageView the imageView to move
+     * @param image the image of the piece to set in the imageView
+     * @param piece the int saying what piece to move. (0-3)
+     * @param finishArray the finish array cordiantes for that color.
+     * @param color string saying what color the move is for.
+     */
     public void movePiece(String moves, int colorCurrent, ImageView imageView, Image image,
                          int piece, double[][] finishArray, String color) {
         Thread moveThread = new Thread(new Runnable() {
@@ -414,6 +437,7 @@ public class GameController {
             public void run() {
                 int colCurrent = colorCurrent;
                 int squareInArray = 0;
+                // offset for colors.
                 if (("red").equals(color)) {
                     squareInArray = colCurrent;
                 }
@@ -426,11 +450,11 @@ public class GameController {
                 else if (("yellow").equals(color)) {
                     squareInArray = colCurrent+ 26;
                 }
-
-                System.out.println(moves + ":" + Integer.parseInt(moves));
                 int stop;
+                // if move normally
                 if (Integer.parseInt(moves) > 0)
                     stop = Integer.parseInt(moves);
+                // move back to start
                 else if (Integer.parseInt(moves) == 0) {
                     if (("red").equals(color)) {
                        redPieces[piece].setX(ludoBoardCoordinates.redStart[piece + 1][1] * 600);
@@ -457,17 +481,18 @@ public class GameController {
                         yellowCurrent[piece] = 0;
                    }
                     stop = 0;
-                    System.out.println("back to start");
                 }
+                // else moveback after land in goal
                 else {
                     moveBack = true;
                     stop = 59;
-                    System.out.print("moveback true");
                 }
+                // move a piece one step at a tie.
                 while (colCurrent+1 <= stop) {
                     colCurrent++;
                     squareInArray++;
 
+                    // set piece back to its first square. if it has walked one round
                     if(colCurrent== 53) {
                         if (("red").equals(color)) {
                             imageView.setX(ludoBoardCoordinates.mainArea[1][1] * 600);
@@ -488,18 +513,21 @@ public class GameController {
                         imageView.setImage(image);
                     }
 
+                    // if it has moved more than one round set to finish array
                     else if(colCurrent > 53 && colCurrent< 59) {
                         imageView.setX(finishArray[colCurrent - 53][1] * 600);
                         imageView.setY(finishArray[colCurrent - 53][2] * 600);
                         imageView.setImage(image);
                     }
 
+                    // else if landed in goal
                     else if (colCurrent == 59 && stop == 59) {
                         imageView.setX(finishArray[6][1] * 600);
                         imageView.setY(finishArray[6][2] * 600);
                         imageView.setImage(image);
 
 
+                        // and not moving back from goal set ingoal true
                         if (!moveBack) {
                             if (("red").equals(color)) {
                                 redInGoal[piece] = true;
@@ -510,12 +538,12 @@ public class GameController {
                             } else if (("yellow").equals(color)) {
                                 yellowInGoal[piece] = true;
                             }
-                            System.out.print("ongoal");
                         }
 
                     }
+
+                    // else move normally in mainArray depending on color, also handles offset for different colors.
                     else if(colCurrent < 53) {
-                        // Flytter vanlig i main
                         if (("red").equals(color)) {
                                 imageView.setX(ludoBoardCoordinates.mainArea[squareInArray][1] * 600);
                                 imageView.setY(ludoBoardCoordinates.mainArea[squareInArray][2] * 600);
@@ -559,29 +587,24 @@ public class GameController {
                         logger.log(Level.SEVERE, "an exception was thrown", e);
                     }
                 }
+                // if moving back from goal, call moveback with square to land on. currentlocation gets updated here.
                 if(moveBack) {
                     moveBack(stop+Integer.parseInt(moves), finishArray, color, imageView, image, piece, colCurrent);
-                    System.out.print("moveBack() called");
-                    System.out.print("\n");
                     moveBack = false;
                 }
+                // if not update current locaton
                 else {
-                    System.out.println("updated current");
                     if (("red").equals(color)) {
                         redCurrent[piece] = colCurrent;
-                        System.out.println("updated red" + redCurrent[piece]+":"+colCurrent);
                     }
                     else if (("blue").equals(color)) {
                         blueCurrent[piece] = colCurrent;
-                        System.out.println("updated blue " + blueCurrent[piece]+":"+colCurrent);
                     }
                     else if (("yellow").equals(color)) {
                         yellowCurrent[piece] = colCurrent;
-                        System.out.println("updated yellow" + yellowCurrent[piece]+":"+colCurrent);
                     }
                     else if (("green").equals(color)) {
                         greenCurrent[piece] = colCurrent;
-                        System.out.println("updated green " + greenCurrent[piece]+":"+colCurrent);
                     }
                 }
             }
@@ -589,12 +612,23 @@ public class GameController {
         moveThread.start();
     }
 
+    /**
+     * Moves a player back if he/she has rolled more than reqiured to get int he goal square.
+     * does the same thing as move, except it moves pieces back. This runs only when movePiece has
+     * moved to goal, so this animation always starts in goal and moves back.
+     * @param nr the square to end up on
+     * @param finish the finish array cordiantes for that color.
+     * @param color string saying what color the move is for.
+     * @param imageView the imageView to move
+     * @param image the image of the piece to set in the imageView
+     * @param piece the int saying what piece to move. (0-3)
+     * @param colCurrent the square the piece is currently on.
+     */
     public void moveBack(int nr, double[][] finish, String color, ImageView imageView, Image image,
                          int piece, int colCurrent) {
         Thread movingThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.print("is in goal, moving back to: " + String.valueOf(nr));
                 int i = 6;
                 int totalSteps = 59;
                 while (totalSteps != nr) {
@@ -626,6 +660,11 @@ public class GameController {
         movingThread.start();
     }
 
+    /**
+     * Function that runs when the user clicks the dice image.
+     * check if its your turn. If so send roll command to server and
+     * set your turn to false;
+     */
     public void rollDices() {
         if (yourTurn) {
             MainController.getClient().rollDice(gameId, gameName);
@@ -633,6 +672,12 @@ public class GameController {
         }
     }
 
+    /**
+     * function spawns a thread that cycles through dice images
+     * at random to ilustrate a rolling dice. Then sets the
+     * image to the actual rolled int.
+     * @param nrToShow the final result dice image to show
+     */
     public void showDices(String nrToShow)  {
         Thread diceLoadingThread = new Thread(new Runnable() {
             @Override
@@ -653,12 +698,22 @@ public class GameController {
         diceLoadingThread.start();
     }
 
+    /**
+     * generates a random int used for the animatin of the dice.
+     * @param min the minimum int to generate
+     * @param max the maximun int to generate
+     * @return the int generated
+     */
     public static int randomInt(int min, int max) {
         Random rand = new Random();
         return rand.nextInt((max - min) + 1) + min;
 
     }
 
+    /**
+     * shows and sets a dice image (1-6)
+     * @param nr the dice image with dots to show
+     */
     public void showImage(int nr) {
         dice = new Image("/res/dices/dice"+nr+".png");
         this.diceImage.setImage(dice);
