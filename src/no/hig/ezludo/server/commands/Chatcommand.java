@@ -3,9 +3,9 @@ package no.hig.ezludo.server.commands;
 import no.hig.ezludo.server.User;
 
 /**
- * This class is used for the handling of users joining and leaving chat rooms. It extends Command, and stores
- * leave/join requests. The requests are sequentially handled by the commandHandler in Server.java.
- * Created by jdr on 12/11/15.
+ * This class is used for the handling of users joining and leaving chat rooms. It extends Command, and represents a
+ * leave/join request. The requests are sequentially handled by the commandHandler in Server.java.
+ * @author Jardar
  * @since 12/11/15
  */
 public class Chatcommand extends Command{
