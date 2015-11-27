@@ -1,5 +1,6 @@
 package no.hig.ezludo.client;
 
+import Internationalization.Internationalization;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -19,6 +20,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +43,20 @@ public class MainController extends Application {
     private String firstTurnCommand[] = null;
     private static Logger logger = Logger.getAnonymousLogger();
     private static Client client;
+    @FXML Menu file;
+    @FXML Menu edit;
+    @FXML Menu help;
+    @FXML MenuItem about;
+    @FXML MenuItem randomGame;
+    @FXML MenuItem newGame;
+    @FXML MenuItem newChat;
+    @FXML MenuItem exit;
+    @FXML Button ranGame;
+    @FXML Button createChat;
+    @FXML Button createGame;
+    @FXML Tab welcome;
+    @FXML Label welcomeText;
+
 
     /**
      * This method loads the lobby GUI from the Lobby.fxml file. It automatically joins the lobby chat.
@@ -68,16 +84,35 @@ public class MainController extends Application {
             // Join the lobby chat
             client.joinChatRoom("lobby");
 
+
             primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 public void handle(WindowEvent we) {
                     exit();
                 }
             });
-
         }
         catch (Exception e) {
             logger.log(Level.SEVERE, "an exception was thrown", e);
         }
+      }
+
+    /**
+     * Translate all File, FileItems, Buttons and Labels
+     * */
+    public void setI18N () {
+        file.setText(Login.getTranslation().getString("file"));
+        exit.setText(Login.getTranslation().getString("exit"));
+        edit.setText(Login.getTranslation().getString("edit"));
+        newChat.setText(Login.getTranslation().getString("newChat"));
+        newGame.setText(Login.getTranslation().getString("newGame"));
+        randomGame.setText(Login.getTranslation().getString("randomGame"));
+        about.setText(Login.getTranslation().getString("about"));
+        help.setText(Login.getTranslation().getString("help"));
+        ranGame.setText(Login.getTranslation().getString("randomGame"));
+        createChat.setText(Login.getTranslation().getString("newChat"));
+        createGame.setText(Login.getTranslation().getString("newGame"));
+        welcome.setText(Login.getTranslation().getString("welcome"));
+        welcomeText.setText(Login.getTranslation().getString("welcome"));
     }
 
     /**

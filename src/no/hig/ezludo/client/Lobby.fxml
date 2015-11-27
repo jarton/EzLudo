@@ -9,7 +9,7 @@
     <center>
         <TabPane fx:id="tabPane">
             <tabs>
-                <Tab closable="false" text="velcome">
+                <Tab fx:id="welcome" closable="false" text="Start">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
@@ -19,12 +19,12 @@
                                  <children>
                                     <ButtonBar layoutX="139.0" layoutY="183.0" prefHeight="40.0" prefWidth="522.0">
                                       <buttons>
-                                        <Button mnemonicParsing="false" onAction="#randomGame" prefHeight="27.0" prefWidth="158.0" text="join random game" />
-                                          <Button mnemonicParsing="false" onAction="#chooseChatRoomName" text="create chat" />
-                                          <Button mnemonicParsing="false" onAction="#chooseGameRoomName" text="create game" />
+                                        <Button fx:id="ranGame" mnemonicParsing="false" onAction="#randomGame" prefHeight="27.0" prefWidth="158.0" text="Join Random Game" />
+                                          <Button fx:id="createChat" mnemonicParsing="false" onAction="#chooseChatRoomName" text="Create Chat" />
+                                          <Button fx:id="createGame" mnemonicParsing="false" onAction="#chooseGameRoomName" text="Create Game" />
                                       </buttons>
                                     </ButtonBar>
-                                    <Label layoutX="350.0" layoutY="80.0" text="velkommentekst" />
+                                    <Label fx:id="welcomeText" layoutX="350.0" layoutY="80.0" text="Welcome" />
                                  </children></Pane>
                            </top>
                         </BorderPane>
@@ -37,21 +37,21 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu fx:id="file" mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
+              <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exit" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu fx:id="edit" mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#chooseChatRoomName" text="New chat" />
-                  <MenuItem mnemonicParsing="false" onAction="#chooseGameRoomName" text="New game" />
-                  <MenuItem mnemonicParsing="false" onAction="#randomGame" text="random game" />
+              <MenuItem fx:id="newChat" mnemonicParsing="false" onAction="#chooseChatRoomName" text="New chat" />
+                  <MenuItem fx:id="newGame" mnemonicParsing="false" onAction="#chooseGameRoomName" text="New game" />
+                  <MenuItem fx:id="randomGame" mnemonicParsing="false" onAction="#randomGame" text="Random game" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu fx:id="help" mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="About" />
             </items>
           </Menu>
         </menus>
