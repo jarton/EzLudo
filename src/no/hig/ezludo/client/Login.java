@@ -6,7 +6,6 @@ import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -18,11 +17,9 @@ import java.net.Socket;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
 /**
@@ -30,10 +27,11 @@ import java.util.prefs.Preferences;
  * Class login includes the login gui which contains a label for username and password.
  * Also buttons for login and register.
  *
- * A user verification to the server happebs when the user inputs login data and click on login button.
+ * A user verification to the server happens when the user inputs login data and click on login button.
  * If the user exist, a new Client will be created and the MainController will be loaded.
+ * This class uses swing and not JavaFX.
  * @author Kristian, Per-Kristian
- * date 29.10.2015.
+ * @since 29.10.2015.
  */
 public class Login extends JFrame   {
     private transient Internationalization internationalization;
@@ -199,7 +197,7 @@ public class Login extends JFrame   {
     }
 
     /**
-     * Sets the panel created above to the JFrame
+     * This method adds the panel created above to the JFrame
      */
     public void createLayout(JPanel panel) {
         this.add(panel);
@@ -222,6 +220,7 @@ public class Login extends JFrame   {
     public void fillPasswordField() {
         try {
             String pw = "password";
+            // If it can't find the password, an empty string is returned.
             String encryptedPassword = prefs.get(pw, "");
 
             if (!encryptedPassword.equals("")) {
@@ -370,8 +369,8 @@ public class Login extends JFrame   {
     }
 
     /**
-     * Returns the resourcebundle for I18N
-     * */
+     * Returns the ResourceBundle for internationalization
+     */
     public static ResourceBundle getTranslation() {
         return messages;
     }
