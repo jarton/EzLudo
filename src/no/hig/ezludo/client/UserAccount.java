@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 /**
  * This class contains the user-registration gui included userdata validation.
  * @author Kristian
- * date 30.10.2015.
+ * @since 30.10.2015.
  */
 public class UserAccount {
     private static Logger logger;
