@@ -13,6 +13,7 @@ import java.util.Vector;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
 
+import no.hig.ezludo.CreateDb;
 import no.hig.ezludo.server.commands.*;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -29,7 +30,6 @@ public class Server {
    	private Vector<User> usersWaitingForGame = new Vector<>();
 	private Vector<User> usersClosedSocets = new Vector<>();
 	private Vector<User> usersToadd = new Vector<>();
-   	private List<Vector<User>> gameInvites = new ArrayList<>();
 	private Vector<Game> games = new Vector<>();
 	private LinkedBlockingQueue<Command> commandQueue = new LinkedBlockingQueue<>();
    	private ServerSocket loginServerSocket=null;
@@ -48,13 +48,13 @@ public class Server {
 	 * creates a logger.
 	 */
    Server() {
-	   String log4jConfPath = "src/no/hig/ezludo/server/log4j.properties";
+	   String log4jConfPath = "log4j.properties";
 	   PropertyConfigurator.configure(log4jConfPath);
 	   serverLogger = Logger.getLogger("Server");
 	   try {
 		   database =  DriverManager.getConnection(dbUrl);
 	   } catch (SQLException sqlEx) {
-		   logger.log(Level.SEVERE, "an exception was thrown", sqlEx);
+		   logger.log(Level.SEVERE, "database not found, please run db jar:", sqlEx);
 	   }
 	   lobby = new Chatroom("lobby", chatRooms);
 	   chatRooms.put("lobby", lobby);

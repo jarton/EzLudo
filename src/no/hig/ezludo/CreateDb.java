@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  */
 public class CreateDb {
 
-        private final static String dbUrl = "jdbc:derby:ezLudoServer;create=true";
+    private final static String dbUrl = "jdbc:derby:ezLudoServer;create=true";
     private static Logger logger = Logger.getAnonymousLogger();
 
         private CreateDb () {
@@ -24,12 +24,12 @@ public class CreateDb {
                 Connection con =  DriverManager.getConnection(dbUrl);
                 Statement stmt = con.createStatement();
                 stmt.execute("CREATE TABLE users (id bigint NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), "+
-                        "nickname varchar(32) NOT NULL,"+
+                        "nickname varchar(32) NOT NULL, "+
                         "email varchar(128) NOT NULL, "+
                         "password char(128) NOT NULL, "+
                         "loginkey char(128), "+
-                        "PRIMARY KEY  (id)), "+
-                        "UNIQUE (email)), " +
+                        "PRIMARY KEY  (id), "+
+                        "UNIQUE (email), " +
                         "UNIQUE (nickname))");
                 con.close();
             } catch (SQLException e) {
