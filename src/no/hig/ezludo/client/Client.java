@@ -191,8 +191,8 @@ public class Client {
     /**
      * This method sends a game invitation to another player. Provide the method with the name of the player, as well
      * as the game id.
-     * @param name
-     * @param gameId
+     * @param name name of the player to invite
+     * @param gameId the game id
      */
     public void sendGameInvite(String name, String gameId) {
         output.println("GAME INVITE|" + gameId + "|" + name);
