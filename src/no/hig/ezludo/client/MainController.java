@@ -106,7 +106,7 @@ public class MainController extends Application {
         newChat.setText(Login.getTranslation().getString("newChat"));
         newGame.setText(Login.getTranslation().getString("newGame"));
         randomGame.setText(Login.getTranslation().getString("randomGame"));
-        about.setText(Login.getTranslation().getString("about"));
+        about.setText(Login.getTranslation().getString("about2"));
         help.setText(Login.getTranslation().getString("help"));
         ranGame.setText(Login.getTranslation().getString("randomGame"));
         createChat.setText(Login.getTranslation().getString("newChat"));
