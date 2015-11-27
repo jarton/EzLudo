@@ -235,6 +235,10 @@ public class GameController {
             yellowInGoal[i] = false;
         }
         moveBack = false;
+
+        // Set name to buttons
+        inviteButton.setText(Login.getTranslation().getString("invitePlayer"));
+        startGame.setText(Login.getTranslation().getString("startGame"));
     }
 
     /**

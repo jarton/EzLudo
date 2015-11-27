@@ -7336,3 +7336,862 @@
 2015-11-26 15:44:21,884 INFO  [Server] received command: GAME|2|Random Game|MOVE|0
 2015-11-26 15:44:21,884 INFO  [Server] handling command GAME|2|Random Game|MOVE|0
 2015-11-26 15:44:21,885 INFO  [Server]  game commands recived 
+2015-11-26 21:28:38,839 INFO  [Server] test logged in
+2015-11-26 21:28:39,782 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:28:39,782 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:28:39,784 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 21:28:42,584 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:28:42,584 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:28:42,584 INFO  [Server] user test added to random game que 
+2015-11-26 21:28:47,589 INFO  [Server] nilzWithSkillz logged in
+2015-11-26 21:28:47,595 INFO  [Server] pirkola69 logged in
+2015-11-26 21:28:47,598 INFO  [Server] franZKlla logged in
+2015-11-26 21:28:47,600 INFO  [Server]  logged in
+2015-11-26 21:28:47,663 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:28:47,664 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:28:47,664 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-26 21:28:47,665 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:28:47,665 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:28:47,666 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:28:47,672 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:28:47,672 INFO  [Server] user  added to chatroom: lobby
+2015-11-26 21:28:47,809 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:28:47,809 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-26 21:28:47,819 WARN  [chatLogger] left the chatroom
+2015-11-26 21:28:47,821 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:28:47,821 INFO  [Server] user nilzWithSkillz added to chatroom: lobby
+2015-11-26 21:28:47,865 INFO  [Server]  removed user with io exc
+2015-11-26 21:28:47,865 INFO  [Server]  removed user with io exc
+2015-11-26 21:28:47,865 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:28:47,866 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:28:47,866 INFO  [Server] user nilzWithSkillz added to random game que 
+2015-11-26 21:28:47,866 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:28:47,866 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:28:47,866 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:28:47,983 INFO  [Server] user franZKlla added to random game que 
+2015-11-26 21:28:47,984 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:28:47,984 INFO  [Server] user pirkola69 added to random game que 
+2015-11-26 21:28:47,990 INFO  [Server] new random game started
+2015-11-26 21:28:47,990 INFO  [Server] handling command 
+2015-11-26 21:28:47,991 INFO  [Server]  new game started 
+2015-11-26 21:33:21,613 INFO  [Server] test logged in
+2015-11-26 21:33:22,469 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:33:22,469 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:33:22,469 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 21:33:22,475 WARN  [chatLogger] testleft the chatroom
+2015-11-26 21:33:22,482 WARN  [chatLogger] pirkola69left the chatroom
+2015-11-26 21:33:22,546 WARN  [chatLogger] nilzWithSkillzleft the chatroom
+2015-11-26 21:33:22,547 WARN  [chatLogger] franZKllaleft the chatroom
+2015-11-26 21:33:22,582 INFO  [Server] test removed user with io exc
+2015-11-26 21:33:22,582 INFO  [Server] pirkola69 removed user with io exc
+2015-11-26 21:33:22,582 INFO  [Server] franZKlla removed user with io exc
+2015-11-26 21:33:22,582 INFO  [Server] nilzWithSkillz removed user with io exc
+2015-11-26 21:33:24,189 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:33:24,189 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:33:24,189 INFO  [Server] user test added to random game que 
+2015-11-26 21:33:30,399 INFO  [Server] kitty logged in
+2015-11-26 21:33:30,404 INFO  [Server] pirkola69 logged in
+2015-11-26 21:33:30,406 INFO  [Server]  logged in
+2015-11-26 21:33:30,409 INFO  [Server] franZKlla logged in
+2015-11-26 21:33:30,498 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:33:30,498 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:33:30,498 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:33:30,498 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:33:30,498 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:33:30,499 INFO  [Server] user pirkola69 added to chatroom: lobby
+2015-11-26 21:33:30,500 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:33:30,501 INFO  [Server] user kitty added to chatroom: lobby
+2015-11-26 21:33:30,503 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:33:30,503 INFO  [Server] user franZKlla added to chatroom: lobby
+2015-11-26 21:33:30,505 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:33:30,505 INFO  [Server] user  added to chatroom: lobby
+2015-11-26 21:33:30,650 INFO  [Server]  removed user with io exc
+2015-11-26 21:33:30,650 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:33:30,651 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:33:30,651 INFO  [Server] user kitty added to random game que 
+2015-11-26 21:33:30,651 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:33:30,651 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:33:30,651 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:33:30,651 INFO  [Server] user pirkola69 added to random game que 
+2015-11-26 21:33:30,651 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:33:30,651 INFO  [Server] user franZKlla added to random game que 
+2015-11-26 21:33:30,652 INFO  [Server] handling command 
+2015-11-26 21:33:30,654 INFO  [Server]  new game started 
+2015-11-26 21:33:30,736 INFO  [Server] new random game started
+2015-11-26 21:36:05,443 INFO  [Server] test logged in
+2015-11-26 21:36:06,192 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:36:06,192 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:36:06,193 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 21:36:06,210 WARN  [chatLogger] franZKllaleft the chatroom
+2015-11-26 21:36:06,322 INFO  [Server] franZKlla removed user with io exc
+2015-11-26 21:36:06,582 WARN  [chatLogger] left the chatroom
+2015-11-26 21:36:06,588 WARN  [chatLogger] kittyleft the chatroom
+2015-11-26 21:36:06,607 WARN  [chatLogger] pirkola69left the chatroom
+2015-11-26 21:36:06,780 INFO  [Server]  removed user with io exc
+2015-11-26 21:36:06,780 INFO  [Server] pirkola69 removed user with io exc
+2015-11-26 21:36:06,780 INFO  [Server] kitty removed user with io exc
+2015-11-26 21:36:09,910 INFO  [Server] received command: CREATE GAME|KJK
+2015-11-26 21:36:09,910 INFO  [Server] handling command CREATE GAME|KJK
+2015-11-26 21:36:09,912 INFO  [Server]  Create premade game command received
+2015-11-26 21:38:18,776 INFO  [Server] test logged in
+2015-11-26 21:38:19,566 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:38:19,566 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:38:19,569 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 21:38:19,602 WARN  [chatLogger] testleft the chatroom
+2015-11-26 21:38:19,694 INFO  [Server] test removed user with io exc
+2015-11-26 21:38:22,803 INFO  [Server] handling command CREATE GAME|KL
+2015-11-26 21:38:22,805 INFO  [Server]  Create premade game command received
+2015-11-26 21:38:22,805 INFO  [Server] received command: CREATE GAME|KL
+2015-11-26 21:38:44,424 INFO  [Server] test logged in
+2015-11-26 21:38:45,242 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:38:45,242 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:38:45,243 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 21:38:45,266 WARN  [chatLogger] testleft the chatroom
+2015-11-26 21:38:45,352 INFO  [Server] test removed user with io exc
+2015-11-26 21:38:50,041 INFO  [Server] received command: CREATE GAME|LLLJN
+2015-11-26 21:38:50,041 INFO  [Server] handling command CREATE GAME|LLLJN
+2015-11-26 21:38:50,042 INFO  [Server]  Create premade game command received
+2015-11-26 21:39:04,993 INFO  [Server] received command: GAME START|4
+2015-11-26 21:39:04,993 INFO  [Server] handling command GAME START|4
+2015-11-26 21:39:04,994 INFO  [Server] started premade Game LLLJN
+2015-11-26 21:39:06,194 INFO  [Server] handling command GAME|4|LLLJN|ROLL
+2015-11-26 21:39:06,195 INFO  [Server]  game commands recived 
+2015-11-26 21:39:06,199 INFO  [Server] received command: GAME|4|LLLJN|ROLL
+2015-11-26 21:39:06,300 INFO  [Server] received command: GAME|4|LLLJN|MOVE|0
+2015-11-26 21:39:06,300 INFO  [Server] handling command GAME|4|LLLJN|MOVE|0
+2015-11-26 21:39:06,300 INFO  [Server]  game commands recived 
+2015-11-26 21:39:08,302 INFO  [Server] received command: GAME|4|LLLJN|ROLL
+2015-11-26 21:39:08,302 INFO  [Server] handling command GAME|4|LLLJN|ROLL
+2015-11-26 21:39:08,302 INFO  [Server]  game commands recived 
+2015-11-26 21:39:12,204 INFO  [Server] received command: GAME|4|LLLJN|MOVE|0
+2015-11-26 21:39:12,204 INFO  [Server] handling command GAME|4|LLLJN|MOVE|0
+2015-11-26 21:39:12,205 INFO  [Server]  game commands recived 
+2015-11-26 21:39:16,007 INFO  [Server] received command: GAME|4|LLLJN|ROLL
+2015-11-26 21:39:16,007 INFO  [Server] handling command GAME|4|LLLJN|ROLL
+2015-11-26 21:39:16,007 INFO  [Server]  game commands recived 
+2015-11-26 21:56:45,811 INFO  [Server] test logged in
+2015-11-26 21:56:46,547 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 21:56:46,551 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 21:56:46,551 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 21:56:46,582 WARN  [chatLogger] testleft the chatroom
+2015-11-26 21:56:46,583 WARN  [chatLogger] testleft the chatroom
+2015-11-26 21:56:46,678 INFO  [Server] test removed user with io exc
+2015-11-26 21:56:46,680 INFO  [Server] test removed user with io exc
+2015-11-26 21:56:49,342 INFO  [Server] received command: CREATE GAME|dsf
+2015-11-26 21:56:49,342 INFO  [Server] handling command CREATE GAME|dsf
+2015-11-26 21:56:49,342 INFO  [Server]  Create premade game command received
+2015-11-26 21:57:02,500 INFO  [Server] received command: GAME START|5
+2015-11-26 21:57:02,500 INFO  [Server] handling command GAME START|5
+2015-11-26 21:57:02,501 INFO  [Server] started premade Game dsf
+2015-11-26 21:57:03,100 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:03,100 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:03,100 INFO  [Server]  game commands recived 
+2015-11-26 21:57:03,200 INFO  [Server] received command: GAME|5|dsf|MOVE|0
+2015-11-26 21:57:03,200 INFO  [Server] handling command GAME|5|dsf|MOVE|0
+2015-11-26 21:57:03,200 INFO  [Server]  game commands recived 
+2015-11-26 21:57:04,802 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:04,802 INFO  [Server]  game commands recived 
+2015-11-26 21:57:04,803 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:04,903 INFO  [Server] received command: GAME|5|dsf|MOVE|0
+2015-11-26 21:57:04,903 INFO  [Server] handling command GAME|5|dsf|MOVE|0
+2015-11-26 21:57:04,903 INFO  [Server]  game commands recived 
+2015-11-26 21:57:06,504 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:06,504 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:06,504 INFO  [Server]  game commands recived 
+2015-11-26 21:57:06,604 INFO  [Server] received command: GAME|5|dsf|MOVE|0
+2015-11-26 21:57:06,604 INFO  [Server] handling command GAME|5|dsf|MOVE|0
+2015-11-26 21:57:06,604 INFO  [Server]  game commands recived 
+2015-11-26 21:57:08,605 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:08,605 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:08,605 INFO  [Server]  game commands recived 
+2015-11-26 21:57:08,705 INFO  [Server] received command: GAME|5|dsf|MOVE|0
+2015-11-26 21:57:08,705 INFO  [Server] handling command GAME|5|dsf|MOVE|0
+2015-11-26 21:57:08,705 INFO  [Server]  game commands recived 
+2015-11-26 21:57:10,707 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:10,707 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:10,707 INFO  [Server]  game commands recived 
+2015-11-26 21:57:10,807 INFO  [Server] received command: GAME|5|dsf|MOVE|0
+2015-11-26 21:57:10,807 INFO  [Server] handling command GAME|5|dsf|MOVE|0
+2015-11-26 21:57:10,807 INFO  [Server]  game commands recived 
+2015-11-26 21:57:22,916 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:22,916 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:22,916 INFO  [Server]  game commands recived 
+2015-11-26 21:57:23,016 INFO  [Server] received command: GAME|5|dsf|MOVE|0
+2015-11-26 21:57:23,016 INFO  [Server] handling command GAME|5|dsf|MOVE|0
+2015-11-26 21:57:23,016 INFO  [Server]  game commands recived 
+2015-11-26 21:57:25,417 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:25,417 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:25,417 INFO  [Server]  game commands recived 
+2015-11-26 21:57:28,119 INFO  [Server] received command: GAME|5|dsf|MOVE|1
+2015-11-26 21:57:28,119 INFO  [Server] handling command GAME|5|dsf|MOVE|1
+2015-11-26 21:57:28,119 INFO  [Server]  game commands recived 
+2015-11-26 21:57:30,929 INFO  [Server] received command: GAME|5|dsf|ROLL
+2015-11-26 21:57:30,929 INFO  [Server] handling command GAME|5|dsf|ROLL
+2015-11-26 21:57:30,929 INFO  [Server]  game commands recived 
+2015-11-26 21:57:33,630 INFO  [Server] received command: GAME|5|dsf|MOVE|1
+2015-11-26 21:57:33,630 INFO  [Server] handling command GAME|5|dsf|MOVE|1
+2015-11-26 21:57:33,630 INFO  [Server]  game commands recived 
+2015-11-26 21:57:50,322 INFO  [Server] received command: JOIN CHAT|dsf
+2015-11-26 21:57:50,322 INFO  [Server] handling command JOIN CHAT|dsf
+2015-11-26 21:57:50,323 INFO  [Server] chatRoom created: dsf
+2015-11-26 21:57:50,323 INFO  [Server] user test added to chatroom: dsf
+2015-11-26 21:57:55,027 INFO  [Server] received command: JOIN RANDOM
+2015-11-26 21:57:55,027 INFO  [Server] handling command JOIN RANDOM
+2015-11-26 21:57:55,027 INFO  [Server] user test added to random game que 
+2015-11-26 21:57:57,036 INFO  [Server] received command: CREATE GAME|sdf
+2015-11-26 21:57:57,036 INFO  [Server] handling command CREATE GAME|sdf
+2015-11-26 21:57:57,036 INFO  [Server]  Create premade game command received
+2015-11-26 22:01:17,203 INFO  [Server] test logged in
+2015-11-26 22:01:17,950 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:01:17,951 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:01:17,957 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:01:17,963 WARN  [chatLogger] testleft the chatroom
+2015-11-26 22:01:18,061 INFO  [Server] test removed user with io exc
+2015-11-26 22:01:21,078 INFO  [Server] received command: CREATE GAME|sdf
+2015-11-26 22:01:21,078 INFO  [Server] handling command CREATE GAME|sdf
+2015-11-26 22:01:21,078 INFO  [Server]  Create premade game command received
+2015-11-26 22:20:13,719 INFO  [Server] test logged in
+2015-11-26 22:20:14,523 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:20:14,523 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:20:14,533 WARN  [chatLogger] testleft the chatroom
+2015-11-26 22:20:14,533 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:20:14,656 INFO  [Server] test removed user with io exc
+2015-11-26 22:20:22,539 INFO  [Server] received command: CREATE GAME|sd
+2015-11-26 22:20:22,539 INFO  [Server] handling command CREATE GAME|sd
+2015-11-26 22:20:22,539 INFO  [Server]  Create premade game command received
+2015-11-26 22:36:38,254 INFO  [Server] test logged in
+2015-11-26 22:36:39,044 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:36:39,044 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:36:39,044 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:36:39,066 WARN  [chatLogger] testleft the chatroom
+2015-11-26 22:36:39,144 INFO  [Server] test removed user with io exc
+2015-11-26 22:36:41,518 INFO  [Server] received command: CREATE GAME|sdfdsd
+2015-11-26 22:36:41,518 INFO  [Server] handling command CREATE GAME|sdfdsd
+2015-11-26 22:36:41,519 INFO  [Server]  Create premade game command received
+2015-11-26 22:37:32,466 INFO  [Server]  logged in
+2015-11-26 22:38:16,401 INFO  [Server]  logged in
+2015-11-26 22:39:12,635 INFO  [Server]  logged in
+2015-11-26 22:39:54,606 INFO  [Server] test logged in
+2015-11-26 22:39:55,328 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:39:55,330 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:39:55,330 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:39:58,160 INFO  [Server] received command: CREATE GAME|asd
+2015-11-26 22:39:58,160 INFO  [Server] handling command CREATE GAME|asd
+2015-11-26 22:39:58,165 INFO  [Server]  Create premade game command received
+2015-11-26 22:41:52,306 INFO  [Server] test logged in
+2015-11-26 22:41:53,103 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:41:53,104 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:41:53,106 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:41:56,554 INFO  [Server] received command: CREATE GAME|asfas
+2015-11-26 22:41:56,554 INFO  [Server] handling command CREATE GAME|asfas
+2015-11-26 22:41:56,555 INFO  [Server]  Create premade game command received
+2015-11-26 22:45:22,978 INFO  [Server] test logged in
+2015-11-26 22:45:23,698 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:45:23,702 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:45:23,702 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:45:23,762 WARN  [chatLogger] testleft the chatroom
+2015-11-26 22:45:23,762 WARN  [chatLogger] testleft the chatroom
+2015-11-26 22:45:23,813 INFO  [Server] test removed user with io exc
+2015-11-26 22:45:23,813 INFO  [Server] test removed user with io exc
+2015-11-26 22:45:26,257 INFO  [Server] received command: CREATE GAME|asdfsd
+2015-11-26 22:45:26,257 INFO  [Server] handling command CREATE GAME|asdfsd
+2015-11-26 22:45:26,257 INFO  [Server]  Create premade game command received
+2015-11-26 22:46:10,976 INFO  [Server] test logged in
+2015-11-26 22:46:12,022 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:46:12,022 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:46:12,022 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:46:13,838 INFO  [Server] received command: CREATE GAME|asdfsad
+2015-11-26 22:46:13,838 INFO  [Server] handling command CREATE GAME|asdfsad
+2015-11-26 22:46:13,839 INFO  [Server]  Create premade game command received
+2015-11-26 22:50:20,158 INFO  [Server]  logged in
+2015-11-26 22:50:37,985 INFO  [Server]  logged in
+2015-11-26 22:50:57,328 INFO  [Server] test logged in
+2015-11-26 22:50:58,315 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:50:58,315 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:50:58,316 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:51:00,735 INFO  [Server] received command: CREATE GAME|sadads
+2015-11-26 22:51:00,735 INFO  [Server] handling command CREATE GAME|sadads
+2015-11-26 22:51:00,740 INFO  [Server]  Create premade game command received
+2015-11-26 22:52:37,178 INFO  [Server] test logged in
+2015-11-26 22:52:37,934 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:52:37,934 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:52:37,934 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:52:44,175 INFO  [Server] received command: CREATE GAME|assc
+2015-11-26 22:52:44,175 INFO  [Server] handling command CREATE GAME|assc
+2015-11-26 22:52:44,176 INFO  [Server]  Create premade game command received
+2015-11-26 22:55:18,626 INFO  [Server] test logged in
+2015-11-26 22:55:19,426 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 22:55:19,427 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 22:55:19,427 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 22:55:19,561 WARN  [chatLogger] testleft the chatroom
+2015-11-26 22:55:19,563 INFO  [Server] test removed user with io exc
+2015-11-26 22:55:21,273 INFO  [Server] received command: CREATE GAME|asdf
+2015-11-26 22:55:21,273 INFO  [Server] handling command CREATE GAME|asdf
+2015-11-26 22:55:21,274 INFO  [Server]  Create premade game command received
+2015-11-26 23:02:42,912 INFO  [Server] test logged in
+2015-11-26 23:02:43,740 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:02:43,740 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:02:43,741 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:02:43,756 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:02:43,816 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:02:43,841 INFO  [Server] test removed user with io exc
+2015-11-26 23:02:43,841 INFO  [Server] test removed user with io exc
+2015-11-26 23:02:46,459 INFO  [Server] received command: CREATE GAME|ascsa
+2015-11-26 23:02:46,459 INFO  [Server] handling command CREATE GAME|ascsa
+2015-11-26 23:02:46,459 INFO  [Server]  Create premade game command received
+2015-11-26 23:04:57,482 INFO  [Server] test logged in
+2015-11-26 23:04:58,302 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:04:58,302 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:04:58,309 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:05:01,373 INFO  [Server] received command: CREATE GAME|assadas
+2015-11-26 23:05:01,373 INFO  [Server] handling command CREATE GAME|assadas
+2015-11-26 23:05:01,373 INFO  [Server]  Create premade game command received
+2015-11-26 23:06:02,425 INFO  [Server] test logged in
+2015-11-26 23:06:03,263 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:06:03,263 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:06:03,263 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:06:03,277 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:06:03,406 INFO  [Server] test removed user with io exc
+2015-11-26 23:06:05,715 INFO  [Server] handling command CREATE GAME|asas
+2015-11-26 23:06:05,716 INFO  [Server]  Create premade game command received
+2015-11-26 23:06:05,717 INFO  [Server] received command: CREATE GAME|asas
+2015-11-26 23:09:55,548 INFO  [Server] test logged in
+2015-11-26 23:09:56,437 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:09:56,437 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:09:56,437 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:09:56,452 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:09:56,455 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:09:56,549 INFO  [Server] test removed user with io exc
+2015-11-26 23:09:56,550 INFO  [Server] test removed user with io exc
+2015-11-26 23:09:59,479 INFO  [Server] received command: CREATE GAME|lnaflkadsf
+2015-11-26 23:09:59,479 INFO  [Server] handling command CREATE GAME|lnaflkadsf
+2015-11-26 23:09:59,479 INFO  [Server]  Create premade game command received
+2015-11-26 23:20:45,506 INFO  [Server] test logged in
+2015-11-26 23:20:46,340 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:20:46,340 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:20:46,341 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:20:46,375 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:20:46,441 INFO  [Server] test removed user with io exc
+2015-11-26 23:20:48,602 INFO  [Server] received command: CREATE GAME|assa
+2015-11-26 23:20:48,602 INFO  [Server] handling command CREATE GAME|assa
+2015-11-26 23:20:48,602 INFO  [Server]  Create premade game command received
+2015-11-26 23:23:02,120 INFO  [Server]  logged in
+2015-11-26 23:23:27,831 INFO  [Server]  logged in
+2015-11-26 23:24:06,933 INFO  [Server] test logged in
+2015-11-26 23:24:07,818 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:24:07,819 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:24:07,819 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:24:10,302 INFO  [Server] received command: CREATE GAME|assa
+2015-11-26 23:24:10,302 INFO  [Server] handling command CREATE GAME|assa
+2015-11-26 23:24:10,308 INFO  [Server]  Create premade game command received
+2015-11-26 23:26:59,539 INFO  [Server] test logged in
+2015-11-26 23:27:00,698 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:27:00,698 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:27:00,698 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:27:00,809 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:27:00,936 INFO  [Server] test removed user with io exc
+2015-11-26 23:27:03,565 INFO  [Server] received command: CREATE GAME|asdas
+2015-11-26 23:27:03,565 INFO  [Server] handling command CREATE GAME|asdas
+2015-11-26 23:27:03,566 INFO  [Server]  Create premade game command received
+2015-11-26 23:28:32,989 INFO  [Server] test logged in
+2015-11-26 23:28:34,006 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:28:34,006 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:28:34,008 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:28:37,267 INFO  [Server] received command: CREATE GAME|assa
+2015-11-26 23:28:37,267 INFO  [Server] handling command CREATE GAME|assa
+2015-11-26 23:28:37,268 INFO  [Server]  Create premade game command received
+2015-11-26 23:30:47,938 INFO  [Server] test logged in
+2015-11-26 23:30:48,787 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:30:48,788 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:30:48,788 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:30:48,806 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:30:48,965 INFO  [Server] test removed user with io exc
+2015-11-26 23:30:52,289 INFO  [Server] received command: CREATE GAME|asdsa
+2015-11-26 23:30:52,289 INFO  [Server] handling command CREATE GAME|asdsa
+2015-11-26 23:30:52,289 INFO  [Server]  Create premade game command received
+2015-11-26 23:32:14,510 INFO  [Server] test logged in
+2015-11-26 23:32:15,601 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:32:15,601 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:32:15,605 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:32:15,625 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:32:15,776 INFO  [Server] test removed user with io exc
+2015-11-26 23:32:17,902 INFO  [Server] received command: CREATE GAME|acas
+2015-11-26 23:32:17,902 INFO  [Server] handling command CREATE GAME|acas
+2015-11-26 23:32:17,902 INFO  [Server]  Create premade game command received
+2015-11-26 23:34:51,768 INFO  [Server]  logged in
+2015-11-26 23:35:18,724 INFO  [Server] test logged in
+2015-11-26 23:35:19,495 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:35:19,495 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:35:19,495 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:35:19,519 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:35:19,620 INFO  [Server] test removed user with io exc
+2015-11-26 23:35:22,275 INFO  [Server] received command: CREATE GAME|sdfds
+2015-11-26 23:35:22,275 INFO  [Server] handling command CREATE GAME|sdfds
+2015-11-26 23:35:22,275 INFO  [Server]  Create premade game command received
+2015-11-26 23:37:38,234 INFO  [Server] test logged in
+2015-11-26 23:37:38,949 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:37:38,949 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:37:38,950 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:37:38,962 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:37:39,063 INFO  [Server] test removed user with io exc
+2015-11-26 23:37:41,676 INFO  [Server] received command: CREATE GAME|asd
+2015-11-26 23:37:41,676 INFO  [Server] handling command CREATE GAME|asd
+2015-11-26 23:37:41,677 INFO  [Server]  Create premade game command received
+2015-11-26 23:40:46,900 INFO  [Server] test logged in
+2015-11-26 23:40:47,713 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:40:47,713 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:40:47,714 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:40:47,744 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:40:47,780 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:40:47,891 INFO  [Server] test removed user with io exc
+2015-11-26 23:40:47,891 INFO  [Server] test removed user with io exc
+2015-11-26 23:40:50,701 INFO  [Server] received command: CREATE GAME|lkløk
+2015-11-26 23:40:50,701 INFO  [Server] handling command CREATE GAME|lkløk
+2015-11-26 23:40:50,702 INFO  [Server]  Create premade game command received
+2015-11-26 23:41:29,859 INFO  [Server] test logged in
+2015-11-26 23:41:30,630 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:41:30,630 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:41:30,630 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:41:33,454 INFO  [Server] received command: CREATE GAME|kjklø
+2015-11-26 23:41:33,454 INFO  [Server] handling command CREATE GAME|kjklø
+2015-11-26 23:41:33,455 INFO  [Server]  Create premade game command received
+2015-11-26 23:43:06,213 INFO  [Server] test logged in
+2015-11-26 23:43:07,006 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:43:07,006 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:43:07,006 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:43:07,104 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:43:07,195 INFO  [Server] test removed user with io exc
+2015-11-26 23:43:09,524 INFO  [Server] received command: CREATE GAME|dsffs
+2015-11-26 23:43:09,524 INFO  [Server] handling command CREATE GAME|dsffs
+2015-11-26 23:43:09,525 INFO  [Server]  Create premade game command received
+2015-11-26 23:47:12,561 INFO  [Server] test logged in
+2015-11-26 23:47:13,407 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:47:13,407 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:47:13,408 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:47:13,413 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:47:13,544 INFO  [Server] test removed user with io exc
+2015-11-26 23:47:14,055 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:47:14,065 INFO  [Server] test removed user with io exc
+2015-11-26 23:47:16,440 INFO  [Server] received command: CREATE GAME|dsfsd
+2015-11-26 23:47:16,440 INFO  [Server] handling command CREATE GAME|dsfsd
+2015-11-26 23:47:16,440 INFO  [Server]  Create premade game command received
+2015-11-26 23:48:40,367 INFO  [Server] test logged in
+2015-11-26 23:48:41,152 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:48:41,152 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:48:41,152 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:48:43,836 INFO  [Server] received command: CREATE GAME|fdsfsd
+2015-11-26 23:48:43,836 INFO  [Server] handling command CREATE GAME|fdsfsd
+2015-11-26 23:48:43,836 INFO  [Server]  Create premade game command received
+2015-11-26 23:50:44,023 INFO  [Server] test logged in
+2015-11-26 23:50:44,844 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:50:44,844 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:50:44,844 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:50:44,862 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:50:44,979 INFO  [Server] test removed user with io exc
+2015-11-26 23:50:47,503 INFO  [Server] received command: CREATE GAME|dsfdsa
+2015-11-26 23:50:47,503 INFO  [Server] handling command CREATE GAME|dsfdsa
+2015-11-26 23:50:47,503 INFO  [Server]  Create premade game command received
+2015-11-26 23:51:37,382 INFO  [Server] test logged in
+2015-11-26 23:51:38,234 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-26 23:51:38,234 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-26 23:51:38,234 INFO  [Server] user test added to chatroom: lobby
+2015-11-26 23:51:38,241 WARN  [chatLogger] testleft the chatroom
+2015-11-26 23:51:38,360 INFO  [Server] test removed user with io exc
+2015-11-26 23:51:40,401 INFO  [Server] received command: CREATE GAME|sdsasa
+2015-11-26 23:51:40,401 INFO  [Server] handling command CREATE GAME|sdsasa
+2015-11-26 23:51:40,402 INFO  [Server]  Create premade game command received
+2015-11-27 08:14:54,920 INFO  [Server] test logged in
+2015-11-27 08:14:55,799 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:14:55,800 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:14:55,800 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:14:55,804 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:14:55,854 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:14:55,911 INFO  [Server] test removed user with io exc
+2015-11-27 08:14:55,911 INFO  [Server] test removed user with io exc
+2015-11-27 08:15:00,256 INFO  [Server] received command: CREATE GAME|øjøølj
+2015-11-27 08:15:00,256 INFO  [Server] handling command CREATE GAME|øjøølj
+2015-11-27 08:15:00,257 INFO  [Server]  Create premade game command received
+2015-11-27 08:16:58,768 INFO  [Server] test logged in
+2015-11-27 08:17:00,318 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:17:00,319 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:17:00,319 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:17:03,007 INFO  [Server] received command: CREATE GAME|hjhjh
+2015-11-27 08:17:03,007 INFO  [Server] handling command CREATE GAME|hjhjh
+2015-11-27 08:17:03,008 INFO  [Server]  Create premade game command received
+2015-11-27 08:18:23,409 INFO  [Server] test logged in
+2015-11-27 08:18:24,390 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:18:24,390 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:18:24,390 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:18:24,448 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:18:24,490 INFO  [Server] test removed user with io exc
+2015-11-27 08:18:27,072 INFO  [Server] received command: CREATE GAME|sasd
+2015-11-27 08:18:27,072 INFO  [Server] handling command CREATE GAME|sasd
+2015-11-27 08:18:27,073 INFO  [Server]  Create premade game command received
+2015-11-27 08:21:09,089 INFO  [Server] test logged in
+2015-11-27 08:21:09,978 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:21:09,979 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:21:09,979 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:21:09,984 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:21:10,164 INFO  [Server] test removed user with io exc
+2015-11-27 08:21:13,704 INFO  [Server] received command: CREATE GAME|øøø
+2015-11-27 08:21:13,704 INFO  [Server] handling command CREATE GAME|øøø
+2015-11-27 08:21:13,704 INFO  [Server]  Create premade game command received
+2015-11-27 08:24:49,453 INFO  [Server] test logged in
+2015-11-27 08:24:50,333 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:24:50,333 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:24:50,333 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:24:50,338 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:24:50,340 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:24:50,463 INFO  [Server] test removed user with io exc
+2015-11-27 08:24:50,463 INFO  [Server] test removed user with io exc
+2015-11-27 08:24:56,586 INFO  [Server] received command: CREATE GAME|klk
+2015-11-27 08:24:56,586 INFO  [Server] handling command CREATE GAME|klk
+2015-11-27 08:24:56,586 INFO  [Server]  Create premade game command received
+2015-11-27 08:31:49,107 INFO  [Server] test logged in
+2015-11-27 08:31:49,878 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:31:49,878 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:31:49,878 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:31:49,884 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:31:49,996 INFO  [Server] test removed user with io exc
+2015-11-27 08:31:53,503 INFO  [Server] received command: CREATE GAME|lllh
+2015-11-27 08:31:53,503 INFO  [Server] handling command CREATE GAME|lllh
+2015-11-27 08:31:53,503 INFO  [Server]  Create premade game command received
+2015-11-27 08:42:57,293 INFO  [Server] test logged in
+2015-11-27 08:42:58,057 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:42:58,057 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:42:58,057 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:42:58,063 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:42:58,177 INFO  [Server] test removed user with io exc
+2015-11-27 08:43:00,687 INFO  [Server] received command: CREATE GAME|sadfsa
+2015-11-27 08:43:00,687 INFO  [Server] handling command CREATE GAME|sadfsa
+2015-11-27 08:43:00,687 INFO  [Server]  Create premade game command received
+2015-11-27 08:44:09,636 INFO  [Server] test logged in
+2015-11-27 08:44:10,517 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:44:10,517 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:44:10,518 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:44:13,883 INFO  [Server] received command: CREATE GAME|aa
+2015-11-27 08:44:13,883 INFO  [Server] handling command CREATE GAME|aa
+2015-11-27 08:44:13,884 INFO  [Server]  Create premade game command received
+2015-11-27 08:47:48,823 INFO  [Server] test logged in
+2015-11-27 08:47:49,748 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:47:49,748 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:47:49,748 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:47:49,762 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:47:49,764 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:47:49,911 INFO  [Server] test removed user with io exc
+2015-11-27 08:47:49,911 INFO  [Server] test removed user with io exc
+2015-11-27 08:47:52,145 INFO  [Server] received command: CREATE GAME|fsdfds
+2015-11-27 08:47:52,145 INFO  [Server] handling command CREATE GAME|fsdfds
+2015-11-27 08:47:52,146 INFO  [Server]  Create premade game command received
+2015-11-27 08:57:32,102 INFO  [Server] test logged in
+2015-11-27 08:57:32,980 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 08:57:32,980 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 08:57:32,980 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 08:57:32,987 WARN  [chatLogger] testleft the chatroom
+2015-11-27 08:57:33,121 INFO  [Server] test removed user with io exc
+2015-11-27 08:57:35,454 INFO  [Server] received command: CREATE GAME|sdgds
+2015-11-27 08:57:35,454 INFO  [Server] handling command CREATE GAME|sdgds
+2015-11-27 08:57:35,454 INFO  [Server]  Create premade game command received
+2015-11-27 09:00:41,524 INFO  [Server] test logged in
+2015-11-27 09:00:42,415 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:00:42,415 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:00:42,415 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:00:42,418 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:00:42,781 INFO  [Server] test removed user with io exc
+2015-11-27 09:00:46,397 INFO  [Server] received command: CREATE GAME|jkjsfd
+2015-11-27 09:00:46,397 INFO  [Server] handling command CREATE GAME|jkjsfd
+2015-11-27 09:00:46,397 INFO  [Server]  Create premade game command received
+2015-11-27 09:02:51,377 INFO  [Server] test logged in
+2015-11-27 09:02:52,173 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:02:52,173 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:02:52,175 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:02:54,672 INFO  [Server] received command: CREATE GAME|dafsda
+2015-11-27 09:02:54,672 INFO  [Server] handling command CREATE GAME|dafsda
+2015-11-27 09:02:54,672 INFO  [Server]  Create premade game command received
+2015-11-27 09:19:20,580 INFO  [Server] test logged in
+2015-11-27 09:19:21,374 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:19:21,374 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:19:21,374 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:19:21,379 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:19:21,383 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:19:21,494 INFO  [Server] test removed user with io exc
+2015-11-27 09:19:21,495 INFO  [Server] test removed user with io exc
+2015-11-27 09:19:23,750 INFO  [Server] received command: CREATE GAME|sfsad
+2015-11-27 09:19:23,750 INFO  [Server] handling command CREATE GAME|sfsad
+2015-11-27 09:19:23,750 INFO  [Server]  Create premade game command received
+2015-11-27 09:27:17,334 INFO  [Server]  logged in
+2015-11-27 09:27:45,591 INFO  [Server] test logged in
+2015-11-27 09:27:46,738 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:27:46,739 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:27:46,741 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:27:49,354 INFO  [Server] received command: CREATE GAME|sdfsd
+2015-11-27 09:27:49,354 INFO  [Server] handling command CREATE GAME|sdfsd
+2015-11-27 09:27:49,359 INFO  [Server]  Create premade game command received
+2015-11-27 09:30:09,810 INFO  [Server] test logged in
+2015-11-27 09:30:10,995 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:30:10,995 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:30:10,995 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:30:12,960 INFO  [Server] received command: CREATE GAME|sdfds
+2015-11-27 09:30:12,960 INFO  [Server] handling command CREATE GAME|sdfds
+2015-11-27 09:30:12,961 INFO  [Server]  Create premade game command received
+2015-11-27 09:32:10,224 INFO  [Server]  logged in
+2015-11-27 09:32:28,663 INFO  [Server] test logged in
+2015-11-27 09:32:29,825 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:32:29,825 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:32:29,826 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:32:32,485 INFO  [Server] received command: CREATE GAME|sdds
+2015-11-27 09:32:32,485 INFO  [Server] handling command CREATE GAME|sdds
+2015-11-27 09:32:32,490 INFO  [Server]  Create premade game command received
+2015-11-27 09:34:10,096 INFO  [Server] test logged in
+2015-11-27 09:34:10,869 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:34:10,869 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:34:10,870 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:34:12,939 INFO  [Server] received command: CREATE GAME|dsfsd
+2015-11-27 09:34:12,939 INFO  [Server] handling command CREATE GAME|dsfsd
+2015-11-27 09:34:12,940 INFO  [Server]  Create premade game command received
+2015-11-27 09:39:59,292 INFO  [Server] test logged in
+2015-11-27 09:40:00,088 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:40:00,088 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:40:00,089 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:40:00,201 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:40:00,213 INFO  [Server] test removed user with io exc
+2015-11-27 09:40:00,222 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:40:00,319 INFO  [Server] test removed user with io exc
+2015-11-27 09:40:01,938 INFO  [Server] received command: CREATE GAME|dffs
+2015-11-27 09:40:01,938 INFO  [Server] handling command CREATE GAME|dffs
+2015-11-27 09:40:01,938 INFO  [Server]  Create premade game command received
+2015-11-27 09:40:30,645 INFO  [Server] test logged in
+2015-11-27 09:40:31,577 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:40:31,578 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:40:31,672 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:40:33,691 INFO  [Server] handling command CREATE GAME|dcds
+2015-11-27 09:40:33,692 INFO  [Server]  Create premade game command received
+2015-11-27 09:40:33,693 INFO  [Server] received command: CREATE GAME|dcds
+2015-11-27 09:41:42,250 INFO  [Server] test logged in
+2015-11-27 09:41:43,100 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:41:43,101 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:41:43,101 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:41:43,126 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:41:43,208 INFO  [Server] test removed user with io exc
+2015-11-27 09:41:44,896 INFO  [Server] received command: CREATE GAME|dsfds
+2015-11-27 09:41:44,896 INFO  [Server] handling command CREATE GAME|dsfds
+2015-11-27 09:41:44,896 INFO  [Server]  Create premade game command received
+2015-11-27 09:42:49,733 INFO  [Server] test logged in
+2015-11-27 09:42:50,608 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:42:50,608 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:42:50,609 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:42:50,630 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:42:50,821 INFO  [Server] test removed user with io exc
+2015-11-27 09:42:52,805 INFO  [Server] handling command CREATE GAME|dsfds
+2015-11-27 09:42:52,805 INFO  [Server]  Create premade game command received
+2015-11-27 09:42:52,816 INFO  [Server] received command: CREATE GAME|dsfds
+2015-11-27 09:43:42,536 INFO  [Server] test logged in
+2015-11-27 09:43:43,476 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:43:43,476 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:43:43,476 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:43:43,507 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:43:43,673 INFO  [Server] test removed user with io exc
+2015-11-27 09:43:45,169 INFO  [Server] handling command CREATE GAME|dsfsd
+2015-11-27 09:43:45,169 INFO  [Server] received command: CREATE GAME|dsfsd
+2015-11-27 09:43:45,169 INFO  [Server]  Create premade game command received
+2015-11-27 09:45:36,698 INFO  [Server] test logged in
+2015-11-27 09:45:37,752 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:45:37,752 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:45:37,752 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:45:37,755 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:45:37,964 INFO  [Server] test removed user with io exc
+2015-11-27 09:45:39,321 INFO  [Server] received command: CREATE GAME|dsfds
+2015-11-27 09:45:39,321 INFO  [Server] handling command CREATE GAME|dsfds
+2015-11-27 09:45:39,321 INFO  [Server]  Create premade game command received
+2015-11-27 09:47:45,782 INFO  [Server] test logged in
+2015-11-27 09:47:46,789 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:47:46,789 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:47:46,789 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:47:46,832 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:47:46,944 INFO  [Server] test removed user with io exc
+2015-11-27 09:47:48,531 INFO  [Server] handling command CREATE GAME|dfds
+2015-11-27 09:47:48,532 INFO  [Server] received command: CREATE GAME|dfds
+2015-11-27 09:47:48,532 INFO  [Server]  Create premade game command received
+2015-11-27 09:49:10,483 INFO  [Server] test logged in
+2015-11-27 09:49:11,556 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:49:11,556 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:49:11,557 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:49:11,584 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:49:11,674 INFO  [Server] test removed user with io exc
+2015-11-27 09:49:14,217 INFO  [Server] received command: CREATE GAME|cvsdcs
+2015-11-27 09:49:14,217 INFO  [Server] handling command CREATE GAME|cvsdcs
+2015-11-27 09:49:14,217 INFO  [Server]  Create premade game command received
+2015-11-27 09:49:50,295 INFO  [Server]  logged in
+2015-11-27 09:50:03,458 INFO  [Server] test logged in
+2015-11-27 09:50:04,302 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:50:04,302 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:50:04,302 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:50:04,309 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:50:04,440 INFO  [Server] test removed user with io exc
+2015-11-27 09:50:06,480 INFO  [Server] received command: CREATE GAME|sdfdf
+2015-11-27 09:50:06,480 INFO  [Server] handling command CREATE GAME|sdfdf
+2015-11-27 09:50:06,481 INFO  [Server]  Create premade game command received
+2015-11-27 09:51:43,851 INFO  [Server] test logged in
+2015-11-27 09:51:44,836 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 09:51:44,836 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 09:51:44,837 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 09:51:44,840 WARN  [chatLogger] testleft the chatroom
+2015-11-27 09:51:44,969 INFO  [Server] test removed user with io exc
+2015-11-27 09:51:47,012 INFO  [Server] received command: CREATE GAME|dsfdf
+2015-11-27 09:51:47,012 INFO  [Server] handling command CREATE GAME|dsfdf
+2015-11-27 09:51:47,013 INFO  [Server]  Create premade game command received
+2015-11-27 10:02:59,933 INFO  [Server] test logged in
+2015-11-27 10:03:08,181 INFO  [Server] received command: CREATE GAME|dsf
+2015-11-27 10:03:08,181 INFO  [Server] handling command CREATE GAME|dsf
+2015-11-27 10:03:08,182 INFO  [Server]  Create premade game command received
+2015-11-27 10:06:37,985 INFO  [Server] test logged in
+2015-11-27 10:06:38,984 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:06:38,984 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:06:38,984 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:06:38,988 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:06:38,989 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:06:39,145 INFO  [Server] test removed user with io exc
+2015-11-27 10:06:39,146 INFO  [Server] test removed user with io exc
+2015-11-27 10:06:46,422 INFO  [Server] received command: CREATE GAME|sadfsa
+2015-11-27 10:06:46,422 INFO  [Server] handling command CREATE GAME|sadfsa
+2015-11-27 10:06:46,422 INFO  [Server]  Create premade game command received
+2015-11-27 10:07:27,710 INFO  [Server] test logged in
+2015-11-27 10:07:28,507 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:07:28,507 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:07:28,507 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:08:29,185 INFO  [Server] test logged in
+2015-11-27 10:08:30,138 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:08:30,138 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:08:30,139 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:08:30,185 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:08:30,369 INFO  [Server] test removed user with io exc
+2015-11-27 10:12:13,491 INFO  [Server] test logged in
+2015-11-27 10:12:14,637 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:12:14,637 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:12:14,637 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:12:14,673 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:12:14,703 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:12:14,769 INFO  [Server] test removed user with io exc
+2015-11-27 10:12:14,769 INFO  [Server] test removed user with io exc
+2015-11-27 10:17:51,394 INFO  [Server] test logged in
+2015-11-27 10:20:33,787 INFO  [Server] test logged in
+2015-11-27 10:20:34,813 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:20:34,814 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:20:34,814 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:20:34,825 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:20:34,968 INFO  [Server] test removed user with io exc
+2015-11-27 10:20:42,174 INFO  [Server] received command: CREATE GAME|sdfs
+2015-11-27 10:20:42,174 INFO  [Server] handling command CREATE GAME|sdfs
+2015-11-27 10:20:42,175 INFO  [Server]  Create premade game command received
+2015-11-27 10:24:44,150 INFO  [Server] test logged in
+2015-11-27 10:24:45,104 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:24:45,104 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:24:45,105 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:24:45,111 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:24:45,320 INFO  [Server] test removed user with io exc
+2015-11-27 10:28:12,416 INFO  [Server] test logged in
+2015-11-27 10:28:13,411 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:28:13,411 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:28:13,411 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:28:13,416 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:28:13,531 INFO  [Server] test removed user with io exc
+2015-11-27 10:30:28,193 INFO  [Server] test logged in
+2015-11-27 10:30:29,151 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:30:29,151 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:30:29,151 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:30:29,171 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:30:29,293 INFO  [Server] test removed user with io exc
+2015-11-27 10:32:37,044 INFO  [Server] test logged in
+2015-11-27 10:32:38,056 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:32:38,056 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:32:38,056 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:32:38,142 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:32:38,226 INFO  [Server] test removed user with io exc
+2015-11-27 10:34:53,616 INFO  [Server] test logged in
+2015-11-27 10:34:54,902 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:34:54,902 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:34:54,902 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 10:34:54,977 WARN  [chatLogger] testleft the chatroom
+2015-11-27 10:34:55,086 INFO  [Server] test removed user with io exc
+2015-11-27 10:47:31,817 INFO  [Server]  logged in
+2015-11-27 10:57:19,017 INFO  [Server] test logged in
+2015-11-27 10:57:20,238 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 10:57:20,238 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 10:57:20,239 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 11:00:24,976 INFO  [Server] test logged in
+2015-11-27 11:00:26,071 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 11:00:26,071 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 11:00:26,071 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 11:00:26,132 WARN  [chatLogger] testleft the chatroom
+2015-11-27 11:00:26,222 INFO  [Server] test removed user with io exc
+2015-11-27 12:07:57,864 INFO  [Server]  logged in
+2015-11-27 12:11:20,067 INFO  [Server] test logged in
+2015-11-27 12:11:21,027 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 12:11:21,027 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 12:11:21,028 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 12:11:21,043 WARN  [chatLogger] testleft the chatroom
+2015-11-27 12:11:21,161 INFO  [Server] test removed user with io exc
+2015-11-27 12:11:23,697 INFO  [Server] received command: CREATE GAME|sdfds
+2015-11-27 12:11:23,697 INFO  [Server] handling command CREATE GAME|sdfds
+2015-11-27 12:11:23,707 INFO  [Server]  Create premade game command received
+2015-11-27 12:11:27,257 INFO  [Server] received command: GAME START|0
+2015-11-27 12:11:27,257 INFO  [Server] handling command GAME START|0
+2015-11-27 12:11:27,259 INFO  [Server] started premade Game sdfds
+2015-11-27 12:11:28,761 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:28,761 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:28,762 INFO  [Server]  game commands recived 
+2015-11-27 12:11:28,861 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:28,861 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:28,862 INFO  [Server]  game commands recived 
+2015-11-27 12:11:30,363 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:30,363 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:30,364 INFO  [Server]  game commands recived 
+2015-11-27 12:11:30,463 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:30,463 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:30,464 INFO  [Server]  game commands recived 
+2015-11-27 12:11:31,780 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:31,780 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:31,780 INFO  [Server]  game commands recived 
+2015-11-27 12:11:31,880 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:31,880 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:31,881 INFO  [Server]  game commands recived 
+2015-11-27 12:11:33,433 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:33,433 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:33,433 INFO  [Server]  game commands recived 
+2015-11-27 12:11:33,536 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:33,536 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:33,538 INFO  [Server]  game commands recived 
+2015-11-27 12:11:35,065 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:35,065 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:35,065 INFO  [Server]  game commands recived 
+2015-11-27 12:11:35,165 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:35,165 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:35,165 INFO  [Server]  game commands recived 
+2015-11-27 12:11:36,966 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:36,966 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:36,966 INFO  [Server]  game commands recived 
+2015-11-27 12:11:37,066 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:37,067 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:37,068 INFO  [Server]  game commands recived 
+2015-11-27 12:11:38,667 INFO  [Server] received command: GAME|0|sdfds|ROLL
+2015-11-27 12:11:38,667 INFO  [Server] handling command GAME|0|sdfds|ROLL
+2015-11-27 12:11:38,667 INFO  [Server]  game commands recived 
+2015-11-27 12:11:38,767 INFO  [Server] received command: GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:38,767 INFO  [Server] handling command GAME|0|sdfds|MOVE|0
+2015-11-27 12:11:38,769 INFO  [Server]  game commands recived 
+2015-11-27 12:15:46,346 INFO  [Server] test logged in
+2015-11-27 12:15:47,176 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 12:15:47,176 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 12:15:47,176 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 12:15:47,247 WARN  [chatLogger] testleft the chatroom
+2015-11-27 12:15:47,396 INFO  [Server] test removed user with io exc
+2015-11-27 12:16:13,346 INFO  [Server]  logged in
+2015-11-27 12:18:46,669 INFO  [Server] test logged in
+2015-11-27 12:18:47,608 INFO  [Server] received command: JOIN CHAT|lobby
+2015-11-27 12:18:47,608 INFO  [Server] handling command JOIN CHAT|lobby
+2015-11-27 12:18:47,609 INFO  [Server] user test added to chatroom: lobby
+2015-11-27 12:18:47,614 WARN  [chatLogger] testleft the chatroom
+2015-11-27 12:18:47,890 INFO  [Server] test removed user with io exc
+2015-11-27 12:18:50,805 INFO  [Server] received command: CREATE GAME|dsdffads
+2015-11-27 12:18:50,805 INFO  [Server] handling command CREATE GAME|dsdffads
+2015-11-27 12:18:50,805 INFO  [Server]  Create premade game command received
