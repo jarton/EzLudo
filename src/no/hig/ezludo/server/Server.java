@@ -19,7 +19,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 /**
  * This class is the server. it contains lists of all games and users.
- * it listens for connections, commands, chat and game actions.
+ * it listens for login/lobby connections, commands, chat and game invites/actions.
  * @author jdr
  */
 public class Server {
@@ -66,8 +66,9 @@ public class Server {
    }
 
 	/**
-	 * When more than 4 people have asked for a random game this function
-	 * creates one.
+	 * This function creates a thread that checks the random game que and sees if
+	 * there is more than 4 people there. IF there is it crates a new game, adds the users and wraps it
+	 * in a StartNewGame object and puts it in the command que to be started there.
 	 */
 	private void randomGameDispatcher() {
 		Thread t = new Thread(()->{
@@ -96,7 +97,9 @@ public class Server {
 	 * creates a thread in an endless loop that pauses periodically.
 	 * reads commands chat and game action from users and saves them so
 	 * other functions can handle them as needed. also calls @removeClosedSockets
-	 * that cleans up the user list on the server
+	 * that cleans up the user list on the server. Thread also adds new users to the users list.
+	 * It is done this way because the thread loops through the user vector and therefore the list
+	 * cant be changed while thats going on.
 	 */
 	private void serverWorkerThread() {
 		new Thread (()->{

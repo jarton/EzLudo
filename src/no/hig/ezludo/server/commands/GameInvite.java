@@ -4,6 +4,7 @@ import no.hig.ezludo.server.User;
 
 /**
  * Created by jdr on 12/11/15.
+ * @since 12/11/15
  */
 public class GameInvite extends Command {
     private String rawcmd;
@@ -13,6 +14,11 @@ public class GameInvite extends Command {
     private String invitedPlayer;
     private String choise;
 
+    /**
+     *
+     * @param rawcmd
+     * @param user
+     */
     public GameInvite(String rawcmd, User user) {
         super(user, rawcmd);
         System.out.println(rawcmd);
@@ -28,18 +34,34 @@ public class GameInvite extends Command {
         }
     }
 
+    /**
+     * getter method for the bool indicating if the command is a invite or response.
+     * @return true if its a response to a invite, false if its a invite
+     */
     public boolean getResponse() {
        return response;
     }
 
+    /**
+     * getter method for the game id.
+     * @return int game id
+     */
     public int getGameId() {
         return gameId;
     }
 
+    /**
+     *  the name of the player invited
+     * @return string player nickname
+     */
     public String getInvitedPlayer() {
         return invitedPlayer;
     }
 
+    /**
+     * getter method for the type of response from player,
+     * @return ACCEPT or DECLINE
+     */
     public String getChoise() {
         return choise;
     }

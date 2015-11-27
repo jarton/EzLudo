@@ -34,13 +34,15 @@ public class Game {
     private static Logger logger = Logger.getAnonymousLogger();
 
     /**
-     * sets the player names array, the first player gets to start first.
+     * constructor creates a new user array to be used later.
      */
     public Game(){
         players = new User[4];
     }
 
     /**
+     * adds all players to the game at once. This is used for random games
+     * where all the users are added in one go.
      * @param players the name of the players in the game
      */
     public void addAllPlayers(User players[]) {
@@ -49,6 +51,12 @@ public class Game {
     }
 
     /**
+     * adds one player to the game and updates the count of players in the game.
+     * Then it writes to all players currently in the game what the names of the
+     * players are so they can see when a new player is added.
+     * @param player the player to add
+     * @param closed list of users to be removed from the server
+     * @return true if the player was added, false if not.
      */
     public boolean addOnePlayer(User player, Vector<User> closed) {
         if (numPlayers < 4) {
@@ -74,6 +82,8 @@ public class Game {
     }
 
     /**
+     * sets up the game. the turnint that contains the index of the player in the array whose turn it is.
+     * sets the playerturn to point to the player who's first. and calls initPlaces to set up the placement.
      */
     public void setUpGame() {
         turnInt = 0;
@@ -129,7 +139,8 @@ public class Game {
     }
 
     /**
-     * sets the id for the game
+     * sets the name of the game.
+     * @param name the name to set to the game
      */
     public void setName(String name) {
         this.name = name;
@@ -152,8 +163,9 @@ public class Game {
     }
 
     /**
-     * starts a game, writes to all players that the game has started, also includes the name of the
-     * players in the game. Then tells them who is the first player to play their turn.
+     * starts the game, writes all the player names to all players. Then sends out the message
+     * that tells the players who is first, this enables the game to go on.
+     * @param closed the list of the users to remove from the server
      */
     public void startGame(Vector<User> closed) {
         for (int i=0;i<numPlayers;i++) {
@@ -174,8 +186,11 @@ public class Game {
     }
 
     /**
-     * starts a game, writes to all players that the game has started, also includes the name of the
-     * players in the game. Then tells them who is the first player to play their turn.
+     * This function is used to make the clients spawn a tab with the game ui.
+     * If its a random game this happens for all players. If its a premade game
+     * this happens only for the host. The rest of the game joined commands
+     * gets sendt if a user gets invited and accepts.
+     * @param closed the list of users to be removed from the server
      */
     public void gameCreated(Vector<User> closed) {
         for (int i=0;i<numPlayers;i++) {
@@ -361,6 +376,14 @@ public class Game {
         }
     }
 
+    /**
+     * Checks if the player who just moved a piece landed on another players piece.
+     * If thats the case the player who the current player landed on will go have his or her
+     * piece go back to start.
+     * @param playerSquare the array with the location of the current players pieces.
+     * @param pieceToMove the int value 0-3 representing one of the 4 pieces.
+     * @param closedSockets the list of the users to remove from the server.
+     */
     private void checkMoveBackTostart(int playerSquare[], int pieceToMove, Vector<User> closedSockets) {
             for (int i=0;i<numPlayers;i++) {
                 for (int j=0;j<4;j++) {
@@ -389,6 +412,11 @@ public class Game {
             }
     }
 
+    /**
+     * //TODO
+     * @param player
+     * @param closed
+     */
     private void playerLeft(User player, Vector<User> closed) {
         int playerIndex = -1;
         for (int i = 0; i < numPlayers; i++) {

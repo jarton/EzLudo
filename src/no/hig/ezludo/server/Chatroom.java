@@ -27,14 +27,27 @@ public class Chatroom {
         chatroomsMap = rooms;
     }
 
+    /**
+     * getter method the name of the chatroom
+     * @return String name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * getter method of the users vector
+     * @return the users in the chatroom
+     */
     public Vector<User> getUsers() {
         return users;
     }
 
+    /**
+     *
+     * @param cmd
+     * @param usersClosedSocets
+     */
     public void chatHandler(Command cmd, Vector<User> usersClosedSocets) {
             Logger.getRootLogger().removeAppender("chatfile");
             FileAppender fa = new FileAppender();
@@ -69,6 +82,10 @@ public class Chatroom {
             deleteChatroom();
     }
 
+    /**
+     *
+     * @param usersClosedSocets
+     */
     public void writeUsers(Vector<User> usersClosedSocets) {
         String response = "USERS|" + name;
         for (User usr : users) {
@@ -92,6 +109,9 @@ public class Chatroom {
         removeUsers();
     }
 
+    /**
+     *
+     */
     public void removeUsers() {
         synchronized (usersToRemove) {
             usersToRemove.stream().parallel().forEach(user-> {
@@ -101,6 +121,9 @@ public class Chatroom {
         usersToRemove.clear();
     }
 
+    /**
+     *
+     */
     public void deleteChatroom() {
         new Thread (()->{
             while (true) {
